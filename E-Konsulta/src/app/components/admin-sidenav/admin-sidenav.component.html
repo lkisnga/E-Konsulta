@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidenav</title>
+</head>
+<body>
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 min-vh-100" id="sidenav">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+      <ul class="nav fixed nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li>
+          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+             <i class="fa fa-users"></i><span class="ms-1 d-none d-sm-inline">Accounts <i class="fa fa-caret-down"></i></span> </a>
+          <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+              <li >
+                  <a routerLink="/admin-doctors" class="nav-link px-1"> <span class="d-none d-sm-inline">Doctors</span> </a>
+              </li>
+              <li>
+                  <a routerLink="/admin-patients" class="nav-link px-1"> <span class="d-none d-sm-inline">Patients</span> </a>
+              </li>
+              <li>
+                <a routerLink="/admin-health-insurance" class="nav-link px-1"> <span class="d-none d-sm-inline">Health Insurance</span> </a>
+            </li>
+              <li>
+                <a routerLink="/admin-laboratory-partner" class="nav-link px-1"> <span class="d-none d-sm-inline">Laboratory Partner</span> </a>
+            </li>
+          </ul>
+        </li>
+          <li>
+              <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fa fa-file"></i> <span class="ms-1 d-none d-sm-inline">Reports <i class="fa fa-caret-down"></i> </span> </a>
+              <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                  <li>
+                      <a routerLink="/admin-user-analytics" class="nav-link px-1"> <span class="d-none d-sm-inline">User Analytics</span> </a>
+                  </li>
+                  <li>
+                      <a routerLink="/admin-transaction-history" class="nav-link px-1"> <span class="d-none d-sm-inline">Transaction History</span> </a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                <i class="fa fa-comment"></i> <span class="ms-1 d-none d-sm-inline">Reviews <i class="fa fa-caret-down"></i></span></a>
+              <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                  <li>
+                      <a routerLink="/admin-feedbacks" class="nav-link px-1"> <span class="d-none d-sm-inline">Feedbacks</span></a>
+                  </li>
+                  <li>
+                      <a routerLink="/admin-problems" href="#" class="nav-link px-1"> <span class="d-none d-sm-inline">Problems</span></a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+  </div>
+</div>
+
+</body>
+</html>

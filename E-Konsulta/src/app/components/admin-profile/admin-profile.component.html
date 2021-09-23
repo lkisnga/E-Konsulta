@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin</title>
+</head>
+<body>
+  <!--header section -->
+  <app-header-user></app-header-user>
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
+          <app-admin-sidenav></app-admin-sidenav>
+      </div>
+      <!--2nd column-->
+      <div class="col mx-1 py-3 px-3" id="admin-container">
+        <h2 class="admin"><i class="fa fa-user-circle"></i> Admin Name</h2>
+        <div class="info px-3 py-4" *ngIf="authservice.currentUser">
+          User UID: {{authservice.currentUserId}} <br><br>
+          User Name: {{authservice.currentUserName}}<br><br>
+          Name: <input type="text"> <br><br>
+          Date of Birth: <input type="text"> <br><br>
+          Email: <input type="email"> <br><br>
+          Password: <input type="text"> <br><br>
+          User Type: <input type="text">
+        </div>
+        <button class="btn btn-outline-info" id="edit">EDIT</button>
+        <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+
+      </div>
+  </div>
+</div>
+
+<!--Logout Modal-->
+<div class="modal fade" id="logOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to logout?</p>
+      </div>
+      <div class="modal-footer">
+        <button (click)="authservice.signout()" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
+        <button [routerLink]="['/admin-profile']" type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of logout modal-->
+
+
+</body>
+</html>

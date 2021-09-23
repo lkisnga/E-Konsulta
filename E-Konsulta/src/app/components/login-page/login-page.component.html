@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Landing Page</title>
+</head>
+<body>
+  <!--header section -->
+  <app-header></app-header>
+
+  <!--Login-->
+  <div class="login-page">
+    <div class="form">
+      <h3 class="mb-3">Login</h3>
+      <form class="login-form" (ngSubmit)="login()">
+        <input type="text" placeholder="Email" [(ngModel)]="email" name="email"/>
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password"/>
+        <div class="remember">
+          <input type="checkbox" class="form-check-input" id="remember"/>
+          <label class="form-check-label" for="terms">Remember Me</label>
+        </div>
+        <button type="submit" class="nav-item nav-link-edit">login</button>
+        <!--[routerLink]="['/admin-profile']"-->
+        <a href="#">Forgot Password?</a>
+        <p>or</p>
+        <button class="nav-item nav-link-edit" [routerLink]="['/registration']">REGISTER</button>
+      </form>
+      <div class="form-group">
+        <p *ngIf="errorMessage.length > 0" class="text-danger">
+            {{errorMessage}}</p>
+        
+        <p *ngIf="error.message.length > 0" class="text-danger">
+            {{error.message}} </p>
+  
+            <p *ngIf="message.length > 0" class="text-info">
+                {{message}} </p>
+    </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Patient</title>
+</head>
+<body>
+
+  <app-header-user></app-header-user>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-admin-sidenav></app-admin-sidenav>
+      </div>
+
+      <div class="col-sm-3 col-sm-offset-3 py-2">
+        <div class="input-group" >
+          <input type="search" class="form-control border-info rounded" placeholder="Search Patient" aria-label="Search"
+            aria-describedby="search-addon" />
+          <button type="button" class="btn btn-info">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="row flex-nowrap tbl">
+      <div class="col mx-2">
+        <table class="table table-info table striped">
+          <thead>
+            <tr>
+              <th scope="col">Patient Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">User Type</th>
+              <th scope="col">Health Insurance Id</th>
+              <th scope="col">Account Number</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">10001</th>
+              <td>Sabrina Spellman</td>
+              <td>Patient</td>
+              <td>HID123</td>
+              <td>PNT1034</td>
+              <td>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editPatient">EDIT</button> &nbsp;
+                <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePatient">DELETE</button></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--Edit Patient Modal-->
+  <div class="modal fade" id="editPatient" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editPatientLabel">Edit Patient</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          Patient Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"><br><br>
+          User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Health Insurance Id: &nbsp; &nbsp;&nbsp;<input type="text" size="30"><br><br>
+          Account Number: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of edit patient modal-->
+
+  <!--Delete patient Modal-->
+  <div class="modal fade" id="deletePatient" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of delete patient modal-->
+
+</body>
+</html>
+

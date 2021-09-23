@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Doctor</title>
+</head>
+<body>
+
+  <app-header-user></app-header-user>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-admin-sidenav></app-admin-sidenav>
+      </div>
+
+      <div class="col-sm-3 col-sm-offset-3 py-2">
+        <div class="input-group" >
+          <input type="search" class="form-control border-info rounded" placeholder="Search Doctor" aria-label="Search"
+            aria-describedby="search-addon" />
+          <button type="button" class="btn btn-info">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="row flex-nowrap tbl">
+      <div class="col mx-2">
+        <table class="table table-info table striped">
+          <thead>
+            <tr>
+              <th scope="col">Doctor Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">User Type</th>
+              <th scope="col">License Number</th>
+              <th scope="col">Specialization Id</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">00001</th>
+              <td>Bright Vachirawit</td>
+              <td>Doctor</td>
+              <td>DR112A</td>
+              <td>SPCL101</td>
+              <td>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
+                <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DELETE</button></span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--Add Specialization-->
+  <div class="addSpcl">
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Add Specialization</button>
+  </div>
+  <!--Modal Specialization-->
+  <div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addSpclLabel">Add Specialization</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          Specialization Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Specialization Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Specialization Description: <textarea name="desc" id="" cols="32" rows="3"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of modal specialization-->
+
+  <!--Edit Doctor Modal-->
+  <div class="modal fade" id="editDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editDoctorLabel">Edit Doctor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          Doctor Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"><br><br>
+          User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          License Number: &nbsp; &nbsp;&nbsp;<input type="text" size="30"><br><br>
+          Specialization Id: &nbsp; &nbsp; <input type="text" size="30">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of edit doctor modal-->
+
+  <!--Delete Doctor Modal-->
+  <div class="modal fade" id="deleteDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of delete doctor modal-->
+
+</body>
+</html>
