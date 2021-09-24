@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Insurance Sidenav</title>
+</head>
+<body>
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 min-vh-100" id="sidenav">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+      <ul class="nav fixed nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li>
+            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+              <i class="fa fa-file"></i> <span class="ms-1 d-none d-sm-inline">Requests<i class="fa fa-caret-down"></i> </span> </a>
+            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                <li>
+                    <a routerLink="/health-insurance-loa" class="nav-link px-1"> <span class="d-none d-sm-inline">LOA</span> </a>
+                </li>
+                <li>
+                    <a routerLink="/health-insurance-verification" class="nav-link px-1"> <span class="d-none d-sm-inline">Verification</span> </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+              <i class="fa fa-comment"></i> <span class="ms-1 d-none d-sm-inline">Reviews <i class="fa fa-caret-down"></i></span></a>
+            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                <li>
+                    <a routerLink="/health-insurance-feedbacks" class="nav-link px-1"> <span class="d-none d-sm-inline">Feedbacks</span></a>
+                </li>
+                <li>
+                    <a routerLink="/health-insurance-problems" class="nav-link px-1"> <span class="d-none d-sm-inline">Problems</span></a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+  </div>
+</div>
+
+</body>
+</html>

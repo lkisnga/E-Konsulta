@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Patient Sidenav</title>
+</head>
+<body>
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 min-vh-100" id="sidenav">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+      <ul class="nav fixed nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li>
+          <a routerLink='/patient-consultation' data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+            <i class="fa fa-stethoscope"></i> <span class="ms-1 d-none d-sm-inline">Consultation</span> </a>
+
+        </li>
+          <li>
+              <a routerLink='/patient-transaction-history'  data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fa fa-history"></i> <span class="ms-1 d-none d-sm-inline">Transaction History</span> </a>
+          </li>
+          <li>
+              <a routerLink='/patient-records' data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                <i class="fa fa-clipboard"></i> <span class="ms-1 d-none d-sm-inline">My Records</span></a>
+          </li>
+      </ul>
+  </div>
+</div>
+
+</body>
+</html>

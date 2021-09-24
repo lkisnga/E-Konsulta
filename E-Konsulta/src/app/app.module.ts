@@ -28,6 +28,33 @@ import { AdminFeedbacksComponent } from './components/admin-feedbacks/admin-feed
 import { AdminProblemsComponent } from './components/admin-problems/admin-problems.component';
 import { RegisterAsComponent } from './components/register-as/register-as.component';
 import { PatientProfileComponent } from './components/patient-profile/patient-profile.component';
+import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
+import { LabPartnerProfileComponent } from './components/lab-partner-profile/lab-partner-profile.component';
+import { DoctorPatientsComponent } from './components/doctor-patients/doctor-patients.component';
+import { DoctorPaymentsComponent } from './components/doctor-payments/doctor-payments.component';
+import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics/doctor-user-analytics.component';
+import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
+import { DoctorFeedbacksComponent } from './components/doctor-feedbacks/doctor-feedbacks.component';
+import { DoctorProblemsComponent } from './components/doctor-problems/doctor-problems.component';
+import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-schedule.component';
+import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
+import { DoctorReservationsComponent } from './components/doctor-reservations/doctor-reservations.component';
+import { PatientConsultationComponent } from './components/patient-consultation/patient-consultation.component';
+import { PatientTransactionHistoryComponent } from './components/patient-transaction-history/patient-transaction-history.component';
+import { PatientRecordsComponent } from './components/patient-records/patient-records.component';
+import { PatientSidenavComponent } from './components/patient-sidenav/patient-sidenav.component';
+import { DoctorSidenavComponent } from './components/doctor-sidenav/doctor-sidenav.component';
+import { LabPartnerSidenavComponent } from './components/lab-partner-sidenav/lab-partner-sidenav.component';
+import { LabPartnerResultComponent } from './components/lab-partner-result/lab-partner-result.component';
+import { LabPartnerFeedbacksComponent } from './components/lab-partner-feedbacks/lab-partner-feedbacks.component';
+import { LabPartnerProblemsComponent } from './components/lab-partner-problems/lab-partner-problems.component';
+import { HealthInsuranceSidenavComponent } from './components/health-insurance-sidenav/health-insurance-sidenav.component';
+import { HealthInsuranceProfileComponent } from './components/health-insurance-profile/health-insurance-profile.component';
+import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
+import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
+import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
+import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
+import { HealthInsuranceProblemsComponent } from './compnents/health-insurance-problems/health-insurance-problems.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +76,34 @@ import { PatientProfileComponent } from './components/patient-profile/patient-pr
     AdminFeedbacksComponent,
     AdminProblemsComponent,
     RegisterAsComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+    DoctorProfileComponent,
+    LabPartnerProfileComponent,
+    DoctorPatientsComponent,
+    DoctorPaymentsComponent,
+    DoctorUserAnalyticsComponent,
+    DoctorTransactionHistoryComponent,
+    DoctorFeedbacksComponent,
+    DoctorProblemsComponent,
+    DoctorScheduleComponent,
+    DoctorSetScheduleComponent,
+    DoctorReservationsComponent,
+    PatientConsultationComponent,
+    PatientTransactionHistoryComponent,
+    PatientRecordsComponent,
+    PatientSidenavComponent,
+    DoctorSidenavComponent,
+    LabPartnerSidenavComponent,
+    LabPartnerResultComponent,
+    LabPartnerFeedbacksComponent,
+    LabPartnerProblemsComponent,
+    HealthInsuranceSidenavComponent,
+    HealthInsuranceProfileComponent,
+    HealthInsuranceRequestsComponent,
+    HealthInsuranceLoaComponent,
+    HealthInsuranceVerificationComponent,
+    HealthInsuranceFeedbacksComponent,
+    HealthInsuranceProblemsComponent
   ],
   imports: [
     FormsModule,

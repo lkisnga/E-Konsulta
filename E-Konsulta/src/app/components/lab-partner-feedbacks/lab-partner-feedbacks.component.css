@@ -1,0 +1,13 @@
+.tbl{
+  margin-left: 200px;
+  margin-top: -630px;
+}
+
+.usr{
+  color: rgb(0, 192, 206);
+}
+
+.list-group-item{
+  border: 1px solid rgb(0, 192, 206);
+  color: rgb(0, 192, 206);
+}

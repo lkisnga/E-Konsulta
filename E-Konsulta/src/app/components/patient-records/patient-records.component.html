@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient - User Analytics</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W63D4DNHZY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W63D4DNHZY');
+</script>
+-->
+
+</head>
+<body>
+
+  <app-header-user></app-header-user>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-doctor-sidenav></app-doctor-sidenav>
+      </div>
+    </div>
+    <div class="row flex-nowrap tbl">
+      <div class="col mx-2">
+        <h3 class="usr">User Analytics</h3>
+        <div class="text-left py-1">
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-info" (click)="medicalRecords()">Medical Records</button>
+            <button type="button" class="btn btn-outline-info" (click)="labResult()">Laboratory Result</button>
+            <button type="button" class="btn btn-outline-info" (click)="prescription()">Prescription</button>
+          </div>
+          <div *ngIf="medicalrecords">
+            Medical Records
+          </div>
+          <div *ngIf="labresult">
+            Laboratory Result
+          </div>
+          <div *ngIf="presc">
+            Prescription
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<app-header-user></app-header-user>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-health-insurance-sidenav></app-health-insurance-sidenav>
+      </div>
+
+    </div>
+    <div class="row flex-nowrap tbl">
+      <div class="col mx-2">
+        <div class="text-left">
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-info" (click)="pendingFunction()">Pending</button>
+            <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
+          </div>
+          <div *ngIf="pending">
+            Pending Health Insurance
+          </div>
+          <div *ngIf="done">
+            Done Health Insurance
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

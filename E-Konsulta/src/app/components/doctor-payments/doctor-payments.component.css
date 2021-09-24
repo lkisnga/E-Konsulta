@@ -1,0 +1,18 @@
+.tbl{
+  margin-left: 200px;
+  margin-top: -580px;
+}
+
+.usr{
+  color: rgb(0, 192, 206);
+}
+
+.list-group-item{
+  border: 1px solid rgb(0, 192, 206);
+  color: rgb(0, 192, 206);
+}
+.addSpcl{
+  position:absolute;
+  right: 35px;
+  top: 102px;
+}
