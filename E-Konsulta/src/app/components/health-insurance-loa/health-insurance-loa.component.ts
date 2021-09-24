@@ -9,6 +9,18 @@ export class HealthInsuranceLoaComponent implements OnInit {
 
   constructor() { }
 
+  pending = false;
+  done = false;
+
+  pendingFunction(){
+    this.pending = true;
+    this.done = false;
+  }
+
+  doneFunction(){
+    this.pending = false;
+    this.done = true;
+  }
   ngOnInit(): void {
   }
 

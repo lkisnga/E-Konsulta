@@ -54,7 +54,7 @@ import { HealthInsuranceRequestsComponent } from './components/health-insurance-
 import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
 import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
 import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
-import { HealthInsuranceProblemsComponent } from './compnents/health-insurance-problems/health-insurance-problems.component';
+import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
 
 @NgModule({
   declarations: [
