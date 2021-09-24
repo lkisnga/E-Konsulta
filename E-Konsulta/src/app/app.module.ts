@@ -26,6 +26,7 @@ import { AdminUserAnalyticsComponent } from './components/admin-user-analytics/a
 import { AdminTransactionHistoryComponent } from './components/admin-transaction-history/admin-transaction-history.component';
 import { AdminFeedbacksComponent } from './components/admin-feedbacks/admin-feedbacks.component';
 import { AdminProblemsComponent } from './components/admin-problems/admin-problems.component';
+import { TestFileComponent } from './components/test-file/test-file.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AdminProblemsComponent } from './components/admin-problems/admin-proble
     AdminTransactionHistoryComponent,
     AdminFeedbacksComponent,
     AdminProblemsComponent,
+    TestFileComponent,
   ],
   imports: [
     FormsModule,
