@@ -7,4 +7,9 @@
 .tbl{
   margin-left: 200px;
   margin-top: -580px;
+  overflow: hidden;
 }
+/*
+table{
+  min-width: none;
+} */
