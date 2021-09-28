@@ -74,9 +74,6 @@ import { HealthInsuranceProblemsComponent } from './components/health-insurance-
     AdminUserAnalyticsComponent,
     AdminTransactionHistoryComponent,
     AdminFeedbacksComponent,
-<<<<<<< HEAD
-    AdminProblemsComponent
-=======
     AdminProblemsComponent,
     RegisterAsComponent,
     PatientProfileComponent,
@@ -107,7 +104,6 @@ import { HealthInsuranceProblemsComponent } from './components/health-insurance-
     HealthInsuranceVerificationComponent,
     HealthInsuranceFeedbacksComponent,
     HealthInsuranceProblemsComponent
->>>>>>> 1217fd8827f1c7422c743aac6b2636f96dce5cf6
   ],
   imports: [
     FormsModule,

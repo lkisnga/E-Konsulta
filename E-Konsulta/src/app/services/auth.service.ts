@@ -99,7 +99,10 @@ export class AuthService {
   get_UID()
   {
     var data= JSON.parse(localStorage.getItem('Users'));
-    return data.uid;
+    if(data!=null)
+      return data.uid
+    else
+      this.router.navigate(['/login']);
   }
   signout() : void
   {

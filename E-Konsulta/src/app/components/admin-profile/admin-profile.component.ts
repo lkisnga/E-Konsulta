@@ -17,7 +17,7 @@ export class AdminProfileComponent implements OnInit{
   
   UID: any;
   isLoggedIn: boolean;
-  userID: string;
+  userID: string = "";
   userData: any = [];
   constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
     public userService: UserService) { 
@@ -26,9 +26,11 @@ export class AdminProfileComponent implements OnInit{
   ngOnInit()
   {
     this.userID = this.authservice.get_UID();
-    console.log(this.userID);
-    this.userService.get_UserInfo(this.userID).then(item => {
-      this.userData = item.data();
-    })
+    if(this.userID != null)
+    {
+      this.userService.get_UserInfo(this.userID).then(item => {
+        this.userData = item.data();
+      })
+   }
   }
 }
