@@ -1,0 +1,20 @@
+<app-header-user></app-header-user>
+<app-doctor-sidenav></app-doctor-sidenav>
+<div class="row flex-nowrap tbl">
+  <div class="col mx-2">
+    <h3 class="usr">Doctor-Patients</h3>
+    <div class="text-left py-1">
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-info" (click)="upcomingFunction()">Upcoming</button>
+        <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
+      </div>
+
+      <div *ngIf="upcoming" class="list-group">
+        <a class="list-group-item list-group-item-action"> Sabrina Spellman</a>
+      </div>
+      <div *ngIf="done" class="list-group">
+          <a class="list-group-item list-group-item-action">Kanemoto Yoshiiiiii</a>
+      </div>
+    </div>
+  </div>
+</div>

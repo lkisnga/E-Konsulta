@@ -1,0 +1,32 @@
+
+body{
+  width: 100%;
+}
+
+
+/* ADMIN */
+
+.admin{
+  color: rgb(0, 192, 206);
+}
+
+#admin-container{
+  border: 1px solid rgb(0, 192, 206);
+  min-height: 550px; /*height of sidebar and the information on right*/
+}
+input{
+  /*pointer-events: none; disable editing the input*/
+  border: none;
+}
+
+#edit{
+  position: absolute;
+  top: 110px;
+  right: 30px;
+}
+
+#logout{
+  position:absolute;
+  top: 590px;
+  right: 30px;
+}

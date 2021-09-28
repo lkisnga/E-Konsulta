@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Insurance Verification</title>
+</head>
+<body>
+
+  <app-header-user></app-header-user>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-health-insurance-sidenav></app-health-insurance-sidenav>
+      </div>
+<!-- Search
+      <div class="col-sm-3 col-sm-offset-3 py-2">
+        <div class="input-group" >
+          <input type="search" class="form-control border-info rounded" placeholder="Search Patient" aria-label="Search"
+            aria-describedby="search-addon" />
+          <button type="button" class="btn btn-info">Search</button>
+        </div>
+      </div> -->
+    </div>
+    <div class="row flex-nowrap tbl">
+      <div class="col mx-2">
+        <table class="table table-info table striped">
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">Insurance Account ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">isVerified</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">50001</th>
+              <td>jsdh2883</td>
+              <td>Wanatabe Haruto</td>
+              <td>YES</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

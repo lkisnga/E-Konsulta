@@ -1,0 +1,58 @@
+<app-header-user></app-header-user>
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+      <!--sidenav -->
+      <app-doctor-sidenav></app-doctor-sidenav>
+    </div>
+  </div>
+   <!--Add Payment-->
+   <div class="addSpcl">
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Add Payment</button>
+  </div>
+  <div class="row flex-nowrap tbl">
+    <div class="col mx-4">
+      <ul class="list-group py-2">
+        <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 mb-1>User ID</h5>
+            <small>September 1, 2021</small>
+          </div>
+          <p class="mb-1">Patient 1001 pay an amount of 00.00 for a consultation.</p>
+          <small>User Type</small>
+        </li>
+        <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 mb-1>User ID</h5>
+            <small>September 2, 2021</small>
+          </div>
+          <p class="mb-1">Patient 1002 pay an amount of 00.00 for a consultation.</p>
+          <small>User Type</small>
+        </li>
+      </ul>
+  <!--Modal Payment-->
+  <div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addSpclLabel">Add Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          Patient Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Payment Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+          Payment Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="30"> <br><br>
+          Total Amount: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of modal Payment-->
+    </div>
+  </div>
+</div>

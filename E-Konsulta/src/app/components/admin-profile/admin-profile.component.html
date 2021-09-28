@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin Profile</title>
+  <title>Admin Profile test test</title>
 </head>
 <body>
   <!--header section -->
@@ -13,20 +13,28 @@
           <app-admin-sidenav></app-admin-sidenav>
       </div>
       <!--2nd column-->
-      <div class="col mx-1 py-3 px-3" id="admin-container">
+      <div class="col" id="admin-container">
         <h2 class="admin"><i class="fa fa-user-circle"></i> Admin Name</h2>
         <div class="info px-3 py-4" *ngIf="authservice.currentUser">
           User UID: {{authservice.currentUserId}} <br><br>
+<<<<<<< HEAD
           User Name: Not Yet In fields<br><br>
           Name: {{userData.fullName}} <br><br>
           Date of Birth: Not Yet In fields <input type="text"> <br><br>
           Email: {{authservice.currentUserName}} <input type="email"> <br><br>
           Password: {{userData.password}} <input type="text"> <br><br>
           User Type: {{userData.role}}
+=======
+          User Name: {{authservice.currentUserName}}<br><br>
+          Name: <input type="text"> <br><br>
+          Date of Birth: <input type="text"> <br><br>
+          Email: <input type="email"> <br><br>
+          Password: <input type="text"> <br><br>
+          User Type: <input type="text"> <br><br> <br><br>
+>>>>>>> 1217fd8827f1c7422c743aac6b2636f96dce5cf6
         </div>
         <button class="btn btn-outline-info" id="edit">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
-
       </div>
   </div>
 </div>
@@ -50,7 +58,5 @@
   </div>
 </div>
 <!--end of logout modal-->
-
-
 </body>
 </html>

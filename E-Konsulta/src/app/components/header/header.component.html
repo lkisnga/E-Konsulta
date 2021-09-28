@@ -5,22 +5,6 @@
   <title>Landing Page</title>
 </head>
 <body>
-  <!--header section
-  <div class="header">
-    <div class="logo-icon">
-      <img alt="E-Konsulta" class="logo" src="./assets/images/ekIcon.ico">
-      <h3 class="app-name"> E-KONSULTA </h3>
-    </div>
-    <div class="menu">
-      <ul>
-        <li><a routerLink="/">HOME</a></li>
-        <li><a routerLink="/registration">REGISTER</a></li>
-        <li><a routerLink="/login">LOGIN</a></li>
-      </ul>
-    </div>
-  </div> -->
-  <!-- horizontal line
-  <hr class="line"> -->
 
   <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-light">
@@ -31,18 +15,17 @@
       </a>
 
       <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#toggleHeader"
-      aria-controls="toggleHeader"
-      aria-expanded="false"
-      aria-label="Toggle Navigation">
-
-      <span class="navbar-toggler-icon"></span>
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#toggleHeader"
+        aria-controls="toggleHeader"
+        aria-expanded="false"
+        aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="toggleHeader">
+      <div class="collapse navbar-collapse fixed" id="toggleHeader">
         <ul class="navbar-nav ms-auto text-left">
           <li>
               <a routerLink="/">HOME</a>
