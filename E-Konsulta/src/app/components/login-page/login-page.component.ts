@@ -30,10 +30,7 @@ export class LoginPageComponent implements OnInit {
   {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
-      this.authservice.loginWithEmail(this.email, this.password)
-        .then(() => {
-         this.router.navigate(['/admin-profile'])
-        }).catch(_error => {
+      this.authservice.loginWithEmail(this.email, this.password).catch(_error => {
           this.error = _error
           this.router.navigate(['/login'])
         })

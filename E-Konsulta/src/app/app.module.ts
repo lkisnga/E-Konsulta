@@ -45,7 +45,7 @@ import { AdminProblemsComponent } from './components/admin-problems/admin-proble
     AdminUserAnalyticsComponent,
     AdminTransactionHistoryComponent,
     AdminFeedbacksComponent,
-    AdminProblemsComponent,
+    AdminProblemsComponent
   ],
   imports: [
     FormsModule,

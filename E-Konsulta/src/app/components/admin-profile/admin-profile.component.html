@@ -17,12 +17,12 @@
         <h2 class="admin"><i class="fa fa-user-circle"></i> Admin Name</h2>
         <div class="info px-3 py-4" *ngIf="authservice.currentUser">
           User UID: {{authservice.currentUserId}} <br><br>
-          User Name: {{authservice.currentUserName}}<br><br>
-          Name: <input type="text"> <br><br>
-          Date of Birth: <input type="text"> <br><br>
-          Email: <input type="email"> <br><br>
-          Password: <input type="text"> <br><br>
-          User Type: <input type="text">
+          User Name: Not Yet In fields<br><br>
+          Name: {{userData.fullName}} <br><br>
+          Date of Birth: Not Yet In fields <input type="text"> <br><br>
+          Email: {{authservice.currentUserName}} <input type="email"> <br><br>
+          Password: {{userData.password}} <input type="text"> <br><br>
+          User Type: {{userData.role}}
         </div>
         <button class="btn btn-outline-info" id="edit">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
