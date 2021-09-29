@@ -40,7 +40,7 @@ import { HealthInsuranceProblemsComponent } from './components/health-insurance-
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: '', redirectTo: '/doctor-profile', pathMatch: 'full' },
   { path: 'landing', component: LandingPageComponent},
   { path: 'registration', component: RegistrationPageComponent},
   { path: 'login', component: LoginPageComponent},
