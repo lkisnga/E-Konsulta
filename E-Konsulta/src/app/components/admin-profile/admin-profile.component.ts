@@ -23,6 +23,7 @@ export class AdminProfileComponent implements OnInit{
     public userService: UserService) { 
     
   }
+  //test
   ngOnInit()
   {
     this.userID = this.authservice.get_UID();
