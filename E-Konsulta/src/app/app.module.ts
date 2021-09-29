@@ -36,7 +36,6 @@ import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics
 import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
 import { DoctorFeedbacksComponent } from './components/doctor-feedbacks/doctor-feedbacks.component';
 import { DoctorProblemsComponent } from './components/doctor-problems/doctor-problems.component';
-import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-schedule.component';
 import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
 import { DoctorReservationsComponent } from './components/doctor-reservations/doctor-reservations.component';
 import { PatientConsultationComponent } from './components/patient-consultation/patient-consultation.component';
@@ -87,7 +86,6 @@ import { UserService } from './services/user.service';
     DoctorTransactionHistoryComponent,
     DoctorFeedbacksComponent,
     DoctorProblemsComponent,
-    DoctorScheduleComponent,
     DoctorSetScheduleComponent,
     DoctorReservationsComponent,
     PatientConsultationComponent,

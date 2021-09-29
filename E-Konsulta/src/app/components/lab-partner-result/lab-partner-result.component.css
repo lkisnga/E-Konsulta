@@ -1,6 +1,6 @@
 .tbl{
   margin-left: 200px;
-  margin-top: -580px;
+  margin-top: 50px;
 }
 
 .usr{
@@ -14,5 +14,6 @@
 .addSpcl{
   position:absolute;
   left: 250px;
-  top: 102px;
+  top: 100px;
+  overflow: hidden;
 }

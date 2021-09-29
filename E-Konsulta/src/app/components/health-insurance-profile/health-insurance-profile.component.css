@@ -8,11 +8,13 @@ body{
 
 .admin{
   color: rgb(0, 192, 206);
+  padding: 12px 4px;
 }
 
 #admin-container{
   border: 1px solid rgb(0, 192, 206);
-  min-height: 550px; /*height of sidebar and the information on right*/
+  margin-right: 22px;
+  padding: 20PX;
 }
 input{
   /*pointer-events: none; disable editing the input*/
@@ -23,12 +25,14 @@ input{
   position: absolute;
   top: 110px;
   right: 30px;
+  overflow: hidden;
 }
 
 #logout{
   position:absolute;
   top: 590px;
   right: 30px;
+  overflow: hidden;
 }
 
 
