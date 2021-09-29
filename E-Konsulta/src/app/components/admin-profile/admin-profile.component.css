@@ -17,6 +17,7 @@ body{
   padding: 20px;
   /*min-height: 480px; height of sidebar and the information on right*/
 }
+
 input{
   /*pointer-events: none; disable editing the input*/
   border: none;
