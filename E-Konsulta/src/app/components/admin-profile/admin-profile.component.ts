@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service'; 
+import { AuthService } from 'src/app/services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { auth } from 'firebase';
@@ -14,14 +14,14 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin-profile.component.css']
 })
 export class AdminProfileComponent implements OnInit{
-  
+
   UID: any;
   isLoggedIn: boolean;
   userID: string = "";
   userData: any = [];
   constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
-    public userService: UserService) { 
-    
+    public userService: UserService) {
+
   }
   //test
   ngOnInit()
