@@ -8,8 +8,10 @@ body{
 
 .register-page {
   width: 360px;
-  padding: 1% 0 0;
-  margin: auto;
+  position: absolute;
+  left: 500px;
+  top: 90px;
+  bottom: 0;
 }
 .form {
   position: relative;
