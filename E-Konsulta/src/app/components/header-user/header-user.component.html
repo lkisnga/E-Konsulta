@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<div class="container-fluid fixed">
+<div class="fixed">
   <nav class="navbar navbar-expand-sm navbar-light">
     <a class="navbar-brand text-left">
-      <img src="./assets/images/ekIcon.ico" width="70" height="70"
+      <img src="./assets/images/ekIcon.ico" width="60" height="60"
        alt="E-Konsulta"> <!-- class="d-inline-block align-top" -->
        E-KONSULTA</a>
     <button
@@ -26,7 +26,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="toggleHeader">
-      <div class="notification-wrap navbar-nav ms-auto text-left">
+      <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
         <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
           <div><span class="fa-stack fa-1x" data-count="1">
             <i class="fa fa-circle fa-stack-2x"></i>
@@ -58,7 +58,6 @@
     </div>
   </nav>
 </div>
-<hr class="line">
 
 </body>
 </html>

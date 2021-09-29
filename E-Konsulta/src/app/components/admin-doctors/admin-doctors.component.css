@@ -1,15 +1,11 @@
 .addSpcl{
   position:absolute;
   right: 23px;
-  top: 102px;
+  top: 90px;
+  overflow: hidden;
 }
 
 .tbl{
   margin-left: 200px;
-  margin-top: 0px;
-  overflow: hidden;
+  margin-top: -43%;
 }
-/*
-table{
-  min-width: none;
-} */
