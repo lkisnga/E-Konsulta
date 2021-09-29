@@ -8,6 +8,7 @@ body{
 
 .admin{
   color: rgb(0, 192, 206);
+  padding: 12px 4px;
 }
 
 #admin-container{
