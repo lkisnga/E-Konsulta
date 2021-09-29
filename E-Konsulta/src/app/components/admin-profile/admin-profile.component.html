@@ -19,16 +19,40 @@
           User UID: {{authservice.currentUserId}} <br><br>
           User Name: Not Yet In fields<br><br>
           Name: {{userData.fullName}} <br><br>
-          Date of Birth: Not Yet In fields <input type="text"> <br><br>
-          Email: {{authservice.currentUserName}} <input type="email"> <br><br>
-          Password: {{userData.password}} <input type="text"> <br><br>
+          Date of Birth: Not Yet In fields <br><br>
+          Email: {{authservice.currentUserName}} <br><br>
+          Password: {{userData.password}} <br><br>
           User Type: {{userData.role}} <br><br> <br><br>
         </div>
-        <button class="btn btn-outline-info" id="edit">EDIT</button>
+        <button class="btn btn-outline-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>
 </div>
+
+<!--Edit Modal-->
+<div class="modal fade" id="editInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Edit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
+        Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+        Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="50"><br><br>
+        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="30"> <br><br>
+        Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="30"><br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of edit modal-->
 
 <!--Logout Modal-->
 <div class="modal fade" id="logOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
