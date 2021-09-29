@@ -1,6 +1,6 @@
 .tbl{
   margin-left: 200px;
-  margin-top: -630px;
+  margin-top: 0px;
 }
 
 .usr{
@@ -10,10 +10,12 @@
   position:absolute;
   right: 477px;
   top: 130px;
+  overflow: hidden;
 }
 .consultation{
   position: absolute;
   right: 420px;
   top: 90px;
   color: rgb(0, 192, 206);
+  overflow: hidden;
 }

@@ -6,6 +6,8 @@ body{
   width: 190px;
   margin-top: -17px;
   margin-left: -5px;
+  position: fixed;
+  overflow: hidden;
 }
 
 .nav-link{
