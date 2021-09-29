@@ -23,14 +23,16 @@ export class AdminProfileComponent implements OnInit{
     public userService: UserService) {
 
   }
+  //test
   ngOnInit()
   {
     this.userID = this.authservice.get_UID();
+    console.log(this.userID);
     if(this.userID != null)
     {
-      this.userService.get_UserInfo(this.userID).then(item => {
-        this.userData = item.data();
-      })
+    this.userService.get_UserInfo(this.userID).then(item => {
+      this.userData = item.data();
+    })
    }
   }
 }

@@ -54,6 +54,8 @@ import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/h
 import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
 import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
 import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,7 @@ import { HealthInsuranceProblemsComponent } from './components/health-insurance-
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
