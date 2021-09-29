@@ -10,6 +10,7 @@ export class AdminSidenavComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

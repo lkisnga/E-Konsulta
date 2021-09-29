@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import { stringify } from 'querystring';
 
 
 @Injectable({
@@ -33,7 +34,6 @@ export class AuthService {
   get currentUser(): any {
     return (this.authState !== null) ? this.authState : null;
   }
-
   get isUserEmailLoggedIn(): boolean {
     if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) {
       return true
@@ -62,12 +62,12 @@ export class AuthService {
   //Get user Data
   get_userData()
   {
-    return this.db.collection('Users').doc(this.currentUserId);
+    return this.db.firestore.collection('Users');
   }
 
   
   insertUserData(userCredential: firebase.auth.UserCredential) {
-    return this.db.doc(`Users/${userCredential.user.uid}`).set({
+    return this.db.collection('Users').doc(userCredential.user.uid).set({
       emailAddress: this.newUser.emailAddress,
       password: this.newUser.password,
       fullName: this.newUser.fullName,
@@ -75,21 +75,39 @@ export class AuthService {
       role: 'admin'
     })
   }
-  loginWithEmail(email: string, password: string)
+  /*loginWithEmail(email: string, password: string)
   {
     return this.afu.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        this.authState = user
+        this.authState = user;
       })
       .catch(error => {
-        console.log(error)
+        console.log(error) 
         throw error
       });
+  }*/
+  loginWithEmail(email: string, password: string)
+  {
+    return this.afu.signInWithEmailAndPassword(email,password).then(res=>{
+      localStorage.setItem('Users',JSON.stringify(res.user));
+      
+    }).then(() => {
+      this.router.navigate(['/admin-profile'])
+      console.log('works!');
+     })
   }
-
+  get_UID()
+  {
+    var data= JSON.parse(localStorage.getItem('Users'));
+    if(data!=null)
+      return data.uid
+    else
+      this.router.navigate(['/login']);
+  }
   signout() : void
   {
     this.afu.signOut();
+    localStorage.removeItem('Users');
     this.router.navigate(['/landing']);
   }
 }
