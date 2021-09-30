@@ -12,9 +12,14 @@ body{
 }
 
 #admin-container{
+  position: absolute;
   border: 1px solid rgb(0, 192, 206);
-  margin-right: 22px;
   padding: 20px;
+  left: 215px;
+  width: 82%;
+  top: 120px;
+  overflow: hidden;
+  /*min-height: 480px; height of sidebar and the information on right*/
 }
 input{
   /*pointer-events: none; disable editing the input*/
@@ -23,14 +28,15 @@ input{
 
 #edit{
   position: absolute;
-  top: 110px;
+  top: 30px;
   right: 35px;
   overflow: hidden;
 }
 
 #logout{
   position:absolute;
-  top: 590px;
+  top: 400px;
   right: 35px;
   overflow: hidden;
 }
+

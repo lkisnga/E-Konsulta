@@ -11,7 +11,7 @@
   <!--Login-->
   <div class="login-page">
     <div class="form">
-      <h3 class="mb-3">Login</h3>
+      <h3>Login</h3>
       <form class="login-form" (ngSubmit)="login()">
         <input type="text" placeholder="Email" [(ngModel)]="email" name="email"/>
         <input type="password" placeholder="Password" [(ngModel)]="password" name="password"/>
@@ -28,10 +28,10 @@
       <div class="form-group">
         <p *ngIf="errorMessage.length > 0" class="text-danger">
             {{errorMessage}}</p>
-        
+
         <p *ngIf="error.message.length > 0" class="text-danger">
             {{error.message}} </p>
-  
+
             <p *ngIf="message.length > 0" class="text-info">
                 {{message}} </p>
     </div>

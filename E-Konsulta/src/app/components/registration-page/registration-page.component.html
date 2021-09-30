@@ -11,7 +11,7 @@
  <!--Registration Form-->
  <div class="register-page">
   <div class="form">
-    <h3 class="mb-2">Registration</h3>
+    <h3>Registration</h3>
     <form #userRegForm="ngForm" class="register-form" (ngSubmit)="registerUser(userRegForm.value)">
       <input type="text" [(ngModel)]="this.userForm.fullName" name="fullName" placeholder="Full Name" required/>
       <input type="text" [(ngModel)]="this.userForm.age" name="age" placeholder="Age" required>
@@ -23,7 +23,7 @@
         <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
       </div>
       <button type="submit" class="nav-item nav-link-edit">REGISTER</button>
-      <!--[routerLink]="['/login']"-->
+
     </form>
     <div class="form-group">
       <p *ngIf="errorMessage.length > 0" class="text-danger">
