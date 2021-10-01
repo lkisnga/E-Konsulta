@@ -37,6 +37,7 @@ import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/h
 import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
 import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
 import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
+import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
 
 
 const routes: Routes = [
@@ -76,7 +77,8 @@ const routes: Routes = [
   { path: 'health-insurance-loa', component: HealthInsuranceLoaComponent},
   { path: 'health-insurance-verification', component: HealthInsuranceVerificationComponent},
   { path: 'health-insurance-feedbacks', component: HealthInsuranceFeedbacksComponent},
-  { path: 'health-insurance-problems', component: HealthInsuranceProblemsComponent}
+  { path: 'health-insurance-problems', component: HealthInsuranceProblemsComponent},
+  { path: 'doctor-patient-chat', component: DoctorPatientsChatComponent}
 ];
 
 
@@ -126,5 +128,6 @@ export const routingComponents = [
   HealthInsuranceLoaComponent,
   HealthInsuranceVerificationComponent,
   HealthInsuranceFeedbacksComponent,
-  HealthInsuranceProblemsComponent
+  HealthInsuranceProblemsComponent,
+  DoctorPatientsChatComponent
 ];

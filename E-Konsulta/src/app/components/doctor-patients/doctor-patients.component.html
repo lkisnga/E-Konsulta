@@ -8,12 +8,11 @@
         <button type="button" class="btn btn-outline-info" (click)="upcomingFunction()">Upcoming</button>
         <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
       </div>
-
       <div *ngIf="upcoming" class="list-group">
-        <a class="list-group-item list-group-item-action"> Sabrina Spellman</a>
+        <a routerLink="/doctor-patient-chat" class="list-group-item list-group-item-action"> Sabrina Spellman</a>
       </div>
       <div *ngIf="done" class="list-group">
-          <a class="list-group-item list-group-item-action">Kanemoto Yoshiiiiii</a>
+          <a routerLink="/doctor-patient-chat" class="list-group-item list-group-item-action">Kanemoto Yoshiiiiii</a>
       </div>
     </div>
   </div>
