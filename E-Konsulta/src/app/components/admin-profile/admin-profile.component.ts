@@ -18,7 +18,8 @@ export class AdminProfileComponent implements OnInit{
   UID: any;
   isLoggedIn: boolean;
   userID: string = "";
-  userData: any = [];
+  userData: any = []; // storing the user Data from firestore
+  userInfo: any = []; // replicate data from userData for the use of editUser function
   constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
     public userService: UserService) {
 
@@ -36,12 +37,17 @@ export class AdminProfileComponent implements OnInit{
    }
   }
 
-  editInfo(info)
-  {
-    info.fullName = this.userData.fullName;
-  }
-  updateInfo(record)
+  editUser()
   {
 
+  }
+  onSubmit(user_record)
+  {
+    let record = {};
+    record['fullName'] = user_record.fullName;
+    record['emailAddress'] = user_record.emailAddress;
+    record['password'] = user_record.password;
+    
+    this.userService.update_user(this.userID,record);
   }
 }

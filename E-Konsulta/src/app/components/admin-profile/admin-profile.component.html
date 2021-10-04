@@ -24,7 +24,7 @@
           Password: {{userData.password}} <br><br>
           User Type: {{userData.role}}
         </div>
-        <button class="btn btn-outline-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+        <button class="btn btn-outline-info" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>
@@ -38,17 +38,19 @@
         <h5 class="modal-title" id="editLabel">Edit</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
-      <div class="modal-body form-group">
-        User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
-        Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-        Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="50"><br><br>
-        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="30"> <br><br>
-        Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="30"><br><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-info"  data-bs-dismiss="modal">Edit</button>
-      </div>
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)"> 
+        <div class="modal-body form-group">
+          User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
+          Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="userData.fullName" type="text" size="30" name="fullName"> <br><br>
+          Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="50"><br><br>
+          Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="userData.emailAddress" type="text" size="30" name="emailAddress"> <br><br>
+          Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="userData.password" type="password" size="30" name="password"><br><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-info"  data-bs-dismiss="modal">Edit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
