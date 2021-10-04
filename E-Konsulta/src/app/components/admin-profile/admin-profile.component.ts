@@ -35,4 +35,13 @@ export class AdminProfileComponent implements OnInit{
     })
    }
   }
+
+  editInfo(info)
+  {
+    info.fullName = this.userData.fullName;
+  }
+  updateInfo(record)
+  {
+
+  }
 }
