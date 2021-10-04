@@ -1,8 +1,45 @@
 .tbl{
-  margin-left: 200px;
-  margin-top: -48%;
+  margin-top: -49%;
+  margin-left: 150px;
+  border: 1px solid rgb(0, 192, 206);
+  width: 67%;
 }
 
 .usr{
   color: rgb(0, 192, 206);
+}
+
+.user{
+  color: rgb(0, 192, 206);
+  padding: 12px 4px;
+}
+
+.fa-phone, .fa-video-camera{
+  color: rgb(0, 192, 206);
+}
+
+button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+button.focus, button:hover{
+  color: darkcyan;
+}
+
+.left-profile{
+  position: absolute;
+  top: 75px;
+  right: 130px;
+  overflow: hidden;
+}
+.left-name{
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  overflow: hidden;
+}
+.third-column{
+  border-left: 1px solid rgb(0, 192, 206) !important;
 }
