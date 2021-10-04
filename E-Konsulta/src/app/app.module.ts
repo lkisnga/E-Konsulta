@@ -56,6 +56,7 @@ import { HealthInsuranceFeedbacksComponent } from './components/health-insurance
 import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { UserService } from './services/user.service';
     HealthInsuranceLoaComponent,
     HealthInsuranceVerificationComponent,
     HealthInsuranceFeedbacksComponent,
-    HealthInsuranceProblemsComponent
+    HealthInsuranceProblemsComponent,
+    DoctorPatientsChatComponent
   ],
   imports: [
     FormsModule,
