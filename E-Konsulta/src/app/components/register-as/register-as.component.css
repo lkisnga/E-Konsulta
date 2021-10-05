@@ -13,7 +13,6 @@ body{
   left: 28%;
   color: rgb(0, 192, 206);
   font-size: 22px;
-  overflow: hidden;
 }
 .btn{
   padding: 10px 12px;
@@ -28,3 +27,20 @@ body{
   transform: scale(1.1);
   transition: ease .25s;
 }
+
+@media screen and (max-width: 1300px){
+  body{
+    overflow-y: hidden;
+  }
+  .btn{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .iam{
+    position: absolute;
+    top: 40%;
+    left: 43%;
+  }
+}
+
+

@@ -6,7 +6,6 @@ body{
   width: 190px;
   position: sticky;
   z-index: 99;
-  overflow: hidden;
 }
 
 .nav-link{
