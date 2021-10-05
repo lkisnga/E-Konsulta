@@ -8,6 +8,13 @@ import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/rend
 import { UserService } from 'src/app/services/user.service';
 
 
+export class Userinfo
+{
+  public fullName: string;
+  public emailAddress: string;
+  public password: string;
+}
+
 @Component({
   selector: 'app-admin-profile',
   templateUrl: './admin-profile.component.html',
@@ -15,11 +22,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminProfileComponent implements OnInit{
 
+  model = new Userinfo();
+
   UID: any;
   isLoggedIn: boolean;
   userID: string = "";
   userData: any = []; // storing the user Data from firestore
-  userInfo: any = []; // replicate data from userData for the use of editUser function
   constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
     public userService: UserService) {
 
@@ -28,7 +36,7 @@ export class AdminProfileComponent implements OnInit{
   ngOnInit()
   {
     this.userID = this.authservice.get_UID();
-    console.log(this.userID);
+    //console.log(this.userID);
     if(this.userID != null)
     {
     this.userService.get_UserInfo(this.userID).then(item => {
@@ -39,7 +47,9 @@ export class AdminProfileComponent implements OnInit{
 
   editUser()
   {
-
+    this.model.fullName = this.userData.fullName;
+    this.model.emailAddress = this.userData.emailAddress;
+    this.model.password = this.userData.password;
   }
   onSubmit(user_record)
   {
@@ -49,5 +59,7 @@ export class AdminProfileComponent implements OnInit{
     record['password'] = user_record.password;
     
     this.userService.update_user(this.userID,record);
+
+    this.ngOnInit();
   }
 }
