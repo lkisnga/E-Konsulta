@@ -21,7 +21,7 @@
           Password: {{userData.password}} <br><br>
           Email: {{authservice.currentUserName}} <br><br>
         </div>
-        <button class="btn btn-outline-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+        <button class="btn btn-outline-info" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>

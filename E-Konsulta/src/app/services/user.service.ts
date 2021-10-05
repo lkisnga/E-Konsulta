@@ -10,8 +10,13 @@ export class UserService {
 
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router) { }
 
-  get_UserInfo(userID: string)
+  get_UserInfo(user_id: string)
   {
-     return this.db.firestore.collection('Users').doc(userID).get();
+     return this.db.firestore.collection('Users').doc(user_id).get();
+  }
+
+  update_user(user_id,record)
+  {
+    this.db.collection('Users').doc(user_id).update(record);
   }
 }
