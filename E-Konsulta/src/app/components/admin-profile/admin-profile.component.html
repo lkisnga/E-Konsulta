@@ -6,7 +6,6 @@
 <body>
   <!--header section -->
   <app-header-user></app-header-user>
-
 <div>
   <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
@@ -14,15 +13,13 @@
       </div>
       <!--2nd column-->
       <div class="col" id="admin-container">
-        <h2 class="admin"><i class="fa fa-user-circle"></i> {{userData.fullName}}</h2>
+        <h2 class="admin"><span><img src="" alt="img" width="50" height="50"></span> {{userData.fullName}}</h2>
         <div class="info px-3 py-4" *ngIf="authservice.currentUser">
           User UID: {{authservice.currentUserId}} <br><br>
-          User Name: Not Yet In fields<br><br>
+          Role: {{userData.role}} <br><br>
           Name: {{userData.fullName}} <br><br>
-          Date of Birth: Not Yet In fields <br><br>
-          Email: {{authservice.currentUserName}} <br><br>
           Password: {{userData.password}} <br><br>
-          User Type: {{userData.role}}
+          Email: {{authservice.currentUserName}} <br><br>
         </div>
         <button class="btn btn-outline-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
@@ -39,11 +36,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
-        Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-        Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="50"><br><br>
-        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="30"> <br><br>
-        Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="30"><br><br>
+        Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"> <br><br>
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="40"> <br><br>
+        Password: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="40"><br><br>
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="40"> <br><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
