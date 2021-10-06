@@ -8,9 +8,9 @@ body{
 
 .register-page {
   width: 360px;
-  position: absolute;
-  left: 500px;
-  top: 90px;
+  margin: auto;
+  top: 100px;
+  position: relative;
   bottom: 0;
 }
 .form {
@@ -91,4 +91,13 @@ label{
 .agree{
   float: left;
   margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 600px)
+{
+  .register-page {
+    position: relative;
+    width: 100%;
+  }
 }
