@@ -6,7 +6,7 @@
 <body>
   <!--header section -->
   <app-header-user></app-header-user>
-<div>
+
   <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
           <app-admin-sidenav></app-admin-sidenav>
@@ -26,11 +26,12 @@
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>
-</div>
+
 <!--Add another admin-->
 <div class="newAdmin">
   <button type="button" class="btn btn-info" [routerLink]="['/registration']">Add another admin</button>
 </div>
+
 <!--Edit Modal-->
 <div class="modal fade" id="editInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
