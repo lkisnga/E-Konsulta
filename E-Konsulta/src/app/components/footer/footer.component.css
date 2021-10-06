@@ -2,12 +2,10 @@
 footer{
   background-color: rgb(0, 192, 206);
   color: white;
-  position: absolute;
-  left: 0;
+  position:absolute;
   bottom: 0;
   height: 50px;
   width: 100%;
-  overflow:hidden;
 }
 
 p{
@@ -22,11 +20,11 @@ p{
     overflow:hidden;
   }
 }
-
+/*
 @media screen and (min-width: 610px)
 {
   footer{
     position: relative;
     bottom: 0;
   }
-}
+} */

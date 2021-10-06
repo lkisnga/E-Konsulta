@@ -9,7 +9,7 @@ body{
 .register-page {
   width: 360px;
   margin: auto;
-  top: 100px;
+  top: 90px;
   position: relative;
   bottom: 0;
 }
@@ -18,7 +18,7 @@ body{
   z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
-  margin: 0 auto 100px;
+  margin:auto;
   padding: 35px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(119, 119, 119, 0.24), 0 5px 5px 0 rgba(112, 112, 112, 0.24);
