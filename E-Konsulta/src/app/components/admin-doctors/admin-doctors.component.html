@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-sm-3 col-sm-offset-3 py-4">
-        <div class="input-group" >
+        <div class="input-group py-4" >
           <input type="search" class="form-control border-info rounded" placeholder="Search Doctor" aria-label="Search"
             aria-describedby="search-addon" />
           <button type="button" class="btn btn-info">Search</button>
@@ -48,7 +48,6 @@
                 <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DELETE</button></span>
               </td>
             </tr>
-
           </tbody>
         </table>
       </div>
@@ -57,7 +56,11 @@
   <div class="addSpcl">
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Add Specialization</button>
   </div>
-  <!--Modal Specialization-->
+  <!--Specialization list-->
+  <div class="spclList">
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#spclList">Specialization List</button>
+  </div>
+  <!--Modal Add Specialization-->
   <div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -77,7 +80,26 @@
       </div>
     </div>
   </div>
-  <!--end of modal specialization-->
+  <!--end of modal add specialization-->
+
+  <!--Modal Specialization List-->
+  <div class="modal fade" id="spclList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="spclListLabel">Specialization List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <li>Specialization chuchu</li>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of modal specialization list-->
 
   <!--Edit Doctor Modal-->
   <div class="modal fade" id="editDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
