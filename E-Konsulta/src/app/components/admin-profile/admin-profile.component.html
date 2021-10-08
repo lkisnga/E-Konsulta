@@ -8,12 +8,12 @@
   <app-header-user></app-header-user>
 
   <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
+      <div class="col-2 px-md-2 col-xl-2 px-sm-1 " >
           <app-admin-sidenav></app-admin-sidenav>
       </div>
 
       <!--2nd column-->
-      <div class="col" id="admin-container">
+      <div class="col-10 col-md-9 col-sm-7 border border-info">
         <h2 class="admin"><span><img src="" alt="img" width="50" height="50"></span> {{userData.fullName}}</h2>
         <div class="info px-3 py-4" *ngIf="authservice.currentUser">
           User UID: {{authservice.currentUserId}} <br><br>
@@ -22,12 +22,14 @@
           Password: {{userData.password}} <br><br>
           Email: {{authservice.currentUserName}} <br><br>
         </div>
-        <button class="btn btn-outline-info" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-        <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        <div class="">
+          <button class="btn btn-info float-right" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button class="btn btn-info float-right" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        </div>
       </div>
   </div>
 
-<!--Add another admin-->
+<!--Add another admin -->
 <div class="newAdmin">
   <button type="button" class="btn btn-info" [routerLink]="['/registration']">Add another admin</button>
 </div>
@@ -49,7 +51,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
+        <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
       </div>
       </form>
     </div>
