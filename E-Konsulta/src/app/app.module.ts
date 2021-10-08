@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 import { AppComponent } from './app.component';
@@ -113,6 +114,7 @@ import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/d
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserModule,
+    AngularFireStorageModule,
     AppRoutingModule
   ],
   providers: [AuthService, UserService],

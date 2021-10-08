@@ -14,8 +14,13 @@
 
       <!--2nd column-->
       <div class="col" id="admin-container">
-        <h2 class="admin"><span><img src="" alt="img" width="50" height="50"></span> {{userData.fullName}}</h2>
-        <div class="info px-3 py-4" *ngIf="authservice.currentUser">
+        <h2 class="admin"><span><img src="https://st3.depositphotos.com/13159112/17145/v/600/depositphotos_171453724-stock-illustration-default-avatar-profile-icon-grey.jpg" alt="img" width="50" height="50">
+        </span> {{userData.fullName}}</h2>
+        {{imgUrl}}
+        <button class="btn btn-outline-primary" (click)="uploadImage()" >Upload</button>
+        <input type="file" (change)="choosefile($event)">
+
+        <div class="info px-3 py-4" *ngIf="authservice.currentUser" name="image">
           User UID: {{authservice.currentUserId}} <br><br>
           Role: {{userData.role}} <br><br>
           Name: {{userData.fullName}} <br><br>
