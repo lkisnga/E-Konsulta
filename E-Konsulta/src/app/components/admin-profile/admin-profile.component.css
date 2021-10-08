@@ -49,9 +49,6 @@ body{
 /*responsive*/
 @media screen and (max-width: 600px)
 {
-  body{
-    overflow: hidden;
-  }
   .newAdmin{
     width: 100%;
   }
