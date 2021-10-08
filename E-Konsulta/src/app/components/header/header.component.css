@@ -34,3 +34,7 @@ a:hover{
 .navbar-brand:hover{
   color: darkcyan;
 }
+
+.navbar-toggler{
+  float: right;
+}

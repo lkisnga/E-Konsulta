@@ -2,19 +2,17 @@
 footer{
   background-color: rgb(0, 192, 206);
   color: white;
-  position: absolute;
-  left: 0;
+  position:absolute;
   bottom: 0;
   height: 50px;
   width: 100%;
-  overflow:hidden;
 }
 
 p{
   text-align: center;
 }
 
-@media screen and (max-width: 1300px)
+@media screen and (max-width: 600px)
 {
   footer{
     position: relative;
@@ -22,3 +20,11 @@ p{
     overflow:hidden;
   }
 }
+/*
+@media screen and (min-width: 610px)
+{
+  footer{
+    position: relative;
+    bottom: 0;
+  }
+} */

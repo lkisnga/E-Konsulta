@@ -6,11 +6,12 @@
 <body>
   <!--header section -->
   <app-header-user></app-header-user>
-<div>
+
   <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
           <app-admin-sidenav></app-admin-sidenav>
       </div>
+
       <!--2nd column-->
       <div class="col" id="admin-container">
         <h2 class="admin"><span><img src="" alt="img" width="50" height="50"></span> {{userData.fullName}}</h2>
@@ -25,6 +26,10 @@
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>
+
+<!--Add another admin-->
+<div class="newAdmin">
+  <button type="button" class="btn btn-info" [routerLink]="['/registration']">Add another admin</button>
 </div>
 
 <!--Edit Modal-->

@@ -8,9 +8,9 @@ body{
 
 .login-page {
   width: 360px;
-  position: absolute;
-  left: 500px;
-  top: 90px;
+  margin: auto;
+  position: relative;
+  top: 100px;
   bottom: 0;
 }
 .form {
@@ -18,7 +18,7 @@ body{
   z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
-  margin: 0 auto 100px;
+  margin: auto;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(168, 168, 168, 0.24), 0 5px 5px 0 rgba(156, 156, 156, 0.24);

@@ -3,14 +3,14 @@ body{
 }
 .buttons{
   margin: auto;
-  width: 50%;
+
   padding: 280px 10px;
   text-align: center;
 }
 .iam{
   position: absolute;
   top: 35%;
-  left: 28%;
+  left: 29%;
   color: rgb(0, 192, 206);
   font-size: 22px;
 }
@@ -28,7 +28,7 @@ body{
   transition: ease .25s;
 }
 
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 600px){
   body{
     overflow-y: hidden;
   }
@@ -43,4 +43,12 @@ body{
   }
 }
 
-
+@media screen and (min-width: 610px)
+{
+  .buttons{
+    margin: auto;
+  }
+  .btn{
+    margin-right: 10px;
+  }
+}
