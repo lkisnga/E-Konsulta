@@ -13,6 +13,7 @@ export class Userinfo
   public fullName: string;
   public emailAddress: string;
   public password: string;
+  public role : string;
 }
 
 @Component({
@@ -50,6 +51,7 @@ export class AdminProfileComponent implements OnInit{
     this.model.fullName = this.userData.fullName;
     this.model.emailAddress = this.userData.emailAddress;
     this.model.password = this.userData.password;
+    this.model.role = this.userData.role;
   }
   onSubmit(user_record)
   {
@@ -57,6 +59,7 @@ export class AdminProfileComponent implements OnInit{
     record['fullName'] = user_record.fullName;
     record['emailAddress'] = user_record.emailAddress;
     record['password'] = user_record.password;
+    record['role'] = user_record.role;
     
     this.userService.update_user(this.userID,record);
 

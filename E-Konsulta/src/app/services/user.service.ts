@@ -14,9 +14,14 @@ export class UserService {
   {
      return this.db.firestore.collection('Users').doc(user_id).get();
   }
+  get_doctorList()
+  {
+    return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
+  }
 
   update_user(user_id,record)
   {
     this.db.collection('Users').doc(user_id).update(record);
+    //console.log(record);
   }
 }

@@ -39,14 +39,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">00001</th>
-              <td>Bright Vachirawit</td>
-              <td>Doctor</td>
+            <tr *ngFor="let item of list">
+              <th scope="row">{{item.email}}</th>
+              <td>{{item.firstname}}</td>
+              <td>{{item.role}}</td>
               <td>DR112A</td>
               <td>SPCL101</td>
               <td>
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
+                <button type="button" (click)="editInfo(item)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
                 <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DELETE</button></span>
               </td>
             </tr>
