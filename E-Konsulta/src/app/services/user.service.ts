@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 @Injectable({
@@ -9,7 +10,7 @@ import * as firebase from 'firebase';
 })
 export class UserService {
 
-  constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router) { }
+  constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage) { }
 
   get_UserInfo(user_id: string)
   {
@@ -24,5 +25,13 @@ export class UserService {
   {
     this.db.collection('Users').doc(user_id).update(record);
     //console.log(record);
+  }
+  upload_avatar(a, user_id)
+  {
+    this.store.ref('Users/' + user_id + '/profile.jpg').put(a).then(function(){
+      console.log('successfully uploaded!');
+    }).catch(error => {
+      console.log(error.message);
+    })
   }
 }
