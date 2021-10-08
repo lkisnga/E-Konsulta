@@ -14,12 +14,20 @@ export class AdminDoctorsComponent implements OnInit {
 
   userID: string = "";
   list: any = [];
-  list2: any = [];
+
+  searchName: string = "";
+
   constructor(public authservice : AuthService, public userservice : UserService, public db : AngularFirestore
     ,public router : Router) { }
 
   ngOnInit(): void {
     this.userID = this.authservice.get_UID();
+
+    this.listOfDoctors();
+
+  }
+  listOfDoctors()
+  {
     var data;
     var tempArray = [];
     this.userservice.get_doctorList().then(res=>{
@@ -28,10 +36,11 @@ export class AdminDoctorsComponent implements OnInit {
         data.uid = doc.id;
         tempArray.push(data);
       })
-      this.list = tempArray;
+      this.list=tempArray.filter(res => {
+        return res.firstname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+      })
     })
   }
-
   editInfo(record)
   {
     console.log(record.uid);
