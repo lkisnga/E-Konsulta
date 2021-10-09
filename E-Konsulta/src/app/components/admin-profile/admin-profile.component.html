@@ -14,7 +14,9 @@
 
       <!--2nd column-->
       <div class="col-10 col-md-9 col-sm-7 border border-info">
-        <h2 class="admin"><span><img src="" alt="img" width="50" height="50"></span> {{userData.fullName}}</h2>
+        <h2 class="admin"><span><img src="{{imgUrl}}" alt="img" width="50" height="50"></span> {{userData.fullName}}</h2>
+        <button (click)="uploadImage()" class="btn btn-primary">Upload</button> 
+        <input type="file" (change)="choosefile($event)">
         <div class="info px-3 py-4" *ngIf="authservice.currentUser">
           User UID: {{authservice.currentUserId}} <br><br>
           Role: {{userData.role}} <br><br>

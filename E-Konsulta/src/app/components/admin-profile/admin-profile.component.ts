@@ -8,6 +8,9 @@ import { auth } from 'firebase';
 import { ThrowStmt } from '@angular/compiler';
 import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/render3/util';
 import { UserService } from 'src/app/services/user.service';
+import { Observable } from 'rxjs';
+import { setPriority } from 'os';
+import { error } from 'console';
 
 
 
@@ -34,32 +37,28 @@ export class AdminProfileComponent implements OnInit{
   userID: string = "";
   userData: any = []; // storing the user Data from 
   file: any;
-  imgUrl: any = [];
+  imgUrl: any = "";
 
   constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
     public userService: UserService, public afau: AngularFireAuth,public store: AngularFireStorage) {
-
+      
   }
-  
   ngOnInit()
   {
     //getting UID from the current User
     this.userID = this.authservice.get_UID();
 
    //getting image Profile
-    var tempfile;
-    //var data = [];
-    this.afau.onAuthStateChanged(user =>{
-      if(user)
-        this.store.storage.ref('Users/' + this.userID + '/profile.jpg').getDownloadURL().then(e =>
-          {
-            tempfile = e;
-            this.imgUrl = tempfile;
-            console.log(this.imgUrl);
-          })
-   })
+    //this.userService.get_avatarURL(this.userID)
+    this.userService.get_avatar(this.userID).then(e =>{
+      if(e.data().image)
+        this.imgUrl = e.data().image;
+    }).catch(error => {
+      console.log(error.message);
+    })
    //End
-
+   
+   //Getting User Information
     //console.log(this.userID);
     if(this.userID != null)
     {
@@ -67,11 +66,12 @@ export class AdminProfileComponent implements OnInit{
       this.userData = item.data();
     })
    }
+   //End
   }
-
   choosefile(e)
   {
     this.file = e.target.files[0];
+    console.log(this.file);
   }
 
   uploadImage()

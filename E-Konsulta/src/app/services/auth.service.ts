@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { stringify } from 'querystring';
@@ -13,7 +14,7 @@ export class AuthService {
   newUser: any;
 
   authState: any = null;
-  constructor(private afu : AngularFireAuth, private router: Router, private db: AngularFirestore) { 
+  constructor(private afu : AngularFireAuth, private router: Router, private db: AngularFirestore, public store: AngularFireStorage) { 
     this.afu.authState.subscribe((auth =>{
       this.authState = auth;
     }))
@@ -51,7 +52,16 @@ export class AuthService {
           displayName: user.fullName
         });
         this.insertUserData(userCredential)
-         
+
+        this.afu.onAuthStateChanged(user => {
+          if(user)
+        this.store.storage.ref('Users/' + 'default' + '/profile.jpg').getDownloadURL().then(e =>{
+          this.db.collection('avatar').doc(userCredential.user.uid).set({
+            image : e
+          })
+        })
+      }) 
+
       })
       .catch(error => {
         console.log(error)

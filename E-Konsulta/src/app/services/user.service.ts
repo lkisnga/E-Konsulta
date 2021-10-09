@@ -26,10 +26,26 @@ export class UserService {
     this.db.collection('Users').doc(user_id).update(record);
     //console.log(record);
   }
+  get_avatar(user_id)
+  {
+    return this.db.firestore.collection('avatar').doc(user_id).get();
+  }
   upload_avatar(a, user_id)
   {
-    this.store.ref('Users/' + user_id + '/profile.jpg').put(a).then(function(){
+    //Uploading image into fireStorage
+    this.store.ref('Users/' + user_id + '/profile.jpg').put(a).then(res =>{
       console.log('successfully uploaded!');
+
+      //getting image URL and pass it into fireStore avatar
+      this.afau.onAuthStateChanged(user => {
+        if(user)
+        this.store.storage.ref('Users/' + user_id + '/profile.jpg').getDownloadURL().then(e =>{
+          this.db.collection('avatar').doc(user_id).set({
+            image : e
+          })
+          console.log("Profile Changed!");
+        })
+      })
     }).catch(error => {
       console.log(error.message);
     })
