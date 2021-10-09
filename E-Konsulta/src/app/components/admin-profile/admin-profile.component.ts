@@ -4,13 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AngularFireStorage} from '@angular/fire/storage';
-import { auth } from 'firebase';
-import { ThrowStmt } from '@angular/compiler';
-import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/render3/util';
 import { UserService } from 'src/app/services/user.service';
-import { Observable } from 'rxjs';
-import { setPriority } from 'os';
-import { error } from 'console';
 
 
 

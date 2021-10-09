@@ -5,6 +5,14 @@ import { element } from 'protractor';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
+export class DoctorInfo
+{
+  public id: string;
+  public firstname: string;
+  public role: string;
+}
+
+
 @Component({
   selector: 'app-admin-doctors',
   templateUrl: './admin-doctors.component.html',
@@ -12,6 +20,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminDoctorsComponent implements OnInit {
 
+  model = new DoctorInfo();
   userID: string = "";
   list: any = [];
 
@@ -43,7 +52,18 @@ export class AdminDoctorsComponent implements OnInit {
   }
   editInfo(record)
   {
-    console.log(record.uid);
+    //console.log(record.uid);
+    this.model.id = record.uid;
+    this.model.firstname = record.firstname;
+    this.model.role = record.role;
+  }
+  onSubmit(a)
+  {
+    let record = {};
+    record['firstname'] = a.firstname;
+    this.userservice.update_user(a.id,record);
+
+    this.ngOnInit();
   }
 
 }
