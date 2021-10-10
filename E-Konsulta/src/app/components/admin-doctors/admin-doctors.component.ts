@@ -11,6 +11,11 @@ export class DoctorInfo
   public firstname: string;
   public role: string;
 }
+export class SpecializationInfo
+{
+  public name: string;
+  public description: string;
+}
 
 
 @Component({
@@ -21,12 +26,14 @@ export class DoctorInfo
 export class AdminDoctorsComponent implements OnInit {
 
   model = new DoctorInfo();
+  sp = new SpecializationInfo();
+
   userID: string = "";
   list: any = [];
 
   searchName: string = "";
 
-  constructor(public authservice : AuthService, public userservice : UserService, public db : AngularFirestore
+  constructor(public authservice : AuthService, public userservice : UserService
     ,public router : Router) { }
 
   ngOnInit(): void {
@@ -64,6 +71,16 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.update_user(a.id,record);
 
     this.ngOnInit();
+  }
+
+  addSpecialization(a)
+  {
+    let record= {};
+    record['name'] = a.name;
+    record['description'] = a.description;
+
+    this.userservice.create_Specialization(record);
+
   }
 
 }

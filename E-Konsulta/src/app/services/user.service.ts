@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -11,6 +12,18 @@ import * as firebase from 'firebase';
 export class UserService {
 
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage) { }
+
+  create_Specialization(a)
+  {
+    this.db.collection('specialization').add({
+      name: a.name,
+      description: a.description,
+      created_at: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      updated_at: formatDate(new Date(), 'MM/dd/yyyy', 'en')
+    }).then(function(){
+      console.log("Added!");
+    })
+  }
 
   get_UserInfo(user_id: string)
   {
