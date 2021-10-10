@@ -1,3 +1,4 @@
+import { splitAtColon } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -31,17 +32,34 @@ export class AdminDoctorsComponent implements OnInit {
   userID: string = "";
   list: any = [];
 
+  spList: any = [] = "";
+
   searchName: string = "";
 
   constructor(public authservice : AuthService, public userservice : UserService
     ,public router : Router) { }
 
   ngOnInit(): void {
-    this.userID = this.authservice.get_UID();
 
+    this.userID = this.authservice.get_UID();
     this.listOfDoctors();
+    this.listOfSpecialization();
 
   }
+
+  listOfSpecialization()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_Speciaalization().subscribe(res => {
+      res.forEach(item => {
+        data = item.payload.doc.data();
+        tempArray.push(data);
+      })
+    })
+    this.spList =tempArray;
+  }
+
   listOfDoctors()
   {
     var data;
@@ -81,6 +99,7 @@ export class AdminDoctorsComponent implements OnInit {
 
     this.userservice.create_Specialization(record);
 
+    this.listOfSpecialization();
   }
 
 }

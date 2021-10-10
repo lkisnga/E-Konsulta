@@ -25,6 +25,11 @@ export class UserService {
     })
   }
 
+  get_Speciaalization()
+  {
+    return this.db.collection('specialization').snapshotChanges();
+  }
+
   get_UserInfo(user_id: string)
   {
      return this.db.firestore.collection('Users').doc(user_id).get();
