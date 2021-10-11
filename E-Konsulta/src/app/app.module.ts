@@ -58,6 +58,10 @@ import { HealthInsuranceProblemsComponent } from './components/health-insurance-
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
+import { DoctorRegistrationComponent } from './components/doctor-registration/doctor-registration.component';
+import { PatientRegistrationComponent } from './components/patient-registration/patient-registration.component';
+import { HealthInsuranceRegistrationComponent } from './components/health-insurance-registration/health-insurance-registration.component';
+import { LabPartnerRegistrationComponent } from './components/lab-partner-registration/lab-partner-registration.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +110,11 @@ import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/d
     HealthInsuranceVerificationComponent,
     HealthInsuranceFeedbacksComponent,
     HealthInsuranceProblemsComponent,
-    DoctorPatientsChatComponent
+    DoctorPatientsChatComponent,
+    DoctorRegistrationComponent,
+    PatientRegistrationComponent,
+    HealthInsuranceRegistrationComponent,
+    LabPartnerRegistrationComponent
   ],
   imports: [
     FormsModule,

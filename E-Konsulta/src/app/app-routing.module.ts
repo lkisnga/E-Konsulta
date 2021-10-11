@@ -38,6 +38,10 @@ import { HealthInsuranceVerificationComponent } from './components/health-insura
 import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
 import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
 import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
+import { DoctorRegistrationComponent } from './components/doctor-registration/doctor-registration.component';
+import { PatientRegistrationComponent } from './components/patient-registration/patient-registration.component';
+import { HealthInsuranceRegistrationComponent } from './components/health-insurance-registration/health-insurance-registration.component';
+import { LabPartnerRegistrationComponent } from './components/lab-partner-registration/lab-partner-registration.component';
 
 
 const routes: Routes = [
@@ -78,7 +82,11 @@ const routes: Routes = [
   { path: 'health-insurance-verification', component: HealthInsuranceVerificationComponent},
   { path: 'health-insurance-feedbacks', component: HealthInsuranceFeedbacksComponent},
   { path: 'health-insurance-problems', component: HealthInsuranceProblemsComponent},
-  { path: 'doctor-patient-chat', component: DoctorPatientsChatComponent}
+  { path: 'doctor-patient-chat', component: DoctorPatientsChatComponent},
+  { path: 'doctor-registation', component: DoctorRegistrationComponent},
+  { path: 'patient-registration', component: PatientRegistrationComponent},
+  { path: 'health-insurance-registration', component: HealthInsuranceRegistrationComponent},
+  { path: 'lab-partner-registration', component: LabPartnerRegistrationComponent}
 ];
 
 
@@ -129,5 +137,9 @@ export const routingComponents = [
   HealthInsuranceVerificationComponent,
   HealthInsuranceFeedbacksComponent,
   HealthInsuranceProblemsComponent,
-  DoctorPatientsChatComponent
+  DoctorPatientsChatComponent,
+  DoctorRegistrationComponent,
+  PatientRegistrationComponent,
+  HealthInsuranceRegistrationComponent,
+  LabPartnerRegistrationComponent
 ];
