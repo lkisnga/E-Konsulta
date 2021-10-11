@@ -14,7 +14,9 @@ body{
   color: rgb(0, 192, 206);
   padding: 12px 4px;
 }
-
+.profile-pic{
+  
+}
 .col-10{
   margin: 60px 0px 0px 35px;
   max-height: min-content;

@@ -71,8 +71,8 @@
         </div>
         <form #specialInfo="ngForm" (ngSubmit)="addSpecialization(specialInfo.value)">
           <div class="modal-body">
-            Specialization Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="30"> <br><br>
-            Specialization Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="32" rows="3"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="40"> <br><br>
+            Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="45" rows="6"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -86,7 +86,7 @@
 
   <!--Modal Specialization List-->
   <div class="modal fade" id="spclList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="spclListLabel">Specialization List</h5>
@@ -98,12 +98,20 @@
               <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th scope="col">Action</th>
+                <th></th>
               </tr>
             </thead>
               <tbody>
                 <tr *ngFor="let item of spList">
                   <th>{{item.name}}</th>
                   <td>{{item.description}}</td>
+                  <td>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editSpcl">EDIT</button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSpcl">DELETE</button>
+                  </td>
                 </tr>
               </tbody>
           </table>
@@ -134,7 +142,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
+            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
           </div>
         </form>
       </div>
@@ -161,6 +169,48 @@
     </div>
   </div>
   <!--end of delete doctor modal-->
+
+  <!--Edit Doctor Specialization-->
+  <div class="modal fade" id="editSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editDoctorLabel">Edit Specialization</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <form >
+          <div class="modal-body">
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"><br><br>
+            Description:  &nbsp; <textarea name="description" id="" cols="45" rows="6"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--end of edit doctor Specialization-->
+
+  <!--Delete Doctor Specialization-->
+  <div class="modal fade" id="deleteSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of delete doctor Specialization-->
 
 </body>
 </html>
