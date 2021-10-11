@@ -1,1 +1,46 @@
-<p>doctor-registration works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Registration Page</title>
+</head>
+<body>
+  <!--header section -->
+  <!-- <app-header></app-header> -->
+
+ <!--Registration Form-->
+ <div class="register-page">
+  <div class="form">
+    <h3>Registration</h3>
+    <form #userRegForm="ngForm" class="register-form">
+      <input type="text" name="fullName" placeholder="Full Name" required/>
+      <input class="dateclass placeholderclass" type="date" name="date" placeholder="Date of Birth" required>
+      <input type="text" name="emailAddress" placeholder="Email address" required/>
+      <input type="password" placeholder="Password" required/>
+      <input type="password" placeholder="Confirm Password" required/>
+      <input type="text" placeholder="License Number" required/>
+      <input type="text" placeholder="Contact Number" required/>
+      <div class="agree">
+        <input type="checkbox" class="form-check-input" id="terms"/>
+        <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+      </div>
+      <button type="submit" class="nav-item nav-link-edit">REGISTER</button>
+
+    </form>
+    <!--
+    <div class="form-group">
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+          {{errorMessage}}</p>
+
+      <p *ngIf="error.message.length > 0" class="text-danger">
+          {{error.message}} </p>
+
+          <p *ngIf="message.length > 0" class="text-info">
+              {{message}} </p>
+    </div>
+  -->
+  </div>
+</div>
+</body>
+</html>
+

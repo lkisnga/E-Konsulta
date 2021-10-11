@@ -83,7 +83,7 @@ const routes: Routes = [
   { path: 'health-insurance-feedbacks', component: HealthInsuranceFeedbacksComponent},
   { path: 'health-insurance-problems', component: HealthInsuranceProblemsComponent},
   { path: 'doctor-patient-chat', component: DoctorPatientsChatComponent},
-  { path: 'doctor-registation', component: DoctorRegistrationComponent},
+  { path: 'doctor-registration', component: DoctorRegistrationComponent},
   { path: 'patient-registration', component: PatientRegistrationComponent},
   { path: 'health-insurance-registration', component: HealthInsuranceRegistrationComponent},
   { path: 'lab-partner-registration', component: LabPartnerRegistrationComponent}
