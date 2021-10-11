@@ -5,8 +5,8 @@
   <title>Registration Page</title>
 </head>
 <body>
-  <!--header section -->
-  <app-header></app-header>
+  <!--header section
+  <app-header></app-header> -->
 
  <!--Registration Form-->
  <div class="register-page">
@@ -14,7 +14,8 @@
     <h3>Registration</h3>
     <form #userRegForm="ngForm" class="register-form" (ngSubmit)="registerUser(userRegForm.value)">
       <input type="text" [(ngModel)]="this.userForm.fullName" name="fullName" placeholder="Full Name" required/>
-      <input type="text" [(ngModel)]="this.userForm.age" name="age" placeholder="Age" required>
+      <!-- <input type="text" [(ngModel)]="this.userForm.age" name="age" placeholder="Age" required> -->
+      <input class="dateclass placeholderclass" type="date" name="date" placeholder="Date of Birth" required>
       <input type="text" [(ngModel)]="this.userForm.emailAddress" name="emailAddress" placeholder="Email address" required/>
       <input type="password" [(ngModel)]="this.userForm.password" name="password" placeholder="Password" required/>
       <input type="password" placeholder="Confirm Password" required/>
