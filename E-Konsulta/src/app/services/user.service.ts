@@ -25,6 +25,25 @@ export class UserService {
     })
   }
 
+  create_HealthInsurance(a)
+  {
+    this.db.collection('Health_Insurance').add({
+      name: a.name,
+      branchname: a.branchname,
+      address: a.address
+    }).then(function(){
+      console.log("Added!");
+    })
+  }
+
+  get_patient()
+  {
+    return this.db.firestore.collection('Users').where("role", "==", "patient").get();
+  }
+  get_patientInfo(id)
+  {
+    return this.db.firestore.collection('Patient_Info').doc(id).get()
+  }
   get_Speciaalization()
   {
     return this.db.collection('specialization').snapshotChanges();
@@ -38,11 +57,32 @@ export class UserService {
   {
     return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
   }
+  get_HealthInsurance()
+  {
+    return this.db.firestore.collection('Health_Insurance').get();
+  }
+
+  //Delete User
+  delete_user(id)
+  {
+    this.db.collection('Users').doc(id).delete();
+  }
+  delete_Insurance(id)
+  {
+    this.db.collection('Health_Insurance').doc(id).delete().then(function(){
+      console.log("deleted successfully!");
+    })
+  }
 
   update_user(user_id,record)
   {
     this.db.collection('Users').doc(user_id).update(record);
-    //console.log(record);
+    console.log("Updated!");
+  }
+  update_insurance(id,record)
+  {
+    this.db.collection('Health_Insurance').doc(id).update(record);
+    console.log("Updated!");
   }
   get_avatar(user_id)
   {

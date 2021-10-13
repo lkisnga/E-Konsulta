@@ -60,6 +60,11 @@ export class AdminDoctorsComponent implements OnInit {
     this.spList =tempArray;
   }
 
+  editSP()
+  {
+    
+  }
+
   listOfDoctors()
   {
     var data;
@@ -75,6 +80,7 @@ export class AdminDoctorsComponent implements OnInit {
       })
     })
   }
+  //Edit Doctor Info
   editInfo(record)
   {
     //console.log(record.uid);
