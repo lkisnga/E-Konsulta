@@ -19,7 +19,7 @@
 
       <div class="col-sm-3 col-sm-offset-3 py-4">
         <div class="input-group py-4">
-          <input type="search" class="form-control border-info rounded" placeholder="Search Patient" aria-label="Search"
+          <input [(ngModel)]="searchName" (input)="listOfPatients()" type="search" class="form-control border-info rounded" placeholder="Search Patient" aria-label="Search"
             aria-describedby="search-addon" />
           <button type="button" class="btn btn-info">Search</button>
         </div>
@@ -39,14 +39,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">10001</th>
-              <td>Sabrina Spellman</td>
-              <td>Patient</td>
-              <td>HID123</td>
-              <td>PNT1034</td>
+            <tr *ngFor="let item of patientList">
+              <th scope="row">{{item.email}}</th>
+              <td>{{item.firstname}}</td>
+              <td>{{item.role}}</td>
+              <td>{{item.member_number}}</td>
+              <td>{{item.contact_number}}</td>
               <td>
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editPatient">EDIT</button> &nbsp;
+                <button (click)="editList(item)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editPatient">EDIT</button> &nbsp;
                 <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePatient">DELETE</button></span>
               </td>
             </tr>
@@ -64,17 +64,19 @@
           <h5 class="modal-title" id="editPatientLabel">Edit Patient</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
-        <div class="modal-body">
-          Patient Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-          Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"><br><br>
-          User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-          Health Insurance Id: &nbsp; &nbsp;&nbsp;<input type="text" size="30"><br><br>
-          Account Number: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
-        </div>
+        <form #userInfo = "ngForm" (ngSubmit)="updateInfo(userInfo.value)">
+          <div class="modal-body">
+            Patient Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.uid" name="uid" type="text" size="30" readonly> <br><br>
+            Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.firstname" name="firstname" type="text" size="30"><br><br>
+            User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.role" name="role" type="text" size="30"> <br><br>
+            Health Insurance Id: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="list.member_number" name="member_number" type="text" size="30" readonly><br><br>
+            Account Number: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.account_number" name="account_number" type="text" size="30">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
