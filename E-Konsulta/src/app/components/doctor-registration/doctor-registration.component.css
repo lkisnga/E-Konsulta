@@ -1,10 +1,10 @@
 body{
   font-family: "Roboto", sans-serif;
   margin: 0;
- /* background-image: url("/assets/images/doctor.jpg");
-  background-position: center;
+  /*background-image: url("/assets/images/background-doctor2.png");
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
+  height: 657px; */
 }
 
 
@@ -45,6 +45,7 @@ input[type="date"]:before {
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
   content: "";
+  color: rgb(0, 192, 206);
 }
 
 .form input[type=text]:hover,.form input[type=text]:active,.form input[type=text]:focus,

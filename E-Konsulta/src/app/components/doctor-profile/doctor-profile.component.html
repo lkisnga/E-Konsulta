@@ -1,28 +1,28 @@
 <app-header-user></app-header-user>
 <div>
   <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
+    <div class="col-2 px-md-2 col-xl-2 px-sm-1">
      <app-doctor-sidenav></app-doctor-sidenav>
     </div>
       <!--2nd column-->
-      <div class="col" id="doctor-container">
+      <div class="col-10 col-md-9 col-sm-7 border border-info">
         <h2 class="doctor"><span><img src="" alt="img" width="50" height="50"></span> Doctor Name</h2>
         <div class="info px-3 py-4">
-          User UID: <br><br>
-          Doctor ID: <br><br>
-          License Number: <br><br>
-          Specialization ID: <br><br>
-          Name:  <br><br>
-          Date of Birth:  <br><br>
-          Email:  <br><br>
-          Password: <br><br>
-          User Type: <br><br>
-          Status: <br><br>
-          Contact Number: <br><br>
+          User UID: <br>
+          Doctor ID: <br>
+          License Number: <br>
+          Specialization ID: <br>
+          Name:  <br>
+          Date of Birth:  <br>
+          Email:  <br>
+          User Type: <br>
+          Contact Number: <br>
           isVerified:
         </div>
-        <button class="btn btn-outline-info" id="edit"   data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-        <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        <div>
+          <button class="btn btn-info" id="edit"   data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        </div>
       </div>
   </div>
 </div>

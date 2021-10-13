@@ -1,11 +1,10 @@
-body{
-  width: 100%;
-}
+
 #sidenav{
   background-color: rgb(0, 192, 206) !important;
   width: 190px;
   position: sticky;
   z-index: 99;
+  height: 598px;
 }
 
 .nav-link{
@@ -16,4 +15,14 @@ body{
 .nav-link:hover{
   /* background-color: white; */
   color: rgb(173, 251, 255) !important;
+}
+
+/*responsive */
+@media screen and (max-width: 650px)
+{
+  #sidenav
+  {
+    width: 100px;
+  }
+
 }
