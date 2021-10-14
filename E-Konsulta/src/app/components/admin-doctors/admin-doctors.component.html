@@ -107,7 +107,7 @@
                   <th>{{item.name}}</th>
                   <td>{{item.description}}</td>
                   <td>
-                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editSpcl">EDIT</button>
+                    <button (click)="editSP(item)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editSpcl">EDIT</button>
                   </td>
                   <td>
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSpcl">DELETE</button>
@@ -178,10 +178,10 @@
           <h5 class="modal-title" id="editDoctorLabel">Edit Specialization</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
-        <form >
+        <form (ngSubmit)="update_Specialization()">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="42"><br><br>
-            Description:  &nbsp; <textarea name="description" id="" cols="45" rows="6"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp2.name" name="name" type="text" size="42"><br><br>
+            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="45" rows="6"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -201,7 +201,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete?</p>
+          <p>Are you sure you want to delete?</p> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -47,7 +47,7 @@ export class AuthService {
     return this.afu.createUserWithEmailAndPassword(user.emailAddress, user.password)
       .then((userCredential) => {
         this.newUser = user;
-        console.log(userCredential);
+        console.log(this.newUser);
         userCredential.user.updateProfile( {
           displayName: user.fullName
         });
@@ -74,28 +74,16 @@ export class AuthService {
   {
     return this.db.firestore.collection('Users');
   }
-
-  
   insertUserData(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       emailAddress: this.newUser.emailAddress,
       password: this.newUser.password,
       fullName: this.newUser.fullName,
-      age: this.newUser.age,
+      dob: this.newUser.dob,
       role: 'admin'
     })
   }
-  /*loginWithEmail(email: string, password: string)
-  {
-    return this.afu.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user;
-      })
-      .catch(error => {
-        console.log(error) 
-        throw error
-      });
-  }*/
+
   loginWithEmail(email: string, password: string)
   {
     return this.afu.signInWithEmailAndPassword(email,password).then(res=>{
