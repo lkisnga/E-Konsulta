@@ -1,5 +1,6 @@
 import { splitAtColon } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { formatDate } from '@angular/common';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
@@ -29,6 +30,9 @@ export class AdminDoctorsComponent implements OnInit {
   model = new DoctorInfo();
   sp = new SpecializationInfo();
 
+  sp2 = new SpecializationInfo(); //EditInfo
+  spID : any = "";
+
   userID: string = "";
   list: any = [];
 
@@ -54,15 +58,30 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.get_Speciaalization().subscribe(res => {
       res.forEach(item => {
         data = item.payload.doc.data();
+        data.uid = item.payload.doc.id;
         tempArray.push(data);
       })
     })
     this.spList =tempArray;
   }
 
-  editSP()
+  editSP(e)
   {
-    
+    this.spID = e.uid;
+    this.sp2.name = e.name;
+    this.sp2.description = e.description;
+  }
+  update_Specialization()
+  {
+    let record = {};
+    record['name'] = this.sp2.name;
+    record['description'] = this.sp2.description;
+    record['updated_at'] = formatDate(new Date(), 'MM/dd/yyyy', 'en');
+    this.userservice.update_Specialization(this.spID,record);
+  }
+  delete_Specialization()
+  {
+    this.userservice.delete_specialization(this.spID);
   }
 
   listOfDoctors()

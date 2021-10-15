@@ -19,7 +19,7 @@
 
       <div class="col-sm-3 col-sm-offset-3 py-4">
         <div class="input-group py-4">
-          <input type="search" class="form-control border-info rounded" placeholder="Search Laboratory Partner" aria-label="Search"
+          <input [(ngModel)]="searchName" (input)="listOfPartners()" type="search" class="form-control border-info rounded" placeholder="Search Laboratory Partner" aria-label="Search"
             aria-describedby="search-addon" />
           <button type="button" class="btn btn-info">Search</button>
         </div>
@@ -36,12 +36,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Hi-Precision Diagnostics</td>
-              <td>MV Patalinhug Avenue, Basak, Lapu Lapu City</td>
+            <tr *ngFor="let item of list">
+              <td>{{item.name}}</td>
+              <td>{{item.address}}</td>
               <td>
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editLabPartner">EDIT</button> &nbsp;
-                <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteLabPartner">DELETE</button></span>
+                <button (click)="editInfo(item)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editLabPartner">EDIT</button> &nbsp;
+                <span><button (click)="deleteInfo()" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteLabPartner">DELETE</button></span>
               </td>
             </tr>
           </tbody>
@@ -58,14 +58,16 @@
           <h5 class="modal-title" id="editLabPartnerLabel">Edit Laboratory Partner</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
-        <div class="modal-body">
-          Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-          Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"><br><br>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
-        </div>
+        <form #info="ngForm" (ngSubmit)="updateInfo(info.value)">
+          <div class="modal-body">
+            Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="30"> <br><br>
+            Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

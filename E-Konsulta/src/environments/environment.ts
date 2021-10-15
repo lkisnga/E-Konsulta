@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyBCOngkKxsKqsXejNjmmLJyftbGGuZmLcU",
-    authDomain: "e-konsulta.firebaseapp.com",
-    databaseURL: "https://e-konsulta-default-rtdb.firebaseio.com",
-    projectId: "e-konsulta",
-    storageBucket: "e-konsulta.appspot.com",
-    messagingSenderId: "597474042190",
-    appId: "1:597474042190:web:8de6145e4a8c12334d7e1f",
-    measurementId: "G-0XC50QJ1BK"
+    apiKey: "AIzaSyDdNrH7dMpRqmFlAleV43vBQKSRJ7R4N2k",
+    authDomain: "e-konsulta-b7c0d.firebaseapp.com",
+    projectId: "e-konsulta-b7c0d",
+    storageBucket: "e-konsulta-b7c0d.appspot.com",
+    messagingSenderId: "975548540004",
+    appId: "1:975548540004:web:69b6ef10f6cec17a1e2b71",
+    measurementId: "G-3NH9404ZV6"
   }
 };
 

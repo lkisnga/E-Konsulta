@@ -48,6 +48,10 @@ export class UserService {
   {
     return this.db.collection('specialization').snapshotChanges();
   }
+  get_labPartner()
+  {
+    return this.db.collection('Laboratory_Partner').get();
+  }
 
   get_UserInfo(user_id: string)
   {
@@ -67,13 +71,23 @@ export class UserService {
   {
     this.db.collection('Users').doc(id).delete();
   }
+  delete_lab(id)
+  {
+    this.db.collection("Laboratory_Partner").doc(id).delete();
+    console.log("deleted successfully!");
+  }
   delete_Insurance(id)
   {
     this.db.collection('Health_Insurance').doc(id).delete().then(function(){
       console.log("deleted successfully!");
     })
   }
-
+  delete_specialization(id)
+  {
+    this.db.collection('specialization').doc(id).delete().then(function(){
+      console.log("Deleted successfully!");
+    })
+  }
   update_user(user_id,record)
   {
     this.db.collection('Users').doc(user_id).update(record);
@@ -84,6 +98,18 @@ export class UserService {
     this.db.collection('Health_Insurance').doc(id).update(record);
     console.log("Updated!");
   }
+
+  update_labInfo(id,record)
+  {
+    this.db.collection("Laboratory_Partner").doc(id).update(record);
+    console.log("Updated!");
+  }
+  update_Specialization(id,record)
+  {
+    this.db.collection('specialization').doc(id).update(record);
+    console.log("updated!");
+  }
+
   get_avatar(user_id)
   {
     return this.db.firestore.collection('avatar').doc(user_id).get();
