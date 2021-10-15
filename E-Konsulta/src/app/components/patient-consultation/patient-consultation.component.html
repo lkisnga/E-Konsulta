@@ -33,10 +33,10 @@
         <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
       </div>
       <div *ngIf="upcoming" class="list-group">
-        <a class="list-group-item list-group-item-action">Kanemoto Yoshi</a>
+        <a routerLink="/patient-doctor-chat" class="list-group-item list-group-item-action">Kanemoto Yoshi</a>
       </div>
       <div *ngIf="done" class="list-group">
-          <a class="list-group-item list-group-item-action">Choi Hyunsuk</a>
+          <a routerLink="/patient-doctor-chat" class="list-group-item list-group-item-action">Choi Hyunsuk</a>
       </div>
     </div>
   </div>

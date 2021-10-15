@@ -62,6 +62,8 @@ import { DoctorRegistrationComponent } from './components/doctor-registration/do
 import { PatientRegistrationComponent } from './components/patient-registration/patient-registration.component';
 import { HealthInsuranceRegistrationComponent } from './components/health-insurance-registration/health-insurance-registration.component';
 import { LabPartnerRegistrationComponent } from './components/lab-partner-registration/lab-partner-registration.component';
+import { PatientDoctorChatComponent } from './components/patient-doctor-chat/patient-doctor-chat.component';
+
 
 @NgModule({
   declarations: [
@@ -114,7 +116,8 @@ import { LabPartnerRegistrationComponent } from './components/lab-partner-regist
     DoctorRegistrationComponent,
     PatientRegistrationComponent,
     HealthInsuranceRegistrationComponent,
-    LabPartnerRegistrationComponent
+    LabPartnerRegistrationComponent,
+    PatientDoctorChatComponent
   ],
   imports: [
     FormsModule,
