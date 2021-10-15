@@ -5,8 +5,9 @@
      <app-doctor-sidenav></app-doctor-sidenav>
     </div>
       <!--2nd column-->
-      <div class="col-10 col-md-9 col-sm-7 border border-info">
-        <h2 class="doctor"><span><img src="" alt="img" width="50" height="50"></span> Doctor Name</h2>
+      <div class="col-10 col-md-9 col-sm-7 border border-info tbl">
+        <h2 class="doctor"><span><img src="" alt="img" width="70" height="70"></span> Doctor Name</h2>
+        <!-- <button (click)="uploadImage()" class="btn btn-primary">Upload</button> -->
         <div class="info px-3 py-4">
           User UID: <br>
           Doctor ID: <br>
@@ -36,11 +37,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
-        Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-        Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="50"><br><br>
-        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="30"> <br><br>
-        Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="30"><br><br>
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="40"> <br><br>
+        Date of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date"><br><br>
+        Contact #:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"><br><br>
+        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="40"> <br><br>
+        Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="40"><br><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -8,6 +8,8 @@ body{
   color: rgb(0, 192, 206);
   padding: 12px 4px;
 }
+
+
 .info{
   line-height: 38px;
 }
@@ -23,6 +25,14 @@ body{
   max-height: 100%;
 } */
 
+
+.profile-pic{
+  border-radius: 50%;
+}
+.col-10{
+  margin: 40px 0px 0px 35px;
+  max-height: min-content;
+}
 
 #edit{
   margin-right: 10px;

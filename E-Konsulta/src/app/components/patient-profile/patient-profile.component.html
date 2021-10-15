@@ -6,21 +6,21 @@
       <app-patient-sidenav></app-patient-sidenav>
     </div>
       <!--2nd column-->
-      <div class="col" id="patient-container">
-        <h2 class="patient"><span><img src="" alt="img" width="50" height="50"></span> Patient Name</h2>
+      <div class="col-10 col-md-9 col-sm-7 border border-info tbl" id="patient-container">
+        <h2 class="patient"><span><img src="" alt="img" width="70" height="70"></span> Patient Name</h2>
+        <!-- <button (click)="uploadImage()" class="btn btn-primary">Upload</button> -->
         <div class="info px-3 py-4">
-          User UID: <br><br>
-          Patient ID: <br><br>
-          Health Insurance ID: <br><br>
-          Account Number: <br><br>
-          Name:  <br><br>
-          Date of Birth:  <br><br>
-          Email:  <br><br>
-          Password: <br><br>
-          User Type: <br><br>
-          Status: <br><br>
-          Contact Number: <br><br>
-          isVerified: <br> <br>
+          User UID: <br>
+          Patient ID: <br>
+          Health Insurance ID: <br>
+          Account Number: <br>
+          Name:  <br>
+          Date of Birth:  <br>
+          Email:  <br>
+          User Type: <br>
+          Status: <br>
+          Contact Number: <br>
+          isVerified: <br>
         </div>
         <button class="btn btn-outline-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         <button class="btn btn-outline-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
@@ -36,15 +36,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
-        Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-        Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" size="50"><br><br>
-        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="30"> <br><br>
-        Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="30"><br><br>
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="40"> <br><br>
+        Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;<input type="date"><br><br>
+        Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"><br><br>
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="40"> <br><br>
+        Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="40"><br><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Update</button>
       </div>
     </div>
   </div>
