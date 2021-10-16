@@ -23,21 +23,13 @@
       <div class="col mx-3">
         <h3 class="usr">Problems</h3>
         <ul class="list-group py-2">
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
+          <li *ngFor="let list of list" class="list-group-item  list-group-item-action flex-column align-items-start text-info">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>User ID</h5>
-              <small>September 1, 2021</small>
+              <small>{{list.date}}</small>
             </div>
-            <p class="mb-1">A user encountered some problems.</p>
-            <small>User Type</small>
-          </li>
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>User ID</h5>
-              <small>September 2, 2021</small>
-            </div>
-            <p class="mb-1">The notification is delayed.</p>
-            <small>User Type</small>
+            <p class="mb-1">{{list.content}}</p>
+            <small>{{list.role}}</small>
           </li>
         </ul>
       </div>

@@ -38,10 +38,12 @@ export class AdminHealthInsuranceComponent implements OnInit {
         tempArray.push(data);
       })
       this.list = tempArray.filter(res => {
-        return res.name.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        if(res.name != undefined)
+          return res.name.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
       })
     }) 
   }
+  
   edit_info(e)
   {
     this.UID = e.uid;

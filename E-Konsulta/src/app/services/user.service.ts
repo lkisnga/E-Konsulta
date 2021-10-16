@@ -65,6 +65,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Health_Insurance').get();
   }
+  get_review()
+  {
+    return this.db.firestore.collection('reviews').get();
+  }
 
   //Delete User
   delete_user(id)

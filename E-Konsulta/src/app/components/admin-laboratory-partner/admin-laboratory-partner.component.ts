@@ -57,7 +57,8 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
         tempArray.push(data);
       })
       this.list = tempArray.filter(e => {
-        return e.name.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        if(e.name)
+          return e.name.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
       });
     })
   }
