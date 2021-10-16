@@ -9,8 +9,7 @@
 
 .list-group-item{
   border: 1px solid black;
-  cursor: pointer;
-  margin: 10px 20px;
+  margin: 5px 20px;
   max-width: 1050px;
   color: black !important;
 }
