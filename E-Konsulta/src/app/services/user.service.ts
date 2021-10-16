@@ -52,7 +52,10 @@ export class UserService {
   {
     return this.db.collection('Laboratory_Partner').get();
   }
-
+  get_labInfo(id)
+  {
+    return this.db.collection('Laboratory_Partner').doc(id).get();
+  }
   get_UserInfo(user_id: string)
   {
      return this.db.firestore.collection('Users').doc(user_id).get();
@@ -106,6 +109,7 @@ export class UserService {
   update_labInfo(id,record)
   {
     this.db.collection("Laboratory_Partner").doc(id).update(record);
+    this.db.collection("Users").doc(id).update(record);
     console.log("Updated!");
   }
   update_Specialization(id,record)

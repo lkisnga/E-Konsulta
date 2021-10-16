@@ -9,18 +9,16 @@
       <div class="col-10 col-md-9 col-sm-7 border border-info tbl" id="lab-container">
         <h2 class="lab"><span><img src="" alt="img" width="50" height="50"></span> Laboratory Partner Name</h2>
         <div class="info px-3 py-4">
-          User UID: <br>
-          Laboratory Partner ID: <br>
-          Name:  <br>
-          Address: <br>
-          Date of Birth:  <br>
-          Email:  <br>
-          User Type: <br>
+          Laboratory Partner ID: {{userID}} <br>
+          Name:  {{info.name}}<br>
+          Address: {{info.address}}<br>
+          Email: {{info.email}} <br>
+          User Type: {{info.role}}<br>
           Status: <br>
-          Contact Number: <br>
+          Contact Number: {{info.contact_number}}<br>
           isVerified: <br>
         </div>
-        <button class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+        <button (click)="editInfo()" class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>
@@ -32,16 +30,19 @@
         <h5 class="modal-title" id="editLabel">Edit</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
-      <div class="modal-body">
-        User Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"> <br><br>
-        Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-        Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="30"> <br><br>
-        Password: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input type="password" size="30"><br><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Edit</button>
-      </div>
+      <form #userInfo="ngForm" (ngSubmit)="updateInfo(userInfo.value)" class="form">
+        <div class="modal-body">
+          Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.name" name="name" type="text" size="30"> <br><br>
+          Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="30"> <br><br>
+          Password: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input name="password" type="text" size="30"> <br><br>
+          Address: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
+          Contact Number: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -57,7 +58,7 @@
         <p>Are you sure you want to logout?</p>
       </div>
       <div class="modal-footer">
-        <button [routerLink]="['/']" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
+        <button (click)="logout()" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
         <button [routerLink]="['/lab-partner-profile']" type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
       </div>
     </div>

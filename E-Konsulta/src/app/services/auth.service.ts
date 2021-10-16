@@ -104,6 +104,7 @@ export class AuthService {
       email: this.newUser.email,
       password: this.newUser.password,
       name: this.newUser.name,
+      address: this.newUser.address,
       contact_number: this.newUser.contact_number,
       role: 'laboratory_partner'
     })
