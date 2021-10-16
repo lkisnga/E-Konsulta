@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'src/app/services/auth.service';
+import { LabForm } from 'src/app/class/lab-form.module';
 @Component({
   selector: 'app-lab-partner-registration',
   templateUrl: './lab-partner-registration.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabPartnerRegistrationComponent implements OnInit {
 
-  constructor() { }
+  model = new LabForm();
+  constructor(public afu : AuthService) { }
 
   ngOnInit(): void {
   }
+
+  onSubmit(frm)
+  {
+    console.log(frm);
+  } 
 
 }

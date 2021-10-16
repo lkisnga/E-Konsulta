@@ -69,6 +69,40 @@ export class AuthService {
       });
 
   }
+  registerWithEmail_Lab(user) {
+    return this.afu.createUserWithEmailAndPassword(user.emailAddress, user.password)
+      .then((userCredential) => {
+        this.newUser = user;
+        console.log(this.newUser);
+        userCredential.user.updateProfile( {
+          displayName: user.fullName
+        });
+          this.insertUserData_Lab(userCredential)
+
+          this.afu.onAuthStateChanged(user => {
+            if(user)
+            this.store.storage.ref('Users/' + 'default' + '/profile.jpg').getDownloadURL().then(e =>{
+              this.db.collection('avatar').doc(userCredential.user.uid).set({
+                image : e
+              })
+            })
+        }) 
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
+
+  }
+  insertUserData_Lab(userCredential: firebase.auth.UserCredential) {
+    return this.db.collection('Users').doc(userCredential.user.uid).set({
+      emailAddress: this.newUser.emailAddress,
+      password: this.newUser.password,
+      fullName: this.newUser.fullName,
+      dob: this.newUser.dob,
+      role: 'admin'
+    })
+  }
   //Get user Data
   get_userData()
   {
