@@ -28,13 +28,29 @@ export class LoginPageComponent implements OnInit {
   }
   login()
   {
-    this.clearErrorMessage();
+    this.authservice.get_userData().then(e => {
+      e.forEach(res => {
+        if(res.data().email == this.email)
+          {
+            this.clearErrorMessage();
+            if (this.validateForm(this.email, this.password)) {
+              this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+                  this.error = _error
+                  this.router.navigate(['/login'])
+                })
+            }
+          }
+      })
+    })
+    /*
+   this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
+
       this.authservice.loginWithEmail(this.email, this.password).catch(_error => {
           this.error = _error
           this.router.navigate(['/login'])
         })
-    }
+    }*/
   }
 
   validateForm(email, password)

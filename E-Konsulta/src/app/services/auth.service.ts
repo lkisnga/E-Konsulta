@@ -67,10 +67,9 @@ export class AuthService {
         console.log(error)
         throw error
       });
-
   }
   registerWithEmail_Lab(user) {
-    return this.afu.createUserWithEmailAndPassword(user.emailAddress, user.password)
+    return this.afu.createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
         this.newUser = user;
         console.log(this.newUser);
@@ -78,6 +77,7 @@ export class AuthService {
           displayName: user.fullName
         });
           this.insertUserData_Lab(userCredential)
+          this.insertUserData_UserLab(userCredential);
 
           this.afu.onAuthStateChanged(user => {
             if(user)
@@ -92,25 +92,31 @@ export class AuthService {
         console.log(error)
         throw error
       });
-
   }
-  insertUserData_Lab(userCredential: firebase.auth.UserCredential) {
+  insertUserData_UserLab(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
-      emailAddress: this.newUser.emailAddress,
-      password: this.newUser.password,
-      fullName: this.newUser.fullName,
-      dob: this.newUser.dob,
-      role: 'admin'
+      email: this.newUser.email,
+      role: 'laboratory_partner'
     })
   }
+  insertUserData_Lab(userCredential: firebase.auth.UserCredential) {
+    return this.db.collection('Laboratory_Partner').doc(userCredential.user.uid).set({
+      email: this.newUser.email,
+      password: this.newUser.password,
+      name: this.newUser.name,
+      contact_number: this.newUser.contact_number,
+      role: 'laboratory_partner'
+    })
+  }
+
   //Get user Data
   get_userData()
   {
-    return this.db.firestore.collection('Users');
+    return this.db.firestore.collection('Users').get();
   }
   insertUserData(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
-      emailAddress: this.newUser.emailAddress,
+      email: this.newUser.emailAddress,
       password: this.newUser.password,
       fullName: this.newUser.fullName,
       dob: this.newUser.dob,
@@ -118,16 +124,21 @@ export class AuthService {
     })
   }
 
-  loginWithEmail(email: string, password: string)
+  loginWithEmail(email: string, password: string,role : string)
   {
     return this.afu.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem('Users',JSON.stringify(res.user));
-      
     }).then(() => {
-      this.router.navigate(['/admin-profile'])
+      if(role == "admin")
+        this.router.navigate(['/admin-profile'])
+      if(role=="laboratory_partner")
+        this.router.navigate(['/lab-partner-profile'])
+      if(role=="/patient")
+        this.router.navigate(['/patient-profile']);
       console.log('works!');
      })
   }
+  
   get_UID()
   {
     var data= JSON.parse(localStorage.getItem('Users'));
