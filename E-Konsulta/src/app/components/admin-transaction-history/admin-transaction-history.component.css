@@ -1,6 +1,6 @@
 .tbl{
   margin-left: 200px;
-  margin-top: -41%;
+  margin-top: -42%;
 }
 
 .usr{
@@ -8,12 +8,24 @@
 }
 
 .list-group-item{
-  border: 1px solid rgb(0, 192, 206);
-  color: rgb(0, 192, 206);
-  height: 70px;
-  overflow-y: scroll;
+  border: 1px solid black;
+  cursor: pointer;
+  margin: 10px 20px;
+  max-width: 1050px;
+  color: black !important;
 }
 
 .mb-1{
   font-size: 14px;
+}
+
+.whole-trans{
+  height: 490px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 3px solid rgb(0, 192, 206);
+}
+
+textarea{
+  border: 2px solid rgb(0, 192, 206);
 }

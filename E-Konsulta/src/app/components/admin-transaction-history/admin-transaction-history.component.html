@@ -22,24 +22,64 @@
     <div class="row flex-nowrap tbl">
       <div class="col mx-3">
         <h3 class="usr">Transaction History</h3>
-        <ul class="list-group py-2">
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
+        <ul class="list-group py-2 whole-trans">
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>Name</h5>
               <small>September 1, 2021</small>
             </div>
-            <div class="content">
+            <div id="reply">
               <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
             </div>
             <small>Transaction ID</small>
           </li>
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>Name</h5>
-              <small>September 2, 2021</small>
+              <small>September 1, 2021</small>
             </div>
-            <div class="content">
-              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation.</p>
+            <div id="reply">
+              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
+            </div>
+            <small>Transaction ID</small>
+          </li>
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 mb-1>Name</h5>
+              <small>September 1, 2021</small>
+            </div>
+            <div id="reply">
+              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
+            </div>
+            <small>Transaction ID</small>
+          </li>
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 mb-1>Name</h5>
+              <small>September 1, 2021</small>
+            </div>
+            <div id="reply">
+              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
+            </div>
+            <small>Transaction ID</small>
+          </li>
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 mb-1>Name</h5>
+              <small>September 1, 2021</small>
+            </div>
+            <div id="reply">
+              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
+            </div>
+            <small>Transaction ID</small>
+          </li>
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 mb-1>Name</h5>
+              <small>September 1, 2021</small>
+            </div>
+            <div id="reply">
+              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
             </div>
             <small>Transaction ID</small>
           </li>
@@ -47,6 +87,25 @@
       </div>
     </div>
   </div>
+
+  <!--reply modal-->
+  <div class="modal fade" id="toReply" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reply</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <textarea name="" id="" cols="60" rows="5" placeholder="Write a reply..."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--reply modal end-->
 
 </body>
 </html>
