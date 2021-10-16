@@ -17,29 +17,18 @@
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
-
     </div>
     <div class="row flex-nowrap tbl">
       <div class="col mx-3">
         <h3 class="usr">Transaction History</h3>
-        <ul class="list-group py-2">
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
+        <ul class="list-group py-2 whole-trans">
+          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>Name</h5>
               <small>September 1, 2021</small>
             </div>
-            <div class="content">
+            <div id="reply">
               <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
-            </div>
-            <small>Transaction ID</small>
-          </li>
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>Name</h5>
-              <small>September 2, 2021</small>
-            </div>
-            <div class="content">
-              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation.</p>
             </div>
             <small>Transaction ID</small>
           </li>
