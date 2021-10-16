@@ -10,4 +10,10 @@
 .list-group-item{
   border: 1px solid rgb(0, 192, 206);
   color: rgb(0, 192, 206);
+  height: 70px;
+  overflow-y: scroll;
+}
+
+.mb-1{
+  font-size: 14px;
 }

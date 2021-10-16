@@ -16,6 +16,7 @@ body{
 }
 .profile-pic{
   border-radius: 50%;
+  border: 1px solid rgb(0, 192, 206);
 }
 .col-10{
   margin: 60px 0px 0px 35px;
