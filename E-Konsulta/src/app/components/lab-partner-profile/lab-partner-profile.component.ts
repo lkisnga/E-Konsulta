@@ -21,7 +21,7 @@ export class LabPartnerProfileComponent implements OnInit {
 
   userID : string = "";
   info : any = [];
-
+  imgUrl : any = "";
   model = new EditInfo();
   constructor(public userservice : UserService, public afu : AuthService) { }
 
@@ -30,6 +30,13 @@ export class LabPartnerProfileComponent implements OnInit {
     this.userservice.get_labInfo(this.userID).forEach(e => {
       this.info = e.data();
      // console.log(e.data());
+    })
+
+    this.userservice.get_avatar(this.userID).then(e =>{
+      if(e.data().image)
+        this.imgUrl = e.data().image;
+    }).catch(error => {
+      console.log(error.message);
     })
   }
 
