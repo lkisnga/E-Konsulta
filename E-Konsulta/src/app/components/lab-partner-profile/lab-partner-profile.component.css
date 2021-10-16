@@ -1,6 +1,5 @@
 
 body{
-  width: 100%;
   overflow: hidden;
 }
 
@@ -12,6 +11,10 @@ body{
   padding: 12px 4px;
 }
 
+.info{
+  line-height: 38px;
+}
+/*
 #lab-container{
   position: absolute;
   border: 1px solid rgb(0, 192, 206);
@@ -21,9 +24,9 @@ body{
   top: 80px;
   overflow-y: auto;
   max-height: 100%;
-  /*min-height: 480px; height of sidebar and the information on right*/
-}
-
+  /*min-height: 480px; height of sidebar and the information on right
+}*/
+/*
 #edit{
   position: absolute;
   top: 30px;
@@ -37,4 +40,16 @@ body{
   right: 35px;
   overflow: hidden;
 }
+*/
 
+.profile-pic{
+  border-radius: 50%;
+}
+.col-10{
+  margin: 40px 0px 0px 35px;
+  max-height: min-content;
+}
+
+#edit{
+  margin-right: 10px;
+}
