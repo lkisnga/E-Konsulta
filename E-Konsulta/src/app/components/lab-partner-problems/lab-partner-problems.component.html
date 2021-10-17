@@ -20,15 +20,15 @@
       <div class="col mx-3">
         <h3 class="usr">Problems</h3>
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
+          <li *ngFor="let list of list" class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>Name</h5>
-              <small>September 1, 2021</small>
+              <small>{{list.date}}</small>
             </div>
             <div id="reply">
-              <p class="mb-1">Problems.... problems...</p>
+              <p class="mb-1">{{list.content}}</p>
             </div>
-            <small>Transaction ID</small>
+            <small>{{list.uid}}</small>
           </li>
         </ul>
       </div>

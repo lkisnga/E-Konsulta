@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-lab-partner-feedbacks',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabPartnerFeedbacksComponent implements OnInit {
 
-  constructor() { }
+  list : any = [];
+  constructor(public userservice : UserService) { }
 
   ngOnInit(): void {
+    this.userservice.create_reply();
+    var data;
+    var tempArray = [];
+    this.userservice.get_review().then(e => {
+      e.forEach(item => {
+        if(item.data().type =="feedback")
+        {
+          data = item.data();
+          data.uid = item.id;
+          tempArray.push(data);
+        }
+      })
+      this.list = tempArray;
+    })
   }
 
 }

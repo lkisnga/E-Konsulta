@@ -36,6 +36,14 @@ export class UserService {
     })
   }
 
+  create_reply()
+  {
+    this.db.collection('reviews').doc("iOReLCpgnNxNwJ0HO7lD").collection('reply').doc('iOReLCpgnNxNwJ0HO7lD').set({
+      reply: "Thank you for your feedback!"
+    })
+  }
+
+
   get_patient()
   {
     return this.db.firestore.collection('Users').where("role", "==", "patient").get();
