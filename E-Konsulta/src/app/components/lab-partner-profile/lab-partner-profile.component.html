@@ -7,7 +7,7 @@
     </div>
       <!--2nd column-->
       <div class="col-10 col-md-9 col-sm-7 border border-info tbl" id="lab-container">
-        <h2 class="lab"><span><img src="{{imgUrl}}" alt="img" width="50" height="50"></span> Laboratory Partner Name</h2>
+        <h2 class="lab"><span><img src="{{imgUrl}}" alt="img" class="profile-pic" width="50" height="50"></span> Laboratory Partner Name</h2>
         <div class="info px-3 py-4">
           Laboratory Partner ID: {{userID}} <br>
           Name:  {{info.name}}<br>
@@ -36,7 +36,7 @@
           Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="30"> <br><br>
           Password: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input name="password" type="text" size="30"> <br><br>
           Address: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
-          Contact Number: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br> 
+          Contact Number: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

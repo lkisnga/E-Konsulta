@@ -71,8 +71,8 @@
         </div>
         <form #specialInfo="ngForm" (ngSubmit)="addSpecialization(specialInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="42"> <br><br>
-            Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="45" rows="6"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="38"> <br><br>
+            Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="40" rows="6"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -201,7 +201,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete?</p> 
+          <p>Are you sure you want to delete?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
