@@ -12,7 +12,7 @@ export class LabPartnerFeedbacksComponent implements OnInit {
   constructor(public userservice : UserService) { }
 
   ngOnInit(): void {
-    this.userservice.create_reply();
+  
     var data;
     var tempArray = [];
     this.userservice.get_review().then(e => {
@@ -27,5 +27,4 @@ export class LabPartnerFeedbacksComponent implements OnInit {
       this.list = tempArray;
     })
   }
-
 }

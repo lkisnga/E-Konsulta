@@ -10,7 +10,8 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class UserService {
-
+  task : any;
+  uploadProgress : any;
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage) { }
 
   create_Specialization(a)
@@ -35,12 +36,28 @@ export class UserService {
       console.log("Added!");
     })
   }
-
-  create_reply()
+  //not yet done
+  lab_fileUpload(e,lab_id,pnt_id)
   {
+    var ref;
+    ref = this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/result.pdf');
+    this.task = ref.put(e);
+    this.uploadProgress = this.task.percentageChanges();
+  }
+  //not yet done
+  create_reply_problem()
+  {
+    this.db.collection('reviews').add({
+      sendTo: "lance",
+      sentFrom: "luke",
+      date: formatDate(new Date(), 'MM/dd/yyyy', 'en')
+    }).then(() => {
+      this.db.firestore.collection('reviews')
+    })
+    /*
     this.db.collection('reviews').doc("iOReLCpgnNxNwJ0HO7lD").collection('reply').doc('iOReLCpgnNxNwJ0HO7lD').set({
       reply: "Thank you for your feedback!"
-    })
+    })*/
   }
 
 
@@ -130,6 +147,7 @@ export class UserService {
   {
     return this.db.firestore.collection('avatar').doc(user_id).get();
   }
+
   upload_avatar(a, user_id)
   {
     //Uploading image into fireStorage
