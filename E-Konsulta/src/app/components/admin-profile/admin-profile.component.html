@@ -8,32 +8,32 @@
   <app-header-user></app-header-user>
 
   <div class="row flex-nowrap">
-      <div class="col-2 px-md-2 col-xl-2 px-sm-1">
-          <app-admin-sidenav></app-admin-sidenav>
-      </div>
+    <div class="col-2 px-md-2 col-xl-2 px-sm-1">
+      <app-admin-sidenav></app-admin-sidenav>
+    </div>
 
-      <!--2nd column-->
-      <div class="col-10 col-md-9 col-sm-7 border border-info">
-        <h2 class="admin"><span><img src="{{imgUrl}}" alt="img" class="profile-pic" width="70" height="70"></span> {{userData.fullName}}</h2>
-        <button (click)="uploadImage()" class="btn btn-primary">Upload</button>
-        <input type="file" (change)="choosefile($event)">
-        <div class="info px-3 py-4" *ngIf="authservice.currentUser">
-          User UID: {{authservice.currentUserId}} <br><br>
-          Role: {{userData.role}} <br><br>
-          Name: {{userData.fullName}} <br><br>
-          Email: {{authservice.currentUserName}} <br><br>
-        </div>
-        <div>
-          <button class="btn btn-info" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-          <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
-        </div>
+    <!--2nd column-->
+    <div class="col-10 col-md-9 col-sm-7">
+      <img src="{{imgUrl}}" alt="img" class="profile-pic" width="200" height="200">
+      <h2 class="admin">{{userData.fullName}}</h2>
+      <button (click)="uploadImage()" class="btn btn-primary">Upload</button>
+      <input type="file" (change)="choosefile($event)">
+      <!--Add another admin -->
+      <div class="newAdmin">
+        <button type="button" class="btn btn-info" [routerLink]="['/registration']">Add another admin</button>
       </div>
+      <div class="info px-3 py-4" *ngIf="authservice.currentUser">
+        User UID: {{authservice.currentUserId}} <br>
+        Role: {{userData.role}} <br>
+        Name: {{userData.fullName}} <br>
+        Email: {{authservice.currentUserName}} <br>
+      </div>
+      <div class="buttons-right">
+        <button class="btn btn-info" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+        <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+      </div>
+    </div>
   </div>
-
-<!--Add another admin -->
-<div class="newAdmin">
-  <button type="button" class="btn btn-info" [routerLink]="['/registration']">Add another admin</button>
-</div>
 
 <!--Edit Modal-->
 <div class="modal fade" id="editInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
@@ -45,10 +45,10 @@
       </div>
       <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
       <div class="modal-body">
-        Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" type="text" size="40" name="role"> <br><br>
-        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullName" type="text" size="40" name="fullName"> <br><br>
-        Password: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" type="password" size="40" name="password"><br><br>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.emailAddress" type="text" size="40" name="emailAddress"> <br><br>
+        Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" type="text" size="38" name="role"> <br><br>
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullName" type="text" size="38" name="fullName"> <br><br>
+        Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" type="password" size="38" name="password"><br><br>
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.emailAddress" type="text" size="38" name="emailAddress"> <br><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

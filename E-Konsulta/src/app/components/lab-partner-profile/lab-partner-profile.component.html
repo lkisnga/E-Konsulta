@@ -6,8 +6,9 @@
       <app-lab-partner-sidenav></app-lab-partner-sidenav>
     </div>
       <!--2nd column-->
-      <div class="col-10 col-md-9 col-sm-7 border border-info tbl" id="lab-container">
-        <h2 class="lab"><span><img src="{{imgUrl}}" alt="img" width="50" height="50"></span> Laboratory Partner Name</h2>
+      <div class="col-10 col-md-9 col-sm-7" id="lab-container">
+        <img src="{{imgUrl}}" alt="img" class="profile-pic" width="200" height="200">
+        <h2 class="lab">Laboratory Partner</h2>
         <div class="info px-3 py-4">
           Laboratory Partner ID: {{userID}} <br>
           Name:  {{info.name}}<br>
@@ -18,8 +19,10 @@
           Contact Number: {{info.contact_number}}<br>
           isVerified: <br>
         </div>
-        <button (click)="editInfo()" class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-        <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        <div class="buttons-right">
+          <button (click)="editInfo()" class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        </div>
       </div>
   </div>
 <!--Edit Modal-->
@@ -32,11 +35,11 @@
       </div>
       <form #userInfo="ngForm" (ngSubmit)="updateInfo(userInfo.value)" class="form">
         <div class="modal-body">
-          Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.name" name="name" type="text" size="30"> <br><br>
-          Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="30"> <br><br>
-          Password: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input name="password" type="text" size="30"> <br><br>
-          Address: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
-          Contact Number: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br> 
+          Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.name" name="name" type="text" size="38"> <br><br>
+          Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.email" name="email" type="text" size="38"> <br><br>
+          Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="password" type="text" size="38"> <br><br>
+          Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="38"><br><br>
+          Contact #: &nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="38"><br><br>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
