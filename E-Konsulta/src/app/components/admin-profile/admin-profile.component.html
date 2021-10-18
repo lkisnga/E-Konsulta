@@ -15,7 +15,7 @@
     <!--2nd column-->
     <div class="col-10 col-md-9 col-sm-7">
       <img src="{{imgUrl}}" alt="img" class="profile-pic" width="200" height="200">
-      <h2 class="admin">{{userData.fullName}}</h2>
+      <h2 class="admin">{{userData.fullname}}</h2>
       <button (click)="uploadImage()" class="btn btn-primary">Upload</button>
       <input type="file" (change)="choosefile($event)">
       <!--Add another admin -->
@@ -25,7 +25,7 @@
       <div class="info px-3 py-4" *ngIf="authservice.currentUser">
         User UID: {{authservice.currentUserId}} <br>
         Role: {{userData.role}} <br>
-        Name: {{userData.fullName}} <br>
+        Name: {{userData.fullname}} <br>
         Email: {{authservice.currentUserName}} <br>
       </div>
       <div class="buttons-right">
@@ -46,9 +46,9 @@
       <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
       <div class="modal-body">
         Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" type="text" size="38" name="role"> <br><br>
-        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullName" type="text" size="38" name="fullName"> <br><br>
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" type="text" size="38" name="fullname"> <br><br>
         Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" type="password" size="38" name="password"><br><br>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.emailAddress" type="text" size="38" name="emailAddress"> <br><br>
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" type="text" size="38" name="email"> <br><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

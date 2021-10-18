@@ -161,7 +161,7 @@ export class AuthService {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.emailAddress,
       password: this.newUser.password,
-      fullName: this.newUser.fullName,
+      fullname: this.newUser.fullName,
       dob: this.newUser.dob,
       role: 'admin'
     })

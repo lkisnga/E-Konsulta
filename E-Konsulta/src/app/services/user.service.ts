@@ -26,6 +26,11 @@ export class UserService {
     })
   }
 
+  check_email(e)
+  {
+    return this.db.firestore.collection('Users').where("email","==",e.email).get();
+  }
+  
   create_HealthInsurance(a)
   {
     this.db.collection('Health_Insurance').add({
@@ -37,12 +42,23 @@ export class UserService {
     })
   }
   //not yet done
-  lab_fileUpload(e,lab_id,pnt_id)
+  lab_fileUpload(e,lab_id,pnt_id,filename)
   {
     var ref;
-    ref = this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/result.docx');
+    ref = this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/'+filename);
     this.task = ref.put(e);
     this.uploadProgress = this.task.percentageChanges();
+  }
+  lab_request(email)
+  {
+    this.db.collection('Laboratory_Results').add({
+      email: email,
+      filename: '',
+      file:'',
+      status: 'pending'
+    }).then(()=>{
+      console.log("Added!");
+    })
   }
   //not yet done
   create_reply_problem()

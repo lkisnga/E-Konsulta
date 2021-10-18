@@ -10,8 +10,8 @@ import { UserService } from 'src/app/services/user.service';
 
 export class Userinfo
 {
-  public fullName: string;
-  public emailAddress: string;
+  public fullname: string;
+  public email: string;
   public password: string;
   public role : string;
 }
@@ -75,16 +75,16 @@ export class AdminProfileComponent implements OnInit{
 
   editUser()
   {
-    this.model.fullName = this.userData.fullName;
-    this.model.emailAddress = this.userData.emailAddress;
+    this.model.fullname = this.userData.fullName;
+    this.model.email = this.userData.email;
     this.model.password = this.userData.password;
     this.model.role = this.userData.role;
   }
   onSubmit(user_record)
   {
     let record = {};
-    record['fullName'] = user_record.fullName;
-    record['emailAddress'] = user_record.emailAddress;
+    record['fullname'] = user_record.fullName;
+    record['email'] = user_record.emailAddress;
     record['password'] = user_record.password;
     record['role'] = user_record.role;
     
