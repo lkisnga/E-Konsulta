@@ -5,7 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 export class PatientInfo
 {
   public uid : string;
-  public firstname : string;
+  public fullname : string;
   public role : string;
   public member_number : string;
   public account_number : string;
@@ -31,7 +31,7 @@ export class AdminPatientsComponent implements OnInit {
   editList(e)
   {
     this.list.uid = e.uid;
-    this.list.firstname = e.firstname;
+    this.list.fullname = e.fullname;
     this.list.role = e.role;
     this.list.member_number = e.member_number;
     this.list.account_number = e.contact_number;
@@ -57,8 +57,8 @@ export class AdminPatientsComponent implements OnInit {
         tempArray.push(data);
       })
       this.patientList = tempArray.filter(e => {
-        if(e.firstname != undefined)
-         return e.firstname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        if(e.fullname != undefined)
+         return e.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
       })
     })
   }

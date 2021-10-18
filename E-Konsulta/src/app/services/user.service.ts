@@ -40,7 +40,7 @@ export class UserService {
   lab_fileUpload(e,lab_id,pnt_id)
   {
     var ref;
-    ref = this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/result.pdf');
+    ref = this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/result.docx');
     this.task = ref.put(e);
     this.uploadProgress = this.task.percentageChanges();
   }
