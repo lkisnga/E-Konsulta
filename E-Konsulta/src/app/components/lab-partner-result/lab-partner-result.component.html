@@ -8,44 +8,37 @@
   </div>
    <!--Add Result-->
    <div class="addRqst">
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Add Request</button>
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addRqst">Add Request</button>
   </div>
   <div class="row flex-nowrap tbl">
     <div class="col mx-3 py-3">
       <ul class="list-group py-2">
-        <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
-          <div class="d-flex w-100 justify-content-between">
+        <li class="list-group-item list-group-item-action flex-column align-items-start text-info" data-bs-toggle="modal" data-bs-target="#addRqst">
+          <div class="d-flex justify-content-between">
             <!-- <h5 mb-1>User ID</h5>
             <small>September 1, 2021</small> -->
           </div>
-          <p class="mb-1">File</p>
-          <small>User Type</small>
-        </li>
-        <li class="list-group-item  list-group-item-action flex-column align-items-start text-info">
-          <div class="d-flex w-100 justify-content-between">
-            <!-- <h5 mb-1>User ID</h5>
-            <small>September 2, 2021</small> -->
-          </div>
-          <p class="mb-1">File name</p>
-          <small>User Type</small>
+          <p class="mb-1">Send File</p>
+          <!--<small>User Type</small> -->
         </li>
       </ul>
       <!--Modal Result-->
-      <div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+      <div class="modal fade" id="addRqst" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addSpclLabel">Add Result</h5>
+              <h5 class="modal-title" id="addSpclLabel">Add</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
             </div>
             <div class="modal-body">
-              <progress max="100" [value]="userservice.uploadProgress | async"></progress>
-              File Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
+              Email: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="35"> <br><br>
+              <!--<progress max="100" [value]="userservice.uploadProgress | async"></progress><br> -->
+              File Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="35"> <br><br>
               Choose a File:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="file" (change)="choosefile($event)"> <br><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-              <button (click)="uploadfile()" type="button" class="btn btn-info" data-bs-dismiss="modal">Add </button>
+              <button (click)="uploadfile()" type="button" class="btn btn-info" data-bs-dismiss="modal">Submit</button>
             </div>
           </div>
         </div>
