@@ -10,10 +10,11 @@
 .list-group-item{
   border: 1px solid rgb(0, 192, 206);
   color: rgb(0, 192, 206);
+  margin-bottom: 5px;
 }
 .addRqst{
   position:absolute;
-  left: 250px;
+  left: 230px;
   top: 100px;
   overflow: hidden;
 }
