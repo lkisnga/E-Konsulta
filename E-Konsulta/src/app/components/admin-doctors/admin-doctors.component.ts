@@ -67,6 +67,7 @@ export class AdminDoctorsComponent implements OnInit {
 
   editSP(e)
   {
+    console.log(e.uid);
     this.spID = e.uid;
     this.sp2.name = e.name;
     this.sp2.description = e.description;
@@ -79,9 +80,15 @@ export class AdminDoctorsComponent implements OnInit {
     record['updated_at'] = formatDate(new Date(), 'MM/dd/yyyy', 'en');
     this.userservice.update_Specialization(this.spID,record);
   }
+  deleteSP(id)
+  {
+    this.spID = id;
+  }
   delete_Specialization()
   {
     this.userservice.delete_specialization(this.spID);
+
+    this.listOfSpecialization();
   }
 
   listOfDoctors()

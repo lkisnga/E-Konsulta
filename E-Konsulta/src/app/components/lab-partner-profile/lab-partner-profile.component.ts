@@ -29,7 +29,7 @@ export class LabPartnerProfileComponent implements OnInit {
     this.userID=this.afu.get_UID();
     this.userservice.get_labInfo(this.userID).forEach(e => {
       this.info = e.data();
-     // console.log(e.data());
+      console.log(e.data());
     })
 
     this.userservice.get_avatar(this.userID).then(e =>{
