@@ -12,13 +12,13 @@
  <div class="register-page">
   <div class="form">
     <h3 class="py-1">Registration</h3>
-    <form #userRegForm="ngForm" class="register-form">
-      <input type="text" name="fullName" placeholder="Full Name" required/>
-      <input class="dateclass placeholderclass" type="date" name="date" placeholder="Date of Birth" required>
+    <form #userRegForm="ngForm" class="register-form" (ngSubmit)="register_Patient(userRegForm.value)">
+      <input [(ngModel)]="model.fullname" type="text" name="fullname" placeholder="Full Name" required/>
+      <input [(ngModel)]="model.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
       <input type="text" placeholder="Health Insurance ID" required/>
-      <input type="text" placeholder="Contact Number" required/>
-      <input type="text" name="emailAddress" placeholder="Email address" required/>
-      <input type="password" placeholder="Password" required/>
+      <input [(ngModel)]="model.contact_num" name="contact_num" type="text" placeholder="Contact Number" required/>
+      <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
+      <input [(ngModel)]="model.password" name="password" type="password" placeholder="Password" required/>
       <input type="password" placeholder="Confirm Password" required/>
       <div class="agree">
         <input type="checkbox" class="form-check-input" id="terms"/>
@@ -27,18 +27,10 @@
       <button type="submit" >REGISTER</button>
 
     </form>
-    <!--
     <div class="form-group">
-      <p *ngIf="errorMessage.length > 0" class="text-danger">
-          {{errorMessage}}</p>
-
       <p *ngIf="error.message.length > 0" class="text-danger">
           {{error.message}} </p>
-
-          <p *ngIf="message.length > 0" class="text-info">
-              {{message}} </p>
     </div>
-  -->
   </div>
 </div>
 </body>

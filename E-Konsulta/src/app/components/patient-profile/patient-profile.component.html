@@ -7,23 +7,21 @@
     </div>
       <!--2nd column-->
       <div class="col-10 col-md-9 col-sm-7 border border-info tbl" id="patient-container">
-        <h2 class="patient"><span><img src="" alt="img" width="70" height="70"></span> Patient Name</h2>
+        <h2 class="patient"><span><img src="{{imgUrl}}" alt="img" width="70" height="70"></span> Patient Name</h2>
         <!-- <button (click)="uploadImage()" class="btn btn-primary">Upload</button> -->
         <div class="info px-3 py-4">
-          User UID: <br>
-          Patient ID: <br>
+          Patient ID: {{userID}}<br>
           Health Insurance ID: <br>
-          Account Number: <br>
-          Name:  <br>
-          Date of Birth:  <br>
-          Email:  <br>
-          User Type: <br>
-          Status: <br>
-          Contact Number: <br>
+          Name:  {{info.fullname}}<br>
+          Date of Birth: {{info.dob}} <br>
+          Email:  {{info.email}}<br>
+          User Type: {{info.role}}<br>
+          Status: {{info.status}}<br>
+          Contact Number: {{info.contact_num}} <br>
           isVerified: <br>
         </div>
         <button class="btn btn-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-        <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        <button (click)="logout()" class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
   </div>
 </div>

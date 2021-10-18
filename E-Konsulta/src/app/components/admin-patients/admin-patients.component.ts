@@ -51,17 +51,14 @@ export class AdminPatientsComponent implements OnInit {
     var tempArray = [];
     this.userService.get_patient().then(e => {
       e.forEach(item =>{
+        console.log(item.data());
         data = item.data();
         data.uid = item.id;
-        data.member_number = "No insurance";
-        this.userService.get_patientInfo(item.id).then(e => {
-          if(e.data() != undefined)
-            data.member_number = e.data().member_number;
-        })
         tempArray.push(data);
       })
       this.patientList = tempArray.filter(e => {
-        return e.firstname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        if(e.firstname != undefined)
+         return e.firstname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
       })
     })
   }

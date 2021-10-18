@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -68,6 +69,45 @@ export class AuthService {
         throw error
       });
   }
+
+  registerWithEmail_patient(user) {
+    return this.afu.createUserWithEmailAndPassword(user.email, user.password)
+      .then((userCredential) => {
+        this.newUser = user;
+        console.log(this.newUser);
+        userCredential.user.updateProfile( {
+          displayName: user.fullname
+        });
+        this.insertUserData_patient(userCredential)
+
+        this.afu.onAuthStateChanged(user => {
+          if(user)
+        this.store.storage.ref('Users/' + 'default' + '/profile.jpg').getDownloadURL().then(e =>{
+          this.db.collection('avatar').doc(userCredential.user.uid).set({
+            image : e
+          })
+        })
+      }) 
+
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
+  }
+  insertUserData_patient(userCredential: firebase.auth.UserCredential) {
+    return this.db.collection('Users').doc(userCredential.user.uid).set({
+      email: this.newUser.email,
+      password: this.newUser.password,
+      fullname: this.newUser.fullname,
+      dob: this.newUser.dob,
+      contact_num: this.newUser.contact_num,
+      role: 'patient',
+      status:'active',
+      createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      UpdatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en')
+    })
+  }
   registerWithEmail_Lab(user) {
     return this.afu.createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
@@ -109,12 +149,14 @@ export class AuthService {
       role: 'laboratory_partner'
     })
   }
+  
 
   //Get user Data
   get_userData()
   {
     return this.db.firestore.collection('Users').get();
   }
+  //admin
   insertUserData(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.emailAddress,
@@ -134,7 +176,7 @@ export class AuthService {
         this.router.navigate(['/admin-profile'])
       if(role=="laboratory_partner")
         this.router.navigate(['/lab-partner-profile'])
-      if(role=="/patient")
+      if(role=="patient")
         this.router.navigate(['/patient-profile']);
       console.log('works!');
      })
