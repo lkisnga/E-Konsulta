@@ -145,11 +145,18 @@ export class UserService {
     const newPassword = record.password;
     user.updatePassword(newPassword).then(()=>{
       console.log("Password Changed!");
+      this.db.collection('Users').doc(user_id).update(record);
     }).catch((error)=>{
       console.log(error);
     })
-    this.db.collection('Users').doc(user_id).update(record);
   }
+
+  update_doctorInfo(user_id,record)
+  {
+    this.db.collection('Users').doc(user_id).update(record);
+    console.log("Updated Doctor Info!");
+  }
+
   update_insurance(id,record)
   {
     this.db.collection('Health_Insurance').doc(id).update(record);

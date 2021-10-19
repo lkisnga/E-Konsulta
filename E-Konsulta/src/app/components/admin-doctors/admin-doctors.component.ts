@@ -9,16 +9,18 @@ import { UserService } from 'src/app/services/user.service';
 
 export class DoctorInfo
 {
-  public id: string;
-  public fullname: string;
-  public password: string;
-  public license_number: string;
-  public role: string;
+  id: string;
+  fullname: string;
+  address: string;
+  license_number: string;
+  contact_number: string;
+  specialization: string;
+  role: string;
 }
 export class SpecializationInfo
 {
-  public name: string;
-  public description: string;
+  name: string;
+  description: string;
 }
 
 
@@ -113,21 +115,33 @@ export class AdminDoctorsComponent implements OnInit {
     console.log(record);
     this.model.id = record.uid;
     this.model.fullname = record.fullname;
+    this.model.address= record.address;
+    this.model.specialization = record.specialization;
     this.model.license_number= record.license_number;
-    this.model.password = record.password;
+    this.model.contact_number = record.contact_number;
     this.model.role = record.role;
   }
   onSubmit(a)
   {
-    console.log(a);
+    //console.log(a);
     let record = {};
     record['fullname'] = a.fullname;
-    record['password'] = a.password;
     record['license_number'] = a.license_number;
-    this.userservice.update_user(a.id,record);
+    record['specialization'] = a.specialization;
+    record['contact_number'] = a.contact_number;
+    record['address'] = a.address;
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    this.userservice.update_doctorInfo(a.id,record);
     this.ngOnInit();
   }
-
+  editDelete(id)
+  {
+    this.spID = id;
+  }
+  deleteDoctor()
+  {
+    this.userservice.delete_user(this.spID);
+  }
   addSpecialization(a)
   {
     let record= {};
