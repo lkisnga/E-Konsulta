@@ -43,10 +43,10 @@
               <td>{{item.fullname}}</td>
               <td>{{item.role}}</td>
               <td>{{item.license_number}}</td>
-              <td>SPCL101</td>
+              <td>{{item.specialization}}</td>
               <td>
                 <button type="button" (click)="editInfo(item)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
-                <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DELETE</button></span>
+                <span><button (click)="editDelete(item.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DELETE</button></span>
               </td>
             </tr>
           </tbody>
@@ -135,11 +135,16 @@
         <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
           <div class="modal-body">
             Doctor Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="30" readonly> <br><br>
-            Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="30"><br><br>
-            password: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.password" name="password" type="text" size="30"><br><br>
             User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="30" readonly> <br><br>
+            Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="30"><br><br>
             License Number: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="30"><br><br>
-            Specialization: &nbsp; &nbsp; <input type="text" size="30">
+            Contact Number: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br>
+            Address: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
+            Specialization: &nbsp; &nbsp;
+            <select [(ngModel)]="model.specialization" name="specialization" class="form-select" aria-label="Default select example">
+              <option selected>{{model.specialization}}</option>
+              <option *ngFor="let list of spList"value="{{list.name}}">{{list.name}}</option>
+            </select>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
