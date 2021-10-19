@@ -29,8 +29,6 @@ import { PatientConsultationComponent } from './components/patient-consultation/
 import { PatientTransactionHistoryComponent } from './components/patient-transaction-history/patient-transaction-history.component';
 import { PatientRecordsComponent } from './components/patient-records/patient-records.component';
 import { LabPartnerResultComponent } from './components/lab-partner-result/lab-partner-result.component';
-import { LabPartnerFeedbacksComponent } from './components/lab-partner-feedbacks/lab-partner-feedbacks.component';
-import { LabPartnerProblemsComponent } from './components/lab-partner-problems/lab-partner-problems.component';
 import { HealthInsuranceProfileComponent } from './components/health-insurance-profile/health-insurance-profile.component';
 import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
 import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
@@ -76,8 +74,6 @@ const routes: Routes = [
   { path: 'patient-transaction-history', component: PatientTransactionHistoryComponent},
   { path: 'patient-records', component: PatientRecordsComponent},
   { path: 'lab-partner-result', component: LabPartnerResultComponent},
-  { path: 'lab-partner-feedbacks', component: LabPartnerFeedbacksComponent},
-  { path: 'lab-partner-problems', component: LabPartnerProblemsComponent},
   { path: 'health-insurance-profile', component: HealthInsuranceProfileComponent},
   { path: 'health-insurance-requets', component: HealthInsuranceRequestsComponent},
   { path: 'health-insurance-loa', component: HealthInsuranceLoaComponent},
@@ -133,8 +129,6 @@ export const routingComponents = [
   PatientTransactionHistoryComponent,
   PatientRecordsComponent,
   LabPartnerResultComponent,
-  LabPartnerFeedbacksComponent,
-  LabPartnerProblemsComponent,
   HealthInsuranceProfileComponent,
   HealthInsuranceRequestsComponent,
   HealthInsuranceLoaComponent,

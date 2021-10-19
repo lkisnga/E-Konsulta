@@ -46,8 +46,6 @@ import { PatientSidenavComponent } from './components/patient-sidenav/patient-si
 import { DoctorSidenavComponent } from './components/doctor-sidenav/doctor-sidenav.component';
 import { LabPartnerSidenavComponent } from './components/lab-partner-sidenav/lab-partner-sidenav.component';
 import { LabPartnerResultComponent } from './components/lab-partner-result/lab-partner-result.component';
-import { LabPartnerFeedbacksComponent } from './components/lab-partner-feedbacks/lab-partner-feedbacks.component';
-import { LabPartnerProblemsComponent } from './components/lab-partner-problems/lab-partner-problems.component';
 import { HealthInsuranceSidenavComponent } from './components/health-insurance-sidenav/health-insurance-sidenav.component';
 import { HealthInsuranceProfileComponent } from './components/health-insurance-profile/health-insurance-profile.component';
 import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
@@ -108,8 +106,6 @@ import { HeaderInsuranceComponent } from './components/header-insurance/header-i
     DoctorSidenavComponent,
     LabPartnerSidenavComponent,
     LabPartnerResultComponent,
-    LabPartnerFeedbacksComponent,
-    LabPartnerProblemsComponent,
     HealthInsuranceSidenavComponent,
     HealthInsuranceProfileComponent,
     HealthInsuranceRequestsComponent,
