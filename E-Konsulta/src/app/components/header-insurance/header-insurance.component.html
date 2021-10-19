@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header - User</title>
+</head>
+<body>
+
+<div class="fixed">
+  <nav class="navbar navbar-expand-sm navbar-light">
+    <a class="navbar-brand text-left">
+      <img src="./assets/images/ekIcon1.ico" width="40" height="40"
+       alt="E-Konsulta"> <!-- class="d-inline-block align-top" -->
+       E-KONSULTA</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#toggleHeader"
+      aria-controls="toggleHeader"
+      aria-expanded="false"
+      aria-label="Toggle Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="toggleHeader">
+      <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
+        <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
+          <div><span class="fa-stack fa-1x" data-count="2">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+          </span>
+          </div>
+        </div>
+        <div class="dropdown" *ngIf="notification" >
+          <div class="notify_item">
+            <div class="notify_info">
+              <p>User pays a consultation fee.</p>
+						  <small>1 minute ago</small>
+            </div>
+          </div>
+          <div class="notify_item">
+            <div class="notify_info">
+              <p>User pays a consultation fee.</p>
+						  <small>2 minutes ago</small>
+            </div>
+          </div>
+        </div>
+        <!--  Profile  -->
+          <div><a href="/health-insurance-profile"><span class="fa-stack fa-1x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+          </span></a>
+        </div>
+        </div>
+    </div>
+  </nav>
+</div>
+
+</body>
+</html>

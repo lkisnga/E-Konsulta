@@ -63,6 +63,11 @@ import { PatientRegistrationComponent } from './components/patient-registration/
 import { HealthInsuranceRegistrationComponent } from './components/health-insurance-registration/health-insurance-registration.component';
 import { LabPartnerRegistrationComponent } from './components/lab-partner-registration/lab-partner-registration.component';
 import { PatientDoctorChatComponent } from './components/patient-doctor-chat/patient-doctor-chat.component';
+import { LabPartnerReviewsComponent } from './components/lab-partner-reviews/lab-partner-reviews.component';
+import { HeaderDoctorComponent } from './components/header-doctor/header-doctor.component';
+import { HeaderPatientComponent } from './components/header-patient/header-patient.component';
+import { HeaderLabComponent } from './components/header-lab/header-lab.component';
+import { HeaderInsuranceComponent } from './components/header-insurance/header-insurance.component';
 
 
 @NgModule({
@@ -117,7 +122,12 @@ import { PatientDoctorChatComponent } from './components/patient-doctor-chat/pat
     PatientRegistrationComponent,
     HealthInsuranceRegistrationComponent,
     LabPartnerRegistrationComponent,
-    PatientDoctorChatComponent
+    PatientDoctorChatComponent,
+    LabPartnerReviewsComponent,
+    HeaderDoctorComponent,
+    HeaderPatientComponent,
+    HeaderLabComponent,
+    HeaderInsuranceComponent
   ],
   imports: [
     FormsModule,
