@@ -21,5 +21,16 @@ export class DoctorRegistrationComponent implements OnInit {
   registerDoctor(frm)
   {
     console.log(frm);
+    this.clearErrorMessage();
+    this.afu.registerWithEmail_Doctor(frm).then(()=>{
+      this.router.navigate(['/login']);
+    }).catch(_error=>{
+      this.error = _error;
+      this.router.navigate(['/doctor-registration']);
+    })
+  }
+  clearErrorMessage()
+  {
+    this.error = {name : '', message : ''};
   }
 }

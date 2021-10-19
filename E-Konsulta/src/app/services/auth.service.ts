@@ -156,7 +156,7 @@ export class AuthService {
         this.newUser = user;
         console.log(this.newUser);
         userCredential.user.updateProfile( {
-          displayName: user.fullName
+          displayName: user.fullname
         });
           this.insertUserData_Doctor(userCredential)
 
@@ -175,13 +175,19 @@ export class AuthService {
       });
   }
   insertUserData_Doctor(userCredential: firebase.auth.UserCredential) {
-    return this.db.collection('Laboratory_Partner').doc(userCredential.user.uid).set({
+    return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
       password: this.newUser.password,
-      fullname: this.newUser.name,
+      fullname: this.newUser.fullname,
       address: this.newUser.address,
       contact_number: this.newUser.contact_number,
-      role: 'laboratory_partner'
+      license_number: this.newUser.license_number,
+      specialization: this.newUser.specialization,
+      dob: this.newUser.dob,
+      createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      status: 'active',
+      role: 'doctor'
     })
   }
   
@@ -213,6 +219,8 @@ export class AuthService {
         this.router.navigate(['/lab-partner-profile'])
       if(role=="patient")
         this.router.navigate(['/patient-profile']);
+      if(role=="doctor")
+        this.router.navigate(['/doctor-profile']);
       console.log('works!');
      })
   }
