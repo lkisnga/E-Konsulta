@@ -75,7 +75,7 @@ export class AdminProfileComponent implements OnInit{
 
   editUser()
   {
-    this.model.fullname = this.userData.fullName;
+    this.model.fullname = this.userData.fullname;
     this.model.email = this.userData.email;
     this.model.password = this.userData.password;
     this.model.role = this.userData.role;
@@ -83,8 +83,8 @@ export class AdminProfileComponent implements OnInit{
   onSubmit(user_record)
   {
     let record = {};
-    record['fullname'] = user_record.fullName;
-    record['email'] = user_record.emailAddress;
+    record['fullname'] = user_record.fullname;
+    record['email'] = user_record.email;
     record['password'] = user_record.password;
     record['role'] = user_record.role;
     
