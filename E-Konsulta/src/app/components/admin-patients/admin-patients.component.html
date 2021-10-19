@@ -33,8 +33,8 @@
               <th scope="col">Patient Id</th>
               <th scope="col">Name</th>
               <th scope="col">User Type</th>
-              <th scope="col">Health Insurance Id</th>
-              <th scope="col">Account Number</th>
+              <th scope="col">Health Insurance</th>
+              <th scope="col">Member ID</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -43,8 +43,8 @@
               <th scope="row">{{item.email}}</th>
               <td>{{item.fullname}}</td>
               <td>{{item.role}}</td>
-              <td>{{item.member_number}}</td>
-              <td>{{item.contact_number}}</td>
+              <td>{{item.health_insurance}}</td>
+              <td>{{item.member_ID}}</td>
               <td>
                 <button (click)="editList(item)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editPatient">EDIT</button> &nbsp;
                 <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePatient">DELETE</button></span>
@@ -67,10 +67,17 @@
         <form #userInfo = "ngForm" (ngSubmit)="updateInfo(userInfo.value)">
           <div class="modal-body">
             Patient Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.uid" name="uid" type="text" size="30" readonly> <br><br>
-            Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.fullname" name="firstname" type="text" size="30"><br><br>
             User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.role" name="role" type="text" size="30" readonly> <br><br>
-            Health Insurance Id: &nbsp; &nbsp;&nbsp;<input name="member_number" type="text" size="30" readonly><br><br>
-            Account Number: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.account_number" name="account_number" type="text" size="30">
+            Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.fullname" name="fullname" type="text" size="30"><br><br>
+            Date of Birth <input [(ngModel)]="list.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth"><br><br>
+            Address: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.address" name="address" type="text" size="30"><br><br>
+            Contact Number: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="list.contact_number" name="contact_number" type="text" size="30" readonly><br><br>
+            Health Insurance: &nbsp; &nbsp;&nbsp;
+            <select [(ngModel)]="list.health_insurance" name="health_insurance" class="form-select" aria-label="Default select example">
+              <option selected>{{list.health_insurance}}</option>
+              <option *ngFor="let item of hins_list" value="{{item.name}}">{{item.name}}</option>
+            </select>
+            Member ID: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="list.member_ID" name="member_ID" type="text" size="30">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -4,8 +4,9 @@ import { UserService } from 'src/app/services/user.service';
 
 export class LabInfo
 {
-  public name : string;
-  public address : string;
+  name : string;
+  address : string;
+  contact_number : string;
 }
 
 @Component({
@@ -31,12 +32,14 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     this.UID = e.uid;
     this.model.name = e.name;
     this.model.address = e.address;
+    this.model.contact_number = e.contact_number;
   }
   updateInfo(e)
   {
     let record = {};
     record['name'] = e.name;
     record['address'] = e.address;
+    record['contact_number'] = e.contact_number;
     this.userservice.update_labInfo(this.UID,record);
 
     this.ngOnInit();

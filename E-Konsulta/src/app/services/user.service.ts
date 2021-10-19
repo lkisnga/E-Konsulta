@@ -156,6 +156,11 @@ export class UserService {
     this.db.collection('Users').doc(user_id).update(record);
     console.log("Updated Doctor Info!");
   }
+  update_patientInfo(id,record)
+  {
+    this.db.collection('Users').doc(id).update(record);
+    console.log("Patient Info Updated!");
+  }
 
   update_insurance(id,record)
   {
