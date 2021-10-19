@@ -10,7 +10,9 @@ import { UserService } from 'src/app/services/user.service';
 export class DoctorInfo
 {
   public id: string;
-  public firstname: string;
+  public fullname: string;
+  public password: string;
+  public license_number: string;
   public role: string;
 }
 export class SpecializationInfo
@@ -44,7 +46,6 @@ export class AdminDoctorsComponent implements OnInit {
     ,public router : Router) { }
 
   ngOnInit(): void {
-
     this.userID = this.authservice.get_UID();
     this.listOfDoctors();
     this.listOfSpecialization();
@@ -102,24 +103,28 @@ export class AdminDoctorsComponent implements OnInit {
         tempArray.push(data);
       })
       this.list=tempArray.filter(res => {
-        return res.firstname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        return res.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
       })
     })
   }
   //Edit Doctor Info
   editInfo(record)
   {
-    //console.log(record.uid);
+    console.log(record);
     this.model.id = record.uid;
-    this.model.firstname = record.firstname;
+    this.model.fullname = record.fullname;
+    this.model.license_number= record.license_number;
+    this.model.password = record.password;
     this.model.role = record.role;
   }
   onSubmit(a)
   {
+    console.log(a);
     let record = {};
-    record['firstname'] = a.firstname;
+    record['fullname'] = a.fullname;
+    record['password'] = a.password;
+    record['license_number'] = a.license_number;
     this.userservice.update_user(a.id,record);
-
     this.ngOnInit();
   }
 

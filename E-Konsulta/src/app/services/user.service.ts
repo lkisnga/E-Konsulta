@@ -144,6 +144,7 @@ export class UserService {
     const user = this.fireb.auth().currentUser;
     const newPassword = record.password;
     user.updatePassword(newPassword).then(()=>{
+      console.log("Password Changed!");
     }).catch((error)=>{
       console.log(error);
     })
