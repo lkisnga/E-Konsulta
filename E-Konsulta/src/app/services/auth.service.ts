@@ -149,6 +149,41 @@ export class AuthService {
       role: 'laboratory_partner'
     })
   }
+
+  registerWithEmail_Doctor(user) {
+    return this.afu.createUserWithEmailAndPassword(user.email, user.password)
+      .then((userCredential) => {
+        this.newUser = user;
+        console.log(this.newUser);
+        userCredential.user.updateProfile( {
+          displayName: user.fullName
+        });
+          this.insertUserData_Doctor(userCredential)
+
+          this.afu.onAuthStateChanged(user => {
+            if(user)
+            this.store.storage.ref('Users/' + 'default' + '/profile.jpg').getDownloadURL().then(e =>{
+              this.db.collection('avatar').doc(userCredential.user.uid).set({
+                image : e
+              })
+            })
+        }) 
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
+  }
+  insertUserData_Doctor(userCredential: firebase.auth.UserCredential) {
+    return this.db.collection('Laboratory_Partner').doc(userCredential.user.uid).set({
+      email: this.newUser.email,
+      password: this.newUser.password,
+      fullname: this.newUser.name,
+      address: this.newUser.address,
+      contact_number: this.newUser.contact_number,
+      role: 'laboratory_partner'
+    })
+  }
   
 
   //Get user Data
