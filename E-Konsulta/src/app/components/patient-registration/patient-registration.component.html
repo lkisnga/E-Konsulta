@@ -15,8 +15,9 @@
     <form #userRegForm="ngForm" class="register-form" (ngSubmit)="register_Patient(userRegForm.value)">
       <input [(ngModel)]="model.fullname" type="text" name="fullname" placeholder="Full Name" required/>
       <input [(ngModel)]="model.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
+      <input [(ngModel)]="model.address" type="text" name="address" placeholder="address" required/>
       <input type="text" placeholder="Health Insurance ID" required/>
-      <input [(ngModel)]="model.contact_num" name="contact_num" type="text" placeholder="Contact Number" required/>
+      <input [(ngModel)]="model.contact_number" name="contact_number" type="text" placeholder="Contact Number" required/>
       <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
       <input [(ngModel)]="model.password" name="password" type="password" placeholder="Password" required/>
       <input type="password" placeholder="Confirm Password" required/>
