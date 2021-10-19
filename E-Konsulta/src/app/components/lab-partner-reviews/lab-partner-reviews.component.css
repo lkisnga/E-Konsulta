@@ -1,0 +1,66 @@
+body{
+  width: 100%;
+  overflow: hidden;
+}
+.profile-pic{
+  border-radius: 50%;
+  border: 2px solid gold;
+  box-shadow: 0 4px 4px 0 rgba(180, 148, 2, 0.345), 0 6px 20px 0 rgba(104, 104, 104, 0.19);
+}
+.lab-info{
+  border-radius: 10px;
+  border: 2px solid gold;
+  box-shadow: 0 4px 4px 0 rgba(180, 148, 2, 0.045), 0 6px 20px 0 rgba(104, 104, 104, 0.19);
+  width: 700px;
+  padding: 12px 30px;
+  line-height: 25px;
+  font-size: 13px;
+  margin: -150px 50px 20px 160px;
+  color: gray !important;
+}
+
+.lower-part{
+  border-radius: 5px;
+  border: 2px solid gold;
+  width: 835px;
+  height: 370px;
+  padding: 7px 20px;
+  margin-left: 25px;
+  overflow-y: scroll;
+}
+
+/*content*/
+.list-group-item{
+  border: 1px solid gray;
+  color: gray !important;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.mb-1{
+  font-size: 12px;
+}
+
+.cute-pic{
+  border-radius: 50%;
+}
+
+/*reply*/
+textarea {
+	width: 100%;
+	border: 1px solid rgb(247, 233, 111);
+  outline: none;
+	background: rgb(249, 255, 195);
+	padding: 5px 10px;
+	height: 50%;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 1px solid gray;
+	transition: all 0.5s;
+	margin-top: 15px;
+  font-size: 12px;
+  color: gray;
+}
+
+.btn-warning{
+  font-size: 11px !important;
+}
