@@ -1,18 +1,21 @@
 import { formatDate } from '@angular/common';
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import 'firebase/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   task : any;
   uploadProgress : any;
-  constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage) { }
+  constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage,
+    public fireb : FirebaseApp) { }
 
   create_Specialization(a)
   {
@@ -138,8 +141,14 @@ export class UserService {
   }
   update_user(user_id,record)
   {
+    const user = this.fireb.auth().currentUser;
+    const newPassword = record.password;
+    user.updatePassword(newPassword).then(()=>{
+      console.log("Password Changed!");
+    }).catch((error)=>{
+      console.log(error);
+    })
     this.db.collection('Users').doc(user_id).update(record);
-    console.log("Updated!");
   }
   update_insurance(id,record)
   {

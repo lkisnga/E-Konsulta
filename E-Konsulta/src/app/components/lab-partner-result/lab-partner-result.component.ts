@@ -31,15 +31,25 @@ export class LabPartnerResultComponent implements OnInit {
   }
 
   addRequest(e){
-
-    this.userservice.check_email(e).then(item => {
-      item.forEach(res=>{
-        if(res.data())
-        {
-          this.userservice.lab_request(e);
-        }
+    if(e.email!=null)
+    {
+      this.userservice.check_email(e).then(item => {
+        if(item.empty)
+          {
+            console.log("Email does not exist!!");
+          }
+        item.forEach(res=>{
+          if(res.data())
+          {
+            this.userservice.lab_request(e);
+          }
+        })
       })
-    })
+    }
+    else
+    {
+      console.log("empty!");
+    }
   }
   //Passing file to the user
   uploadfile(e)

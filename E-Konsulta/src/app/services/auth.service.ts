@@ -149,6 +149,47 @@ export class AuthService {
       role: 'laboratory_partner'
     })
   }
+
+  registerWithEmail_Doctor(user) {
+    return this.afu.createUserWithEmailAndPassword(user.email, user.password)
+      .then((userCredential) => {
+        this.newUser = user;
+        console.log(this.newUser);
+        userCredential.user.updateProfile( {
+          displayName: user.fullname
+        });
+          this.insertUserData_Doctor(userCredential)
+
+          this.afu.onAuthStateChanged(user => {
+            if(user)
+            this.store.storage.ref('Users/' + 'default' + '/profile.jpg').getDownloadURL().then(e =>{
+              this.db.collection('avatar').doc(userCredential.user.uid).set({
+                image : e
+              })
+            })
+        }) 
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
+  }
+  insertUserData_Doctor(userCredential: firebase.auth.UserCredential) {
+    return this.db.collection('Users').doc(userCredential.user.uid).set({
+      email: this.newUser.email,
+      password: this.newUser.password,
+      fullname: this.newUser.fullname,
+      address: this.newUser.address,
+      contact_number: this.newUser.contact_number,
+      license_number: this.newUser.license_number,
+      specialization: this.newUser.specialization,
+      dob: this.newUser.dob,
+      createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      status: 'active',
+      role: 'doctor'
+    })
+  }
   
 
   //Get user Data
@@ -178,6 +219,8 @@ export class AuthService {
         this.router.navigate(['/lab-partner-profile'])
       if(role=="patient")
         this.router.navigate(['/patient-profile']);
+      if(role=="doctor")
+        this.router.navigate(['/doctor-profile']);
       console.log('works!');
      })
   }
