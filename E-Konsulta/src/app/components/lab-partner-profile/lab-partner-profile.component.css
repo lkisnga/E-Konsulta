@@ -14,14 +14,12 @@ body{
 }
 .profile-pic{
   border-radius: 50%;
-  border: 1px solid rgb(0, 192, 206);
   margin: 70px 10px 10px 80px;
   cursor: pointer;
 }
 .col-10{
   margin: 40px 0px 0px 35px;
-  border: 2px solid rgb(0, 192, 206);
-  box-shadow: 0 4px 8px 0 rgba(0, 74, 77, 0.493), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 500px;
 }
 
