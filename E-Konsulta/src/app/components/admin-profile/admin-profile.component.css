@@ -1,8 +1,11 @@
 
 body{
   overflow: hidden;
+  font-size: 14px;
 }
-
+.btn{
+  font-size: 14px !important;
+}
 /* ADMIN */
 .newAdmin{
   position: absolute;
@@ -18,15 +21,13 @@ body{
 }
 .profile-pic{
   border-radius: 50%;
-  border: 1px solid rgb(0, 192, 206);
   margin: 50px 10px 10px 70px;
   cursor: pointer;
 }
 
 .col-10{
   margin: 50px 0px 0px 35px;
-  border: 2px solid rgb(0, 192, 206);
-  box-shadow: 0 4px 8px 0 rgba(0, 74, 77, 0.493), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 500px;
 }
 
@@ -34,16 +35,16 @@ body{
   line-height: 45px;
   position: absolute;
   top: 180px;
-  right: 250px;
+  right: 300px;
 }
 
 .buttons-right{
   position: absolute;
-  bottom: 180px;
-  right: 420px;
+  bottom: 200px;
+  right: 450px;
 }
 #edit{
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 #editLabel{

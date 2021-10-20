@@ -66,6 +66,7 @@ import { HeaderDoctorComponent } from './components/header-doctor/header-doctor.
 import { HeaderPatientComponent } from './components/header-patient/header-patient.component';
 import { HeaderLabComponent } from './components/header-lab/header-lab.component';
 import { HeaderInsuranceComponent } from './components/header-insurance/header-insurance.component';
+import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
 
 
 @NgModule({
@@ -123,7 +124,8 @@ import { HeaderInsuranceComponent } from './components/header-insurance/header-i
     HeaderDoctorComponent,
     HeaderPatientComponent,
     HeaderLabComponent,
-    HeaderInsuranceComponent
+    HeaderInsuranceComponent,
+    UserFeedbacksComponent
   ],
   imports: [
     FormsModule,

@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="row flex-nowrap tbl">
-      <div class="col mx-3">
+      <div class="table-responsive-sm">
         <table class="table table-info table striped">
           <thead>
             <tr>
@@ -46,7 +46,6 @@
                 <span><button (click)="getID(list.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteHealth">DELETE</button></span>
               </td>
             </tr>
-
           </tbody>
         </table>
       </div>
@@ -66,9 +65,9 @@
         </div>
         <form #userInfo="ngForm" (ngSubmit)="addHealthInsurance(userInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="35"> <br><br>
-            Branch Name: &nbsp; <input [(ngModel)]="model.branchname" name="branchname" type="text" size="35"> <br><br>
-            Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="35"> <br><br>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="45"> <br><br>
+            Branch Name: &nbsp; <input [(ngModel)]="model.branchname" name="branchname" type="text" size="45"> <br><br>
+            Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="45"> <br><br>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -90,9 +89,9 @@
         </div>
         <form #editInfo="ngForm" (ngSubmit)="updateInfo(editInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.name" name="name" type="text" size="35"> <br><br>
-            Branch name: &nbsp;&nbsp;&nbsp;<input [(ngModel)]="model2.branchname" name="branchname" type="text" size="35"><br><br>
-            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model2.address" name="address" type="text" size="35"><br><br>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.name" name="name" type="text" size="45"> <br><br>
+            Branch name: &nbsp;&nbsp;&nbsp;<input [(ngModel)]="model2.branchname" name="branchname" type="text" size="45"><br><br>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model2.address" name="address" type="text" size="45"><br><br>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

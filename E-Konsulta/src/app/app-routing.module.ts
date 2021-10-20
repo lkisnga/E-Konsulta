@@ -42,6 +42,7 @@ import { HealthInsuranceRegistrationComponent } from './components/health-insura
 import { LabPartnerRegistrationComponent } from './components/lab-partner-registration/lab-partner-registration.component';
 import { PatientDoctorChatComponent } from './components/patient-doctor-chat/patient-doctor-chat.component';
 import { LabPartnerReviewsComponent } from './components/lab-partner-reviews/lab-partner-reviews.component';
+import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
 
 
 const routes: Routes = [
@@ -86,7 +87,8 @@ const routes: Routes = [
   { path: 'health-insurance-registration', component: HealthInsuranceRegistrationComponent},
   { path: 'lab-partner-registration', component: LabPartnerRegistrationComponent},
   { path: 'patient-doctor-chat', component: PatientDoctorChatComponent},
-  { path: 'lab-partner-reviews', component: LabPartnerReviewsComponent}
+  { path: 'lab-partner-reviews', component: LabPartnerReviewsComponent},
+  { path: 'user-feedbacks', component: UserFeedbacksComponent}
 ];
 
 
@@ -141,5 +143,6 @@ export const routingComponents = [
   HealthInsuranceRegistrationComponent,
   LabPartnerRegistrationComponent,
   PatientDoctorChatComponent,
-  LabPartnerReviewsComponent
+  LabPartnerReviewsComponent,
+  UserFeedbacksComponent
 ];

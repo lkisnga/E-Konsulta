@@ -40,6 +40,7 @@ body{
 
 input[type="date"]:before {
   content: attr(placeholder) !important;
+  color: rgb(0, 192, 206);
   margin-right: 5.7em;
 }
 input[type="date"]:focus:before,

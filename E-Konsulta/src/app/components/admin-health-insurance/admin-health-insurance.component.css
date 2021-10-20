@@ -1,3 +1,6 @@
+body{
+  font-size: 14px;
+}
 .addHealth{
   position:absolute;
   right: 23px;
@@ -8,4 +11,17 @@
 .tbl{
   margin-left: 200px;
   margin-top: -37%;
+}
+
+input{
+  padding: 3px 6px;
+}
+
+select{
+  width: 325px;
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
 }

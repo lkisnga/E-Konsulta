@@ -1,7 +1,9 @@
-
+body{
+  font-size: 14px;
+}
 .addSpcl{
   position:absolute;
-  right: 185px;
+  right: 175px;
   top: 105px;
 }
 
@@ -12,6 +14,19 @@
 }
 
 .tbl{
-  margin-left: 180px;
+  margin-left: 200px;
   margin-top: -37%;
+}
+
+input{
+  padding: 3px 6px;
+}
+
+select{
+  width: 325px;
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
 }
