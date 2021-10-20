@@ -1,14 +1,18 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 export class PatientInfo
 {
-  public uid : string;
-  public fullname : string;
-  public role : string;
-  public member_number : string;
-  public account_number : string;
+  uid : string;
+  fullname : string;
+  role : string;
+  dob : string;
+  health_insurance : string;
+  address: string;
+  member_ID : string;
+  contact_number: string;
 }
 
 
@@ -21,11 +25,14 @@ export class AdminPatientsComponent implements OnInit {
   list = new PatientInfo();
   patientList : any = [];
   searchName : string = "";
+  hins_list : any = [];
 
   constructor(public userService : UserService, public auts: AuthService) { }
 
   ngOnInit(): void {
     this.listOfPatients();
+    this.listOfHealth_Insurance();
+
   }
 
   editList(e)
@@ -33,17 +40,37 @@ export class AdminPatientsComponent implements OnInit {
     this.list.uid = e.uid;
     this.list.fullname = e.fullname;
     this.list.role = e.role;
-    this.list.member_number = e.member_number;
-    this.list.account_number = e.contact_number;
+    this.list.dob = e.dob;
+    this.list.address = e.address;
+    this.list.health_insurance = e.health_insurance;
+    this.list.member_ID = e.member_ID;
+    this.list.contact_number = e.contact_number;
   }
   updateInfo(e)
   {
     let record = {};
-    record['firstname'] = e.firstname;
-    record['role'] = e.role;
-    record['contanct_number'] = e.contanct_number;
-    this.userService.update_user(e.uid,e);
-
+    record['fullname'] = e.fullname;
+    record['dob'] = e.dob;
+    record['address'] = e.address;
+    record['health_insurance'] = e.health_insurance;
+    record['member_ID'] = e.member_ID;
+    record['contact_number'] = e.contact_number;
+    record['updatedAt'] = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+    this.userService.update_patientInfo(e.uid,record);
+    this.ngOnInit();
+  }
+  listOfHealth_Insurance()
+  {
+    var data;
+    var tempArray = [];
+    this.userService.get_HealthInsurance().then(e=>{
+      e.forEach(res=>{
+        data = res.data();
+        data.uid = res.id;
+        tempArray.push(data);
+      })
+      this.hins_list = tempArray;
+    })
   }
   listOfPatients()
   {

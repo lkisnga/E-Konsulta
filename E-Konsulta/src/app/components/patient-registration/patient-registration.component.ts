@@ -11,7 +11,8 @@ export class PatientInfo
   fullname : string;
   dob: string;
   password: string;
-  contact_num: string;
+  contact_number: string;
+  address : string;
 }
 
 @Component({
