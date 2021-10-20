@@ -15,3 +15,8 @@
   margin-left: 180px;
   margin-top: -37%;
 }
+
+select{
+  width: 325px;
+  padding: 3px;
+}

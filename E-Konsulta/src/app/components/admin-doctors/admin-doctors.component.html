@@ -134,14 +134,14 @@
         </div>
         <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
           <div class="modal-body">
-            Doctor Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="30" readonly> <br><br>
-            User Type: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="30" readonly> <br><br>
-            Name: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="30"><br><br>
-            License Number: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="30"><br><br>
-            Contact Number: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br>
-            Address: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
-            Specialization: &nbsp; &nbsp;
-            <select [(ngModel)]="model.specialization" name="specialization" class="form-select" aria-label="Default select example">
+            Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="35" readonly> <br><br>
+            User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="35" readonly> <br><br>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="35"><br><br>
+            License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="35"><br><br>
+            Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="35"><br><br>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="35"><br><br>
+            Specialization:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example">
               <option selected>{{model.specialization}}</option>
               <option *ngFor="let list of spList"value="{{list.name}}">{{list.name}}</option>
             </select>
