@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { EventEmitter } from 'stream';
 
 export class RequestForm
 {
@@ -17,12 +18,37 @@ export class RequestForm
 export class LabPartnerResultComponent implements OnInit {
 
   model = new RequestForm();
-  file : any;
-  labId : string="";
+  file : any = "";
+  list : any = [];
+
+  requestID: string="";
+  userId : string="";
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
-    this.labId = this.afu.get_UID();
+    this.userId = this.afu.get_UID();
+
+    var data;
+    var tempArray = [];
+   this.userservice.get_Lab_Result().then(e=>{
+     e.forEach(item =>{
+       data = item.data();
+       data.uid = item.id;
+       tempArray.push(data);
+     })
+     this.list = tempArray;
+   })
+  }
+  editinfo(e)
+  {
+    this.requestID = e.uid;
+    this.model.email = e.email;
+    if(e.filename==undefined)
+     this.model.filename = "";
+    else
+    {
+     this.model.filename = e.filename.replace('.pdf',''); 
+    }
   }
   choosefile(e)
   {
@@ -41,9 +67,10 @@ export class LabPartnerResultComponent implements OnInit {
         item.forEach(res=>{
           if(res.data())
           {
-            this.userservice.lab_request(e);
+            this.userservice.lab_request(e,"patient");
           }
         })
+        this.ngOnInit();
       })
     }
     else
@@ -54,8 +81,11 @@ export class LabPartnerResultComponent implements OnInit {
   //Passing file to the user
   uploadfile(e)
   {
-    console.log(e);
-    this.userservice.lab_fileUpload(this.file,this.labId,"testingID",e.filename);
+    if(this.file != "" && e.filename != "")
+    {
+      this.userservice.lab_fileUpload(this.file,this.userId,this.requestID,e.filename+'.pdf');
+    }
+    else
+     console.log('Empty File or Filename!');
   }
-
 }

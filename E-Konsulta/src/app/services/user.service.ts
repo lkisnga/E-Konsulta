@@ -16,7 +16,8 @@ export class UserService {
   uploadProgress : any;
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage,
     public fireb : FirebaseApp) { }
-  
+
+
   create_Specialization(a)
   {
     this.db.collection('specialization').add({
@@ -47,22 +48,41 @@ export class UserService {
   //not yet done
   lab_fileUpload(e,lab_id,pnt_id,filename)
   {
-    var ref;
-    ref = this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/'+filename);
-    this.task = ref.put(e);
-    this.uploadProgress = this.task.percentageChanges();
+    //storing file into Storage
+  
+   this.store.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/'+filename).put(e).then(()=>{
+    //updating Lab Results
+        this.afau.onAuthStateChanged(user => {
+          if(user)
+          {
+            this.store.storage.ref('Lab-results/' + lab_id + '/patients/'+ pnt_id +'/'+filename).getDownloadURL().then(e=>{
+                this.db.collection('Laboratory_Results').doc(pnt_id).update({
+                filename : filename,
+                file : e,
+                status : 'sent'
+              }).then(()=>{
+                console.log('Successfully Stored!');
+              })
+            })
+          }
+      })
+    })
   }
-  lab_request(email)
+  lab_request(e,role)
   {
+    console.log(role);
     this.db.collection('Laboratory_Results').add({
-      email: email,
+      email: e.email,
       filename: '',
       file:'',
-      status: 'pending'
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en') ,
+      status: 'pending',
+      role: role
     }).then(()=>{
       console.log("Added!");
     })
   }
+  
   //not yet done
   create_reply_problem()
   {
@@ -79,7 +99,10 @@ export class UserService {
     })*/
   }
 
-
+  get_Lab_Result()
+  {
+    return this.db.firestore.collection('Laboratory_Results').get();
+  }
   get_patient()
   {
     return this.db.firestore.collection('Users').where("role", "==", "patient").get();
