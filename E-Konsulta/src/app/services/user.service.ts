@@ -16,7 +16,7 @@ export class UserService {
   uploadProgress : any;
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage,
     public fireb : FirebaseApp) { }
-
+  
   create_Specialization(a)
   {
     this.db.collection('specialization').add({
@@ -112,9 +112,13 @@ export class UserService {
   {
     return this.db.firestore.collection('Health_Insurance').get();
   }
-  get_review()
+  get_review_feedback()
   {
-    return this.db.firestore.collection('reviews').get();
+    return this.db.firestore.collection('reviews').where('role','==',"admin").where('type','==',"feedback").get();
+  }
+  get_review_problem()
+  {
+    return this.db.firestore.collection('reviews').where('role','==','admin').where('type','==','problem').get();
   }
 
   //Delete User

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-doctor-feedbacks',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorFeedbacksComponent implements OnInit {
 
-  constructor() { }
+  list : any = [];
+  constructor(public db: AngularFirestore) { }
 
   ngOnInit(): void {
+    
   }
 
 }
