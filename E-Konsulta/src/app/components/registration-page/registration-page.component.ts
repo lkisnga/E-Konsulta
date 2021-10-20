@@ -17,10 +17,11 @@ export class RegistrationPageComponent implements OnInit {
   error: { name: string, message: string } = { name: '', message: ''};
   errorMessage: string = '';
   message: string = '';
-
+  userID: any;
   constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userID = this.authservice.get_UID()
   }
   /*registerUser(frm)
   {

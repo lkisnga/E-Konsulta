@@ -15,16 +15,14 @@ export class AdminProblemsComponent implements OnInit {
 
     var data;
     var tempArray = [];
-    this.userserivce.get_review().then(e => {
+    this.userserivce.get_review_problem().then(e => {
       e.forEach(res => {
-        if(res.data().type == "problem")
-        {
-          data = res.data();
-          data.uid = res.id;
-          tempArray.push(data);
-        }
+        data = res.data();
+        data.uid = res.id;
+        tempArray.push(data);
       })
       this.list = tempArray;
+      console.log(this.list);
     })
   }
 
