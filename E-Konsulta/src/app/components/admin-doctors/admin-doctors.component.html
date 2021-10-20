@@ -19,7 +19,6 @@
         <div class="input-group py-4" >
           <input [(ngModel)]="searchName" (input)='listOfDoctors()' type="text" class="form-control border-info rounded" placeholder="Search Doctor" aria-label="Search"
             aria-describedby="search-addon" />
-
           <button type="button" class="btn btn-info">Search</button>
         </div>
       </div>
@@ -71,8 +70,8 @@
         </div>
         <form #specialInfo="ngForm" (ngSubmit)="addSpecialization(specialInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="38"> <br><br>
-            Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="40" rows="6"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="47"> <br><br>
+            Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="50" rows="5"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -134,12 +133,12 @@
         </div>
         <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
           <div class="modal-body">
-            Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="35" readonly> <br><br>
-            User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="35" readonly> <br><br>
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="35"><br><br>
-            License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="35"><br><br>
-            Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="35"><br><br>
-            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="35"><br><br>
+            Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="40" readonly> <br><br>
+            User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="40" readonly> <br><br>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="40"><br><br>
+            License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="40"><br><br>
+            Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="40"><br><br>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="40"><br><br>
             Specialization:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example">
               <option selected>{{model.specialization}}</option>
@@ -187,7 +186,7 @@
         <form (ngSubmit)="update_Specialization()">
           <div class="modal-body">
             Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp2.name" name="name" type="text" size="42"><br><br>
-            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="45" rows="6"></textarea>
+            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="55" rows="6"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -1,7 +1,9 @@
-
+body{
+  font-size: 14px;
+}
 .addSpcl{
   position:absolute;
-  right: 185px;
+  right: 175px;
   top: 105px;
 }
 
@@ -16,7 +18,15 @@
   margin-top: -37%;
 }
 
+input, textarea{
+  padding: 3px 6px;
+}
+
 select{
   width: 325px;
-  padding: 3px;
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
 }

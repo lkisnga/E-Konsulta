@@ -73,7 +73,7 @@
             Address: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.address" name="address" type="text" size="30"><br><br>
             Contact Number: &nbsp; &nbsp;&nbsp;<input [(ngModel)]="list.contact_number" name="contact_number" type="text" size="30" readonly><br><br>
             Health Insurance: &nbsp; &nbsp;&nbsp;
-            <select [(ngModel)]="list.health_insurance" name="health_insurance" class="form-select" aria-label="Default select example">
+            <select [(ngModel)]="list.health_insurance" name="health_insurance" aria-label="Default select example">
               <option selected>{{list.health_insurance}}</option>
               <option *ngFor="let item of hins_list" value="{{item.name}}">{{item.name}}</option>
             </select>
