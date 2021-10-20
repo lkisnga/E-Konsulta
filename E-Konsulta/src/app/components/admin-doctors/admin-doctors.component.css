@@ -14,11 +14,11 @@ body{
 }
 
 .tbl{
-  margin-left: 180px;
+  margin-left: 200px;
   margin-top: -37%;
 }
 
-input, textarea{
+input{
   padding: 3px 6px;
 }
 
