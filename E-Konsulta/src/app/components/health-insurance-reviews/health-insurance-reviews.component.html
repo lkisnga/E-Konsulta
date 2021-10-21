@@ -1,1 +1,42 @@
-<p>health-insurance-reviews works!</p>
+<app-header-insurance></app-header-insurance>
+
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+      <!--sidenav -->
+      <app-health-insurance-sidenav></app-health-insurance-sidenav>
+    </div>
+    <div class="col m-4">
+      <img src="./assets/images/yoshi.jpg" alt="img" class="profile-pic"  width="150" height="150">
+      <div class="lab-info ">
+        Id: <br>
+        Health Insurance Name: <br>
+        Email: <br>
+        Health Insurance Address: <br>
+        Contact Number: <br>
+      </div>
+      <div class="lower-part">
+        <ul class="list-group py-2 whole-trans">
+          <li class="list-group-item list-group-item-action flex-column align-items-start"  data-bs-toggle="modal" data-bs-target="#toReply">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><span><img src="./assets/images/yoshi.jpg" alt="" width="25" height="25" class="cute-pic"></span> Name</h5>
+              <small>10/19/21</small>
+            </div>
+            <div>
+              <p class="mb-1">It's a great app! It's a great choice using it.</p>
+            </div>
+            <div>
+              <textarea type="text" class="input" placeholder="Add a reply"></textarea>
+              <button class='submit' type="submit">Submit</button>
+              <button class='cancel' type="submit">Cancel</button>
+            </div>
+           <!-- <small>Transaction ID</small>-->
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
