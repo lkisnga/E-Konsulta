@@ -82,21 +82,29 @@ export class UserService {
       console.log("Added!");
     })
   }
-  
-  //not yet done
-  create_reply_problem()
+
+  lab_reply(id,feedback,name,review_id)
   {
-    this.db.collection('reviews').add({
-      sendTo: "lance",
-      sentFrom: "luke",
-      date: formatDate(new Date(), 'MM/dd/yyyy', 'en')
-    }).then(() => {
-      this.db.firestore.collection('reviews')
+    this.db.collection('Laboratory_Partner').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').add({
+      createdAt: formatDate(new Date(),"MM/dd/yyyy","en"),
+      feedback: feedback,
+      from : id,
+      name : name
+    }).then(()=>{
+      console.log("added feedback!");
     })
-    /*
-    this.db.collection('reviews').doc("iOReLCpgnNxNwJ0HO7lD").collection('reply').doc('iOReLCpgnNxNwJ0HO7lD').set({
-      reply: "Thank you for your feedback!"
-    })*/
+  }
+  
+  get_labreply(id,review_id)
+  {
+    return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').get();
+  }
+
+  get_Lab_Reviews(id)
+  {
+    return this.db.collection('Laboratory_Partner').doc(id).collection('reviews').get();
   }
 
   get_Lab_Result()
