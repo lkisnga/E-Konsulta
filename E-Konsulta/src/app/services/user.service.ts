@@ -83,14 +83,15 @@ export class UserService {
     })
   }
 
-  lab_reply(id,feedback,name,review_id)
+  lab_reply(id,feedback,name,review_id,sent_to)
   {
     this.db.collection('Laboratory_Partner').doc(id).collection('reviews').doc(review_id)
     .collection('reply').add({
       createdAt: formatDate(new Date(),"MM/dd/yyyy","en"),
       feedback: feedback,
       from : id,
-      name : name
+      name : name,
+      sent_to : sent_to,
     }).then(()=>{
       console.log("added feedback!");
     })

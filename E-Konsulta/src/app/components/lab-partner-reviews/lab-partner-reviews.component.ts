@@ -13,6 +13,9 @@ export class LabPartnerReviewsComponent implements OnInit {
   userID : string = "";
   labname : string = "";
 
+  reviewID : string = "";
+  send_to : string = "";
+
   info : any = [];
 
   imgUrl : any = "";
@@ -33,13 +36,21 @@ export class LabPartnerReviewsComponent implements OnInit {
       this.imgUrl = e.data().image;
     })
     //for lab info
+    this.get_labinfo();
+    //getting all feedbacks
+    this.get_feedbacks();
+  }
+
+  get_labinfo()
+  {
     this.userservice.get_labInfo(this.userID).forEach(e=>{
       this.info = e.data();
       this.labname = e.data().name;
       //console.log(e.data());
     }) 
-
-    //getting all feedbacks
+  }
+  get_feedbacks()
+  {
     var data,data2;
     var tempArray = [],tempArray2=[];
     this.userservice.get_Lab_Reviews(this.userID).forEach(e => {
@@ -58,14 +69,18 @@ export class LabPartnerReviewsComponent implements OnInit {
       })
     })
     this.list = tempArray;
-    console.log(this.list);
   }
 
-  lab_reply(e,list)
+  reply_edit(list)
   {
-    //console.log(list);
-    this.userservice.lab_reply(this.userID,e.feedback,this.labname,list.uid);
-    this.feedback = "";
+    console.log(list);
+    this.reviewID = list.uid;
+    this.send_to = list.from;
+  }
+
+  lab_reply(e)
+  {
+    this.userservice.lab_reply(this.userID,e.feedback,this.labname,this.reviewID,this.send_to);
   }
 
 }
