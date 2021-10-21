@@ -16,7 +16,7 @@
       </div>
       <div class="lower-part">
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item list-group-item-action flex-column align-items-start"  data-bs-toggle="modal" data-bs-target="#toReply">
+          <li class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><span><img src="./assets/images/yoshi.jpg" alt="" width="25" height="25" class="cute-pic"></span> Name</h5>
               <small>10/19/21</small>
@@ -25,17 +25,31 @@
               <p class="mb-1">It's a great app! It's a great choice using it.</p>
             </div>
             <div>
-              <textarea type="text" class="input" placeholder="Add a reply"></textarea>
-              <button class='submit' type="submit">Submit</button>
-              <button class='cancel' type="submit">Cancel</button>
+              <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
             </div>
            <!-- <small>Transaction ID</small>-->
           </li>
         </ul>
       </div>
     </div>
-
   </div>
-
+<!--Reply Modal-->
+<div class="modal fade" id="toReply" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSpclLabel">Add a reply</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+        <div class="modal-body">
+          <textarea name="reply" id="" cols="50" rows="5" placeholder="Reply..."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+        </div>
+    </div>
+  </div>
+</div>
 
 
