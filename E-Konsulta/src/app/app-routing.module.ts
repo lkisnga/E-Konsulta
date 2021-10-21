@@ -21,8 +21,6 @@ import { DoctorPatientsComponent } from './components/doctor-patients/doctor-pat
 import { DoctorPaymentsComponent } from './components/doctor-payments/doctor-payments.component';
 import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics/doctor-user-analytics.component';
 import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
-import { DoctorFeedbacksComponent } from './components/doctor-feedbacks/doctor-feedbacks.component';
-import { DoctorProblemsComponent } from './components/doctor-problems/doctor-problems.component';
 import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
 import { DoctorReservationsComponent } from './components/doctor-reservations/doctor-reservations.component';
 import { PatientConsultationComponent } from './components/patient-consultation/patient-consultation.component';
@@ -33,8 +31,6 @@ import { HealthInsuranceProfileComponent } from './components/health-insurance-p
 import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
 import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
 import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
-import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
-import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
 import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
 import { DoctorRegistrationComponent } from './components/doctor-registration/doctor-registration.component';
 import { PatientRegistrationComponent } from './components/patient-registration/patient-registration.component';
@@ -43,6 +39,8 @@ import { LabPartnerRegistrationComponent } from './components/lab-partner-regist
 import { PatientDoctorChatComponent } from './components/patient-doctor-chat/patient-doctor-chat.component';
 import { LabPartnerReviewsComponent } from './components/lab-partner-reviews/lab-partner-reviews.component';
 import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
+import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
+import { HealthInsuranceReviewsComponent } from './components/health-insurance-reviews/health-insurance-reviews.component';
 
 
 const routes: Routes = [
@@ -67,8 +65,6 @@ const routes: Routes = [
   { path: 'doctor-payments', component: DoctorPaymentsComponent},
   { path: 'doctor-user-analytics', component: DoctorUserAnalyticsComponent},
   { path: 'doctor-transaction-history', component: DoctorTransactionHistoryComponent},
-  { path: 'doctor-feedbacks', component: DoctorFeedbacksComponent},
-  { path: 'doctor-problems', component: DoctorProblemsComponent},
   { path: 'doctor-set-schedule', component: DoctorSetScheduleComponent},
   { path: 'doctor-reservations', component: DoctorReservationsComponent},
   { path: 'patient-consultation', component: PatientConsultationComponent},
@@ -79,8 +75,6 @@ const routes: Routes = [
   { path: 'health-insurance-requets', component: HealthInsuranceRequestsComponent},
   { path: 'health-insurance-loa', component: HealthInsuranceLoaComponent},
   { path: 'health-insurance-verification', component: HealthInsuranceVerificationComponent},
-  { path: 'health-insurance-feedbacks', component: HealthInsuranceFeedbacksComponent},
-  { path: 'health-insurance-problems', component: HealthInsuranceProblemsComponent},
   { path: 'doctor-patient-chat', component: DoctorPatientsChatComponent},
   { path: 'doctor-registration', component: DoctorRegistrationComponent},
   { path: 'patient-registration', component: PatientRegistrationComponent},
@@ -88,7 +82,9 @@ const routes: Routes = [
   { path: 'lab-partner-registration', component: LabPartnerRegistrationComponent},
   { path: 'patient-doctor-chat', component: PatientDoctorChatComponent},
   { path: 'lab-partner-reviews', component: LabPartnerReviewsComponent},
-  { path: 'user-feedbacks', component: UserFeedbacksComponent}
+  { path: 'user-feedbacks', component: UserFeedbacksComponent},
+  { path: 'doctor-reviews', component: DoctorReviewsComponent},
+  { path: 'health-insurance-reviews', component: HealthInsuranceReviewsComponent}
 ];
 
 
@@ -123,8 +119,6 @@ export const routingComponents = [
   DoctorPaymentsComponent,
   DoctorUserAnalyticsComponent,
   DoctorTransactionHistoryComponent,
-  DoctorFeedbacksComponent,
-  DoctorProblemsComponent,
   DoctorSetScheduleComponent,
   DoctorReservationsComponent,
   PatientConsultationComponent,
@@ -135,8 +129,6 @@ export const routingComponents = [
   HealthInsuranceRequestsComponent,
   HealthInsuranceLoaComponent,
   HealthInsuranceVerificationComponent,
-  HealthInsuranceFeedbacksComponent,
-  HealthInsuranceProblemsComponent,
   DoctorPatientsChatComponent,
   DoctorRegistrationComponent,
   PatientRegistrationComponent,
@@ -144,5 +136,7 @@ export const routingComponents = [
   LabPartnerRegistrationComponent,
   PatientDoctorChatComponent,
   LabPartnerReviewsComponent,
-  UserFeedbacksComponent
+  UserFeedbacksComponent,
+  DoctorReviewsComponent,
+  HealthInsuranceReviewsComponent
 ];

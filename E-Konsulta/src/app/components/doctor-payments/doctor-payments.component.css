@@ -1,6 +1,10 @@
+body{
+  font-size: 14px;
+}
+
 .tbl{
   margin-left: 200px;
-  margin-top: -39%;
+  margin-top: -41%;
 }
 
 .usr{
@@ -8,11 +12,43 @@
 }
 
 .list-group-item{
-  border: 1px solid rgb(0, 192, 206);
-  color: rgb(0, 192, 206);
+  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  color: gray !important;
+  font-size: 12px;
 }
+
+.mb-1{
+  font-size: 14px;
+}
+
+.whole-trans{
+  height: 480px;
+  overflow-y: scroll;
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  padding: 15px 30px;
+  margin-top: 20px;
+}
+
 .addSpcl{
   position:absolute;
   right: 35px;
   top: 102px;
+}
+
+select{
+  width: 330px;
+  padding: 3px;
+}
+
+input, textarea{
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
+}
+
+input [type=date]{
+  width: 300px !important;
 }

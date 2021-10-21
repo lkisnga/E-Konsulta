@@ -1,3 +1,6 @@
+body{
+  font-size: 14px;
+}
 .tbl{
   margin-left: 200px;
   margin-top: -39%;
@@ -7,15 +10,40 @@
   color: rgb(0, 192, 206);
 }
 
+.lower-part{
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  width: 930px;
+  height: 420px;
+  padding: 7px 35px;
+  margin-left: 25px;
+  margin-top: 70px;
+  overflow-y: scroll;
+}
+
+/*content*/
 .list-group-item{
-  border: 1px solid rgb(0, 192, 206);
-  color: rgb(0, 192, 206);
-  margin-bottom: 5px;
-  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  color: gray !important;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 .addRqst{
   position:absolute;
-  left: 230px;
+  left: 280px;
   top: 100px;
   overflow: hidden;
+}
+
+input{
+  padding: 3px 6px;
+}
+
+select{
+  width: 325px;
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
 }

@@ -4,7 +4,8 @@
   width: 190px;
   position: sticky;
   z-index: 99;
-  height: 598px;
+  height: 600px;
+  font-size: 14px;
 }
 
 .nav-link{

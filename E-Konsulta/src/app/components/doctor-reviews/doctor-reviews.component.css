@@ -48,20 +48,18 @@ body{
 /*reply*/
 textarea {
 	width: 100%;
-	border: 1px solid gray;
-  outline: none;
+	border: none;
 	padding: 5px 10px;
 	height: 20%;
 	border-radius: 5px 5px 0px 0px;
 	border-bottom: 1px solid gray;
 	transition: all 0.5s;
+	margin-top: 10px;
   font-size: 12px;
-}
-.btn{
-  font-size: 14px !important;
+  color: gray;
 }
 
-.submit{
+.submit, .cancel{
   margin-top: 3px;
   font-size: 11px !important;
   text-decoration: none;
@@ -69,10 +67,17 @@ textarea {
   border: 1px solid gray;
   padding: 2px 8px;
 }
-
+.cancel{
+  margin-left: 5px;
+}
 .submit:hover, .submit:focus{
   border: 1px solid rgb(0, 192, 206);
   color: white;
   background-color: rgb(0, 192, 206) ;
 }
 
+.cancel:hover, .cancel:focus{
+  border: 1px solid gray;
+  color: white;
+  background-color: gray ;
+}
