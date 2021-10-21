@@ -34,10 +34,10 @@ body{
 .buttons-right{
   position: absolute;
   bottom: 50px;
-  right: 450px;
+  right: 460px;
 }
 #edit{
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 #editLabel{

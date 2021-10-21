@@ -8,11 +8,56 @@ body{
 .hInsurance{
   color: rgb(0, 192, 206);
   padding: 12px 4px;
+  text-align: left;
+  margin-left: 60px;
+}
+.profile-pic{
+  border-radius: 50%;
+  margin: 70px 10px 10px 80px;
+  cursor: pointer;
+}
+.col-10{
+  margin: 30px 0px 0px 35px;
+  box-shadow: 0 4px 8px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 540px;
 }
 
 .info{
-  line-height: 38px;
+  line-height: 42px;
+  position: absolute;
+  top: 85px;
+  right: 400px;
 }
+.buttons-right{
+  position: absolute;
+  bottom: 30px;
+  right: 460px;
+}
+#edit{
+  margin-right: 10px;
+}
+
+#editLabel{
+  color: rgb(0, 192, 206);
+}
+
+select{
+  width: 330px;
+  padding: 3px;
+}
+
+input, textarea{
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder,.info{
+  font-size: 14px !important;
+}
+
+input [type=date]{
+  width: 300px !important;
+}
+
 
 /*
 #hInsurance-container{
@@ -43,14 +88,4 @@ body{
 }
 */
 
-.profile-pic{
-  border-radius: 50%;
-}
-.col-10{
-  margin: 40px 0px 0px 35px;
-  max-height: min-content;
-}
 
-#edit{
-  margin-right: 10px;
-}

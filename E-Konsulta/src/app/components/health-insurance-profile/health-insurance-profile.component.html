@@ -4,8 +4,9 @@
       <app-health-insurance-sidenav></app-health-insurance-sidenav>
     </div>
       <!--2nd column-->
-      <div class="col-10 col-md-9 col-sm-7 border border-info tbl" id="hInsurance-container">
-        <h2 class="hInsurance"><span><img src="" alt="img" width="50" height="50"></span> Health Insurance Name</h2>
+      <div class="col-10 col-md-9 col-sm-7">
+        <img src="./assets/images/yoshi.jpg" alt="img" class="profile-pic" width="200" height="200">
+        <h2 class="hInsurance">Health Insurance</h2>
         <div class="info px-3 py-4">
           User UID: <br>
           Health Insurance ID: <br>
@@ -19,8 +20,10 @@
           Contact Number: <br>
           isVerified: <br>
         </div>
-        <button class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-        <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        <div class="buttons-right">
+          <button class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+      </div>
       </div>
   </div>
 <!--Edit Modal-->
