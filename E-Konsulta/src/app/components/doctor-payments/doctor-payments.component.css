@@ -35,3 +35,20 @@ body{
   right: 35px;
   top: 102px;
 }
+
+select{
+  width: 330px;
+  padding: 3px;
+}
+
+input, textarea{
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
+}
+
+input [type=date]{
+  width: 300px !important;
+}
