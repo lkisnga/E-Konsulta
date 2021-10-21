@@ -5,21 +5,20 @@
       <!--sidenav -->
       <app-lab-partner-sidenav></app-lab-partner-sidenav>
     </div>
-  </div>
+    <div class="col m-4">
    <!--Add Result-->
    <div class="addRqst">
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addRqst">Add Request</button>
   </div>
-  <div class="row flex-nowrap tbl">
-    <div class="col mx-3 py-3">
-      <ul class="list-group py-2">
+    <div class="lower-part">
+      <ul class="list-group py-2 whole-trans">
         <li *ngFor="let list of list" (click)="editinfo(list)" class="list-group-item list-group-item-action flex-column align-items-start text-info" data-bs-toggle="modal" data-bs-target="#editRqst">
           <div class="d-flex justify-content-between">
             <h5 mb-1>{{list.email}}</h5>
             <small>{{list.createdAt}}</small>
           </div>
           <p class="mb-1">Send File</p>
-          <small>{{list.role}}</small>  
+          <small>{{list.role}}</small>
         </li>
       </ul>
       <!--Modal Result-->
@@ -32,7 +31,7 @@
             </div>
             <form #info="ngForm" (ngSubmit)="addRequest(info.value)">
               <div class="modal-body">
-                Email: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="35"> <br><br>
+                Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="40"> <br><br>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -69,5 +68,4 @@
    <!--END EditModal-->
     </div>
   </div>
-
-
+  </div>
