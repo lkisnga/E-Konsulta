@@ -49,8 +49,6 @@ import { HealthInsuranceProfileComponent } from './components/health-insurance-p
 import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
 import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
 import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
-import { HealthInsuranceFeedbacksComponent } from './components/health-insurance-feedbacks/health-insurance-feedbacks.component';
-import { HealthInsuranceProblemsComponent } from './components/health-insurance-problems/health-insurance-problems.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
@@ -66,6 +64,7 @@ import { HeaderLabComponent } from './components/header-lab/header-lab.component
 import { HeaderInsuranceComponent } from './components/header-insurance/header-insurance.component';
 import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
 import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
+import { HealthInsuranceReviewsComponent } from './components/health-insurance-reviews/health-insurance-reviews.component';
 
 
 @NgModule({
@@ -109,8 +108,6 @@ import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-revie
     HealthInsuranceRequestsComponent,
     HealthInsuranceLoaComponent,
     HealthInsuranceVerificationComponent,
-    HealthInsuranceFeedbacksComponent,
-    HealthInsuranceProblemsComponent,
     DoctorPatientsChatComponent,
     DoctorRegistrationComponent,
     PatientRegistrationComponent,
@@ -123,7 +120,8 @@ import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-revie
     HeaderLabComponent,
     HeaderInsuranceComponent,
     UserFeedbacksComponent,
-    DoctorReviewsComponent
+    DoctorReviewsComponent,
+    HealthInsuranceReviewsComponent
   ],
   imports: [
     FormsModule,

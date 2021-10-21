@@ -17,7 +17,7 @@ body{
   height: 420px;
   padding: 7px 35px;
   margin-left: 25px;
-  margin-top: 80px;
+  margin-top: 70px;
   overflow-y: scroll;
 }
 
@@ -33,4 +33,17 @@ body{
   left: 280px;
   top: 100px;
   overflow: hidden;
+}
+
+input{
+  padding: 3px 6px;
+}
+
+select{
+  width: 325px;
+  padding: 3px 6px;
+}
+
+.btn, ::placeholder{
+  font-size: 14px !important;
 }
