@@ -17,7 +17,7 @@
         <ul class="list-group py-2 whole-trans">
           <li *ngFor="let list of list" class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><span><img src="./assets/images/yoshi.jpg" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
+              <h5 class="mb-1"><span *ngFor="let img of userImgUrl"><img *ngIf="list.from == img.uid" src="{{img.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
               <small>{{list.createdAt}}</small>
             </div>
             <div>

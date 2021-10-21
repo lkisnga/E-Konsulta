@@ -19,6 +19,7 @@ export class LabPartnerReviewsComponent implements OnInit {
   info : any = [];
 
   imgUrl : any = "";
+  userImgUrl : any = [];
 
   list : any = [];
   replyList : any = [];
@@ -51,12 +52,21 @@ export class LabPartnerReviewsComponent implements OnInit {
   }
   get_feedbacks()
   {
-    var data,data2;
-    var tempArray = [],tempArray2=[];
+    var data,data2,data3;
+    var tempArray = [],tempArray2=[],tempArray3 = [];
     this.userservice.get_Lab_Reviews(this.userID).forEach(e => {
       e.forEach(item => {
         data = item.data();
         data.uid = item.id;
+
+        this.userservice.get_avatar(item.data().from).then(rs=>{
+          data3 = rs.data();
+          data3.uid = rs.id;
+          tempArray3.push(data3);
+        })
+        this.userImgUrl = tempArray3;
+        console.log(this.userImgUrl);
+
         this.userservice.get_labreply(this.userID,item.id).then(a=>{
           a.forEach(res=>{
             data2 = res.data();
@@ -69,6 +79,7 @@ export class LabPartnerReviewsComponent implements OnInit {
       })
     })
     this.list = tempArray;
+    console.log(this.list);
   }
 
   reply_edit(list)
