@@ -1,0 +1,83 @@
+body{
+  width: 100%;
+  overflow: hidden;
+}
+.profile-pic{
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.345), 0 6px 20px 0 rgba(104, 104, 104, 0.19);
+}
+.lab-info{
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.19);
+  width: 800px;
+  padding: 12px 30px;
+  line-height: 25px;
+  font-size: 13px;
+  margin: -150px 50px 20px 160px;
+  color: gray !important;
+}
+
+.lower-part{
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  width: 930px;
+  height: 370px;
+  padding: 7px 35px;
+  margin-left: 25px;
+  overflow-y: scroll;
+}
+
+/*content*/
+.list-group-item{
+  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  color: gray !important;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.mb-1{
+  font-size: 12px;
+}
+
+.cute-pic{
+  border-radius: 50%;
+}
+
+/*reply*/
+textarea {
+	width: 100%;
+	border: none;
+	padding: 5px 10px;
+	height: 20%;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 1px solid gray;
+	transition: all 0.5s;
+	margin-top: 10px;
+  font-size: 12px;
+  color: gray;
+}
+
+.submit, .cancel{
+  margin-top: 3px;
+  font-size: 11px !important;
+  text-decoration: none;
+  border-radius: 200px;
+  border: 1px solid gray;
+  padding: 2px 8px;
+}
+.cancel{
+  margin-left: 5px;
+}
+.submit:hover, .submit:focus{
+  border: 1px solid rgb(0, 192, 206);
+  color: white;
+  background-color: rgb(0, 192, 206) ;
+}
+
+.cancel:hover, .cancel:focus{
+  border: 1px solid gray;
+  color: white;
+  background-color: gray ;
+}

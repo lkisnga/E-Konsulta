@@ -21,8 +21,6 @@ import { DoctorPatientsComponent } from './components/doctor-patients/doctor-pat
 import { DoctorPaymentsComponent } from './components/doctor-payments/doctor-payments.component';
 import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics/doctor-user-analytics.component';
 import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
-import { DoctorFeedbacksComponent } from './components/doctor-feedbacks/doctor-feedbacks.component';
-import { DoctorProblemsComponent } from './components/doctor-problems/doctor-problems.component';
 import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
 import { DoctorReservationsComponent } from './components/doctor-reservations/doctor-reservations.component';
 import { PatientConsultationComponent } from './components/patient-consultation/patient-consultation.component';
@@ -43,6 +41,7 @@ import { LabPartnerRegistrationComponent } from './components/lab-partner-regist
 import { PatientDoctorChatComponent } from './components/patient-doctor-chat/patient-doctor-chat.component';
 import { LabPartnerReviewsComponent } from './components/lab-partner-reviews/lab-partner-reviews.component';
 import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
+import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
 
 
 const routes: Routes = [
@@ -67,8 +66,6 @@ const routes: Routes = [
   { path: 'doctor-payments', component: DoctorPaymentsComponent},
   { path: 'doctor-user-analytics', component: DoctorUserAnalyticsComponent},
   { path: 'doctor-transaction-history', component: DoctorTransactionHistoryComponent},
-  { path: 'doctor-feedbacks', component: DoctorFeedbacksComponent},
-  { path: 'doctor-problems', component: DoctorProblemsComponent},
   { path: 'doctor-set-schedule', component: DoctorSetScheduleComponent},
   { path: 'doctor-reservations', component: DoctorReservationsComponent},
   { path: 'patient-consultation', component: PatientConsultationComponent},
@@ -88,7 +85,8 @@ const routes: Routes = [
   { path: 'lab-partner-registration', component: LabPartnerRegistrationComponent},
   { path: 'patient-doctor-chat', component: PatientDoctorChatComponent},
   { path: 'lab-partner-reviews', component: LabPartnerReviewsComponent},
-  { path: 'user-feedbacks', component: UserFeedbacksComponent}
+  { path: 'user-feedbacks', component: UserFeedbacksComponent},
+  { path: 'doctor-reviews', component: DoctorReviewsComponent}
 ];
 
 
@@ -123,8 +121,6 @@ export const routingComponents = [
   DoctorPaymentsComponent,
   DoctorUserAnalyticsComponent,
   DoctorTransactionHistoryComponent,
-  DoctorFeedbacksComponent,
-  DoctorProblemsComponent,
   DoctorSetScheduleComponent,
   DoctorReservationsComponent,
   PatientConsultationComponent,
@@ -144,5 +140,6 @@ export const routingComponents = [
   LabPartnerRegistrationComponent,
   PatientDoctorChatComponent,
   LabPartnerReviewsComponent,
-  UserFeedbacksComponent
+  UserFeedbacksComponent,
+  DoctorReviewsComponent
 ];

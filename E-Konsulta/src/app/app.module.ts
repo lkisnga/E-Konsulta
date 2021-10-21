@@ -35,8 +35,6 @@ import { DoctorPatientsComponent } from './components/doctor-patients/doctor-pat
 import { DoctorPaymentsComponent } from './components/doctor-payments/doctor-payments.component';
 import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics/doctor-user-analytics.component';
 import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
-import { DoctorFeedbacksComponent } from './components/doctor-feedbacks/doctor-feedbacks.component';
-import { DoctorProblemsComponent } from './components/doctor-problems/doctor-problems.component';
 import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
 import { DoctorReservationsComponent } from './components/doctor-reservations/doctor-reservations.component';
 import { PatientConsultationComponent } from './components/patient-consultation/patient-consultation.component';
@@ -67,6 +65,7 @@ import { HeaderPatientComponent } from './components/header-patient/header-patie
 import { HeaderLabComponent } from './components/header-lab/header-lab.component';
 import { HeaderInsuranceComponent } from './components/header-insurance/header-insurance.component';
 import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
+import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
 
 
 @NgModule({
@@ -96,8 +95,6 @@ import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbac
     DoctorPaymentsComponent,
     DoctorUserAnalyticsComponent,
     DoctorTransactionHistoryComponent,
-    DoctorFeedbacksComponent,
-    DoctorProblemsComponent,
     DoctorSetScheduleComponent,
     DoctorReservationsComponent,
     PatientConsultationComponent,
@@ -125,7 +122,8 @@ import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbac
     HeaderPatientComponent,
     HeaderLabComponent,
     HeaderInsuranceComponent,
-    UserFeedbacksComponent
+    UserFeedbacksComponent,
+    DoctorReviewsComponent
   ],
   imports: [
     FormsModule,
