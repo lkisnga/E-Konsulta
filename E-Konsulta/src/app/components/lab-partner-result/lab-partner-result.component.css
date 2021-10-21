@@ -27,6 +27,7 @@ body{
   color: gray !important;
   font-size: 12px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 .addRqst{
   position:absolute;

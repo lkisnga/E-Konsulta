@@ -2,3 +2,9 @@
 body{
   font-family: "Roboto", sans-serif;
 }
+
+::selection
+{
+  background: rgb(190, 190, 190);
+  color: white;
+}
