@@ -12,14 +12,16 @@
   </div>
     <div class="lower-part">
       <ul class="list-group py-2 whole-trans">
-        <li *ngFor="let list of list" (click)="editinfo(list)" class="list-group-item list-group-item-action flex-column align-items-start text-info" data-bs-toggle="modal" data-bs-target="#editRqst">
-          <div class="d-flex justify-content-between">
-            <h5 mb-1>{{list.email}}</h5>
-            <small>{{list.createdAt}}</small>
-          </div>
-          <p class="mb-1">Send File</p>
-          <small>{{list.role}}</small>
-        </li>
+        <div *ngFor="let list of list">
+          <li *ngIf="userId == list.diagnostic_center" (click)="editinfo(list)" class="list-group-item list-group-item-action flex-column align-items-start text-info" data-bs-toggle="modal" data-bs-target="#editRqst">
+            <div class="d-flex justify-content-between">
+              <h5 mb-1>{{list.email}}</h5>
+              <small>{{list.createdAt}}</small>
+            </div>
+            <p class="mb-1">Send File</p>
+            <small>{{list.role}}</small>
+          </li>
+        </div>
       </ul>
       <!--Modal Result-->
       <div class="modal fade" id="addRqst" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">

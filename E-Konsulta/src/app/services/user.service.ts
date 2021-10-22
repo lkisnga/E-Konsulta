@@ -68,16 +68,17 @@ export class UserService {
       })
     })
   }
-  lab_request(e,role)
+  lab_request(e,role,id)
   {
     console.log(role);
     this.db.collection('Laboratory_Results').add({
       email: e.email,
       filename: '',
       file:'',
-      createdAt: formatDate(new Date(),'MM/dd/yyyy','en') ,
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
       status: 'pending',
-      role: role
+      role: role,
+      diagnostic_center: id
     }).then(()=>{
       console.log("Added!");
     })
