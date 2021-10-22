@@ -3,7 +3,6 @@ body{
   overflow: hidden;
 }
 
-
 /* PATIENT */
 
 .patient{
@@ -20,7 +19,7 @@ body{
 }
 .col-10{
   margin: 30px 0px 0px 35px;
-  box-shadow: 0 4px 8px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: 540px;
 }
 
