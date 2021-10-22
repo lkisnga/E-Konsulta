@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-health-insurance-registration',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HealthInsuranceRegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public afu : AuthService, public router: Router) { }
 
   ngOnInit(): void {
   }
