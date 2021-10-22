@@ -65,6 +65,7 @@ import { HeaderInsuranceComponent } from './components/header-insurance/header-i
 import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbacks.component';
 import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
 import { HealthInsuranceReviewsComponent } from './components/health-insurance-reviews/health-insurance-reviews.component';
+import { ChooseUserFeedbackComponent } from './components/choose-user-feedback/choose-user-feedback.component';
 
 
 @NgModule({
@@ -121,7 +122,8 @@ import { HealthInsuranceReviewsComponent } from './components/health-insurance-r
     HeaderInsuranceComponent,
     UserFeedbacksComponent,
     DoctorReviewsComponent,
-    HealthInsuranceReviewsComponent
+    HealthInsuranceReviewsComponent,
+    ChooseUserFeedbackComponent
   ],
   imports: [
     FormsModule,
