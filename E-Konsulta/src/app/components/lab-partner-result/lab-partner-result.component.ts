@@ -67,7 +67,7 @@ export class LabPartnerResultComponent implements OnInit {
         item.forEach(res=>{
           if(res.data())
           {
-            this.userservice.lab_request(e,"patient");
+            this.userservice.lab_request(e,"patient",this.userId);
           }
         })
         this.ngOnInit();

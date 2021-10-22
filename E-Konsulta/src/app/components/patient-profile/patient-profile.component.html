@@ -23,7 +23,7 @@
         </div>
         <div class="buttons-right">
           <button class="btn btn-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-          <button (click)="logout()" class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+          <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
         </div>
       </div>
   </div>
@@ -62,8 +62,8 @@
         <p>Are you sure you want to logout?</p>
       </div>
       <div class="modal-footer">
-        <button [routerLink]="['/']" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
-        <button [routerLink]="['/doctor-profile']" type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        <button (click)="logout()" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
+        <button [routerLink]="['/patient-profile']" type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
       </div>
     </div>
   </div>
