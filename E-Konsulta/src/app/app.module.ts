@@ -69,6 +69,12 @@ import { ChooseUserFeedbackComponent } from './components/choose-user-feedback/c
 import { ListOfDoctorsComponent } from './components/list-of-doctors/list-of-doctors.component';
 import { ListOfLabPartnersComponent } from './components/list-of-lab-partners/list-of-lab-partners.component';
 import { ListOfHealthInsuranceComponent } from './components/list-of-health-insurance/list-of-health-insurance.component';
+import { DoctorFeedbackComponent } from './components/doctor-feedback/doctor-feedback.component';
+import { HealthInsuranceFeedbackComponent } from './components/health-insurance-feedback/health-insurance-feedback.component';
+import { LabPartnerFeedbackComponent } from './components/lab-partner-feedback/lab-partner-feedback.component';
+import { PatientToDoctorFeedbackComponent } from './components/patient-to-doctor-feedback/patient-to-doctor-feedback.component';
+import { PatientToLabPartnerFeedbackComponent } from './components/patient-to-lab-partner-feedback/patient-to-lab-partner-feedback.component';
+import { PatientToHealthInsuranceFeedbackComponent } from './components/patient-to-health-insurance-feedback/patient-to-health-insurance-feedback.component';
 
 
 @NgModule({
@@ -129,7 +135,13 @@ import { ListOfHealthInsuranceComponent } from './components/list-of-health-insu
     ChooseUserFeedbackComponent,
     ListOfDoctorsComponent,
     ListOfLabPartnersComponent,
-    ListOfHealthInsuranceComponent
+    ListOfHealthInsuranceComponent,
+    DoctorFeedbackComponent,
+    HealthInsuranceFeedbackComponent,
+    LabPartnerFeedbackComponent,
+    PatientToDoctorFeedbackComponent,
+    PatientToLabPartnerFeedbackComponent,
+    PatientToHealthInsuranceFeedbackComponent
   ],
   imports: [
     FormsModule,

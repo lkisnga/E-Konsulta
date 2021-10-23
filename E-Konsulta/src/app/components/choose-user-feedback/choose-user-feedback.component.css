@@ -2,36 +2,6 @@
   box-sizing: border-box;
 }
 
-/*search*/
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
-.searchTerm {
-  width: 100%;
-  border: 1px solid #00B4CC;
-  padding: 15px;
-  height: 25px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-
-}
-
-.searchTerm:focus{
-  color: #00B4CC;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 30%;
-  position: absolute;
-  top: 20%;
-  left: 32%;
-  transform: translate(-50%, -50%);
-}
-
 /*cards*/
 .col{
   margin-top: 150px;

@@ -1,1 +1,28 @@
-<p>list-of-lab-partners works!</p>
+<app-header-patient></app-header-patient>
+
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
+      <!--sidebar-->
+      <app-patient-sidenav></app-patient-sidenav>
+    </div>
+    <!--search-->
+    <div class="wrap">
+      <div class="search">
+         <input type="text" class="searchTerm" placeholder="Search">
+      </div>
+   </div>
+    <div class="col">
+      <div class="column">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="doctor"> -->
+          <h3><i class="fa fa-user-md"></i></h3>
+          <div class="card-body">
+            <h5 class="card-title">Name</h5>
+            <p class="card-text">Address</p>
+            <a routerLink='/patient-to-lab-partner-feedback' class="btn btn-outline-info">View</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
