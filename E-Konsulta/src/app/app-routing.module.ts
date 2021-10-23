@@ -1,3 +1,4 @@
+import { PatientToLabPartnerFeedbackComponent } from './components/patient-to-lab-partner-feedback/patient-to-lab-partner-feedback.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -94,7 +95,8 @@ const routes: Routes = [
   { path: 'list-of-doctors', component: ListOfDoctorsComponent},
   { path: 'list-of-lab-partners', component: ListOfLabPartnersComponent},
   { path: 'list-of-health-insurance', component: ListOfHealthInsuranceComponent},
-  { path: 'patient-to-doctor-feedback', component: PatientToDoctorFeedbackComponent}
+  { path: 'patient-to-doctor-feedback', component: PatientToDoctorFeedbackComponent},
+  { path: 'patient-to-lab-partner-feedback', component: PatientToLabPartnerFeedbackComponent}
 ];
 
 
@@ -153,5 +155,6 @@ export const routingComponents = [
   ListOfDoctorsComponent,
   ListOfLabPartnersComponent,
   ListOfHealthInsuranceComponent,
-  PatientToDoctorFeedbackComponent
+  PatientToDoctorFeedbackComponent,
+  PatientToLabPartnerFeedbackComponent
 ];
