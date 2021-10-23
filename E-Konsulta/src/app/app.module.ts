@@ -66,6 +66,10 @@ import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbac
 import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
 import { HealthInsuranceReviewsComponent } from './components/health-insurance-reviews/health-insurance-reviews.component';
 import { ChooseUserFeedbackComponent } from './components/choose-user-feedback/choose-user-feedback.component';
+import { ListOfDoctorsComponent } from './components/list-of-doctors/list-of-doctors.component';
+import { ListOfPatientsComponent } from './components/list-of-patients/list-of-patients.component';
+import { ListOfLabPartnersComponent } from './components/list-of-lab-partners/list-of-lab-partners.component';
+import { ListOfHealthInsuranceComponent } from './components/list-of-health-insurance/list-of-health-insurance.component';
 
 
 @NgModule({
@@ -123,7 +127,11 @@ import { ChooseUserFeedbackComponent } from './components/choose-user-feedback/c
     UserFeedbacksComponent,
     DoctorReviewsComponent,
     HealthInsuranceReviewsComponent,
-    ChooseUserFeedbackComponent
+    ChooseUserFeedbackComponent,
+    ListOfDoctorsComponent,
+    ListOfPatientsComponent,
+    ListOfLabPartnersComponent,
+    ListOfHealthInsuranceComponent
   ],
   imports: [
     FormsModule,

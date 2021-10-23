@@ -42,6 +42,10 @@ import { UserFeedbacksComponent } from './components/user-feedbacks/user-feedbac
 import { DoctorReviewsComponent } from './components/doctor-reviews/doctor-reviews.component';
 import { HealthInsuranceReviewsComponent } from './components/health-insurance-reviews/health-insurance-reviews.component';
 import { ChooseUserFeedbackComponent } from './components/choose-user-feedback/choose-user-feedback.component';
+import { ListOfDoctorsComponent } from './components/list-of-doctors/list-of-doctors.component';
+import { ListOfPatientsComponent } from './components/list-of-patients/list-of-patients.component';
+import { ListOfLabPartnersComponent } from './components/list-of-lab-partners/list-of-lab-partners.component';
+import { ListOfHealthInsuranceComponent } from './components/list-of-health-insurance/list-of-health-insurance.component';
 
 
 const routes: Routes = [
@@ -86,7 +90,11 @@ const routes: Routes = [
   { path: 'user-feedbacks', component: UserFeedbacksComponent},
   { path: 'doctor-reviews', component: DoctorReviewsComponent},
   { path: 'health-insurance-reviews', component: HealthInsuranceReviewsComponent},
-  { path: 'choose-user-feedback', component: ChooseUserFeedbackComponent}
+  { path: 'choose-user-feedback', component: ChooseUserFeedbackComponent},
+  { path: 'list-of-doctors', component: ListOfDoctorsComponent},
+  { path: 'list-of-patients', component: ListOfPatientsComponent},
+  { path: 'list-of-lab-partner', component: ListOfLabPartnersComponent},
+  { path: 'list-of-health-insurance', component: ListOfHealthInsuranceComponent}
 ];
 
 
@@ -141,5 +149,9 @@ export const routingComponents = [
   UserFeedbacksComponent,
   DoctorReviewsComponent,
   HealthInsuranceReviewsComponent,
-  ChooseUserFeedbackComponent
+  ChooseUserFeedbackComponent,
+  ListOfDoctorsComponent,
+  ListOfPatientsComponent,
+  ListOfLabPartnersComponent,
+  ListOfHealthInsuranceComponent
 ];
