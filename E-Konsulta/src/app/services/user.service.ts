@@ -113,6 +113,11 @@ export class UserService {
   {
     return this.db.firestore.collection('Laboratory_Results').get();
   }
+  get_Lab_Results_Patient(email)
+  {
+    return this.db.firestore.collection('Laboratory_Results').where('email','==',email).get();
+  }
+
   get_patient()
   {
     return this.db.firestore.collection('Users').where("role", "==", "patient").get();

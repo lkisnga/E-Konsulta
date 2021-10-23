@@ -11,14 +11,13 @@
         <!-- <button (click)="uploadImage()" class="btn btn-primary">Upload</button> -->
         <div class="info px-3 py-4">
           Patient ID: {{userID}}<br>
-          Health Insurance ID: <br>
+          Health Insurance ID: {{info.member_ID}}<br>
           Name:  {{info.fullname}}<br>
           Date of Birth: {{info.dob}} <br>
           Email:  {{info.email}}<br>
           User Type: {{info.role}}<br>
           Status: {{info.status}}<br>
-          Contact Number: {{info.contact_num}} <br>
-          isVerified: <br>
+          Contact Number: {{info.contact_number}} <br>
         </div>
         <div class="buttons-right">
           <button class="btn btn-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>

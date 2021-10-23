@@ -5,18 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient - User Analytics</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W63D4DNHZY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W63D4DNHZY');
-</script>
--->
-
 </head>
 <body>
 
@@ -38,7 +26,26 @@
             <button type="button" class="btn btn-outline-info" (click)="prescription()">Prescription</button>
           </div>
           <div *ngIf="medicalrecords">
-            Medical Records
+            <table class="table table-info table-bordered">
+                <thead>
+                  <tr>
+                    <th>File Name</th>
+                    <th>Date</th>
+                    <th>From</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of list">
+                          <td>{{list.filename}}</td>
+                          <td>{{list.createdAt}}</td>
+                          <td>{{list.from}}</td>
+                          <td>
+                            <button (click)="viewFile(list.file)" class="btn btn-success">View</button>
+                          </td>
+                    </tr>
+                </tbody>
+            </table>
           </div>
           <div *ngIf="labresult">
             Laboratory Result

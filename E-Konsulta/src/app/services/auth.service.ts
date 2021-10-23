@@ -5,8 +5,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-import { stringify } from 'querystring';
-
 
 @Injectable({
   providedIn: 'root'
