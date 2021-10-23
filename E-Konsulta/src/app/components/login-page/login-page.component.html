@@ -15,13 +15,8 @@
       <form class="login-form" (ngSubmit)="login()">
         <input type="text" placeholder="Email" [(ngModel)]="email" name="email"/>
         <input type="password" placeholder="Password" [(ngModel)]="password" name="password"/>
-        <div class="remember">
-          <input type="checkbox" class="form-check-input" id="remember"/>
-          <label class="form-check-label" for="terms">Remember Me</label>
-        </div>
         <button type="submit" class="nav-item nav-link-edit">login</button>
-        <!--[routerLink]="['/admin-profile']"-->
-        <a href="#">Forgot Password?</a>
+        <a routerLink='/forgot-password'>Forgot Password?</a>
         <p>or</p>
         <button class="nav-item nav-link-edit" [routerLink]="['/registration']">REGISTER</button>
       </form>

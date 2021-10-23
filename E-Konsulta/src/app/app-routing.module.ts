@@ -1,4 +1,3 @@
-import { PatientToLabPartnerFeedbackComponent } from './components/patient-to-lab-partner-feedback/patient-to-lab-partner-feedback.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -47,6 +46,9 @@ import { ListOfDoctorsComponent } from './components/list-of-doctors/list-of-doc
 import { ListOfLabPartnersComponent } from './components/list-of-lab-partners/list-of-lab-partners.component';
 import { ListOfHealthInsuranceComponent } from './components/list-of-health-insurance/list-of-health-insurance.component';
 import { PatientToDoctorFeedbackComponent } from './components/patient-to-doctor-feedback/patient-to-doctor-feedback.component';
+import { PatientToLabPartnerFeedbackComponent } from './components/patient-to-lab-partner-feedback/patient-to-lab-partner-feedback.component';
+import { PatientToHealthInsuranceFeedbackComponent } from './components/patient-to-health-insurance-feedback/patient-to-health-insurance-feedback.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 const routes: Routes = [
@@ -96,7 +98,9 @@ const routes: Routes = [
   { path: 'list-of-lab-partners', component: ListOfLabPartnersComponent},
   { path: 'list-of-health-insurance', component: ListOfHealthInsuranceComponent},
   { path: 'patient-to-doctor-feedback', component: PatientToDoctorFeedbackComponent},
-  { path: 'patient-to-lab-partner-feedback', component: PatientToLabPartnerFeedbackComponent}
+  { path: 'patient-to-lab-partner-feedback', component: PatientToLabPartnerFeedbackComponent},
+  { path: 'patient-to-health-insurance-feedback', component: PatientToHealthInsuranceFeedbackComponent},
+  { path: 'forgot-password', component: ForgotPasswordComponent}
 ];
 
 
@@ -156,5 +160,7 @@ export const routingComponents = [
   ListOfLabPartnersComponent,
   ListOfHealthInsuranceComponent,
   PatientToDoctorFeedbackComponent,
-  PatientToLabPartnerFeedbackComponent
+  PatientToLabPartnerFeedbackComponent,
+  PatientToHealthInsuranceFeedbackComponent,
+  ForgotPasswordComponent
 ];
