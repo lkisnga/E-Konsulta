@@ -23,11 +23,11 @@
               <p class="ufeedback">{{list.feedback}}</p>
             </div>
             <!--REPLY-->
-            <div *ngFor="let reply of replyList" class="d-flex w-100 justify-content-between replyTo">
-              <div *ngIf="list.from==reply.sent_to">
-                <h5 class="mb-1"><span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
-                <p class="ureply">{{reply.feedback}}</p>
-              </div>
+            <div *ngFor="let reply of replyList">
+                <div *ngIf="list.from==reply.sent_to" class="d-flex w-100 justify-content-between replyTo">
+                    <h5 class="mb-1"><span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
+                    <p class="ureply">{{reply.feedback}}</p>
+                </div>
             </div>
             <div>
               <button (click)="reply_edit(list)" class='submit' type="button" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
