@@ -188,6 +188,18 @@ export class UserService {
       console.log(error);
     })
   }
+  //Update Current User Health Insurance Info
+  update_userInsurance(id,record)
+  {
+    const user = this.fireb.auth().currentUser;
+    const newPassword = record.password;
+    return user.updatePassword(newPassword).then(()=>{
+      console.log("Password Changed!");
+      this.db.collection('Health_Insurance').doc(id).update(record);
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
 
   update_doctorInfo(user_id,record)
   {
@@ -199,7 +211,7 @@ export class UserService {
     this.db.collection('Users').doc(id).update(record);
     console.log("Patient Info Updated!");
   }
-
+  // Admin Update User Insurance
   update_insurance(id,record)
   {
     this.db.collection('Health_Insurance').doc(id).update(record);

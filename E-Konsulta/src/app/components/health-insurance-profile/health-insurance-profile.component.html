@@ -5,23 +5,19 @@
     </div>
       <!--2nd column-->
       <div class="col-10 col-md-9 col-sm-7">
-        <img src="./assets/images/yoshi.jpg" alt="img" class="profile-pic" width="200" height="200">
-        <h2 class="hInsurance">Health Insurance</h2>
+        <img src="{{imgUrl}}" alt="img" class="profile-pic" width="200" height="200">
+        <h2 class="hInsurance">{{info.name}}</h2>
+        <button (click)="uploadImage()" class="btn btn-primary">Upload</button>
+        <input type="file" (change)="choosefile($event)">
         <div class="info px-3 py-4">
-          User UID: <br>
-          Health Insurance ID: <br>
-          Health Insurance Name:  <br>
-          Health Insurance Branch Name: <br>
-          Health Insurance Address: <br>
-          Date of Birth: <br>
-          Email:  <br>
-          User Type: <br>
-          Status: <br>
-          Contact Number: <br>
-          isVerified: <br>
+          Health Insurance Name:  {{info.name}}<br>
+          Health Insurance Branch Name: {{info.branchname}}<br>
+          Health Insurance Address: {{info.address}}<br>
+          Email:  {{info.email}}<br>
+          Contact Number: {{info.contact_number}}<br>
         </div>
         <div class="buttons-right">
-          <button class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button (click)="editInfo()" class="btn btn-info" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
           <button class="btn btn-info" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
       </div>
       </div>
@@ -34,15 +30,20 @@
         <h5 class="modal-title" id="editLabel">Edit</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
-      <div class="modal-body">
-        Health Ins. Name: &nbsp; <input type="text" size="33"> <br><br>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" size="33"> <br><br>
-        Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" size="33"><br><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Update</button>
-      </div>
+      <form #form="ngForm" (ngSubmit)="updateUser(form.value)">
+        <div class="modal-body">
+          Health Insurance Name: &nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="25"> <br><br>
+          Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.email" name="email" type="text" size="33"> <br><br>
+          Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="33"><br><br>
+          Branch Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;<input [(ngModel)]="model.branchname" name="branchname" type="text" size="33"> <br><br>
+          Contact Number: &nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_name" type="text" size="33"> <br><br>
+          Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="33"> <br><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -58,7 +59,7 @@
         <p>Are you sure you want to logout?</p>
       </div>
       <div class="modal-footer">
-        <button [routerLink]="['/']" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
+        <button (click)="logout()" type="button" class="btn btn-info" data-bs-dismiss="modal">Yes</button>
         <button [routerLink]="['/health-insurance-profile']" type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
       </div>
     </div>
