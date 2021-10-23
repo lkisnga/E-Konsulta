@@ -137,7 +137,8 @@ export class AuthService {
   insertUserData_UserLab(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
-      role: 'laboratory_partner'
+      role: 'laboratory_partner',
+      status: "active"
     })
   }
   insertUserData_Lab(userCredential: firebase.auth.UserCredential) {
@@ -147,6 +148,7 @@ export class AuthService {
       name: this.newUser.name,
       address: this.newUser.address,
       contact_number: this.newUser.contact_number,
+      createdAt: formatDate(new Date(),"MM/dd/yyyy",'en'),
       role: 'laboratory_partner'
     })
   }
@@ -180,7 +182,8 @@ export class AuthService {
   insertUserData_UserHealth(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
-      role: 'Health_Insurance'
+      role: 'Health_Insurance',
+      status: "active",
     })
   }
   insertUserData_HealthInsurance(userCredential: firebase.auth.UserCredential) {
@@ -191,6 +194,7 @@ export class AuthService {
       address: this.newUser.address,
       contact_number: this.newUser.contact_number,
       branchname: this.newUser.branchname,
+      createdAt: formatDate(new Date(),"MM/dd/yyyy",'en'),
       role: 'Health_Insurance'
     })
   }
@@ -266,6 +270,8 @@ export class AuthService {
         this.router.navigate(['/patient-profile']);
       if(role=="doctor")
         this.router.navigate(['/doctor-profile']);
+      if(role=="Health_Insurance")
+        this.router.navigate(['/health-insurance-profile']);
       console.log('works!');
      })
   }

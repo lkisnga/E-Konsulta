@@ -166,6 +166,7 @@ export class UserService {
   }
   delete_Insurance(id)
   {
+    
     this.db.collection('Health_Insurance').doc(id).delete().then(function(){
       console.log("deleted successfully!");
     })
