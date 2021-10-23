@@ -34,11 +34,8 @@ export class HealthInsuranceProfileComponent implements OnInit {
       this.imgUrl = e.data().image;
     })
 
-    this.userservice.get_HealthInsurance().then(e=>{
-      e.forEach(item => {
-        this.info = item.data();
-        //console.log(this.info);
-      })
+    this.userservice.get_HealthInsurance_Info(this.userId).then(e=>{
+        this.info = e.data();
     })
   } 
   uploadImage()

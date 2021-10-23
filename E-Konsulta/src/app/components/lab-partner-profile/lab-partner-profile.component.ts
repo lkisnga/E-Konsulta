@@ -29,7 +29,7 @@ export class LabPartnerProfileComponent implements OnInit {
     this.userID=this.afu.get_UID();
     this.userservice.get_labInfo(this.userID).forEach(e => {
       this.info = e.data();
-      console.log(e.data());
+      //console.log(e.data());
     })
 
     this.userservice.get_avatar(this.userID).then(e =>{
@@ -50,11 +50,13 @@ export class LabPartnerProfileComponent implements OnInit {
     this.model.name = this.info.name;
     this.model.address = this.info.address;
     this.model.email = this.info.email;
+    this.model.password = this.info.password;
     this.model.contact_number = this.info.contact_number;
   }
   updateInfo(e)
   {
-    this.userservice.update_labInfo(this.userID,e);
-    this.ngOnInit();
+    this.userservice.update_labInfo(this.userID,e).then(()=>{
+      this.ngOnInit();
+    })
   }
 }

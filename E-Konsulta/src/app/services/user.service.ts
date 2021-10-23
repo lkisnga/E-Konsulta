@@ -150,6 +150,20 @@ export class UserService {
   {
     return this.db.firestore.collection('Health_Insurance').get();
   }
+  get_HealthInsurance_Info(id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).get();
+  }
+  get_insurance_reply(id,review_id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').get();
+  }
+
+  get_health_Reviews(id)
+  {
+    return this.db.collection('Health_Insurance').doc(id).collection('reviews').get();
+  }
   get_review_feedback()
   {
     return this.db.firestore.collection('reviews').where('role','==',"admin").where('type','==',"feedback").get();
@@ -225,9 +239,15 @@ export class UserService {
 
   update_labInfo(id,record)
   {
-    this.db.collection("Laboratory_Partner").doc(id).update(record);
-    this.db.collection("Users").doc(id).update(record);
-    console.log("Updated!");
+    const user = this.fireb.auth().currentUser;
+    const newPassword = record.password;
+    return user.updatePassword(newPassword).then(()=>{
+      console.log("Password Changed!");
+      this.db.collection("Laboratory_Partner").doc(id).update(record);
+      this.db.collection("Users").doc(id).update(record);
+    }).catch((error)=>{
+      console.log(error);
+    })
   }
   update_Specialization(id,record)
   {

@@ -6,23 +6,22 @@
       <app-health-insurance-sidenav></app-health-insurance-sidenav>
     </div>
     <div class="col m-4">
-      <img src="./assets/images/yoshi.jpg" alt="img" class="profile-pic"  width="150" height="150">
+      <img src="{{imgUrl}}" alt="img" class="profile-pic"  width="150" height="150">
       <div class="lab-info ">
-        Id: <br>
-        Health Insurance Name: <br>
-        Email: <br>
-        Health Insurance Address: <br>
-        Contact Number: <br>
+        Health Insurance Name: {{info.name}} <br>
+        Email: {{info.email}}<br>
+        Health Insurance Address: {{info.address}} <br>
+        Contact Number: {{info.contact_number}}<br>
       </div>
       <div class="lower-part">
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item flex-column align-items-start" >
+          <li *ngFor="let list of fList" class="list-group-item flex-column align-items-start" >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><span><img src="./assets/images/yoshi.jpg" alt="" width="25" height="25" class="cute-pic"></span> Name</h5>
-              <small>10/19/21</small>
+              <h5 class="mb-1"><span><img src="{{list.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
+              <small>{{list.createdAt}}</small>
             </div>
             <div>
-              <p class="mb-1">Health insurance............. review</p>
+              <p class="mb-1">{{list.feedback}}</p>
             </div>
             <div>
               <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
