@@ -19,12 +19,12 @@
               <h5 class="mb-1"><span *ngFor="let img of userImgUrl"><img *ngIf="list.from == img.uid" src="{{img.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
               <small>{{list.createdAt}}</small>
             </div>
-            <div class="feedback">
+            <div>
               <p class="ufeedback">{{list.feedback}}</p>
             </div>
             <!--REPLY-->
             <div *ngFor="let reply of replyList">
-                <div *ngIf="list.from==reply.sent_to" class="d-flex w-100 justify-content-between replyTo">
+                <div *ngIf="list.from==reply.sent_to" class="reply-to">
                     <h5 class="mb-1"><span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
                     <p class="ureply">{{reply.feedback}}</p>
                 </div>

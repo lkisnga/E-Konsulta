@@ -40,6 +40,7 @@ body{
 
 .mb-1{
   font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .cute-pic{
@@ -81,12 +82,14 @@ p.ufeedback{
   margin: 5px auto 10px 30px;
 }
 p.ureply{
-  margin: 5px auto 5px 20px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
-.replyTo{
+
+.reply-to{
   /*border-top: 1px solid rgb(180, 180, 180); */
   padding: 8px 8px 2px 12px;
   background-color: rgb(243, 243, 243);
   border-radius: 25px;
-  margin: 5px auto;
+  width: 100%;
 }
