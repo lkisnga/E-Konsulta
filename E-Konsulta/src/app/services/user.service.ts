@@ -159,6 +159,21 @@ export class UserService {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
     .collection('reply').get();
   }
+  
+  Insurance_reply(id,feedback,name,review_id,sent_to)
+  {
+    this.db.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').add({
+      createdAt: formatDate(new Date(),"MM/dd/yyyy","en"),
+      feedback: feedback,
+      from : id,
+      name : name,
+      sent_to : sent_to,
+    }).then(()=>{
+      console.log("added feedback!");
+    })
+  }
+
 
   get_health_Reviews(id)
   {

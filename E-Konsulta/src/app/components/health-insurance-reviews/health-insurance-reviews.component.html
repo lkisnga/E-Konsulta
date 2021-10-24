@@ -23,8 +23,14 @@
             <div>
               <p class="mb-1">{{list.feedback}}</p>
             </div>
+            <div *ngFor="let reply of replyList">
+              <div *ngIf="list.from==reply.sent_to" class="d-flex w-100 justify-content-between replyTo">
+                  <h5 class="mb-1"><span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
+                  <p class="ureply">{{reply.feedback}}</p>
+              </div>
+          </div>
             <div>
-              <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
+              <button (click)="reply_button(list)" class='submit' type="button" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
             </div>
            <!-- <small>Transaction ID</small>-->
           </li>
@@ -35,18 +41,20 @@
 <!--Reply Modal-->
 <div class="modal fade" id="toReply" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
+    <form #form="ngForm" (ngSubmit)="reply_user(form.value)" >
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addSpclLabel">Add a reply</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
         <div class="modal-body">
-          <textarea name="reply" id="" cols="50" rows="5" placeholder="Reply..."></textarea>
+          <textarea [(ngModel)]="feedback" name="feedback" id="" cols="50" rows="5" placeholder="Reply..."></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
         </div>
     </div>
+    </form>
   </div>
 </div>
