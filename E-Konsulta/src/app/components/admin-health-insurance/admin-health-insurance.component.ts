@@ -3,9 +3,10 @@ import { UserService } from 'src/app/services/user.service';
 
 export class HealthInfo
 {
-  public name: string;
-  public branchname: string;
-  public address : string;
+  name: string;
+  branchname: string;
+  address : string;
+  contact_number: string;
 }
 
 
@@ -46,10 +47,12 @@ export class AdminHealthInsuranceComponent implements OnInit {
   
   edit_info(e)
   {
+    //console.log(e);
     this.UID = e.uid;
     this.model2.name = e.name;
     this.model2.branchname = e.branchname;
     this.model2.address = e.address;
+    this.model2.contact_number = e.contact_number;
   }
   updateInfo(e)
   {
@@ -72,6 +75,7 @@ export class AdminHealthInsuranceComponent implements OnInit {
     record['name'] = e.name;
     record['branchname'] = e.branchname;
     record['address'] = e.address;
+    record['contact_number'] = e.contact_number
     this.userservice.create_HealthInsurance(record);
     this.ngOnInit();
   }

@@ -159,7 +159,7 @@ export class UserService {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
     .collection('reply').get();
   }
-  
+
   Insurance_reply(id,feedback,name,review_id,sent_to)
   {
     this.db.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
@@ -172,6 +172,10 @@ export class UserService {
     }).then(()=>{
       console.log("added feedback!");
     })
+  }
+  get_Insurance_LOA(id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').get();
   }
 
 

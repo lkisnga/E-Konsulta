@@ -15,54 +15,36 @@ export class RegistrationPageComponent implements OnInit {
   userForm = new UserForm();
   
   error: { name: string, message: string } = { name: '', message: ''};
-  errorMessage: string = '';
-  message: string = '';
   userID: any;
+  confirmPass: string = "";
+  pass_message: string = "";
   constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.userID = this.authservice.get_UID()
   }
-  /*registerUser(frm)
-  {
-    alert(frm.fullname);
-  }*/
  registerUser(frm)
   {
-    this.clearErrorMessage();
-    
-   if (this.validateForm(frm.emailAddress, frm.password)) {
+    if(this.confirmPass == frm.password)
+    {
+      this.clearErrorMessage();
       this.authservice.registerWithEmail(frm)
         .then(() => {
-          this.message = "you are registered"
           this.router.navigate(['/login'])
         }).catch(_error => {
           this.error = _error
           this.router.navigate(['/registration'])
         })
-    }
+      }
+      else
+      {
+        this.pass_message = "Password does not match!";
+      }
   }
 
   clearErrorMessage()
   {
-    this.errorMessage = '';
     this.error = {name : '', message : ''};
-  }
-  validateForm(email, password)
-  {
-    if(email.lenght === 0)
-    {
-      this.errorMessage = "please enter email id";
-      return false;
-    }
-
-    if (password.lenght === 0) {
-      this.errorMessage = "please enter password";
-      return false;
-    }
-
-    this.errorMessage = '';
-    return true;
-
+    this.pass_message = "";
   }
 }
