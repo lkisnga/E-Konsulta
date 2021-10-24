@@ -30,17 +30,39 @@
                   <td>{{list.fullname}}</td>
                   <td>{{list.filename}}</td>
                   <td>
-                    <button class="btn btn-info">View File</button>
+                    <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
                   </td>
                   <td>
-                    <button class="btn btn-success">Approved</button>
+                    <button (click)="approve_LOA(list.uid)" class="btn btn-success">Approve</button>
+                    <button (click)="decline_LOA(list.uid)" class="btn btn-danger">Decline</button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div *ngIf="done">
-            Done Health Insurance
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Filename</th>
+                  <th scope="col">File</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let list of approve_list">
+                  <td>{{list.createdAt}}</td>
+                  <td>{{list.fullname}}</td>
+                  <td>{{list.filename}}</td>
+                  <td>
+                    <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
+                  </td>
+                  <td>{{list.approval_status}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

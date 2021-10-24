@@ -177,6 +177,30 @@ export class UserService {
   {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').get();
   }
+  approve_LOA(id,loa_id,status)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').doc(loa_id)
+    .update({
+      approval_status: status,
+      createdAt: formatDate(new Date(),"MM/dd/yyyy",'en')
+    })
+  }
+  //not yet done
+  create_Insurance_LOA(id,record)
+  {/*
+    this.store.ref('Insurance-LOA/' + id + '/patients/'+ record.id +'/'+ record.filename).put(record.file).then(()=>{
+      
+
+      this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').add({
+        fullname: record.fullname,
+        filename: record.filename,
+        file: record.file,
+        from: record.from,
+        createdAt: formatDate(new Date(),"MM/dd/yyyy", 'en'),
+        approval_status: "pending"
+      })
+    })*/
+  }
 
 
   get_health_Reviews(id)
