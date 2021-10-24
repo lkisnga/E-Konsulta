@@ -43,7 +43,7 @@
               <th scope="row">{{item.email}}</th>
               <td>{{item.fullname}}</td>
               <td>{{item.role}}</td>
-              <td>{{item.health_insurance}}</td>
+              <td>{{item.ins}}</td>
               <td>{{item.member_ID}}</td>
               <td>
                 <button (click)="editList(item)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editPatient">EDIT</button> &nbsp;
@@ -74,8 +74,8 @@
             Contact Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.contact_number" name="contact_number" type="text" size="40" readonly><br><br>
             Health Insurance: &nbsp;&nbsp;&nbsp;
             <select [(ngModel)]="list.health_insurance" name="health_insurance" aria-label="Default select example">
-              <option selected>{{list.health_insurance}}</option>
-              <option *ngFor="let item of hins_list" value="{{item.name}}">{{item.name}}</option>
+              <option value="{{list.health_insurance}}"selected>{{tempName}}</option>
+              <option *ngFor="let item of hins_list" value="{{item.uid}}">{{item.name}}</option>
             </select><br><br>
             Member ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="list.member_ID" name="member_ID" type="text" size="40">
           </div>

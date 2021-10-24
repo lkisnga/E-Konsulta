@@ -270,8 +270,7 @@ export class UserService {
   }
   update_patientInfo(id,record)
   {
-    this.db.collection('Users').doc(id).update(record);
-    console.log("Patient Info Updated!");
+    return this.db.collection('Users').doc(id).update(record);
   }
   // Admin Update User Insurance
   update_insurance(id,record)

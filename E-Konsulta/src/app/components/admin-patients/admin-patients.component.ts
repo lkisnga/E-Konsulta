@@ -27,6 +27,8 @@ export class AdminPatientsComponent implements OnInit {
   searchName : string = "";
   hins_list : any = [];
 
+  tempName : string ="";
+
   constructor(public userService : UserService, public auts: AuthService) { }
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class AdminPatientsComponent implements OnInit {
     this.list.dob = e.dob;
     this.list.address = e.address;
     this.list.health_insurance = e.health_insurance;
+    this.tempName = e.ins;
     this.list.member_ID = e.member_ID;
     this.list.contact_number = e.contact_number;
   }
@@ -56,8 +59,9 @@ export class AdminPatientsComponent implements OnInit {
     record['member_ID'] = e.member_ID;
     record['contact_number'] = e.contact_number;
     record['updatedAt'] = formatDate(new Date(), 'MM/dd/yyyy', 'en')
-    this.userService.update_patientInfo(e.uid,record);
-    this.ngOnInit();
+    this.userService.update_patientInfo(e.uid,record).then(()=>{
+      this.ngOnInit();
+    })
   }
   listOfHealth_Insurance()
   {
@@ -78,14 +82,17 @@ export class AdminPatientsComponent implements OnInit {
     var tempArray = [];
     this.userService.get_patient().then(e => {
       e.forEach(item =>{
-        console.log(item.data());
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
-      })
-      this.patientList = tempArray.filter(e => {
-        if(e.fullname != undefined)
-         return e.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        this.userService.get_HealthInsurance_Info(item.data().health_insurance).then(res=>{//process to get the data's and iinsurance data from specific patient
+          data = item.data();
+          data.ins=res.data().name; //getting the insurance name passing it to data
+          data.uid = item.id;
+          tempArray.push(data); // pushing data into array
+        }).then(()=>{
+          this.patientList = tempArray.filter(e => {
+            if(e.fullname != undefined)
+             return e.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+          })
+        })
       })
     })
   }

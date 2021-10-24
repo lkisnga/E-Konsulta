@@ -13,10 +13,14 @@
   <div class="form">
     <h3 class="py-1">Registration</h3>
     <form #userRegForm="ngForm" class="register-form" (ngSubmit)="register_Patient(userRegForm.value)">
-      <input [(ngModel)]="model.fullname" type="text" name="fullname" placeholder="Full Name" required/>
+      <input  [(ngModel)]="model.fullname" type="text" name="fullname" placeholder="Full Name" required/>
       <input [(ngModel)]="model.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
       <input [(ngModel)]="model.address" type="text" name="address" placeholder="address" required/>
-      <input type="text" placeholder="Health Insurance ID" required/>
+      <select [(ngModel)]="model.health_insurance" class="form-select" name="health_insurance">
+        <option value="default" selected>--Select Health Insurance--</option>
+        <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
+      </select>
+      <input [(ngModel)]="model.member_ID" name="member_ID" type="text" placeholder="Health Insurance ID" required/>
       <input [(ngModel)]="model.contact_number" name="contact_number" type="text" placeholder="Contact Number" required/>
       <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
       <input [(ngModel)]="model.password" name="password" type="password" placeholder="Password" required/>
