@@ -102,11 +102,11 @@ export class AuthService {
       address : this.newUser.address,
       contact_number: this.newUser.contact_number,
       member_ID: this.newUser.member_ID,
-      health_insurnace : this.newUser.health_insurance,
+      health_insurance : this.newUser.health_insurance,
       role: 'patient',
       status:'active',
       createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
-      UpdatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       isVerified: "pending"
     })
   }

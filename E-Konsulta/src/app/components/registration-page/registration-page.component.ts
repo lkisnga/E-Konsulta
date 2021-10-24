@@ -38,7 +38,7 @@ export class RegistrationPageComponent implements OnInit {
       }
       else
       {
-        this.pass_message = "Password does not match!";
+        this.pass_message = "Passwords do not match!";
       }
   }
 

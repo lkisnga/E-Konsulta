@@ -23,8 +23,8 @@
       <input [(ngModel)]="model.member_ID" name="member_ID" type="text" placeholder="Health Insurance ID" required/>
       <input [(ngModel)]="model.contact_number" name="contact_number" type="text" placeholder="Contact Number" required/>
       <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
-      <input [(ngModel)]="model.password" name="password" type="password" placeholder="Password" required/>
-      <input type="password" placeholder="Confirm Password" required/>
+      <input [(ngModel)]="model.password"name="password" type="password" placeholder="Password" required/>
+      <input [(ngModel)]="confirmPass" [ngModelOptions]="{standalone:true}" type="password" placeholder="Confirm Password" required/>
       <div class="agree">
         <input type="checkbox" class="form-check-input" id="terms"/>
         <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
@@ -35,6 +35,8 @@
     <div class="form-group">
       <p *ngIf="error.message.length > 0" class="text-danger">
           {{error.message}} </p>
+      <p *ngIf="pass_message.length > 0" class="text-danger">
+          {{pass_message}} </p>
     </div>
   </div>
 </div>

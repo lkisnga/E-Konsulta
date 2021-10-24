@@ -29,6 +29,9 @@ export class PatientRegistrationComponent implements OnInit {
   insList : any = [];
   model = new PatientInfo();
   error: { name: string, message: string } = { name: '', message: ''};
+  confirmPass: string="";
+  pass_message:string ="";
+
   constructor(public userservice : UserService, public afu : AuthService, public router: Router) { }
 
   ngOnInit(): void {
@@ -48,17 +51,23 @@ export class PatientRegistrationComponent implements OnInit {
 
   register_Patient(frm)
   {
-    console.log(frm);
-    /*
-    console.log(frm);
+    //console.log(frm);
+    if(frm.password == this.confirmPass)
+    {
+      console.log(frm);
       this.afu.registerWithEmail_patient(frm)
         .then(() => {
           this.router.navigate(['/login'])
         }).catch(_error => {
           this.error = _error
           this.router.navigate(['/patient-registration'])
-        })*/
+        })
+    }
+    else
+    {
+      this.pass_message = "Passwords do not match!"
+    }
+
         
   }
-
 }
