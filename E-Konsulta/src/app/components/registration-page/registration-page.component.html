@@ -18,7 +18,7 @@
       <input [(ngModel)]="this.userForm.dob" name="dob" class="dateclass placeholderclass" type="date" placeholder="Date of Birth" required>
       <input type="text" [(ngModel)]="this.userForm.emailAddress" name="emailAddress" placeholder="Email address" required/>
       <input type="password" [(ngModel)]="this.userForm.password" name="password" placeholder="Password" required/>
-      <input type="password" placeholder="Confirm Password" required/>
+      <input type="password" [(ngModel)]="confirmPass" [ngModelOptions]="{standalone: true}" placeholder="Confirm Password" required/>
       <div class="agree">
         <input type="checkbox" class="form-check-input" id="terms"/>
         <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
@@ -27,14 +27,10 @@
 
     </form>
     <div class="form-group">
-      <p *ngIf="errorMessage.length > 0" class="text-danger">
-          {{errorMessage}}</p>
-
       <p *ngIf="error.message.length > 0" class="text-danger">
           {{error.message}} </p>
-
-          <p *ngIf="message.length > 0" class="text-info">
-              {{message}} </p>
+          <p *ngIf="pass_message.length > 0" class="text-danger">
+            {{pass_message}} </p>
   </div>
   </div>
 </div>

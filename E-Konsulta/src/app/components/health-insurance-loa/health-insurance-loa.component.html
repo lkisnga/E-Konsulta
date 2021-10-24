@@ -14,7 +14,30 @@
             <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
           </div>
           <div *ngIf="pending">
-            Pending Health Insurance
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Filename</th>
+                  <th scope="col">File</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let list of loa_list">
+                  <td>{{list.createdAt}}</td>
+                  <td>{{list.fullname}}</td>
+                  <td>{{list.filename}}</td>
+                  <td>
+                    <button class="btn btn-info">View File</button>
+                  </td>
+                  <td>
+                    <button class="btn btn-success">Approved</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div *ngIf="done">
             Done Health Insurance
