@@ -1,8 +1,71 @@
-.tbl{
-  margin-left: 200px;
-  margin-top: -41%;
+* {
+  box-sizing: border-box;
 }
 
-.usr{
-  color: rgb(0, 192, 206);
+/*cards*/
+.col{
+  margin-top: 70px;
+}
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 32%;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+/*lower part*/
+/* Float four columns side by side */
+.column2 {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .col{
+    margin-top: 10px;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .column2 {
+    width: 50%;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  /*text-align: center; */
+
+}
+
+h6{
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  color: rgb(0, 129, 138);
+  width: 40%;
+  padding: 4px 14px;
+}
+
+h5{
+  color: rgb(0, 129, 138);
 }
