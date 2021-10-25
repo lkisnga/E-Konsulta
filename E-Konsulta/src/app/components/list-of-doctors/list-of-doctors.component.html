@@ -12,13 +12,13 @@
       </div>
    </div>
     <div class="col">
-      <div class="column">
+      <div *ngFor="let list of list" class="column">
         <div class="card">
-          <!--<img class="card-img-top" src="..." alt="doctor"> -->
-          <h3><i class="fa fa-user-md"></i></h3>
+          <img class="card-img-top" src="{{list.image}}" alt="doctor"> 
+          <!--<h3><i class="fa fa-user-md"></i></h3>-->
           <div class="card-body">
-            <h5 class="card-title">Name</h5>
-            <p class="card-text">Specialization</p>
+            <h5 class="card-title">{{list.fullname}}</h5>
+            <p class="card-text">{{list.specialization}}</p>
             <a routerLink='/patient-to-doctor-feedback' class="btn btn-outline-info">View</a>
           </div>
         </div>
