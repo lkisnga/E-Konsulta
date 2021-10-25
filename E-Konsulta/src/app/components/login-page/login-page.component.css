@@ -1,25 +1,23 @@
 body{
-  font-family: "Roboto", sans-serif;
   margin: 0;
+  font-size: 14px;
 }
-
 
 /*login form*/
 
 .login-page {
-  width: 360px;
+  width: 320px;
   margin: auto;
   position: relative;
-  top: 100px;
+  top: 150px;
   bottom: 0;
 }
 .form {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
   margin: auto;
-  padding: 45px;
+  padding: 10px 20px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(168, 168, 168, 0.24), 0 5px 5px 0 rgba(156, 156, 156, 0.24);
 }
@@ -28,8 +26,8 @@ body{
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
+  margin: 0 0 10px;
+  padding: 10px;
   box-sizing: border-box;
   font-size: 14px;
 }
@@ -37,7 +35,7 @@ body{
 .form input[type=text]:hover,.form input[type=text]:active,.form input[type=text]:focus,
 .form input[type=password]:hover,.form input[type=password]:active,.form input[type=password]:focus{
   background: rgb(234, 252, 253);
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 
 .form button {
@@ -45,37 +43,32 @@ body{
   outline: 0;
   width: 100%;
   border: 0;
-  padding: 15px;
-  color: rgb(0, 192, 206);
+  padding: 10px;
+  color: rgb(0, 129, 138);
   background-color: rgb(189, 249, 255);
   font-size: 18px;
   transition: all 0.3 ease;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: rgb(0, 192, 206);
+  background: rgb(0, 129, 138);
   color: white;
 }
 
 a{
   text-decoration: none;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 a:hover{
   color: rgb(0, 152, 163);
 }
 
-input[type=checkbox]{
-  margin-right: 10px;
-}
-.remember{
-  float: left;
-  margin-bottom: 10px;
-}
-
 h3{
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 ::placeholder{
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
