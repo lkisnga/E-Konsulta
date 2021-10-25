@@ -40,9 +40,9 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     record['name'] = e.name;
     record['address'] = e.address;
     record['contact_number'] = e.contact_number;
-    this.userservice.update_labInfo(this.UID,record);
-
-    this.ngOnInit();
+    this.userservice.update_lab(this.UID,record).then(()=>{
+      this.ngOnInit()
+    })
   }
   deleteInfo()
   {

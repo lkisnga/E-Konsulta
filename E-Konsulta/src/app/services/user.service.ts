@@ -297,6 +297,11 @@ export class UserService {
       console.log(error);
     })
   }
+  //for admin side admin-lab
+  update_lab(id,record)
+  {
+    return this.db.collection('Laboratory_Partner').doc(id).update(record);
+  }
   update_Specialization(id,record)
   {
     this.db.collection('specialization').doc(id).update(record);
