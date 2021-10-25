@@ -1,7 +1,7 @@
 body{
   margin: 0;
+  font-size: 14px;
 }
-
 
 /*login form*/
 
@@ -9,7 +9,7 @@ body{
   width: 320px;
   margin: auto;
   position: relative;
-  top: 100px;
+  top: 150px;
   bottom: 0;
 }
 .form {
@@ -63,7 +63,6 @@ a{
 a:hover{
   color: rgb(0, 152, 163);
 }
-
 
 h3{
   color: rgb(0, 129, 138);
