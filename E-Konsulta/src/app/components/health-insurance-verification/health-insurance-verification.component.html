@@ -30,18 +30,22 @@
         <table class="table table-info table striped">
           <thead>
             <tr>
-              <th scope="col">User Id</th>
-              <th scope="col">Insurance Account ID</th>
+              <th scope="col">User Email</th>
               <th scope="col">Name</th>
-              <th scope="col">isVerified</th>
+              <th scope="col">Insurance Account ID</th>
+              <th scope="col">Verification Status</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">50001</th>
-              <td>jsdh2883</td>
-              <td>Wanatabe Haruto</td>
-              <td>YES</td>
+            <tr *ngFor="let list of list">
+              <th scope="row">{{list.email}}</th>
+              <td>{{list.fullname}}</td>
+              <td>{{list.member_ID}}</td>
+              <td>{{list.isVerified}}</td>
+              <td>
+                <button (click)="verify(list)" class="btn btn-success">Verify</button>
+              </td>
             </tr>
           </tbody>
         </table>
