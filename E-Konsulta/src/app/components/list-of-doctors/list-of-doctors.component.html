@@ -19,7 +19,7 @@
           <div class="card-body">
             <h5 class="card-title">{{list.fullname}}</h5>
             <p class="card-text">{{list.specialization}}</p>
-            <a routerLink='/patient-to-doctor-feedback' class="btn btn-outline-info">View</a>
+            <a (click)="view_review(list)" class="btn btn-outline-info">View</a>
           </div>
         </div>
       </div>

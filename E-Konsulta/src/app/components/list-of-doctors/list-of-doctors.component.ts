@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,9 +11,20 @@ import { UserService } from 'src/app/services/user.service';
 export class ListOfDoctorsComponent implements OnInit {
 
   list : any = [];
-  constructor(public userserivce : UserService) { }
+  constructor(public userserivce : UserService, public router : Router,public share : SharedDataService) { }
 
   ngOnInit(): void {
+    this.doctor_list();
+  }
+  ///patient-to-doctor-feedback
+  view_review(e)
+  {
+    this.share.set_list(e);
+    this.router.navigate(['/patient-to-doctor-feedback']);
+  }
+
+  doctor_list()
+  {
     var data;
     var tempArray = [];
     this.userserivce.get_doctorList().then(e=>{
