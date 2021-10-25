@@ -26,29 +26,29 @@
             <button type="button" class="btn btn-outline-info" (click)="prescription()">Prescription</button>
           </div>
           <div *ngIf="medicalrecords">
-            <table class="table table-info table-bordered">
-                <thead>
-                  <tr>
-                    <th>File Name</th>
-                    <th>Date</th>
-                    <th>From</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let list of list">
-                          <td>{{list.filename}}</td>
-                          <td>{{list.createdAt}}</td>
-                          <td>{{list.from}}</td>
-                          <td>
-                            <button (click)="viewFile(list.file)" class="btn btn-success">View</button>
-                          </td>
-                    </tr>
-                </tbody>
-            </table>
+            Medical Records
           </div>
           <div *ngIf="labresult">
-            Laboratory Result
+            <table class="table table-info table-bordered">
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Date</th>
+                  <th>From</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let list of list">
+                        <td>{{list.filename}}</td>
+                        <td>{{list.createdAt}}</td>
+                        <td>{{list.from}}</td>
+                        <td>
+                          <button (click)="viewFile(list.file)" class="btn btn-success">View</button>
+                        </td>
+                  </tr>
+              </tbody>
+          </table>
           </div>
           <div *ngIf="presc">
             Prescription
