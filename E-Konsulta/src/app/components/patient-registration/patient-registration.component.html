@@ -15,7 +15,7 @@
     <form #userRegForm="ngForm" class="register-form" (ngSubmit)="register_Patient(userRegForm.value)">
       <input  [(ngModel)]="model.fullname" type="text" name="fullname" placeholder="Full Name" required/>
       <input [(ngModel)]="model.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
-      <input [(ngModel)]="model.address" type="text" name="address" placeholder="address" required/>
+      <input [(ngModel)]="model.address" type="text" name="address" placeholder="Address" required/>
       <select [(ngModel)]="model.health_insurance" class="form-select" name="health_insurance">
         <option value="default" selected>--Select Health Insurance--</option>
         <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>

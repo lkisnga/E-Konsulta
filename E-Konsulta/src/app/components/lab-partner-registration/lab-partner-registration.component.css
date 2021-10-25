@@ -1,20 +1,12 @@
 body{
-  font-family: "Roboto", sans-serif;
   margin: 0;
-  /*background-image: url("/assets/images/background-doctor1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%; */
 }
 
-
 /*registration form*/
-
 .register-page {
   width: 360px;
   margin: auto;
-  top: 25px;
+  top: 35px;
   position: relative;
   bottom: 0;
 }
@@ -24,7 +16,7 @@ body{
   background: #FFFFFF;
   max-width: 360px;
   margin:auto;
-  padding: 25px;
+  padding: 10px 20px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(119, 119, 119, 0.24), 0 5px 5px 0 rgba(112, 112, 112, 0.24);
 }
@@ -33,7 +25,7 @@ body{
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
+  margin: 0 0 10px;
   padding: 12px;
   box-sizing: border-box;
   font-size: 14px;
@@ -53,7 +45,6 @@ input[type="date"]:valid:before {
 .form input[type=password]:hover,.form input[type=password]:active,.form input[type=password]:focus,
 .form input[type=date]:hover, .form input[type=date]:active, .form input[type=date]:focus{
   background: rgb(234, 252, 253);
-  color: rgb(0, 192, 206);
 }
 
 .form button {
@@ -63,7 +54,7 @@ input[type="date"]:valid:before {
   width: 100%;
   border: 0;
   padding: 10px;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
   background-color: rgb(189, 249, 255);
   font-size: 20px;
   transition: all 0.3 ease;
@@ -71,7 +62,7 @@ input[type="date"]:valid:before {
 }
 
 .form button:hover,.form button:active,.form button:focus {
-  background: rgb(0, 192, 206);
+  background: rgb(0, 129, 138);
   color: white;
 }
 /*
@@ -87,17 +78,17 @@ input[type="date"]:valid:before {
 
 a{
   text-decoration: none;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 a:hover{
   color: rgb(0, 152, 163);
 }
 
 h3{
-    color: rgb(0, 192, 206);
+    color: rgb(0, 129, 138);
 }
 ::placeholder{
-    color: rgb(0, 192, 206);
+    color: rgb(0, 129, 138);
 }
 
 label{
