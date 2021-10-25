@@ -86,15 +86,13 @@ export class UserService {
 
   lab_reply(id,feedback,name,review_id,sent_to)
   {
-    this.db.collection('Laboratory_Partner').doc(id).collection('reviews').doc(review_id)
+    return this.db.collection('Laboratory_Partner').doc(id).collection('reviews').doc(review_id)
     .collection('reply').add({
       createdAt: formatDate(new Date(),"MM/dd/yyyy","en"),
       feedback: feedback,
       from : id,
       name : name,
       sent_to : sent_to,
-    }).then(()=>{
-      console.log("added feedback!");
     })
   }
   
@@ -159,18 +157,20 @@ export class UserService {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
     .collection('reply').get();
   }
+  get_insurance_verification(id)
+  {
+    return this.db.firestore.collection('Users').where('health_insurance','==',id).get();
+  }
 
   Insurance_reply(id,feedback,name,review_id,sent_to)
   {
-    this.db.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
+    return this.db.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
     .collection('reply').add({
       createdAt: formatDate(new Date(),"MM/dd/yyyy","en"),
       feedback: feedback,
       from : id,
       name : name,
       sent_to : sent_to,
-    }).then(()=>{
-      console.log("added feedback!");
     })
   }
   get_Insurance_LOA(id)
@@ -183,6 +183,12 @@ export class UserService {
     .update({
       approval_status: status,
       createdAt: formatDate(new Date(),"MM/dd/yyyy",'en')
+    })
+  }
+  verify_userInsurance(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).update({
+      isVerified: "verified"
     })
   }
   //not yet done

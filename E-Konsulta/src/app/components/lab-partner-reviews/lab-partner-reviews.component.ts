@@ -91,7 +91,10 @@ export class LabPartnerReviewsComponent implements OnInit {
 
   lab_reply(e)
   {
-    this.userservice.lab_reply(this.userID,e.feedback,this.labname,this.reviewID,this.send_to);
+    this.userservice.lab_reply(this.userID,e.feedback,this.labname,this.reviewID,this.send_to).then(()=>{
+      console.log("Replied Successfully!");
+      this.ngOnInit();
+    });
   }
 
 }

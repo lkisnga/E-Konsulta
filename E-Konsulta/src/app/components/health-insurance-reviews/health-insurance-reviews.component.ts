@@ -72,7 +72,10 @@ export class HealthInsuranceReviewsComponent implements OnInit {
 
   reply_user(e)
   {
-    this.userservice.Insurance_reply(this.userId,e.feedback,this.info.name,this.reviewId,this.feedbackId);
+    this.userservice.Insurance_reply(this.userId,e.feedback,this.info.name,this.reviewId,this.feedbackId).then(()=>{
+      console.log("Replied Successfully!");
+      this.ngOnInit();
+    });
   }
 
 }
