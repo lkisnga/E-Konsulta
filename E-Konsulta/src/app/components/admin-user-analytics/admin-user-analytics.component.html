@@ -8,40 +8,89 @@
   <title>Admin - User Analytics</title>
 </head>
 <body>
-
   <app-header-user></app-header-user>
-
-  <div>
-    <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
-        <!--sidenav -->
-        <app-admin-sidenav></app-admin-sidenav>
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+       <!--sidenav -->
+      <app-admin-sidenav></app-admin-sidenav>
+    </div>
+    <div class="col">
+      <div class="column">
+        <div class="card">
+          <h6>Daily <i class="fa fa-sunt"></i></h6>
+          <div class="card-body">
+            <small>Total Users</small>
+            <p class="card-text">Some text</p>
+          </div>
+        </div>
       </div>
 
-    </div>
-    <div class="row flex-nowrap tbl">
-      <div class="col mx-3">
-        <h3 class="usr">User Analytics</h3>
-        <div class="text-left py-1">
-          <div class="btn-group">
-            <button type="button" class="btn btn-outline-info" (click)="dailyFunction()">Daily</button>
-            <button type="button" class="btn btn-outline-info" (click)="weeklyFunction()">Weekly</button>
-            <button type="button" class="btn btn-outline-info" (click)="monthlyFunction()">Monthly</button>
+      <div class="column">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="lab"> -->
+          <h6>Weekly</h6>
+          <div class="card-body">
+            <small>Total Users</small>
+            <p class="card-text">Some text</p>
           </div>
+        </div>
+      </div>
 
-          <div *ngIf="daily">
-            These are the consultations made daily.
+      <div class="column">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="heart"> -->
+          <h6>Monthly</h6>
+          <div class="card-body">
+            <small>Total Users</small>
+            <p class="card-text">Some text</p>
           </div>
-          <div *ngIf="weekly">
-            These are the consultations made weekly.
+        </div>
+      </div>
+      <!--2nd row-->
+      <div class="column2">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="heart"> -->
+          <h5>Doctors <span><i class="fa fa-user-md"></i></span></h5>
+          <div class="card-body">
+            <p class="card-title">Total Users</p>
+            <p class="card-text">Some text</p>
           </div>
-          <div *ngIf="monthly">
-            These are the consultations made monthly.
+        </div>
+      </div>
+
+      <div class="column2">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="heart"> -->
+          <h5>Patients <span><i class="fa fa-users"></i></span></h5>
+          <div class="card-body">
+            <p class="card-title">Total Users</p>
+            <p class="card-text">Some text</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column2">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="heart"> -->
+          <h5>Health Insurance <span><i class="fa fa-heart"></i></span></h5>
+          <div class="card-body">
+            <p class="card-title">Total Users</p>
+            <p class="card-text">Some text</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column2">
+        <div class="card">
+          <!--<img class="card-img-top" src="..." alt="heart"> -->
+          <h5>Laboratory Partner<span><i class="fa fa-flask"></i></span></h5>
+          <div class="card-body">
+            <p class="card-title">Total Users</p>
+            <p class="card-text">Some text</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </body>
 </html>
