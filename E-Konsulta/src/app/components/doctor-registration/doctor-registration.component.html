@@ -17,10 +17,9 @@
       <input [(ngModel)]="model.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
       <input [(ngModel)]="model.contact_number" name="contact_number" type="text" placeholder="Contact Number" required/>
       <input [(ngModel)]="model.license_number" name="license_number" type="text" placeholder="License Number" required/>
-      <input [(ngModel)]="model.specialization" name="specialization" type="text" placeholder="Specialization" required/>
-      <select name="specialization" id="">
+      <select [(ngModel)]="model.specialization" name="specialization" id="">
         <option value="default" selected>--SELECT SPECIALIZATION--</option>
-        <option value=""></option>
+        <option *ngFor="let list of spList" value="list.id">{{list.name}}</option>
       </select>
       <input [(ngModel)]="model.address" name="address" type="text" placeholder="Address" required/>
       <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>

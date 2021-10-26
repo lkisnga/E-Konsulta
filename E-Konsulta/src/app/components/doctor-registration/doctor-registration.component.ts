@@ -18,7 +18,19 @@ export class DoctorRegistrationComponent implements OnInit {
   constructor(public afu : AuthService, public userservice : UserService, public router : Router) { }
 
   ngOnInit(): void {
-    //this.userservice.get_Speciaalization()
+
+    var data;
+    var tempArray = [];
+    this.userservice.get_Speciaalization().then(e=>{
+      e.forEach(item=>{
+        //console.log(item.data());
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.spList = tempArray;
+    console.log(this.spList);
   }
   registerDoctor(frm)
   {
