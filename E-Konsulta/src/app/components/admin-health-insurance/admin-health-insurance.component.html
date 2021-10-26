@@ -51,11 +51,11 @@
       </div>
     </div>
   </div>
-  <!--Add Health Insurance-->
+  <!--Add Health Insurance
   <div class="addHealth">
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addHealth">Add Health Insurance</button>
-  </div>
-  <!--Modal Health Insurance-->
+  </div> -->
+  <!--Modal Health Insurance
   <div class="modal fade" id="addHealth" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addHealthLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -76,7 +76,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div>-->
   <!--end of modal Health Insurance-->
 
   <!--Edit Health Insurance Modal-->
@@ -89,10 +89,10 @@
         </div>
         <form #editInfo="ngForm" (ngSubmit)="updateInfo(editInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.name" name="name" type="text" size="45"> <br><br>
-            Branch name: &nbsp;&nbsp;&nbsp;<input [(ngModel)]="model2.branchname" name="branchname" type="text" size="45"><br><br>
-            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model2.address" name="address" type="text" size="45"><br><br>
-            Conctact Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.contact_number" name="contact_number" type="text" size="45"> <br><br>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.name" name="name" type="text" size="43"> <br><br>
+            Branch name: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.branchname" name="branchname" type="text" size="43"><br><br>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.address" name="address" type="text" size="43"><br><br>
+            Conctact Number: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.contact_number" name="contact_number" type="text" size="39"> <br><br>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -34,12 +34,12 @@
 
 /*cards*/
 .col{
-  margin-top: 150px;
+  margin-top: 120px;
 }
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 32%;
+  width: 25%;
   padding: 0 10px;
   font-size: 14px;
 }
@@ -77,6 +77,10 @@
   padding: 16px;
   text-align: center;
 
+}
+.card-img-top{
+  height: 220px;
+  width: 220px;
 }
 
 .fa{
