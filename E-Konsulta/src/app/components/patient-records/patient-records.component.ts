@@ -49,17 +49,19 @@ export class PatientRecordsComponent implements OnInit {
 
       this.userservice.get_Lab_Results_Patient(this.info.email).then(e => {
         e.forEach(item => {
-          console.log("Test");
           data = item.data();
         })
       }).then(()=>{
         //console.log(data.diagnostic_center);
-        this.userservice.get_labInfo(data.diagnostic_center).forEach(e=>{
-          console.log(e.data());
-          data.from = e.data().name;
-        })
-        if(data.status == "sent")
-        tempArray.push(data);
+        if(data != undefined)
+        {
+          this.userservice.get_labInfo(data.diagnostic_center).forEach(e=>{
+            console.log(e.data());
+            data.from = e.data().name;
+          })
+          if(data.status == "sent")
+          tempArray.push(data);
+        }
       })
       this.list = tempArray;
       console.log(this.list);

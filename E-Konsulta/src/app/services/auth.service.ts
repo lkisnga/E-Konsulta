@@ -246,6 +246,7 @@ export class AuthService {
   get_userData()
   {
     return this.db.firestore.collection('Users').get();
+    
   }
   //admin
   insertUserData(userCredential: firebase.auth.UserCredential) {
