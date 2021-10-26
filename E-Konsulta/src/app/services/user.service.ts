@@ -249,7 +249,7 @@ export class UserService {
   {
     const user = this.fireb.auth().currentUser;
     const newPassword = record.password;
-    user.updatePassword(newPassword).then(()=>{
+   return user.updatePassword(newPassword).then(()=>{
       console.log("Password Changed!");
       this.db.collection('Users').doc(user_id).update(record);
     }).catch((error)=>{
@@ -321,8 +321,8 @@ export class UserService {
 
       //getting image URL and pass it into fireStore avatar
       this.afau.onAuthStateChanged(user => {
-        if(user)
-        this.store.storage.ref('Users/' + user_id + '/profile.jpg').getDownloadURL().then(e =>{
+      if(user)
+      this.store.storage.ref('Users/' + user_id + '/profile.jpg').getDownloadURL().then(e =>{
           this.db.collection('avatar').doc(user_id).set({
             image : e
           })
