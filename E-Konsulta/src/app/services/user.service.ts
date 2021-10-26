@@ -128,6 +128,10 @@ export class UserService {
   {
     return this.db.firestore.collection('specialization').get();
   }
+  get_specializationInfo(id)
+  {
+    return this.db.firestore.collection('specialization').doc(id).get();
+  }
   get_labPartner()
   {
     return this.db.collection('Laboratory_Partner').get();

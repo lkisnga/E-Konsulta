@@ -15,6 +15,7 @@ export class DoctorInfo
   license_number: string;
   contact_number: string;
   specialization: string;
+  sp_name: string;
   role: string;
 }
 export class SpecializationInfo
@@ -99,13 +100,17 @@ export class AdminDoctorsComponent implements OnInit {
     var data;
     var tempArray = [];
     this.userservice.get_doctorList().then(res=>{
-      res.forEach(function(doc){
-        data =  doc.data();
-        data.uid = doc.id;
-        tempArray.push(data);
-      })
-      this.list=tempArray.filter(res => {
-        return res.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+      res.forEach(doc=>{
+        this.userservice.get_specializationInfo(doc.data().specialization).then(e=>{
+          data =  doc.data();
+          data.uid = doc.id;
+          data.sp_name = e.data().name;
+          tempArray.push(data);
+        }).then(()=>{
+          this.list=tempArray.filter(res => {
+            return res.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+          })
+        })
       })
     })
   }
@@ -120,6 +125,7 @@ export class AdminDoctorsComponent implements OnInit {
     this.model.license_number= record.license_number;
     this.model.contact_number = record.contact_number;
     this.model.role = record.role;
+    this.model.sp_name = record.sp_name;
   }
   onSubmit(a)
   {
