@@ -11,12 +11,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DoctorRegistrationComponent implements OnInit {
   
+  spList : any = [];
 
   model = new DoctorForm();
   error: { name: string, message: string } = { name: '', message: ''};
   constructor(public afu : AuthService, public userservice : UserService, public router : Router) { }
 
   ngOnInit(): void {
+    //this.userservice.get_Speciaalization()
   }
   registerDoctor(frm)
   {

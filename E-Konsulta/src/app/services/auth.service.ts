@@ -107,7 +107,8 @@ export class AuthService {
       status:'active',
       createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
-      isVerified: "pending"
+      isVerified: "pending",
+      disabled: "false"
     })
   }
   registerWithEmail_Lab(user) {
@@ -150,7 +151,8 @@ export class AuthService {
       address: this.newUser.address,
       contact_number: this.newUser.contact_number,
       createdAt: formatDate(new Date(),"MM/dd/yyyy",'en'),
-      role: 'laboratory_partner'
+      role: 'laboratory_partner',
+      disabled: "false"
     })
   }
 
@@ -196,7 +198,8 @@ export class AuthService {
       contact_number: this.newUser.contact_number,
       branchname: this.newUser.branchname,
       createdAt: formatDate(new Date(),"MM/dd/yyyy",'en'),
-      role: 'Health_Insurance'
+      role: 'Health_Insurance',
+      disabled: "false"
     })
   }
 
@@ -237,7 +240,8 @@ export class AuthService {
       createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       status: 'active',
-      role: 'doctor'
+      role: 'doctor',
+      disabled: "false"
     })
   }
   

@@ -126,7 +126,7 @@ export class UserService {
   }
   get_Speciaalization()
   {
-    return this.db.collection('specialization').snapshotChanges();
+    return this.db.firestore.collection('specialization').get();
   }
   get_labPartner()
   {

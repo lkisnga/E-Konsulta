@@ -58,10 +58,10 @@ export class AdminDoctorsComponent implements OnInit {
   {
     var data;
     var tempArray = [];
-    this.userservice.get_Speciaalization().subscribe(res => {
+    this.userservice.get_Speciaalization().then(res => {
       res.forEach(item => {
-        data = item.payload.doc.data();
-        data.uid = item.payload.doc.id;
+        data = item.data();
+        data.uid = item.id;
         tempArray.push(data);
       })
     })
