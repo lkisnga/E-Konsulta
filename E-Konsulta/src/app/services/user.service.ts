@@ -158,6 +158,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Users').get();
   }
+  get_admin()
+  {
+    return this.db.firestore.collection('Users').where('role','==','admin').get();
+  }
   get_doctorList()
   {
     return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
