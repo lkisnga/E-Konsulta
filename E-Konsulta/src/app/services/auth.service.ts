@@ -290,6 +290,11 @@ export class AuthService {
     else
       this.router.navigate(['/login']);
   }
+
+  reset_password(email)
+  {
+   return this.afu.sendPasswordResetEmail(email);
+  }
   signout() : void
   {
     this.afu.signOut();

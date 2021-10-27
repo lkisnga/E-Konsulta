@@ -17,7 +17,6 @@ export class UserService {
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage,
     public fireb : FirebaseApp) { }
 
-
   create_Specialization(a)
   {
     this.db.collection('specialization').add({
