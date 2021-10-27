@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-user-analytics',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminUserAnalyticsComponent implements OnInit {
 
-  constructor() { }
+  docsize : number = 0;
+  patsize : number = 0;
+  inssize : number = 0;
+
+  constructor(public userservice : UserService) { }
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
   daily = false;
   weekly = false;
@@ -32,6 +37,24 @@ export class AdminUserAnalyticsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    /*this.userservice.get_user().then(e=>{
+      this.docsize = e.size;
+    })*/
+
+    this.userservice.get_doctorList().then(e=>{
+      this.docsize = e.size;
+    })
+    this.userservice.get_patient().then(e=>{
+      this.patsize = e.size;
+    })
+
+    this.userservice.get_HealthInsurance().then(e=>{
+      this.inssize = e.size;
+    })
+
+
+
   }
 
 }

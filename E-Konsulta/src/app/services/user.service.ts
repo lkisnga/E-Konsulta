@@ -155,6 +155,10 @@ export class UserService {
   {
      return this.db.firestore.collection('Users').doc(user_id).get();
   }
+  get_user()
+  {
+    return this.db.firestore.collection('Users').get();
+  }
   get_doctorList()
   {
     return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
