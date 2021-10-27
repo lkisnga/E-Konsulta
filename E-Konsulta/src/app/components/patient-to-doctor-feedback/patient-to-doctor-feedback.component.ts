@@ -22,6 +22,7 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
     }
     //retrieving data from LocalStorage
     this.info2 = JSON.parse(localStorage.getItem('data'));
+    console.log(this.info2);
 
   }
 
