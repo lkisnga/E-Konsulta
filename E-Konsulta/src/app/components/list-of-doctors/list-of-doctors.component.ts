@@ -11,10 +11,24 @@ import { UserService } from 'src/app/services/user.service';
 export class ListOfDoctorsComponent implements OnInit {
 
   list : any = [];
+  spList : any = [];
   constructor(public userserivce : UserService, public router : Router,public share : SharedDataService) { }
 
   ngOnInit(): void {
     this.doctor_list();
+    
+    var data;
+    var tempArray = [];
+    this.userserivce.get_Speciaalization().then(e=>{
+      e.forEach(res=>{
+        data = res.data();
+        data.uid = res.id;
+        tempArray.push(data);
+      })
+    })
+    this.spList = tempArray;
+    console.log(this.spList);
+
   }
   ///patient-to-doctor-feedback
   view_review(e)
@@ -37,7 +51,7 @@ export class ListOfDoctorsComponent implements OnInit {
         })
       })
       this.list = tempArray;
-      console.log(this.list)
+      //console.log(this.list)
     })
   }
 
