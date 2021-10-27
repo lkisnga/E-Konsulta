@@ -30,6 +30,17 @@ export class UserService {
     })
   }
 
+  create_feedback_review(record)
+  {
+    return this.db.collection('reviews').add({
+      from: record.email,
+      content: record.content,
+      feature: record.feature,
+      type: "feedback",
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+    })
+  }
+
   check_email(e)
   {
     return this.db.firestore.collection('Users').where("email","==",e.email).get();
@@ -219,7 +230,7 @@ export class UserService {
   }
   get_review_feedback()
   {
-    return this.db.firestore.collection('reviews').where('role','==',"admin").where('type','==',"feedback").get();
+    return this.db.firestore.collection('reviews').where('type','==',"feedback").get();
   }
   get_review_problem()
   {
