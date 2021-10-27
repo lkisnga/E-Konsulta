@@ -9,10 +9,20 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 export class PatientToDoctorFeedbackComponent implements OnInit {
 
   constructor(public share : SharedDataService) { }
-  list : any = [];
+  info : any = [];
+  info2: any = [];
+
   ngOnInit(): void {
-    this.list = this.share.get_list();
-    console.log(this.list);
+    //getting data from list-of-docts
+    this.info = this.share.get_list();
+    //saving data into LocalStorage
+    if(localStorage.getItem('data')==null)
+    {
+      localStorage.setItem('data',JSON.stringify(this.info));
+    }
+    //retrieving data from LocalStorage
+    this.info2 = JSON.parse(localStorage.getItem('data'));
+
   }
 
 }

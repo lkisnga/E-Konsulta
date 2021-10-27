@@ -15,6 +15,9 @@ export class ListOfDoctorsComponent implements OnInit {
   constructor(public userserivce : UserService, public router : Router,public share : SharedDataService) { }
 
   ngOnInit(): void {
+
+    localStorage.removeItem('data');
+
     this.doctor_list();
     
     var data;
