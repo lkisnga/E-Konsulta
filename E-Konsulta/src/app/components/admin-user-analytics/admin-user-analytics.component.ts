@@ -11,6 +11,7 @@ export class AdminUserAnalyticsComponent implements OnInit {
   docsize : number = 0;
   patsize : number = 0;
   inssize : number = 0;
+  labsize : number = 0;
 
   constructor(public userservice : UserService) { }
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
@@ -51,6 +52,10 @@ export class AdminUserAnalyticsComponent implements OnInit {
 
     this.userservice.get_HealthInsurance().then(e=>{
       this.inssize = e.size;
+    })
+
+    this.userservice.get_labPartner().forEach(e=>{
+      this.labsize = e.size;
     })
 
 
