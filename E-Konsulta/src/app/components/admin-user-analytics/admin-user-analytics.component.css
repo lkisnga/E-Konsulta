@@ -4,24 +4,26 @@
 
 /*cards*/
 .col{
-  margin-top: 70px;
+  margin-top: 50px;
 }
+
+/*lower cards*/
 /* Float four columns side by side */
 .column {
   float: left;
   width: 32%;
-  padding: 0 10px;
+  padding: 0 20px;
   font-size: 14px;
+  margin-bottom: 50px;
 }
 
 /*lower part*/
 /* Float four columns side by side */
 .column2 {
   float: left;
-  width: 25%;
+  width: 20%;
   padding: 0 10px;
   font-size: 14px;
-  margin-top: 30px;
 }
 /* Remove extra left and right margins, due to padding */
 .row {margin: 0 -5px;}
@@ -67,5 +69,21 @@ h6{
 }
 
 h5{
+  font-size: 14px;
   color: rgb(0, 129, 138);
+}
+
+p.card-text{
+  font-size: 40px;
+  text-align: center;
+}
+
+p.consultation,
+p.total
+{
+  margin-left: 20px;
+}
+
+small{
+  font-size: 11px;
 }
