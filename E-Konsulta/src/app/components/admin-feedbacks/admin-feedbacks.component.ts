@@ -20,8 +20,8 @@ export class AdminFeedbacksComponent implements OnInit {
       e.forEach(item=>{
         data = item.data();
         data.uid=item.id;
+        tempArray.push(data)
         })
-      tempArray.push(data)
       this.list = tempArray;
       console.log(this.list);
     })

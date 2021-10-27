@@ -42,10 +42,10 @@
               <td>{{item.fullname}}</td>
               <td>{{item.role}}</td>
               <td>{{item.license_number}}</td>
-              <td>{{item.specialization}}</td>
+              <td>{{item.sp_name}}</td>
               <td>
                 <button type="button" (click)="editInfo(item)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
-                <span><button (click)="editDelete(item.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DELETE</button></span>
+                <span><button (click)="editDelete(item.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
               </td>
             </tr>
           </tbody>
@@ -141,8 +141,8 @@
             Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="40"><br><br>
             Specialization:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example">
-              <option selected>{{model.specialization}}</option>
-              <option *ngFor="let list of spList"value="{{list.name}}">{{list.name}}</option>
+              <option selected value="{{model.specialization}}">{{model.sp_name}}</option>
+              <option *ngFor="let list of spList"value="{{list.uid}}">{{list.name}}</option>
             </select>
           </div>
           <div class="modal-footer">

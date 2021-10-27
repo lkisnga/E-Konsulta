@@ -23,6 +23,7 @@ export class LabPartnerProfileComponent implements OnInit {
   info : any = [];
   imgUrl : any = "";
   model = new EditInfo();
+  file : any;
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -39,7 +40,14 @@ export class LabPartnerProfileComponent implements OnInit {
       console.log(error.message);
     })
   }
-
+  uploadImage()
+  {
+    this.userservice.upload_avatar(this.file,this.userID);
+  }
+  choosefile(e)
+  {
+    this.file = e.target.files[0];
+  }
   logout()
   {
     this.afu.signout();

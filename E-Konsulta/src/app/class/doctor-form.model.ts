@@ -4,7 +4,7 @@ export class DoctorForm {
     password: string;
     dob: string;
     address: string;
-    specialization: string;
+    specialization: string = "default";
     contact_number: string;
     license_number: string;
 }

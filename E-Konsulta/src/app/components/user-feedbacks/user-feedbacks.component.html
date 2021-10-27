@@ -10,22 +10,23 @@
   <h6>Give Us Your Thoughts on an E-Konsulta Feature</h6>
   <div class="form">
 
-    <form class="feedback-form">
+    <form ngNativeValidate #form="ngForm" (ngSubmit)="submit_form(form.value)" class="feedback-form">
       <p>Please let us know how we can make your E-Konsulta experience better.</p>
       <div class="user-email">
         <p>Your email <br>
-        <span><input type="text"></span> </p>
+        <span><input [(ngModel)]="model.email" name="email" type="text" required></span> </p>
       </div>
       <div>
         <p>Please provide feedback by selecting a feature from the list below.</p>
         <p>Feature</p>
-        <select name="" id="">
-          <option value="">Billing</option>
-          <option value="">Chat</option>
-          <option value="">Notification</option>
+        <select [(ngModel)]="model.feature" name="feature" id="">
+          <option value="others" selected>Others</option>
+          <option value="Billing">Billing</option>
+          <option value="Chat">Chat</option>
+          <option value="Notification">Notification</option>
         </select>
         <p>Your Feedback</p>
-        <textarea name="" id="" cols="55" rows="5"></textarea>
+        <textarea [(ngModel)]="model.content" name="content" id="" cols="55" rows="5" required></textarea>
       </div>
       <div>
         <p>Thank you for taking the time to provide feedback. Though we are unable to review and respond to
@@ -33,23 +34,12 @@
           We may use any feedback or suggestions that are submitted without restriction or obligation to
           compensate them or keep them confidential.</p>
       </div>
+      <!--Button must be inside the form tag!-->
+      <div class="sendButton">
+        <button type="submit" class="send">Send</button>
+       </div>
     </form>
-    <!--
-    <div class="form-group">
-      <p *ngIf="errorMessage.length > 0" class="text-danger">
-          {{errorMessage}}</p>
-
-      <p *ngIf="error.message.length > 0" class="text-danger">
-          {{error.message}} </p>
-
-          <p *ngIf="message.length > 0" class="text-info">
-              {{message}} </p>
   </div>
-  -->
-  </div>
- <div class="sendButton">
-  <button class="send">Send</button>
- </div>
 </div>
 </body>
 </html>

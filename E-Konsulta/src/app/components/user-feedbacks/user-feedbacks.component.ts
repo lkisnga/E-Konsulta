@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+
+export class Feedback
+{
+  email : string = "";
+  content : string;
+  feature: string = "others";
+}
 
 @Component({
   selector: 'app-user-feedbacks',
@@ -7,9 +15,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFeedbacksComponent implements OnInit {
 
-  constructor() { }
+  model = new Feedback();
+
+  constructor(public userservice : UserService) { }
 
   ngOnInit(): void {
+  }
+
+  submit_form(e)
+  {
+    this.userservice.create_feedback_review(e).then(()=>{
+      alert("successfully sent!");
+    })
   }
 
 }

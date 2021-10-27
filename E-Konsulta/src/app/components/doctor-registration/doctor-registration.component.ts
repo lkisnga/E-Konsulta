@@ -11,12 +11,26 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DoctorRegistrationComponent implements OnInit {
   
+  spList : any = [];
 
   model = new DoctorForm();
   error: { name: string, message: string } = { name: '', message: ''};
   constructor(public afu : AuthService, public userservice : UserService, public router : Router) { }
 
   ngOnInit(): void {
+
+    var data;
+    var tempArray = [];
+    this.userservice.get_Speciaalization().then(e=>{
+      e.forEach(item=>{
+        //console.log(item.data());
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.spList = tempArray;
+    console.log(this.spList);
   }
   registerDoctor(frm)
   {

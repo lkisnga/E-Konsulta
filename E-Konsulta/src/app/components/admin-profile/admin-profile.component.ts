@@ -88,8 +88,8 @@ export class AdminProfileComponent implements OnInit{
     record['password'] = user_record.password;
     record['role'] = user_record.role;
     
-    this.userService.update_user(this.userID,record);
-
-    this.ngOnInit();
+    this.userService.update_user(this.userID,record).then(()=>{
+      this.ngOnInit()
+    });
   }
 }

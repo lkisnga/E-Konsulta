@@ -17,7 +17,6 @@ export class UserService {
   constructor(public db: AngularFirestore, public afau: AngularFireAuth, public router: Router,public store: AngularFireStorage,
     public fireb : FirebaseApp) { }
 
-
   create_Specialization(a)
   {
     this.db.collection('specialization').add({
@@ -27,6 +26,17 @@ export class UserService {
       updated_at: formatDate(new Date(), 'MM/dd/yyyy', 'en')
     }).then(function(){
       console.log("Added!");
+    })
+  }
+
+  create_feedback_review(record)
+  {
+    return this.db.collection('reviews').add({
+      from: record.email,
+      content: record.content,
+      feature: record.feature,
+      type: "feedback",
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
     })
   }
 
@@ -126,7 +136,11 @@ export class UserService {
   }
   get_Speciaalization()
   {
-    return this.db.collection('specialization').snapshotChanges();
+    return this.db.firestore.collection('specialization').get();
+  }
+  get_specializationInfo(id)
+  {
+    return this.db.firestore.collection('specialization').doc(id).get();
   }
   get_labPartner()
   {
@@ -139,6 +153,10 @@ export class UserService {
   get_UserInfo(user_id: string)
   {
      return this.db.firestore.collection('Users').doc(user_id).get();
+  }
+  get_user()
+  {
+    return this.db.firestore.collection('Users').get();
   }
   get_doctorList()
   {
@@ -215,7 +233,7 @@ export class UserService {
   }
   get_review_feedback()
   {
-    return this.db.firestore.collection('reviews').where('role','==',"admin").where('type','==',"feedback").get();
+    return this.db.firestore.collection('reviews').where('type','==',"feedback").get();
   }
   get_review_problem()
   {
@@ -249,7 +267,7 @@ export class UserService {
   {
     const user = this.fireb.auth().currentUser;
     const newPassword = record.password;
-    user.updatePassword(newPassword).then(()=>{
+   return user.updatePassword(newPassword).then(()=>{
       console.log("Password Changed!");
       this.db.collection('Users').doc(user_id).update(record);
     }).catch((error)=>{
@@ -321,8 +339,8 @@ export class UserService {
 
       //getting image URL and pass it into fireStore avatar
       this.afau.onAuthStateChanged(user => {
-        if(user)
-        this.store.storage.ref('Users/' + user_id + '/profile.jpg').getDownloadURL().then(e =>{
+      if(user)
+      this.store.storage.ref('Users/' + user_id + '/profile.jpg').getDownloadURL().then(e =>{
           this.db.collection('avatar').doc(user_id).set({
             image : e
           })

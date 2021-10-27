@@ -18,7 +18,9 @@
           <!--<h3><i class="fa fa-user-md"></i></h3>-->
           <div class="card-body">
             <h5 class="card-title">{{list.fullname}}</h5>
-            <p class="card-text">{{list.specialization}}</p>
+            <div *ngFor="let spList of spList">
+               <p *ngIf="list.specialization == spList.uid" class="card-text">{{spList.name}}</p>
+            </div>
             <a (click)="view_review(list)" class="btn btn-outline-info">View</a>
           </div>
         </div>
