@@ -129,7 +129,8 @@ export class UserService {
 
   get_Lab_Reviews(id)
   {
-    return this.db.collection('Laboratory_Partner').doc(id).collection('reviews').get();
+    return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('reviews')
+    .orderBy('createdAt','desc').get();
   }
 
   get_Lab_Result()

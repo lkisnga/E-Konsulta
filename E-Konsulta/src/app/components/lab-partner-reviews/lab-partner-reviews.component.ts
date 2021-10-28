@@ -54,7 +54,7 @@ export class LabPartnerReviewsComponent implements OnInit {
   {
     var data,data2,data3;
     var tempArray = [],tempArray2=[],tempArray3 = [];
-    this.userservice.get_Lab_Reviews(this.userID).forEach(e => {
+    this.userservice.get_Lab_Reviews(this.userID).then(e => {
       e.forEach(item => {
         data = item.data();
         data.uid = item.id;

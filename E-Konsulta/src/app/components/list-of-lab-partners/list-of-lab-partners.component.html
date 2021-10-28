@@ -12,16 +12,16 @@
       </div>
    </div>
     <div class="col">
-      <div class="column">
+      <div *ngFor="let list of list" class="column">
         <div class="card">
-          <img class="card-img-top" src="" alt="doctor">
+          <img class="card-img-top" src="{{list.image}}" alt="doctor">
           <!--<h3><i class="fa fa-user-md"></i></h3>-->
           <div class="card-body">
-            <h5 class="card-title"></h5>
+            <h5 class="card-title">{{list.name}}</h5>
             <div>
-               <p class="card-text"></p>
+               <p class="card-text">{{list.address}}</p>
             </div>
-            <a class="btn btn-outline-info">View</a>
+            <a (click)="view_review(list)" class="btn btn-outline-info">View</a>
           </div>
         </div>
       </div>
