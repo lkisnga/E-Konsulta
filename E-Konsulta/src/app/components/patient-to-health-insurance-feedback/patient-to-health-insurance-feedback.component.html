@@ -16,13 +16,19 @@
       <div class="lower-part">
         <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#feedback">Add feedback</button>
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item flex-column align-items-start">
+          <li *ngFor="let list of flist" class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><span><img src="./assets/images/yoshi.jpg" alt="" width="25" height="25" class="cute-pic"></span> Name</h5>
-              <small>10/19/21</small>
+              <h5 class="mb-1"><span><img src="{{list.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
+              <small>{{list.createdAt}}</small>
             </div>
             <div>
-              <p class="mb-1">It's a great app! It's a great choice using it.</p>
+              <p class="mb-1">{{list.feedback}}</p>
+            </div>
+            <div *ngFor="let reply of replyList">
+              <div *ngIf="list.from==reply.sent_to" class="reply-to">
+                  <h5 class="mb-1"><span> <img src="{{info2.image}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
+                  <p class="ureply">{{reply.feedback}}</p>
+              </div>
             </div>
            <!-- <small>Transaction ID</small>-->
           </li>
