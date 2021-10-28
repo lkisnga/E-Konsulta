@@ -15,14 +15,23 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
   info : any = [];
   info2 : any = [];
 
+  userInfo : any = [];
+
   flist : any = [];
   replyList : any = [];
+
+  feedback : string = "";
 
   constructor(public userservice : UserService, public share : SharedDataService, public afu : AuthService) { }
 
   ngOnInit(): void {
-
+  
+    //getting Current User ID
    this.userId=this.afu.get_UID();
+   //getting Current User Information
+   this.userservice.get_patientInfo(this.userId).then(e=>{
+      this.userInfo = e.data();
+   })
 
     //getting user data from the insurance list
    this.info= this.share.get_list();
@@ -36,6 +45,37 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
    //console.log(this.info2);
 
   this.get_feedback();
+  console.log(this.flist);
+  }
+
+  add_feedback()
+  {
+    //checks if the user already have a feedback
+    this.userservice.userReply_exist(this.info2.uid,this.userId)
+    .then(e=>{
+      //if the user dont have a feedback then
+      if(e.empty)
+      {
+        //checks if the textbox is empty if not then
+        if(this.feedback != "")
+          {
+            //add feedback
+            this.userservice.create_healthInsurance_feedback(this.info2.uid,this.userId,this.feedback,this.userInfo.fullname)
+            .then(()=>{
+              console.log("Added!");
+              this.ngOnInit();
+              this.feedback = "";
+            })
+          }else
+            {
+              console.log("Textbox is empty!");
+            }
+        //if the user already have a feedback
+       }else
+       {
+         console.log("Only one feedback!");
+       }
+    })
   }
 
   get_feedback()

@@ -55,6 +55,21 @@ export class UserService {
       console.log("Added!");
     })
   }
+  create_healthInsurance_feedback(ins_id,user_id,feedback,name)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(ins_id)
+    .collection('reviews').add({
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+      feedback : feedback,
+      from: user_id,
+      fullname: name
+    })
+  }
+  userReply_exist(id,user_id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews')
+    .where('from','==',user_id).get();
+  }
   //not yet done
   lab_fileUpload(e,lab_id,pnt_id,filename)
   {
@@ -132,7 +147,7 @@ export class UserService {
   }
   get_patientInfo(id)
   {
-    return this.db.firestore.collection('Patient_Info').doc(id).get()
+    return this.db.firestore.collection('Users').doc(id).get()
   }
   get_Speciaalization()
   {
