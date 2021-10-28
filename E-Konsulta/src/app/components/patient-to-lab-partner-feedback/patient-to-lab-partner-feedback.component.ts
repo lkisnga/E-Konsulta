@@ -14,6 +14,8 @@ export class PatientToLabPartnerFeedbackComponent implements OnInit {
   info2: any;
 
   list : any = []
+  userInfo : any;
+  feedback : string = "";
 
   replyList : any = [];
   constructor(public userservice : UserService, public afu: AuthService, public share: SharedDataService) { }
@@ -21,6 +23,10 @@ export class PatientToLabPartnerFeedbackComponent implements OnInit {
   ngOnInit(): void {
     //getting information from list of laboratory 
     this.info = this.share.get_list();
+    this.userId = this.afu.get_UID();
+    this.userservice.get_UserInfo(this.userId).then(e=>{
+      this.userInfo = e.data();
+   })
     //Storing info to localStorage
     if(localStorage.getItem('data')==null)
     {
@@ -30,6 +36,36 @@ export class PatientToLabPartnerFeedbackComponent implements OnInit {
     this.info2 = JSON.parse(localStorage.getItem('data'));
 
     this.get_feedback();
+  }
+
+  add_feedback()
+  {
+    //checks if the user already have a feedback
+    this.userservice.userReply_existLab(this.info2.uid,this.userId)
+    .then(e=>{
+      //if the user dont have a feedback then
+      if(e.empty)
+      {
+        //checks if the textbox is empty if not then
+        if(this.feedback != "")
+          {
+            //add feedback
+            this.userservice.create_labPartner_feedback(this.info2.uid,this.userId,this.feedback,this.userInfo.fullname)
+            .then(()=>{
+              console.log("Added!");
+              this.ngOnInit();
+              this.feedback = "";
+            })
+          }else
+            {
+              console.log("Textbox is empty!");
+            }
+        //if the user already have a feedback
+       }else
+       {
+         console.log("Only one feedback!");
+       }
+    })
   }
 
   get_feedback()

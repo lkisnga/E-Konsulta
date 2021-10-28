@@ -70,6 +70,21 @@ export class UserService {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews')
     .where('from','==',user_id).get();
   }
+  create_labPartner_feedback(lab_id,user_id,feedback,name)
+  {
+    return this.db.firestore.collection('Laboratory_Partner').doc(lab_id)
+    .collection('reviews').add({
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+      feedback : feedback,
+      from: user_id,
+      fullname: name
+    })
+  }
+  userReply_existLab(id,user_id)
+  {
+    return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('reviews')
+    .where('from','==',user_id).get();
+  }
   //not yet done
   lab_fileUpload(e,lab_id,pnt_id,filename)
   {
