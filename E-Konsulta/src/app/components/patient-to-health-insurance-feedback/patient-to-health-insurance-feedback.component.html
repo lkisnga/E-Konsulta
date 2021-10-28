@@ -14,6 +14,7 @@
         Contact Number: {{info2.contact_number}}<br>
       </div>
       <div class="lower-part">
+        <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#feedback">Add feedback</button>
         <ul class="list-group py-2 whole-trans">
           <li class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
@@ -23,9 +24,6 @@
             <div>
               <p class="mb-1">It's a great app! It's a great choice using it.</p>
             </div>
-            <div>
-              <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
-            </div>
            <!-- <small>Transaction ID</small>-->
           </li>
         </ul>
@@ -33,15 +31,15 @@
     </div>
 
 <!--Reply Modal-->
-<div class="modal fade" id="toReply" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+<div class="modal fade" id="feedback" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addSpclLabel">Add a reply</h5>
+        <h5 class="modal-title" id="addSpclLabel">Add feedback</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
         <div class="modal-body">
-          <textarea name="reply" id="" cols="50" rows="5" placeholder="Reply..."></textarea>
+          <textarea name="reply" id="" cols="50" rows="5" placeholder="...."></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -24,8 +24,13 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
    }
    //retrieving data from the localStorage
    this.info2 = JSON.parse(localStorage.getItem('data'));
+   //console.log(this.info2);
 
-   
+   this.userservice.get_health_Reviews(this.info2.uid).forEach(e=>{
+     e.forEach(item=>{
+       console.log(item.data());
+     })
+   })
   }
 
 }
