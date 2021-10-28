@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,15 +10,20 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
 
+  userId : string = "";
+
   info : any = [];
   info2 : any = [];
 
   flist : any = [];
   replyList : any = [];
 
-  constructor(public userservice : UserService, public share : SharedDataService) { }
+  constructor(public userservice : UserService, public share : SharedDataService, public afu : AuthService) { }
 
   ngOnInit(): void {
+
+   this.userId=this.afu.get_UID();
+
     //getting user data from the insurance list
    this.info= this.share.get_list();
     //saving data into the localStorage
@@ -53,7 +59,7 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
           tempArray2.push(data2);
         })
         this.replyList = tempArray2;
-        console.log(this.replyList);
+        //console.log(this.replyList);
       })
      })
    })
