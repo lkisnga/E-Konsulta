@@ -28,35 +28,36 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
    //retrieving data from the localStorage
    this.info2 = JSON.parse(localStorage.getItem('data'));
    //console.log(this.info2);
-   this.get_feedback();
+
+  this.get_feedback();
   }
 
   get_feedback()
   {
-    var data,data2;
-    var tempArray=[],tempArray2=[];
-    this.userservice.get_health_Reviews(this.info2.uid).forEach(e=>{
-      e.forEach(item=>{
-        this.userservice.get_avatar(item.data().from).then(res=>{
-          data = item.data();
-          data.uid = item.id;
-          data.image = res.data().image;
-          tempArray.push(data);
-        })
-
-        this.userservice.get_insurance_reply(this.info2.uid,item.id).then(res=>{
-          res.forEach(a=>{
-            data2 = a.data();
-            tempArray2.push(data2);
-          })
-          this.replyList = tempArray2;
-          console.log(this.replyList);
-        })
-
+   var data,data2;
+   var tempArray = [],tempArray2=[];
+   //getting feedbacks
+   this.userservice.get_health_review(this.info2.uid).then(e=>{
+     e.forEach(item=>{
+       //getting image from a specific feedback
+      this.userservice.get_avatar(item.data().from).then(res=>{
+        data = item.data();
+        data.uid = item.id;
+        data.image = res.data().image;
+        tempArray.push(data);
       })
-    })
-    this.flist = tempArray;
-    console.log(this.flist);
+      //getting replies from the feedbacks
+      this.userservice.get_insurance_reply(this.info2.uid,item.id).then(res=>{
+        res.forEach(a=>{
+          data2 = a.data();
+          tempArray2.push(data2);
+        })
+        this.replyList = tempArray2;
+        console.log(this.replyList);
+      })
+     })
+   })
+   this.flist= tempArray;
   }
 
 }
