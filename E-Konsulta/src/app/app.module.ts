@@ -76,6 +76,7 @@ import { PatientToDoctorFeedbackComponent } from './components/patient-to-doctor
 import { PatientToLabPartnerFeedbackComponent } from './components/patient-to-lab-partner-feedback/patient-to-lab-partner-feedback.component';
 import { PatientToHealthInsuranceFeedbackComponent } from './components/patient-to-health-insurance-feedback/patient-to-health-insurance-feedback.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UserComplaintsComponent } from './components/user-complaints/user-complaints.component';
 
 
 @NgModule({
@@ -143,7 +144,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     PatientToDoctorFeedbackComponent,
     PatientToLabPartnerFeedbackComponent,
     PatientToHealthInsuranceFeedbackComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    UserComplaintsComponent
   ],
   imports: [
     FormsModule,

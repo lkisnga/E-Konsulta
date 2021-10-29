@@ -49,6 +49,7 @@ import { PatientToDoctorFeedbackComponent } from './components/patient-to-doctor
 import { PatientToLabPartnerFeedbackComponent } from './components/patient-to-lab-partner-feedback/patient-to-lab-partner-feedback.component';
 import { PatientToHealthInsuranceFeedbackComponent } from './components/patient-to-health-insurance-feedback/patient-to-health-insurance-feedback.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UserComplaintsComponent } from './components/user-complaints/user-complaints.component';
 
 
 const routes: Routes = [
@@ -100,7 +101,8 @@ const routes: Routes = [
   { path: 'patient-to-doctor-feedback', component: PatientToDoctorFeedbackComponent},
   { path: 'patient-to-lab-partner-feedback', component: PatientToLabPartnerFeedbackComponent},
   { path: 'patient-to-health-insurance-feedback', component: PatientToHealthInsuranceFeedbackComponent},
-  { path: 'forgot-password', component: ForgotPasswordComponent}
+  { path: 'forgot-password', component: ForgotPasswordComponent},
+  { path: 'user-complaints', component: UserComplaintsComponent}
 ];
 
 
@@ -162,5 +164,6 @@ export const routingComponents = [
   PatientToDoctorFeedbackComponent,
   PatientToLabPartnerFeedbackComponent,
   PatientToHealthInsuranceFeedbackComponent,
-  ForgotPasswordComponent
+  ForgotPasswordComponent,
+  UserComplaintsComponent
 ];

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Complaints</title>
+</head>
+<body>
+ <!--Complain Form-->
+ <div class="feedback-page">
+  <h6>Send Report</h6>
+  <div class="form">
+    <form ngNativeValidate #form="ngForm"  class="feedback-form">
+      <textarea name="content" id="" cols="70" rows="5" placeholder="Describe the issue..." required></textarea>
+      <div class="image">
+        <input type="file" class="custom-file-input">
+      </div>
+      <!--Button must be inside the form tag!-->
+      <div class="sendButton">
+        <button type="submit" class="send">Send</button>
+       </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+

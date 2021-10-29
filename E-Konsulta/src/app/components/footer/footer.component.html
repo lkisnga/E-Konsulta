@@ -1,16 +1,12 @@
 <div class="footer">
   <div class="d-flex w-100 justify-content-between">
     <p>&copy; {{currentYear}} All rights reserved </p>
-    <p><i class="fa fa-envelope"></i> lineuparray@gmail.com</p>
-    <a [routerLink]="['/user-feedbacks']">Send Feedback</a>
+    <p><i class="fa fa-envelope"></i><span class="ms-2 d-none d-sm-inline">lineuparray@gmail.com</span></p>
+    <div class="mt-2">
+      <a [routerLink]="['/user-feedbacks']">Send Feedback</a>
+      <a [routerLink]="['/user-complaints']">Complaints</a>
+    </div>
   </div>
 </div>
 
 
-<!--
-<footer>
-  <p>
-    All rights reserved {{currentYear}}
-  </p>
-</footer>
--->
