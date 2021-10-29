@@ -15,16 +15,14 @@
         <app-admin-sidenav></app-admin-sidenav>
       </div>
 
-      <div class="col-sm-3 col-sm-offset-3 py-4">
-        <div class="input-group py-4" >
-          <input [(ngModel)]="searchName" (input)='listOfDoctors()' type="text" class="form-control border-info rounded" placeholder="Search Doctor" aria-label="Search"
-            aria-describedby="search-addon" />
-          <button type="button" class="btn btn-info">Search</button>
+      <div class="col col-sm-offset-3 py-4">
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-info">Doctors</button>
+          <button type="button" class="btn btn-outline-info">Verified</button>
         </div>
-      </div>
-    </div>
-    <div class="row flex-nowrap tbl">
-      <div class="col mx-3">
+        <input [(ngModel)]="searchName" (input)='listOfDoctors()' type="text" class="mt-3 form-control rounded" placeholder="Search Doctor" aria-label="Search"
+            aria-describedby="search-addon" />
+        <!--table-->
         <table class="table table-info table striped">
           <thead>
             <tr>
