@@ -1,7 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-
+export class PatientInfo
+{
+  email : string;
+  fullname : string;
+  dob : string;
+  password : string;
+  contact_number : string;
+  health_insurance : string
+  member_id : string;
+  address: string;
+}
 @Component({
   selector: 'app-patient-profile',
   templateUrl: './patient-profile.component.html',
@@ -9,9 +19,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PatientProfileComponent implements OnInit {
 
+  model = new PatientInfo();
+
   userID : string = ""
   imgUrl : any;
   info : any = [];
+  insList : any = [];
+  file : any;
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -24,9 +38,56 @@ export class PatientProfileComponent implements OnInit {
       console.log(error.message);
     })
 
+    var data;
     this.userservice.get_UserInfo(this.userID).then(e => {
-      console.log(e.data());
-      this.info = e.data();
+      this.userservice.get_HealthInsurance_Info(e.data().health_insurance).then(item=>{
+        data = e.data();
+        data.insurance_name=item.data().name;
+        this.info = data;
+      })
+    })
+    this.insurance_list();
+    
+  }
+  choosefile(e)
+  {
+    this.file = e.target.files[0];
+    console.log(this.file);
+  }
+  uploadImage()
+  {
+    this.userservice.upload_avatar(this.file,this.userID);
+  }
+  insurance_list()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_HealthInsurance().then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.insList = tempArray;
+    console.log(this.insList);
+  }
+  edit()
+  {
+    this.model.email = this.info.email
+    this.model.fullname = this.info.fullname;
+    this.model.dob = this.info.dob;
+    this.model.contact_number = this.info.contact_number;
+    this.model.password = this.info.password;
+    this.model.address = this.info.address;
+    this.model.health_insurance = this.info.health_insurance;
+    this.model.member_id = this.info.member_ID;
+  }
+  update(e)
+  {
+    this.userservice.update_user(this.userID,e).then(e=>{
+      console.log("patient Updated!");
+      this.ngOnInit();
     })
   }
   logout()

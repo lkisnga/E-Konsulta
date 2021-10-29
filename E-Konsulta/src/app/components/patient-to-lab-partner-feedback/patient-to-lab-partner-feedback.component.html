@@ -6,26 +6,31 @@
     </div>
     
     <div class="col m-4">
-      <img src="./assets/images/yoshi.jpg" alt="img" class="profile-pic"  width="150" height="150">
+      <img src="{{info2.image}}" alt="img" class="profile-pic"  width="150" height="150">
       <div class="lab-info ">
-        Id: <br>
-        Name: <br>
-        Email: <br>
-        Address: <br>
-        Contact Number: <br>
+        Name: {{info2.name}}<br>
+        Email: {{info2.email}}<br>
+        Address: {{info2.address}}<br>
+        Contact Number: {{info2.contact_number}}<br>
       </div>
       <div class="lower-part">
+        <div>
+          <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Add feedback</button>
+        </div>
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item flex-column align-items-start">
+          <li *ngFor="let list of list" class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><span><img src="./assets/images/yoshi.jpg" alt="" width="25" height="25" class="cute-pic"></span> Name</h5>
-              <small>10/19/21</small>
+              <h5 class="mb-1"><span><img src="{{list.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
+              <small>{{list.createdAt}}</small>
             </div>
             <div>
-              <p class="mb-1">It's a great app! It's a great choice using it.</p>
+              <p class="mb-1">{{list.feedback}}</p>
             </div>
-            <div>
-              <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
+            <div *ngFor="let reply of replyList">
+              <div *ngIf="list.from==reply.sent_to" class="reply-to">
+                  <h5 class="mb-1"><span> <img src="{{info2.image}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
+                  <p class="ureply">{{reply.feedback}}</p>
+              </div>
             </div>
            <!-- <small>Transaction ID</small>-->
           </li>
@@ -38,15 +43,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addSpclLabel">Add a reply</h5>
+        <h5 class="modal-title" id="addSpclLabel">Add feedback</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
         <div class="modal-body">
-          <textarea name="reply" id="" cols="50" rows="5" placeholder="Reply..."></textarea>
+          <textarea [(ngModel)]="feedback" name="feedback" id="" cols="50" rows="5" placeholder="..."></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+          <button (click)="add_feedback()" type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
         </div>
     </div>
   </div>

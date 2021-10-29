@@ -41,7 +41,7 @@ export class HealthInsuranceReviewsComponent implements OnInit {
     var tempArray=[];
     var data2;
     var tempArray2=[];
-    this.userservice.get_health_Reviews(this.userId).forEach(e=>{
+    this.userservice.get_health_review(this.userId).then(e=>{
       e.forEach(item=>{
         this.userservice.get_avatar(item.data().from).then(res=>{
           data = item.data();

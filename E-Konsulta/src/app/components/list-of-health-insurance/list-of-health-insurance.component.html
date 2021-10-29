@@ -12,17 +12,18 @@
       </div>
    </div>
     <div class="col">
-      <div class="column">
+      <div *ngFor="let list of list" class="column">
         <div class="card">
-          <img class="card-img-top" src="..." alt="insurance">
+          <img class="card-img-top" src="{{list.image}}" alt="insurance">
+          <!--<h3><i class="fa fa-user-md"></i></h3>-->
           <div class="card-body">
-            <h5 class="card-title">Name</h5>
-            <p class="card-text">Address</p>
-            <a routerLink='/patient-to-health-insurance-feedback' class="btn btn-outline-info">View</a>
+            <h5 class="card-title">{{list.name}}</h5>
+            <div>
+               <p class="card-text">{{list.address}}</p>
+            </div>
+            <a (click)="view_review(list)" class="btn btn-outline-info">View</a>
           </div>
         </div>
       </div>
   </div>
 </div>
-
-
