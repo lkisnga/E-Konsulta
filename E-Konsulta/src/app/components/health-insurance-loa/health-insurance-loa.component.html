@@ -1,70 +1,68 @@
 <app-header-insurance></app-header-insurance>
+<div class="row flex-nowrap">
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+    <!--sidenav -->
+    <app-health-insurance-sidenav></app-health-insurance-sidenav>
+  </div>
 
-    <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
-        <!--sidenav -->
-        <app-health-insurance-sidenav></app-health-insurance-sidenav>
+  <div class="col mt-4 mx-3">
+    <div class="text-left">
+      <div class="btn-group py-3">
+        <button type="button" class="btn btn-outline-info" (click)="pendingFunction()">Pending</button>
+        <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
+      </div>
+      <div *ngIf="pending">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Name</th>
+              <th scope="col">Filename</th>
+              <th scope="col">File</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of loa_list">
+              <td>{{list.createdAt}}</td>
+              <td>{{list.fullname}}</td>
+              <td>{{list.filename}}</td>
+              <td>
+                <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
+              </td>
+              <td>
+                <button (click)="approve_LOA(list.uid)" class="btn btn-success">Approve</button>
+                <button (click)="decline_LOA(list.uid)" class="btn btn-danger">Decline</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="done">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Name</th>
+              <th scope="col">Filename</th>
+              <th scope="col">File</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of approve_list">
+              <td>{{list.createdAt}}</td>
+              <td>{{list.fullname}}</td>
+              <td>{{list.filename}}</td>
+              <td>
+                <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
+              </td>
+              <td>{{list.approval_status}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="row flex-nowrap tbl">
-      <div class="col mx-3 py-4">
-        <div class="text-left">
-          <div class="btn-group py-3">
-            <button type="button" class="btn btn-outline-info" (click)="pendingFunction()">Pending</button>
-            <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
-          </div>
-          <div *ngIf="pending">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Filename</th>
-                  <th scope="col">File</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let list of loa_list">
-                  <td>{{list.createdAt}}</td>
-                  <td>{{list.fullname}}</td>
-                  <td>{{list.filename}}</td>
-                  <td>
-                    <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
-                  </td>
-                  <td>
-                    <button (click)="approve_LOA(list.uid)" class="btn btn-success">Approve</button>
-                    <button (click)="decline_LOA(list.uid)" class="btn btn-danger">Decline</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div *ngIf="done">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Filename</th>
-                  <th scope="col">File</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let list of approve_list">
-                  <td>{{list.createdAt}}</td>
-                  <td>{{list.fullname}}</td>
-                  <td>{{list.filename}}</td>
-                  <td>
-                    <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
-                  </td>
-                  <td>{{list.approval_status}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>
 

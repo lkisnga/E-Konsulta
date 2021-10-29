@@ -1,25 +1,29 @@
 <app-header-doctor></app-header-doctor>
-<app-doctor-sidenav></app-doctor-sidenav>
-<div class="row flex-nowrap tbl">
-  <div class="col mx-4 py-4 min-vh-100" >
-    <div class="d-flex justify-content-between border-bottom patient-center">
-      <h4 class="user mx-2"><i class="fa fa-user-circle"></i> Patient Name</h4>
-      <div class=" d-flex ">
-        <button><i class="fa fa-phone"></i></button>
-        <button><i class="fa fa-video-camera"></i></button>
+<div class="row flex-nowrap">
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
+    <app-doctor-sidenav></app-doctor-sidenav>
+  </div>
+  <div class="row flex-nowrap second">
+    <div class="col">
+      <div class="d-flex justify-content-between border-bottom patient-center">
+        <h4 class="user mx-2"><i class="fa fa-user-circle"></i> Patient Name</h4>
+        <div class=" d-flex ">
+          <button><i class="fa fa-phone"></i></button>
+          <button><i class="fa fa-video-camera"></i></button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row flex-nowrap third-column">
-  <div class="col mx-0 py-2" >
-    <div class=" d-flex justify-content-end">
-      <h1 class="left-profile"><i class="fa fa-user-circle"></i></h1>
-      <h4 class="user left-name">Patient Name</h4>
-      <div class="doctor-files">
-        <a href="#billing">Billing</a>
-        <a href="#prescription">Prescription</a>
-        <a href="#sharedFiles">Shared Files</a>
+  <div class="row flex-nowrap third">
+    <div class="col mx-0 py-2" >
+      <div class=" d-flex justify-content-end">
+        <h1 class="left-profile"><i class="fa fa-user-circle"></i></h1>
+        <h4 class="user left-name">Patient Name</h4>
+        <div class="doctor-files">
+          <a href="#billing">Billing</a>
+          <a href="#prescription">Prescription</a>
+          <a href="#sharedFiles">Shared Files</a>
+        </div>
       </div>
     </div>
   </div>

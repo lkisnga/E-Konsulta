@@ -7,21 +7,21 @@
   <title>Doctor Sidenav</title>
 </head>
 <body>
-  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 min-vh-100" id="sidenav">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
       <ul class="nav fixed nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
         <li>
           <a routerLink='/doctor-patients' data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-            <i class="fa fa-users"></i> <span class="ms-1 d-none d-sm-inline">Patients</span> </a>
+            <i class="fa fa-users"></i> <span class="ms-2 d-none d-sm-inline">Patients</span> </a>
         </li>
           <li>
               <a routerLink='/doctor-payments' data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fa fa-money"></i> <span class="ms-1 d-none d-sm-inline">Payments</span> </a>
+                <i class="fa fa-money"></i> <span class="ms-2 d-none d-sm-inline">Payments</span> </a>
           </li>
           <li>
             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-              <i class="fa fa-file"></i> <span class="ms-1 d-none d-sm-inline">Reports <i class="fa fa-caret-down"></i> </span> </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+              <i class="fa fa-file"></i> <span class="ms-2 d-none d-sm-inline">Reports <i class="fa fa-caret-down"></i> </span> </a>
+            <ul class="collapse nav flex-column ms-2" id="submenu2" data-bs-parent="#menu">
                 <li>
                     <a routerLink="/doctor-user-analytics" class="nav-link px-1"> <span class="d-none d-sm-inline">User Analytics</span> </a>
                 </li>
@@ -32,12 +32,12 @@
         </li>
         <li>
             <a routerLink='/doctor-reviews' class="nav-link px-0 align-middle ">
-              <i class="fa fa-comment"></i> <span class="ms-1 d-none d-sm-inline">Reviews</span></a>
+              <i class="fa fa-comment"></i> <span class="ms-2 d-none d-sm-inline">Reviews</span></a>
         </li>
         <li>
           <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-            <i class="fa fa-calendar"></i> <span class="ms-1 d-none d-sm-inline">Schedule <i class="fa fa-caret-down"></i></span></a>
-          <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+            <i class="fa fa-calendar"></i> <span class="ms-2 d-none d-sm-inline">Schedule <i class="fa fa-caret-down"></i></span></a>
+          <ul class="collapse nav flex-column ms-2" id="submenu4" data-bs-parent="#menu">
               <li>
                   <a routerLink="/doctor-set-schedule" class="nav-link px-1"> <span class="d-none d-sm-inline">Set Available Schedule</span></a>
               </li>

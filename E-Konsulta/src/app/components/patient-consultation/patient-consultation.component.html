@@ -1,34 +1,12 @@
 <app-header-patient></app-header-patient>
-<app-patient-sidenav></app-patient-sidenav>
-<h3 class="consultation">MY CONSULTATIONS</h3>
-<!--Book a Consultation-->
-<div class="addSpcl">
-  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Book a Consultation</button>
-</div>
-<!--Modal Book a Consultation-->
-<div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addSpclLabel">Book a Consultation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-      </div>
-      <div class="modal-body">
-        Consultation Id: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="30"> <br><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Add</button>
-      </div>
-    </div>
+<div class="row flex-nowrap">
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
+    <app-patient-sidenav></app-patient-sidenav>
   </div>
-</div>
-<!--end of modal Book a Consultation-->
-
-<div class="row flex-nowrap tbl">
-  <div class="col mx-3 py-4">
-    <div class="text-left py-4">
-      <div class="btn-group mt-4">
+  <div class="col mx-3 mt-4">
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Book a Consultation</button>
+    <div class="text-left py-2">
+      <div class="btn-group mt-2">
         <button type="button" class="btn btn-outline-info" (click)="upcomingFunction()">Upcoming</button>
         <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
       </div>
@@ -41,3 +19,22 @@
     </div>
   </div>
 </div>
+<!--Modal Book a Consultation-->
+<div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSpclLabel">Book a Consultation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        Consultation Id: &nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="35"> <br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of modal Book a Consultation-->

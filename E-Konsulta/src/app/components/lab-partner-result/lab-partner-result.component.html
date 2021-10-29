@@ -1,7 +1,7 @@
 <app-header-lab></app-header-lab>
 
   <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
       <!--sidenav -->
       <app-lab-partner-sidenav></app-lab-partner-sidenav>
     </div>
@@ -60,7 +60,7 @@
                   Email: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email"type="text" size="35"> <br><br>
                   <!--<progress max="100" [value]="userservice.uploadProgress | async"></progress><br> -->
                   File Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.filename" name="filename" type="text" size="35"> <br><br>
-                  Choose a File:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="file" (change)="choosefile($event)"> <br><br>
+                  Choose a File: &nbsp;&nbsp; <input type="file" (change)="choosefile($event)"> <br><br>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

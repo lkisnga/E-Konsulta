@@ -1,17 +1,7 @@
-.tbl{
-  margin-left: 200px;
-  margin-top: -44%;
-}
-
 .usr{
   color: rgb(0, 192, 206);
 }
-.addSpcl{
-  position:absolute;
-  right: 477px;
-  top: 130px;
-  overflow: hidden;
-}
+
 .consultation{
   position: absolute;
   right: 420px;

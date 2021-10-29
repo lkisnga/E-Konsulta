@@ -1,9 +1,3 @@
-.tbl{
-  margin-top: -49%;
-  margin-left: 150px;
-  border: 1px solid rgb(0, 192, 206);
-  width: 67%;
-}
 
 .patient-center{
   margin-top: 50px;
@@ -11,12 +5,12 @@
 }
 
 .user{
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
   padding: 6px;
 }
 
 .fa-phone, .fa-video-camera, .fa-user-circle{
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 
 button{
@@ -52,11 +46,20 @@ a{
   display: flex;
   text-decoration: none;
   text-align: center;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
   height: 30px;
 }
 
 a:hover{
   color: darkcyan;
   background-color: rgb(241, 254, 255);
+}
+
+.second{
+  width: 850px;
+  margin: -30px 0 0 -20px;
+}
+
+.third{
+  border-left: 1px solid rgb(0, 129, 138);
 }
