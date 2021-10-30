@@ -39,10 +39,12 @@
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 25%;
+  width: 20%;
   padding: 0 10px;
-  font-size: 14px;
+  font-size: 12px;
+
 }
+
 
 /* Remove extra left and right margins, due to padding */
 .row {margin: 0 -5px;}
@@ -74,15 +76,36 @@
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  text-align: center;
-
+  padding: 8px;
+  text-align: left;
+  height: 290px !important;
 }
 .card-img-top{
-  height: 220px;
-  width: 220px;
+  height: 120px;
+  width: 120px;
+  margin-left: 25px;
 }
 
+.card-text{
+  margin-bottom: 10px;
+}
 .fa{
   color: #00B4CC;
+}
+
+/*view Button*/
+.view{
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 200px;
+  text-decoration: none;
+  outline: none;
+  color: rgb(0, 129, 138);
+  padding: 2px 10px;
+  cursor: pointer;
+  text-align: center !important;
+}
+
+.view:hover{
+  color: white;
+  background-color: rgb(0, 129, 138);
 }
