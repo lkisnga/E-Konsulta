@@ -147,6 +147,16 @@ export class UserService {
     return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('reviews')
     .orderBy('createdAt','desc').get();
   }
+  get_doctorReply(id,review_id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').get();
+  }
+  get_Doctor_Reviews(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('reviews')
+    .orderBy('createdAt','desc').get();
+  }
 
   get_Lab_Result()
   {

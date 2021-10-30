@@ -241,7 +241,8 @@ export class AuthService {
       updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       status: 'active',
       role: 'doctor',
-      disabled: "false"
+      disabled: "false",
+      isVerified: "pending"
     })
   }
   
