@@ -147,6 +147,16 @@ export class UserService {
     return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('reviews')
     .orderBy('createdAt','desc').get();
   }
+  get_doctorReply(id,review_id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').get();
+  }
+  get_Doctor_Reviews(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('reviews')
+    .orderBy('createdAt','desc').get();
+  }
 
   get_Lab_Result()
   {
@@ -196,6 +206,17 @@ export class UserService {
   get_doctorList()
   {
     return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
+  }
+  doctor_reply(id,feedback,name,review_id,sent_to)
+  {
+    return this.db.collection('Users').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').add({
+      createdAt: formatDate(new Date(),"MM/dd/yyyy","en"),
+      feedback: feedback,
+      from : id,
+      fullname : name,
+      sent_to : sent_to,
+    })
   }
   get_HealthInsurance()
   {
