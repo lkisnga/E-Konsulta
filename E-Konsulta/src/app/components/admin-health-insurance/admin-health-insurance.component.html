@@ -10,23 +10,15 @@
 
   <app-header-user></app-header-user>
 
-  <div>
     <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
-
-      <div class="col-sm-3 col-sm-offset-3 py-4">
-        <div class="input-group py-4">
+      <div class="col col-sm-offset-3 py-4 mx-3">
+        <h5>Health Insurance</h5>
           <input  [(ngModel)]="searchName" (input)='listOfInsurance()' type="search" class="form-control border-info rounded" placeholder="Search Health Insurance" aria-label="Search"
             aria-describedby="search-addon" />
-          <button type="button" class="btn btn-info">Search</button>
-        </div>
-      </div>
-    </div>
-    <div class="row flex-nowrap tbl">
-      <div class="col mx-3">
         <table class="table table-info table striped">
           <thead>
             <tr>
@@ -50,7 +42,7 @@
         </table>
       </div>
     </div>
-  </div>
+
   <!--Add Health Insurance
   <div class="addHealth">
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addHealth">Add Health Insurance</button>

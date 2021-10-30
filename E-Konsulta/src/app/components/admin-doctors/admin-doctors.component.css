@@ -6,16 +6,13 @@ body{
   right: 175px;
   top: 105px;
 }
-
+h5{
+  color: rgb(0, 129, 138);;
+}
 .spclList{
   position:absolute;
   right: 23px;
   top: 105px;
-}
-
-.tbl{
-  margin-left: 200px;
-
 }
 
 input{

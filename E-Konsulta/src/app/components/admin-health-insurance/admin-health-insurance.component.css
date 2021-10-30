@@ -7,14 +7,15 @@ body{
   top: 105px;
   overflow: hidden;
 }
-
-.tbl{
-  margin-left: 200px;
-  margin-top: -41%;
+h5{
+  color: rgb(0, 129, 138);;
 }
-
 input{
   padding: 3px 6px;
+}
+.form-control{
+  width: 300px !important;
+  margin-bottom: 20px;
 }
 
 select{
