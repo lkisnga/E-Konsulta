@@ -4,7 +4,7 @@
     <app-patient-sidenav></app-patient-sidenav>
   </div>
   <div class="col mx-3 mt-4">
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Book a Consultation</button>
+    <button type="button" class="btn btn-info" [routerLink]="['/doctors-lists']">Book a Consultation</button>
     <div class="text-left py-2">
       <div class="btn-group mt-2">
         <button type="button" class="btn btn-outline-info" (click)="upcomingFunction()">Upcoming</button>
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-<!--Modal Book a Consultation-->
+<!--Modal Book a Consultation
 <div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -37,4 +37,4 @@
     </div>
   </div>
 </div>
-<!--end of modal Book a Consultation-->
+-->

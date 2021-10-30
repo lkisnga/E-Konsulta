@@ -1,9 +1,12 @@
 body{
   font-size: 14px;
 }
-.tbl{
-  margin-left: 200px;
-  margin-top: -41%;
+.form-control{
+  width: 300px !important;
+  margin-bottom: 20px;
+}
+h5{
+  color: rgb(0, 129, 138);;
 }
 
 select{

@@ -10,23 +10,16 @@
 
   <app-header-user></app-header-user>
 
-  <div>
     <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
 
-      <div class="col-sm-3 col-sm-offset-3 py-4">
-        <div class="input-group py-4">
-          <input [(ngModel)]="searchName" (input)="listOfPatients()" type="search" class="form-control border-info rounded" placeholder="Search Patient" aria-label="Search"
+      <div class="col col-sm-offset-3 py-4 mx-3">
+        <h5>Patients</h5>
+        <input [(ngModel)]="searchName" (input)="listOfPatients()" type="search" class="form-control rounded" placeholder="Search Patient" aria-label="Search"
             aria-describedby="search-addon" />
-          <button type="button" class="btn btn-info">Search</button>
-        </div>
-      </div>
-    </div>
-    <div class="row flex-nowrap tbl">
-      <div class="col mx-3">
         <table class="table table-info table striped">
           <thead>
             <tr>
@@ -54,7 +47,6 @@
         </table>
       </div>
     </div>
-  </div>
 
   <!--Edit Patient Modal-->
   <div class="modal fade" id="editPatient" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">

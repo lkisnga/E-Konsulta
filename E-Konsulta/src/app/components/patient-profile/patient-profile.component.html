@@ -17,7 +17,8 @@
           Email:  {{info.email}}<br>
           Contact Number: {{info.contact_number}} <br>
           Health Insurance: {{info.insurance_name}}<br>
-          Member ID : {{info.member_ID}}
+          Member ID : {{info.member_ID}} <br>
+          Insurance Status:
         </div>
         <div class="buttons-right">
           <button (click)="edit()" class="btn btn-info" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
@@ -42,8 +43,8 @@
           Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="38"><br><br>
           Address: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="38"><br><br>
           Health Insurance:<select [(ngModel)]="model.health_insurance" name="health_insurance" type="text">
-          <option value="{{model.health_insurance}}" selected>{{info.insurance_name}}</option> 
-          <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option> 
+          <option value="{{model.health_insurance}}" selected>{{info.insurance_name}}</option>
+          <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
           </select><br><br>
           Insurance #: &nbsp;&nbsp; <input [(ngModel)]="model.member_id" name="member_ID" type="text" size="38"><br><br>
         </div>
