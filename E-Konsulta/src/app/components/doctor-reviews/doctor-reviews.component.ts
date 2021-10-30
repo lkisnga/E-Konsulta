@@ -14,6 +14,12 @@ export class DoctorReviewsComponent implements OnInit {
   imgUrl : any;
   replyList : any = [];
   fList : any = [];
+
+  reply : string = "";
+
+  reviewId : string = "";
+  sent_to : string = "";
+
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -31,8 +37,18 @@ export class DoctorReviewsComponent implements OnInit {
     this.doctor_reviews();
   }
 
-
-
+  reply_button(e)
+  {
+    this.reviewId = e.uid;
+    this.sent_to = e.from;
+  }
+  reply_user(e)
+  {
+    this.userservice.doctor_reply(this.userId,e.reply,this.info.fullname,this.reviewId,this.sent_to).then(e=>{
+      console.log("successfully Replied!");
+      this.ngOnInit();
+    })
+  }
   doctor_reviews()
   {
     var data,data2;
@@ -59,7 +75,6 @@ export class DoctorReviewsComponent implements OnInit {
       })
     })
     this.fList = tempArray;
-    console.log(this.replyList);
   }
 
 }
