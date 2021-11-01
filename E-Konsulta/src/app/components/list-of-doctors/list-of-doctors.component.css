@@ -34,13 +34,13 @@
 
 /*cards*/
 .col{
-  margin-top: 120px;
+  margin-top: 100px;
 }
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 16%;
-  padding: 0 10px;
+  width: 25%;
+  padding: 5px;
   font-size: 12px;
   height: 300px;
 }
@@ -55,23 +55,6 @@
   clear: both;
 }
 
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .searchTerm{
-    width: 300px;
-    display: block;
-    margin: 40px 0 60px 20px;
-  }
-  .col{
-    margin-top: 50px;
-  }
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 10px;
-  }
-}
-
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -80,9 +63,8 @@
   height: 250px !important;
 }
 .card-img-top{
-  height: 120px;
-  width: 120px;
-  margin-left: 10px;
+  height: 100px;
+  width: 100px;
 }
 .card-text{
   margin-bottom: 10px;
@@ -105,4 +87,21 @@
 .view:hover{
   color: white;
   background-color: rgb(0, 129, 138);
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .searchTerm{
+    width: 300px;
+    display: block;
+    margin: 40px 0 60px 20px;
+  }
+  .col{
+    margin-top: 50px;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
 }
