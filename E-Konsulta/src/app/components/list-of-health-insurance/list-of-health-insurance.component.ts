@@ -10,12 +10,19 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListOfHealthInsuranceComponent implements OnInit {
   list : any = [];
+  searchName : string = "";
   constructor(public userservice : UserService,public router: Router, public share : SharedDataService) { }
 
   ngOnInit(): void {
 
     localStorage.removeItem('data');
     
+    this.get_healthList();
+    
+  }
+
+  get_healthList()
+  {
     var data;
     var tempArray = [];
     this.userservice.get_HealthInsurance().then(e=>{
@@ -25,11 +32,14 @@ export class ListOfHealthInsuranceComponent implements OnInit {
           data.uid = item.id;
           data.image = res.data().image;
           tempArray.push(data);
+        }).then(()=>{
+          this.list = tempArray.filter(a=>{
+            if(a.name != undefined)
+             return a.name.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+          })    
         })
       })
     })
-    this.list =tempArray;
-    
   }
 
   view_review(e)
