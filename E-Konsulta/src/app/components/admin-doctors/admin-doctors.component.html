@@ -16,8 +16,8 @@
       <div class="col col-sm-offset-3 py-4 mx-3">
         <h5>Doctors</h5>
         <div class="btn-group">
-          <button type="button" class="btn btn-outline-info">Pending</button>
-          <button type="button" class="btn btn-outline-info">Verified</button>
+          <button (click)="isVerified_Doc('pending')" type="button" class="btn btn-outline-info">Pending</button>
+          <button (click)="isVerified_Doc('verified')" type="button" class="btn btn-outline-info">Verified</button>
         </div>
         <input [(ngModel)]="searchName" (input)='listOfDoctors()' type="text" class="mt-3 form-control rounded" placeholder="Search Doctor" aria-label="Search"
             aria-describedby="search-addon" />

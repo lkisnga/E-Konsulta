@@ -18,7 +18,7 @@ export class ListOfHealthInsuranceComponent implements OnInit {
     localStorage.removeItem('data');
     
     this.get_healthList();
-    
+
   }
 
   get_healthList()
