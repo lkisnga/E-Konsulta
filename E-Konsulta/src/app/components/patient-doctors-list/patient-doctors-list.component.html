@@ -6,18 +6,18 @@
   <!--search-->
   <div class="wrap">
     <div class="search">
-       <input type="text" class="searchTerm" placeholder="Search">
+       <input [(ngModel)]="searchName" (input)="get_doctorList()" type="search" class="searchTerm" placeholder="Search">
     </div>
   </div>
   <div class="col">
-    <div class="column">
+    <div *ngFor="let list of docList" class="column">
       <div class="card">
-        <img class="card-img-top" src="" alt="doctor">
+        <img class="card-img-top" src="{{list.image}}" alt="doctor">
         <!--<h3><i class="fa fa-user-md"></i></h3>-->
         <div class="card-body">
-          <h5 class="card-title">Fullname</h5>
+          <h5 class="card-title">{{list.fullname}}</h5>
           <div>
-             <p class="card-text">Card Text</p>
+             <p class="card-text">{{list.ins}}</p>
           </div>
           <a class="view">View</a>
         </div>

@@ -12,6 +12,8 @@ export class ListOfDoctorsComponent implements OnInit {
 
   list : any = [];
   spList : any = [];
+
+  searchName : string = "";
   constructor(public userserivce : UserService, public router : Router,public share : SharedDataService) { }
 
   ngOnInit(): void {
@@ -51,9 +53,13 @@ export class ListOfDoctorsComponent implements OnInit {
           data.uid = item.id;
           data.image = res.data().image;
           tempArray.push(data);
+        }).then(()=>{
+          this.list = tempArray.filter(e=>{
+            if(e.fullname != undefined)
+            return e.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+          });
         })
       })
-      this.list = tempArray;
       //console.log(this.list)
     })
   }

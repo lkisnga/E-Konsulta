@@ -24,7 +24,6 @@ export class SpecializationInfo
   description: string;
 }
 
-
 @Component({
   selector: 'app-admin-doctors',
   templateUrl: './admin-doctors.component.html',
@@ -45,6 +44,8 @@ export class AdminDoctorsComponent implements OnInit {
 
   searchName: string = "";
 
+  isVerified : string = "pending";
+
   constructor(public authservice : AuthService, public userservice : UserService
     ,public router : Router) { }
 
@@ -53,6 +54,11 @@ export class AdminDoctorsComponent implements OnInit {
     this.listOfDoctors();
     this.listOfSpecialization();
 
+  }
+  isVerified_Doc(e)
+  {
+    this.isVerified = e;
+    this.listOfDoctors();
   }
 
   listOfSpecialization()
@@ -102,10 +108,13 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.get_doctorList().then(res=>{
       res.forEach(doc=>{
         this.userservice.get_specializationInfo(doc.data().specialization).then(e=>{
-          data =  doc.data();
-          data.uid = doc.id;
-          data.sp_name = e.data().name;
-          tempArray.push(data);
+          if(doc.data().isVerified == this.isVerified)
+          {
+            data =  doc.data();
+            data.uid = doc.id;
+            data.sp_name = e.data().name;
+            tempArray.push(data);
+          }
         }).then(()=>{
           this.list=tempArray.filter(res => {
             return res.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());

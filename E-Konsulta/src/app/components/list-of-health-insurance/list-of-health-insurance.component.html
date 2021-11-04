@@ -8,7 +8,7 @@
     <!--search-->
     <div class="wrap">
       <div class="search">
-         <input type="text" class="searchTerm" placeholder="Search">
+         <input [(ngModel)]="searchName" (input)="get_healthList()" type="text" class="searchTerm" placeholder="Search">
       </div>
    </div>
     <div class="col">
