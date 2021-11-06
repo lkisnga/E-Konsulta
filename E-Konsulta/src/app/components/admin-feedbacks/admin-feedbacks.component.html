@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +7,16 @@
   <title>Admin - Feedbacks</title>
 </head>
 <body>
-
   <app-header-user></app-header-user>
-
     <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
-    </div>
-    <div class="row flex-nowrap tbl">
-      <div class="col mx-3">
-        <h3 class="usr">Feedbacks</h3>
+      <div class="col mx-3 py-4">
+        <h5>Feedbacks</h5>
         <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of list" class="list-group-item  list-group-item-action flex-column align-items-start text-info"  data-bs-toggle="modal" data-bs-target="#toReply">
+          <li *ngFor="let list of list" class="list-group-item list-group-item-action flex-column align-items-start mt-3"  data-bs-toggle="modal" data-bs-target="#toReply">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>{{list.from}}</h5>
               <small>{{list.createdAt}}</small>
@@ -44,10 +39,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
-          <textarea name="" id="" cols="55" rows="5" placeholder="Write a reply..."></textarea>
+          <textarea name="" id="" cols="70" rows="5" placeholder="Write a reply..."></textarea>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Submit</button>
+          <button type="submit" class="submit1" data-bs-dismiss="modal">Submit</button>
         </div>
       </div>
     </div>

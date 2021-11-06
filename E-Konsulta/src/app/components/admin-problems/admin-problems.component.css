@@ -1,18 +1,20 @@
+body{
+  font-size: 14px;
+}
 .tbl{
   margin-left: 200px;
-  margin-top: -46%;
+  margin-top: -45%;
 }
 
-.usr{
+h5{
   color: rgb(0, 129, 138);
 }
 
 .list-group-item{
-  border: 1px solid black;
+  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  color: gray !important;
+  font-size: 12px;
   cursor: pointer;
-  margin: 5px 20px;
-  max-width: 1050px;
-  color: black !important;
 }
 
 .mb-1{
@@ -22,11 +24,31 @@
 .whole-trans{
   height: 490px;
   overflow-y: scroll;
-  overflow-x: hidden;
-  border: 3px solid rgb(0, 192, 206);
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  padding: 15px 30px;
+  margin-top: 20px;
 }
 
 textarea{
-  border: 2px solid rgb(0, 192, 206);
+  padding: 10px;
+  font-size: 12px;
 }
 
+/*submit1 Button*/
+.submit1{
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 200px;
+  text-decoration: none;
+  outline: none;
+  color: rgb(0, 129, 138);
+  background-color: transparent;
+  padding: 2px 10px;
+  cursor: pointer;
+  text-align: center !important;
+}
+
+.submit1:hover{
+  color: white;
+  background-color: rgb(0, 129, 138);
+}

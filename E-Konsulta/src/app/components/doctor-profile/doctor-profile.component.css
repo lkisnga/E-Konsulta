@@ -1,74 +1,178 @@
 body{
   overflow: hidden;
+  font-size: 14px;
 }
 
-/* DOCTOR */
+*{
+  box-sizing: border-box;
+}
+
+/*col*/
+.first{
+  margin: 100px 0 200px 20px !important;
+}
+.second{
+  margin-top: 110px !important;
+  font-size: 14px;
+}
+
 .doctor{
   color: rgb(0, 129, 138);
   padding: 12px 4px;
   text-align: left;
-  margin-left: 60px;
+  margin-left: 70px;
+  margin-top: 5px;
 }
-
 .profile-pic{
-  /*border-radius: 50%;*/
-  margin: 10px 10px 10px 80px;
+  margin: 10px 10px 10px 70px;
   cursor: pointer;
 }
-.col-10{
-  margin: 30px 0px 0px 35px;
-  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
-  height: 540px;
-}
 
-.info{
-  line-height: 42px;
-  position: absolute;
-  top: 95px;
-  right: 490px;
-}
-.btn, ::placeholder,.info{
-  font-size: 14px !important;
-}
-
-.buttons-right{
-  position: absolute;
-  bottom: 50px;
-  right: 460px;
-}
-#edit{
-  margin-right: 10px;
-}
-
+/*label in modal*/
 #editLabel{
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
-/*
-#doctor-container{
-  position: absolute;
-  border: 1px solid rgb(0, 192, 206);
-  padding: 20px;
-  left: 215px;
-  width: 82%;
-  top: 80px;
-  overflow-y: auto;
-  max-height: 100%;
-} */
+
+/* upload image*/
+.imagee{
+  margin-left: 70px;
+  margin-top: 5px;
+}
+
+/*input file*/
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  margin-right: 0;
+}
+.custom-file-input::before {
+  content: 'Update Profile';
+  color: black;
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 27px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  text-align: center;
+}
+.custom-file-input:hover::before {
+  border-color: #333;
+}
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.upload{
+  display: inline-block;
+  border: 1px solid rgb(0, 129, 138);
+  color: rgb(0, 129, 138);
+  border-radius: 3px;
+  background-color: transparent;
+  font-size: 10pt;
+  padding: 5px 10px;
+}
+.upload:hover{
+  color: white;
+  background-color:rgb(0, 103, 110);
+}
+
+/*buttons*/
+.edit{
+  color: #333;
+  border:none;
+  padding: 4px 130px;
+  background-color: rgb(245, 244, 244);
+  margin-top: 20px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.logout{
+  border:none;
+  border: 1px solid rgb(0, 129, 138);
+  padding: 10px 40px;
+  margin-right: -20px !important;
+  background-color:  white;
+  color: rgb(0, 129, 138);
+  font-size: 10pt;
+  margin-top: 500px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.logout:hover{
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
+
+.add-admin{
+  background-color: rgb(245, 244, 244);
+  border: none;
+  border-radius: 3px;
+  margin-left: 72px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.add-admin:hover,
+.edit:hover{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+/*inside the modal*/
+input{
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+.cancel,
+.update,
+.yes,
+.no
+{
+  border:none;
+  padding: 5px 20px;
+  font-size: 10pt;
+  border-radius: 3px;
+  font-weight: 700;
+}
+.cancel,
+.no{
+  border: 1px solid maroon;
+  background-color:white;
+  color: maroon;
+}
+.update,
+.yes{
+  border: 1px solid rgb(0, 129, 138);
+  background-color:white;
+  color: rgb(0, 129, 138);
+}
+
+.cancel:hover,
+.no:hover{
+  background-color: maroon;
+  color: white;
+}
+
+.update:hover,
+.yes:hover{
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
 
 select{
-  width: 330px;
-  padding: 3px;
-}
-
-input, textarea{
   padding: 3px 6px;
 }
-
-.btn, ::placeholder,.info{
-  font-size: 14px !important;
-}
-
-input [type=date]{
-  width: 300px !important;
-}
-
