@@ -8,6 +8,7 @@ import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/stor
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import 'firebase/auth';
+import { PatientProfileComponent } from '../components/patient-profile/patient-profile.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -221,6 +222,10 @@ export class UserService {
   get_doctorList()
   {
     return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
+  }
+  get_doctor_upcoming(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('upcoming_patient');
   }
   doctor_reply(id,feedback,name,review_id,sent_to)
   {

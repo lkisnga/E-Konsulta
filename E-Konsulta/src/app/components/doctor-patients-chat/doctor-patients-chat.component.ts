@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorPatientsChatComponent implements OnInit {
 
+  patientInfo : any = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.patientInfo = JSON.parse(localStorage.getItem('data'));
+    console.log(this.patientInfo);
   }
 
 }
