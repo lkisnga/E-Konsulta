@@ -8,7 +8,9 @@
   /*z-index: 99; */
   top:0;
 }
-
+.logo{
+  margin-left: 10px;
+}
 a, .notif-icon{
   text-decoration: none;
   list-style-type: none;

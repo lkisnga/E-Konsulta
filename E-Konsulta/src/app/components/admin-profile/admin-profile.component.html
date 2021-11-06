@@ -21,12 +21,6 @@
       </div>
       <h3 class="admin">{{userData.fullname}}</h3>
       <button type="button" class="add-admin" [routerLink]="['/registration']">ADD ANOTHER ADMIN</button>
-        <!--
-        <img src="{{imgUrl}}" alt="img" class="profile-pic" width="200" height="200">
-        <h2 class="admin">{{userData.fullname}}</h2>
-        <button (click)="uploadImage()" class="btn btn-primary">Upload</button>
-        <input type="file" (change)="choosefile($event)">
-        -->
     </div>
     <div class="col-4 mt-4 second" *ngIf="authservice.currentUser">
       <p>User UID: {{authservice.currentUserId}}</p>
