@@ -93,3 +93,12 @@ p.ureply{
   width: 100%;
   margin-bottom: 5px;
 }
+
+.trash{
+  border: none;
+  outline: none;
+  /*color: rgb(0, 129, 138);*/
+  color: gray;
+  margin-left: 710px;
+  font-size: 14px;
+}
