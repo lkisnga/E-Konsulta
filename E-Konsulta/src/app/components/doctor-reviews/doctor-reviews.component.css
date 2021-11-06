@@ -102,3 +102,8 @@ p.ureply{
   margin-left: 710px;
   font-size: 14px;
 }
+
+.trash:hover{
+  transform: scale(1.1);
+  transition: ease .30s;
+}
