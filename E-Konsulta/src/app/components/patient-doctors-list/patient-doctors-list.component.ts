@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,12 +12,25 @@ export class PatientDoctorsListComponent implements OnInit {
   docList : any = [];
   searchName : string="";
 
-  constructor(public userservice : UserService) { }
+  constructor(
+    public userservice : UserService,
+    public router : Router
+    ) { }
 
   ngOnInit(): void {
 
+    localStorage.removeItem('data');
+
     this.get_doctorList();
 
+  }
+
+  book_doctor_view(info)
+  {
+    if(localStorage.getItem('data') == null)
+      localStorage.setItem('data',JSON.stringify(info));
+
+    this.router.navigate(['patient-doctors-lists-view']);
   }
 
   get_doctorList()

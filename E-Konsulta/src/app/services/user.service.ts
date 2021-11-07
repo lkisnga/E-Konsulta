@@ -7,7 +7,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import { firestore } from 'firebase/app';
 import 'firebase/auth';
+import { timestamp } from 'rxjs/operators';
 import { PatientProfileComponent } from '../components/patient-profile/patient-profile.component';
 @Injectable({
   providedIn: 'root'
@@ -223,9 +225,24 @@ export class UserService {
   {
     return this.db.firestore.collection('Users').where("role", "==", "doctor").get();
   }
-  get_doctor_upcoming(id)
+  get_doctor_upcoming(doc_id)
   {
-    return this.db.firestore.collection('Users').doc(id).collection('upcoming_patient');
+    return this.db.firestore.collection('upcoming').where('doctor_id','==',doc_id);
+  }
+  get_patient_upcoming(patient_id)
+  {
+    return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id); 
+  }
+  create_doctor_upcoming(data)
+  {
+    return this.db.firestore.collection('upcoming')
+    .add({
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+      patient_id: data.patient_id,
+      doctor_id: data.doctor_id,
+      status: "pending",
+      schedule: formatDate(new Date(),'short','en')
+    })
   }
   doctor_reply(id,feedback,name,review_id,sent_to)
   {

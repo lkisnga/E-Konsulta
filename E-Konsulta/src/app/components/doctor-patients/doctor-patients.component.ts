@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class DoctorPatientsComponent implements OnInit {
   constructor(
     public userservice : UserService,
     public router : Router,
-    public afu : AuthService
+    public afu : AuthService,
+    public chats : ChatService
   ) { }
    /** set to false so that when loading the patient's page, content of that function is not displayed */
    upcoming = false;
@@ -31,6 +33,7 @@ export class DoctorPatientsComponent implements OnInit {
     this.done = true;
    }
   ngOnInit(): void {
+
     this.userId = this.afu.get_UID();
     localStorage.removeItem('data');
 
@@ -39,12 +42,22 @@ export class DoctorPatientsComponent implements OnInit {
 
   chat(info)
   {
-    console.log(info);
+    this.create_chat(info.uid);
     this.router.navigate(['/doctor-patient-chat']);
     if(localStorage.getItem('data')==null)
     {
       localStorage.setItem('data',JSON.stringify(info))
     }
+  }
+
+  create_chat(patient_id)
+  {
+    this.chats.check_chat(this.userId,patient_id).then(e=>{
+      if(e.empty)
+        this.chats.create_chat(this.userId,patient_id);
+      else
+        console.log("Chat already exist!");
+    })  
   }
 
   get_userInfo()
@@ -55,9 +68,12 @@ export class DoctorPatientsComponent implements OnInit {
       let changes = snapshot.docChanges();
       changes.forEach(e=>{
         this.userservice.get_patientInfo(e.doc.data().patient_id).then(a=>{
-          data = a.data();
-          data.uid = a.id;
-          tempArray.push(data);
+          this.userservice.get_avatar(e.doc.data().patient_id).then(im=>{
+            data = a.data();
+            data.uid = a.id;
+            data.image = im.data().image;
+            tempArray.push(data);
+          })
         })
       })
     })  

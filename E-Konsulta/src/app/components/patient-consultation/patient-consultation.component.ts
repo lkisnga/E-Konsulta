@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-patient-consultation',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientConsultationComponent implements OnInit {
 
-  constructor() { }
+  userid : any;
+
+  docList: any = [];
+
+  constructor(
+    public userservice : UserService,
+    public afu : AuthService,
+    public router : Router
+  ) { }
 
   /** set to false so that when loading the patient's page, content of that function is not displayed */
   upcoming = false;
@@ -23,6 +34,42 @@ export class PatientConsultationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    localStorage.removeItem('data');
+
+    this.userid = this.afu.get_UID();
+    this.get_upcoming();
+  }
+
+  chat(info)
+  {
+    this.router.navigate(['/patient-doctor-chat']);
+    if(localStorage.getItem('data')==null)
+    {
+      localStorage.setItem('data',JSON.stringify(info))
+    }
+  }
+
+  get_upcoming()
+  {
+    var data;
+    var tempArray= [];
+    this.userservice.get_patient_upcoming(this.userid).onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(e=>{
+        this.userservice.get_UserInfo(e.doc.data().doctor_id).then(a=>{
+          this.userservice.get_avatar(e.doc.data().doctor_id).then(img=>{
+            data = a.data();
+            data.image = img.data().image;
+            data.uid = a.id;
+            tempArray.push(data);
+          })  
+        })
+      })
+    })
+    this.docList = tempArray;
+     console.log(this.docList);
   }
 
 }
+
