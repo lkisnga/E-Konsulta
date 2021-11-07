@@ -91,4 +91,19 @@ p.ureply{
   background-color: rgb(243, 243, 243);
   border-radius: 25px;
   width: 100%;
+  margin-bottom: 5px;
+}
+
+.trash{
+  border: none;
+  outline: none;
+  /*color: rgb(0, 129, 138);*/
+  color: gray;
+  margin-left: 710px;
+  font-size: 14px;
+}
+
+.trash:hover{
+  transform: scale(1.1);
+  transition: ease .30s;
 }
