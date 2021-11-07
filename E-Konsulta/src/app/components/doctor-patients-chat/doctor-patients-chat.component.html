@@ -6,18 +6,30 @@
   <div class="row flex-nowrap second">
     <div class="col">
       <div class="d-flex justify-content-between border-bottom patient-center">
-        <h4 class="user mx-2"><i class="fa fa-user-circle"></i>{{patientInfo.fullname}}</h4>
+        <h4 class="user mx-2"><img src="{{patientInfo.image}}" width="30px" height="30px">{{patientInfo.fullname}}</h4>
         <div class=" d-flex ">
-          <button><i class="fa fa-phone"></i></button>
-          <button><i class="fa fa-video-camera"></i></button>
+          <button id="btn"><i class="fa fa-phone"></i></button>
+          <button id="btn"><i class="fa fa-video-camera"></i></button>
         </div>
+      </div>
+      <!--THIS SECTION IS FOR THE CHAT-->
+      <div class="container" *ngIf="chat$ | async as chat">
+        <div *ngFor="let msg of chat.messages" class="alert alert-primary" role="alert">
+          <img  *ngIf="msg.uid == patientInfo.uid" src="{{patientInfo.image}}" width="40px" height="40px">
+          <img  *ngIf="msg.uid == userid" src="{{imgUrl}}" width="40px" height="40px">
+          {{msg.content}}
+        </div>
+      </div>
+      <div>
+        <button (click)="send_message()" class="btn btn-primary">Send</button>
+        <input [(ngModel)]="content" type="text">
       </div>
     </div>
   </div>
   <div class="row flex-nowrap third">
     <div class="col mx-0 py-2" >
       <div class=" d-flex justify-content-end">
-        <h1 class="left-profile"><i class="fa fa-user-circle"></i></h1>
+        <h1 class="left-profile"><img src="{{patientInfo.image}}" width="30px" height="30px"></h1>
         <h4 class="user left-name">{{patientInfo.fullname}}</h4>
         <div class="doctor-files">
           <a href="#billing">Billing</a>

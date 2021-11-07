@@ -13,13 +13,13 @@
   color: rgb(0, 129, 138);
 }
 
-button{
+#btn{
   border: none;
   outline: none;
   background-color: transparent;
 }
 
-button.focus, button:hover{
+#btn.focus, #btn:hover{
   color: darkcyan;
 }
 
