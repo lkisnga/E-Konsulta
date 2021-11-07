@@ -23,10 +23,10 @@
       <button type="button" class="add-admin" [routerLink]="['/registration']">ADD ANOTHER ADMIN</button>
     </div>
     <div class="col-4 mt-4 second" *ngIf="authservice.currentUser">
-      <p>User UID: {{authservice.currentUserId}}</p>
-      <p>Role: {{userData.role}}</p>
-      <p>Name: {{userData.fullname}}</p>
-      <p>Email: {{authservice.currentUserName}}</p>
+      <p>User UID: <span class="info info-1">{{authservice.currentUserId}}</span></p>
+      <p>Role: <span class="info info-2">{{userData.role}}</span></p>
+      <p>Name: <span class="info info-3">{{userData.fullname}}</span></p>
+      <p>Email: <span class="info info-4">{{authservice.currentUserName}}</span></p>
       <button class="edit" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
     </div>
     <div class="col-2 third">
@@ -44,10 +44,10 @@
       </div>
       <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
       <div class="modal-body">
-        Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" type="text" size="45" name="role" readonly> <br><br>
-        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" type="text" size="45" name="fullname"> <br><br>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" type="text" size="45" name="email"> <br><br>
-        Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" type="text" size="45" name="password"><br><br>
+        Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" class="info-modal" type="text" size="45" name="role" readonly> <br><br>
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" class="info-modal" type="text" size="45" name="fullname"> <br><br>
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" class="info-modal" type="text" size="45" name="email"> <br><br>
+        Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" class="info-modal" type="text" size="45" name="password"><br><br>
 
       </div>
       <div class="modal-footer">
