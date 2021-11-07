@@ -21,12 +21,12 @@
     "@angular/platform-browser-dynamic": "~9.1.13",
     "@angular/router": "~9.1.13",
     "@syncfusion/ej2-angular-schedule": "^19.3.48",
+    "@syncfusion/ej2-material-theme": "~19.3.46",
     "bootstrap": "^5.1.0",
     "firebase": "^7.14.4",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "@syncfusion/ej2-material-theme": "~19.3.46"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.15",

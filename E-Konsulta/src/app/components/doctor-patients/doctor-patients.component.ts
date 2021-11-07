@@ -42,24 +42,12 @@ export class DoctorPatientsComponent implements OnInit {
 
   chat(info)
   {
-    this.create_chat(info.uid);
     this.router.navigate(['/doctor-patient-chat']);
     if(localStorage.getItem('data')==null)
     {
       localStorage.setItem('data',JSON.stringify(info))
     }
   }
-
-  create_chat(patient_id)
-  {
-    this.chats.check_chat(this.userId,patient_id).then(e=>{
-      if(e.empty)
-        this.chats.create_chat(this.userId,patient_id);
-      else
-        console.log("Chat already exist!");
-    })  
-  }
-
   get_userInfo()
   {
     var data;
