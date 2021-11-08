@@ -25,6 +25,9 @@
           </div>
         </a>
       </div>
+      <div *ngIf="error_message.length>0" class="alert alert-danger" role="alert">
+          {{error_message}}
+      </div>
       <div *ngIf="done" class="list-group">
           <a routerLink="/patient-doctor-chat" class="list-group-item list-group-item-action">Choi Hyunsuk</a>
       </div>

@@ -14,6 +14,8 @@ export class PatientConsultationComponent implements OnInit {
 
   docList: any = [];
 
+  error_message: string = ""
+
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -54,6 +56,10 @@ export class PatientConsultationComponent implements OnInit {
     else
     {
       console.log('Please wait for the doctor to accept.');
+      this.error_message = "Please wait for the doctor to accept.";
+      setTimeout(() => {
+        this.error_message="";
+      }, 3000);
     }
   }
 
