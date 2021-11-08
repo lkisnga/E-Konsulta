@@ -38,7 +38,6 @@ export class DoctorPatientsComponent implements OnInit {
 
     this.userId = this.afu.get_UID();
     localStorage.removeItem('data');
-
     this.get_userInfo();
   }
 
@@ -67,15 +66,11 @@ export class DoctorPatientsComponent implements OnInit {
             //this.userList2$ = data;
             if(e.type == 'added')
              tempArray.push(data);
-            /*
             else if(e.type == 'modified')
             {
-              //console.log(data.uid);
-              console.log(data.fullname);
-              var index = tempArray.indexOf(data.fullname);
-              console.log(index);    
-              console.log(tempArray);        
-            }*/
+              var index = tempArray.findIndex( x => x.fullname === data.fullname); 
+              tempArray.splice(index,1,data);
+            }
           })
         })
       })
