@@ -32,10 +32,6 @@ export class DoctorPatientsComponent implements OnInit {
     this.upcoming = false;
     this.done = true;
    }
-   ngDoCheck()
-   {
-     this.ngOnInit();
-   }
   ngOnInit(): void {
 
     this.userId = this.afu.get_UID();
