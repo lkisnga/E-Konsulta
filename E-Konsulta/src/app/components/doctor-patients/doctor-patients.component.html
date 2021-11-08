@@ -12,9 +12,16 @@
       </div>
       <div *ngIf="upcoming" class="list-group">
         <div *ngFor="let list of userList">
-          <a *ngIf="list.upcoming_status == 'pending'" (click)="chat(list)" class="list-group-item list-group-item-action">
-            {{list.fullname}}
-          </a>
+          <div *ngIf="list.upcoming_status == 'pending'">
+            <a (click)="chat(list)" class="list-group-item list-group-item-action">
+              {{list.fullname}}
+            </a>
+          </div>
+          <div *ngIf="list.upcoming_status == 'ongoing'">
+            <a (click)="chat(list)" class="list-group-item list-group-item-action">
+              {{list.fullname}}
+            </a>
+          </div>
         </div>
       </div>
       <div *ngIf="done" class="list-group">

@@ -32,6 +32,10 @@ export class DoctorPatientsComponent implements OnInit {
     this.upcoming = false;
     this.done = true;
    }
+   ngDoCheck()
+   {
+     this.ngOnInit();
+   }
   ngOnInit(): void {
 
     this.userId = this.afu.get_UID();
@@ -60,6 +64,7 @@ export class DoctorPatientsComponent implements OnInit {
             data = a.data();
             data.uid = a.id;
             data.upcoming_status = e.doc.data().status;
+            data.schedule = e.doc.data().schedule;
             data.image = im.data().image;
             tempArray.push(data);
           })
