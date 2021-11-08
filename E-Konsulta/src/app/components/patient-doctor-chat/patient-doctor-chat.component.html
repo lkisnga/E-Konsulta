@@ -13,10 +13,15 @@
       </div>
       <!--THIS SECTION IS FOR THE CHAT-->
       <div class="cont-chat" *ngIf="chat$ | async as chat">
-        <div *ngFor="let msg of chat.messages" class="alert alert-secondary" role="alert">
-          <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" width="40px" height="40px">
-          <img  *ngIf="msg.uid == userid" src="{{imgUrl}}" width="40px" height="40px">
-          {{msg.content}}
+        <div *ngFor="let msg of chat.messages">
+          <div *ngIf="msg.uid == userid" class="alert alert-primary" role="alert">
+            <img  *ngIf="msg.uid == userid" src="{{imgUrl}}" width="40px" height="40px">
+            {{msg.content}}
+          </div>
+          <div *ngIf="msg.uid == docInfo.uid" class="alert alert-secondary" role="alert">
+            <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" width="40px" height="40px">
+            {{msg.content}}
+          </div>
         </div>
       </div>
       <div class="below">
