@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class DoctorPatientsComponent implements OnInit {
 
   userList : any = [];
+  userList2$ : Observable<any>; 
   userId : string = "";
 
   constructor(
@@ -62,12 +64,22 @@ export class DoctorPatientsComponent implements OnInit {
             data.upcoming_status = e.doc.data().status;
             data.schedule = e.doc.data().schedule;
             data.image = im.data().image;
-            tempArray.push(data);
+            //this.userList2$ = data;
+            if(e.type == 'added')
+             tempArray.push(data);
+            /*
+            else if(e.type == 'modified')
+            {
+              //console.log(data.uid);
+              console.log(data.fullname);
+              var index = tempArray.indexOf(data.fullname);
+              console.log(index);    
+              console.log(tempArray);        
+            }*/
           })
         })
       })
     })  
     this.userList = tempArray;
-    console.log(this.userList);
   }
 }
