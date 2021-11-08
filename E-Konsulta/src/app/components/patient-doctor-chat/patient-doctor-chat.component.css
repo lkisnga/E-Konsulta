@@ -22,9 +22,42 @@
 #btn.focus, #btn:hover{
   color: darkcyan;
 }
+/*chat*/
+img{
+  border-radius: 50%;
+}
+img.from{
+  margin-right: 10px;
+}
+img.to{
+  margin-left: 5px;
+  float: right;
+}
 
+#msg-to{
+  border-radius: 50px;
+  font-size: 12px;
+  background-color: rgb(0, 129, 138);
+  color: white;
+  margin: 3px 0;
+  padding: 5px 12px;
+  float: right;
+  clear: both;
+}
+
+/*FROM*/
+#msg-from{
+  border-radius: 50px;
+  font-size: 12px;
+  background-color: rgb(235, 235, 235);
+  color: rgb(27, 27, 27);
+  margin: 3px 0;
+  padding: 5px 12px;
+  float: left;
+  clear: both;
+}
 .cont-chat{
-  height: 450px;
+  max-height: 450px !important;
   overflow-y: scroll;
 }
 .below{

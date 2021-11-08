@@ -6,7 +6,7 @@
   <div class="row flex-nowrap second">
     <div class="col">
       <div class="d-flex justify-content-between border-bottom patient-center">
-        <h4 class="user mx-2"><img src="{{docInfo.image}}" alt="" width="25px" height="25px">{{docInfo.fullname}}</h4>
+        <h4 class="user mx-2"><img src="{{docInfo.image}}" alt="" width="40" height="40">{{docInfo.fullname}}</h4>
         <div class=" d-flex ">
           <button id="btn"><i class="fa fa-video-camera"></i></button>
         </div>
@@ -14,12 +14,12 @@
       <!--THIS SECTION IS FOR THE CHAT-->
       <div class="container-fluid cont-chat" *ngIf="chat$ | async as chat">
         <div *ngFor="let msg of chat.messages">
-          <div *ngIf="msg.uid == userid" class="alert alert-primary" role="alert">
-            <img  *ngIf="msg.uid == userid" src="{{imgUrl}}" width="40px" height="40px">
+          <div *ngIf="msg.uid == userid"  id="msg-to" role="alert">
             {{msg.content}}
+            <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15">
           </div>
-          <div *ngIf="msg.uid == docInfo.uid" class="alert alert-secondary" role="alert">
-            <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" width="40px" height="40px">
+          <div *ngIf="msg.uid == docInfo.uid" id="msg-from" role="alert">
+            <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" class="from" width="15px" height="15px">
             {{msg.content}}
           </div>
         </div>
