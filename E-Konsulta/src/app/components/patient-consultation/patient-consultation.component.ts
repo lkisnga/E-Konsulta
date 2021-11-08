@@ -14,6 +14,8 @@ export class PatientConsultationComponent implements OnInit {
 
   docList: any = [];
 
+  error_message: string = ""
+
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -43,10 +45,21 @@ export class PatientConsultationComponent implements OnInit {
 
   chat(info)
   {
-    this.router.navigate(['/patient-doctor-chat']);
-    if(localStorage.getItem('data')==null)
+    if(info.upcoming_status != 'pending')
     {
-      localStorage.setItem('data',JSON.stringify(info))
+      this.router.navigate(['/patient-doctor-chat']);
+      if(localStorage.getItem('data')==null)
+      {
+        localStorage.setItem('data',JSON.stringify(info))
+      }
+    }
+    else
+    {
+      console.log('Please wait for the doctor to accept.');
+      this.error_message = "Please wait for the doctor to accept.";
+      setTimeout(() => {
+        this.error_message="";
+      }, 3000);
     }
   }
 
@@ -60,6 +73,8 @@ export class PatientConsultationComponent implements OnInit {
         this.userservice.get_UserInfo(e.doc.data().doctor_id).then(a=>{
           this.userservice.get_avatar(e.doc.data().doctor_id).then(img=>{
             data = a.data();
+            data.upcoming_status = e.doc.data().status;
+            data.schedule = e.doc.data().schedule;
             data.image = img.data().image;
             data.uid = a.id;
             tempArray.push(data);

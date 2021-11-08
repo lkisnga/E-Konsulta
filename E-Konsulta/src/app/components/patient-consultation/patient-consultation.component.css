@@ -2,6 +2,10 @@
   color: rgb(0, 192, 206);
 }
 
+#btnSched{
+  margin-left: .5%;
+}
+
 .consultation{
   position: absolute;
   right: 420px;

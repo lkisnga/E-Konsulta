@@ -11,7 +11,22 @@
         <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
       </div>
       <div *ngIf="upcoming" class="list-group">
-        <a *ngFor="let list of docList" (click)="chat(list)" class="list-group-item list-group-item-action">{{list.fullname}}</a>
+        <a *ngFor="let list of docList" (click)="chat(list)" class="list-group-item list-group-item-action">
+          <span class="">{{list.fullname}}</span>
+          <div class="container">
+              <div *ngIf="list.upcoming_status == 'pending'">
+                 <button id="btnUpcoming" class="btn btn-warning col" >Pending</button>
+                 <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
+              </div>
+              <div *ngIf="list.upcoming_status == 'ongoing'">
+                <button id="btnUpcoming" class="btn btn-success col" >Join now</button>
+                <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
+              </div>
+          </div>
+        </a>
+      </div>
+      <div *ngIf="error_message.length>0" class="alert alert-danger" role="alert">
+          {{error_message}}
       </div>
       <div *ngIf="done" class="list-group">
           <a routerLink="/patient-doctor-chat" class="list-group-item list-group-item-action">Choi Hyunsuk</a>
