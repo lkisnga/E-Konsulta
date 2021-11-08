@@ -6,20 +6,20 @@
   <div class="row flex-nowrap second">
     <div class="col">
       <div class="d-flex justify-content-between border-bottom patient-center">
-        <h4 class="user mx-2"><img src="{{patientInfo.image}}" width="30px" height="30px">{{patientInfo.fullname}}</h4>
+        <h4 class="user mx-2"><img src="{{patientInfo.image}}" width="40x" height="40">{{patientInfo.fullname}}</h4>
         <div class=" d-flex">
           <button id="btn"><i class="fa fa-video-camera"></i></button>
         </div>
       </div>
       <!--THIS SECTION IS FOR THE CHAT-->
-      <div class="container" *ngIf="chat$ | async as chat">
+      <div class="container-fluid cont-chat" *ngIf="chat$ | async as chat">
         <div *ngFor="let msg of chat.messages" role="alert">
-          <div *ngIf="msg.uid == userid" class="alert alert-primary">
-            <img src="{{imgUrl}}" width="40px" height="40px">
+          <div *ngIf="msg.uid == userid" id="msg-to">
+            <img src="{{imgUrl}}" class="to" width="15" height="15">
             {{msg.content}}
           </div>
-          <div *ngIf="msg.uid == patientInfo.uid" class="alert alert-secondary">
-            <img src="{{patientInfo.image}}" width="40px" height="40px">
+          <div *ngIf="msg.uid == patientInfo.uid" id="msg-from">
+            <img src="{{patientInfo.image}}" class="from" width="15" height="15">
             {{msg.content}}
           </div>
         </div>
@@ -33,7 +33,7 @@
   <div class="row flex-nowrap third">
     <div class="col mx-0 py-2" >
       <div class=" d-flex justify-content-end">
-        <h1 class="left-profile"><img src="{{patientInfo.image}}" width="30px" height="30px"></h1>
+        <h1 class="left-profile"><img src="{{patientInfo.image}}" width="40" height="40"></h1>
         <h4 class="user left-name">{{patientInfo.fullname}}</h4>
         <div class="doctor-files">
           <a href="#billing">Billing</a>

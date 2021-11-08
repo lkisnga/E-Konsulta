@@ -14,7 +14,7 @@
       <!--THIS SECTION IS FOR THE CHAT-->
       <div class="container-fluid cont-chat" *ngIf="chat$ | async as chat">
         <div *ngFor="let msg of chat.messages">
-          <div *ngIf="msg.uid == userid"  id="msg-to" role="alert">
+          <div *ngIf="msg.uid == userid" id="msg-to" role="alert">
             {{msg.content}}
             <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15">
           </div>
@@ -33,7 +33,7 @@
   <div class="row flex-nowrap third">
     <div class="col mx-0 py-2" >
       <div class=" d-flex justify-content-end">
-        <h1 class="left-profile"><img src="{{docInfo.image}}" alt="" width="40px" height="40px"></h1>
+        <h1 class="left-profile"><img src="{{docInfo.image}}" alt="" width="40" height="40"></h1>
         <h4 class="user left-name">{{docInfo.fullname}}</h4>
         <div class="patient-files">
           <a href="#payment">Payment</a>
