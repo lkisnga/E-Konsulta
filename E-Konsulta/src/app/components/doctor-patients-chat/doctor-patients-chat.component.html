@@ -12,11 +12,16 @@
         </div>
       </div>
       <!--THIS SECTION IS FOR THE CHAT-->
-      <div class="container-fluid cont-chat" *ngIf="chat$ | async as chat">
-        <div *ngFor="let msg of chat.messages" class="alert alert-primary" role="alert">
-          <img  *ngIf="msg.uid == patientInfo.uid" src="{{patientInfo.image}}" width="40px" height="40px">
-          <img  *ngIf="msg.uid == userid" src="{{imgUrl}}" width="40px" height="40px">
-          {{msg.content}}
+      <div class="container" *ngIf="chat$ | async as chat">
+        <div *ngFor="let msg of chat.messages" role="alert">
+          <div *ngIf="msg.uid == userid" class="alert alert-primary">
+            <img src="{{imgUrl}}" width="40px" height="40px">
+            {{msg.content}}
+          </div>
+          <div *ngIf="msg.uid == patientInfo.uid" class="alert alert-secondary">
+            <img src="{{patientInfo.image}}" width="40px" height="40px">
+            {{msg.content}}
+          </div>
         </div>
       </div>
       <div class="below">
