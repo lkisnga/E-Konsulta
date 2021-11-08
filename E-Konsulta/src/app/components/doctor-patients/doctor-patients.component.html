@@ -11,10 +11,16 @@
         <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
       </div>
       <div *ngIf="upcoming" class="list-group">
-        <a *ngFor="let list of userList" (click)="chat(list)" class="list-group-item list-group-item-action">{{list.fullname}}</a>
+        <div *ngFor="let list of userList">
+          <a *ngIf="list.upcoming_status == 'pending'" (click)="chat(list)" class="list-group-item list-group-item-action">
+            {{list.fullname}}
+          </a>
+        </div>
       </div>
       <div *ngIf="done" class="list-group">
-          <a routerLink="/doctor-patient-chat" class="list-group-item list-group-item-action">Kanemoto Yoshiiiiii</a>
+        <div *ngFor="let list of userList">
+          <a *ngIf="list.upcoming_status == 'done'" (click)="chat(list)" class="list-group-item list-group-item-action">{{list.fullname}}</a>
+        </div>
       </div>
     </div>
   </div>

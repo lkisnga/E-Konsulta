@@ -59,6 +59,7 @@ export class DoctorPatientsComponent implements OnInit {
           this.userservice.get_avatar(e.doc.data().patient_id).then(im=>{
             data = a.data();
             data.uid = a.id;
+            data.upcoming_status = e.doc.data().status;
             data.image = im.data().image;
             tempArray.push(data);
           })
