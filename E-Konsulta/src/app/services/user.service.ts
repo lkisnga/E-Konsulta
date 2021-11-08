@@ -233,6 +233,11 @@ export class UserService {
   {
     return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id); 
   }
+  update_upcoming(doc_id,patient_id)
+  {
+    return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id)
+    .where('doctor_id','==',doc_id)
+  }
   create_doctor_upcoming(data)
   {
     return this.db.firestore.collection('upcoming')

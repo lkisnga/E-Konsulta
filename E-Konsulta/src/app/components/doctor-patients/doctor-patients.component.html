@@ -16,7 +16,7 @@
               {{list.fullname}}
               <div class="container">
                 <div *ngIf="list.upcoming_status == 'pending'">
-                   <button id="btnUpcoming" class="btn btn-warning col" >Pending</button>
+                   <button id="btnUpcoming" class="btn btn-warning col" >Accept</button>
                    <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
                 </div>
                 <div *ngIf="list.upcoming_status == 'ongoing'">
