@@ -8,21 +8,20 @@
       <div class="d-flex justify-content-between border-bottom patient-center">
         <h4 class="user mx-2"><img src="{{docInfo.image}}" alt="" width="25px" height="25px">{{docInfo.fullname}}</h4>
         <div class=" d-flex ">
-          <button id="btn"><i class="fa fa-phone"></i></button>
           <button id="btn"><i class="fa fa-video-camera"></i></button>
         </div>
       </div>
       <!--THIS SECTION IS FOR THE CHAT-->
-      <div class="container" *ngIf="chat$ | async as chat">
-        <div *ngFor="let msg of chat.messages" class="alert alert-primary" role="alert">
+      <div class="cont-chat" *ngIf="chat$ | async as chat">
+        <div *ngFor="let msg of chat.messages" class="alert alert-secondary" role="alert">
           <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" width="40px" height="40px">
           <img  *ngIf="msg.uid == userid" src="{{imgUrl}}" width="40px" height="40px">
           {{msg.content}}
         </div>
       </div>
-      <div>
-        <button (click)="send_message()" class="btn btn-primary">Send</button>
-        <input [(ngModel)]="content" type="text">
+      <div class="below">
+        <input [(ngModel)]="content" type="text" class="chat-type">
+        <button (click)="send_message()" class="chat-send">Send</button>
       </div>
     </div>
   </div>
