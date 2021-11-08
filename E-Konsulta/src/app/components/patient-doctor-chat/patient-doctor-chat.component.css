@@ -27,7 +27,7 @@ img{
   border-radius: 50%;
 }
 img.from{
-  margin-right: 10px;
+  margin-right: 5px;
 }
 img.to{
   margin-left: 5px;
@@ -38,6 +38,7 @@ img.to{
   border-radius: 50px;
   font-size: 12px;
   background-color: rgb(0, 129, 138);
+  opacity: 0.9;
   color: white;
   margin: 3px 0;
   padding: 5px 12px;
