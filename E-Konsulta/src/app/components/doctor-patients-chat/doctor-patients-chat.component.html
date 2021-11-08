@@ -24,9 +24,9 @@
           </div>
         </div>
       </div>
-      <div>
-        <button (click)="send_message()" class="btn btn-primary">Send</button>
-        <input [(ngModel)]="content" type="text">
+      <div class="below">
+        <input [(ngModel)]="content" type="text" class="chat-type">
+        <button (click)="send_message()" class="chat-send">Send</button>
       </div>
     </div>
   </div>
