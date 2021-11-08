@@ -14,13 +14,13 @@
         <h3 class="patient">{{info.fullname}}</h3>
       </div>
       <div class="col-4 mt-4 second">
-        <p>Patient ID: {{userID}}</p>
-        <p>Name:  {{info.fullname}}</p>
-        <p>Date of Birth: {{info.dob}}</p>
-        <p>Email:  {{info.email}}</p>
-        <p>Contact Number: {{info.contact_number}}</p>
-        <p>Health Insurance: {{info.insurance_name}}</p>
-        <p>Member ID : {{info.member_ID}}</p>
+        <p>Patient ID: <span class="info info-1">{{userID}}</span></p>
+        <p>Name: <span class="info info-2">{{info.fullname}}</span></p>
+        <p>Date of Birth: <span class="info info-3">{{info.dob}}</span></p>
+        <p>Email: <span class="info info-4">{{info.email}}</span></p>
+        <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
+        <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
+        <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
         <p>Insurance Status:</p>
         <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
       </div>

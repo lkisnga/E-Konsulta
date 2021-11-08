@@ -26,7 +26,8 @@ body{
 .profile-pic{
   margin: 10px 10px 10px 70px;
   cursor: pointer;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  /*border: 1px solid #999;*/
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
 /*label in modal*/
@@ -132,9 +133,33 @@ body{
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
+/*information*/
+.info{
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 4px 15px;
+}
+.info-1{
+  margin-left: 10px;
+}
+.info-2{
+  margin-left: 35px;
+}
+.info-3{
+  margin-left: 25px;
+}
+.info-4{
+  margin-left: 28px;
+}
+
 /*inside the modal*/
+/*styling update profile*/
 input{
   padding: 2px 6px;
+}
+.info-modal{
+  border-radius: 3px;
+  border: 1px solid gray;
 }
 
 .cancel,

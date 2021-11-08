@@ -131,6 +131,33 @@ body{
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
+/*information*/
+.info{
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 4px 15px;
+}
+.info-1{
+  margin-left: 75px;
+}
+.info-2{
+  margin-left: 77px;
+}
+.info-3{
+  margin-left: 35px;
+}
+.info-4{
+  margin-left: 11px;
+}
+.info-5{
+  margin-left: 63px;
+}
+.info-6{
+  margin-left: 14px;
+}
+.info-7{
+  margin-left: 29px;
+}
 /*inside the modal*/
 input{
   padding: 2px 6px;
