@@ -12,6 +12,10 @@ body{
   top:0;
 }
 
+.logo{
+  margin-left: 10px;
+}
+
 li{
   display: inline;
   padding: 4px 28px;

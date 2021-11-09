@@ -26,6 +26,7 @@ body{
 .profile-pic{
   margin: 10px 10px 10px 70px;
   cursor: pointer;
+  border: 2px solid rgb(0, 129, 138);
 }
 
 /*label in modal*/

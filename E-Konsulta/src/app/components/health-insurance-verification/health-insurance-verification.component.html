@@ -16,7 +16,11 @@
         <app-health-insurance-sidenav></app-health-insurance-sidenav>
       </div>
       <div class="col mx-3 mt-4">
-        <h3 class="usr py-1">Verification</h3>
+        <h5 class="usr py-1">Verification</h5>
+        <div class="btn-group">
+          <button (click)="isVerified_Doc('pending')" type="button" class="btn btn-outline-info">Pending</button>
+          <button (click)="isVerified_Doc('verified')" type="button" class="btn btn-outline-info">Verified</button>
+        </div>
         <table class="table table-info table striped">
           <thead>
             <tr>

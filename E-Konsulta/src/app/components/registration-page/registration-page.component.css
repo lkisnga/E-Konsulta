@@ -32,7 +32,7 @@ body{
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
+  margin: 0 0 10px;
   padding: 12px;
   box-sizing: border-box;
   font-size: 14px;
@@ -40,20 +40,20 @@ body{
 
 input[type="date"]:before {
   content: attr(placeholder) !important;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
   margin-right: 5.7em;
 }
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
   content: "";
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 
 .form input[type=text]:hover,.form input[type=text]:active,.form input[type=text]:focus,
 .form input[type=password]:hover,.form input[type=password]:active,.form input[type=password]:focus,
 .form input[type=date]:hover, .form input[type=date]:active, .form input[type=date]:focus{
   background: rgb(234, 252, 253);
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 
 .form button {
@@ -62,8 +62,9 @@ input[type="date"]:valid:before {
   outline: 0;
   width: 100%;
   border: 0;
+  border-radius: 3px;
   padding: 10px;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
   background-color: rgb(189, 249, 255);
   font-size: 20px;
   transition: all 0.3 ease;
@@ -71,7 +72,7 @@ input[type="date"]:valid:before {
 }
 
 .form button:hover,.form button:active,.form button:focus {
-  background: rgb(0, 192, 206);
+  background: rgb(0, 129, 138);
   color: white;
 }
 /*
@@ -87,17 +88,17 @@ input[type="date"]:valid:before {
 
 a{
   text-decoration: none;
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 a:hover{
-  color: rgb(0, 152, 163);
+  color: rgb(0, 103, 110);
 }
 
 h3{
-    color: rgb(0, 192, 206);
+    color: rgb(0, 129, 138);
 }
 ::placeholder{
-    color: rgb(0, 192, 206);
+    color: rgb(0, 129, 138);
 }
 
 label{
