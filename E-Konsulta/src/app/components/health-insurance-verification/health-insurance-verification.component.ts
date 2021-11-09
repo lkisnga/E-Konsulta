@@ -36,5 +36,9 @@ export class HealthInsuranceVerificationComponent implements OnInit {
       this.ngOnInit();
     })
   }
+  isVerified_Doc(e)
+  {
+    
+  }
 
 }
