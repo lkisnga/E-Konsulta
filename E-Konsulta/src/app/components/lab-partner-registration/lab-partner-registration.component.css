@@ -53,6 +53,7 @@ input[type="date"]:valid:before {
   outline: 0;
   width: 100%;
   border: 0;
+  border-radius: 3px;
   padding: 10px;
   color: rgb(0, 129, 138);
   background-color: rgb(189, 249, 255);
@@ -81,7 +82,7 @@ a{
   color: rgb(0, 129, 138);
 }
 a:hover{
-  color: rgb(0, 152, 163);
+  color: rgb(0, 103, 110);
 }
 
 h3{

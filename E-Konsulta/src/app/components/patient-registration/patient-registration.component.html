@@ -17,7 +17,7 @@
       <input [(ngModel)]="model.dob" class="dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
       <input [(ngModel)]="model.address" type="text" name="address" placeholder="Address" required/>
       <select [(ngModel)]="model.health_insurance" name="health_insurance">
-        <option value="default" selected>--Select Health Insurance--</option>
+        <option value="default" selected>--SELECT HEALTH INSURANCE--</option>
         <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
       </select>
       <input [(ngModel)]="model.member_ID" name="member_ID" type="text" placeholder="Health Insurance ID" required/>
