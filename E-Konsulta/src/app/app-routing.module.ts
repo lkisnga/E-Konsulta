@@ -52,7 +52,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { UserComplaintsComponent } from './components/user-complaints/user-complaints.component';
 import { PatientDoctorsListComponent } from './components/patient-doctors-list/patient-doctors-list.component';
 import { PatientDoctorsListViewComponent } from './components/patient-doctors-list-view/patient-doctors-list-view.component';
-
+import { VideoCallComponent } from './components/video-call/video-call.component';
+import { PatientVideoCallComponent } from './components/patient-video-call/patient-video-call.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -106,7 +107,9 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'user-complaints', component: UserComplaintsComponent},
   { path: 'patient-doctors-lists', component: PatientDoctorsListComponent},
-  { path: 'patient-doctors-lists-view', component: PatientDoctorsListViewComponent}
+  { path: 'patient-doctors-lists-view', component: PatientDoctorsListViewComponent},
+  { path: 'video-call', component: VideoCallComponent},
+  { path: 'patient-video-call', component: PatientVideoCallComponent }
 ];
 
 
@@ -171,5 +174,7 @@ export const routingComponents = [
   ForgotPasswordComponent,
   UserComplaintsComponent,
   PatientDoctorsListComponent,
-  PatientDoctorsListViewComponent
+  PatientDoctorsListViewComponent,
+  VideoCallComponent,
+  PatientVideoCallComponent
 ];

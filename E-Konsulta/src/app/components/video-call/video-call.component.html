@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="container bg-primary row">
+        <div class="col">
+            <p class="video-description">Local</p>
+            <video #local_video [autoplay]="true" [muted]="true"></video>
+        </div>
+        <div class="col">
+            <p class="video-description">remote:</p>
+            <video #received_video [autoplay]="true"></video>
+        </div>
+    </div>
+    <button (click)="startLocalVideo()" class="btn btn-primary">Start Local</button>
+    <button (click)="pauseLocalVideo()" class="btn btn-info">Stop Local</button>
+    <button (click)="Call()" class="btn btn-success">Call</button>
+    <button class="btn btn-danger">Hangup</button>
+</div>

@@ -79,6 +79,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { UserComplaintsComponent } from './components/user-complaints/user-complaints.component';
 import { PatientDoctorsListComponent } from './components/patient-doctors-list/patient-doctors-list.component';
 import { PatientDoctorsListViewComponent } from './components/patient-doctors-list-view/patient-doctors-list-view.component';
+import { VideoCallComponent } from './components/video-call/video-call.component';
+import { PatientVideoCallComponent } from './components/patient-video-call/patient-video-call.component';
 
 
 @NgModule({
@@ -149,7 +151,9 @@ import { PatientDoctorsListViewComponent } from './components/patient-doctors-li
     ForgotPasswordComponent,
     UserComplaintsComponent,
     PatientDoctorsListComponent,
-    PatientDoctorsListViewComponent
+    PatientDoctorsListViewComponent,
+    VideoCallComponent,
+    PatientVideoCallComponent
   ],
   imports: [
     FormsModule,

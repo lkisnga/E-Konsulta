@@ -8,7 +8,7 @@
       <div class="d-flex justify-content-between border-bottom patient-center">
         <h4 class="user mx-2"><img src="{{patientInfo.image}}" width="40x" height="40">{{patientInfo.fullname}}</h4>
         <div class=" d-flex">
-          <button id="btn"><i class="fa fa-video-camera"></i></button>
+          <button (click)="video_call()" id="btn"><i class="fa fa-video-camera"></i></button>
         </div>
       </div>
       <!--THIS SECTION IS FOR THE CHAT-->

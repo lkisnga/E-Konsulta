@@ -60,10 +60,21 @@ export class PatientDoctorChatComponent implements OnInit {
   }
   send_message()
   {
-    this.chats.send_message(this.chat_id,this.content,this.userid).then(()=>{
-      this.content="";
-      console.log("message sent!");
-    })
+    if(this.content != "")
+    {
+      this.chats.send_message(this.chat_id,this.content,this.userid).then(()=>{
+        this.content="";
+        console.log("message sent!");
+      })
+    }
+    else
+    {
+      console.log("Empty!");
+    }
+  }
+  video_call()
+  {
+    window.open('/patient-video-call', 'location=yes,height=570,width=1000,scrollbars=yes,status=yes');
   }
 
 }
