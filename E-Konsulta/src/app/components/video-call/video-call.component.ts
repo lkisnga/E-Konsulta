@@ -27,7 +27,6 @@ const pc = new RTCPeerConnection(servers);
 export class VideoCallComponent implements AfterViewInit {
 
   private localStream: MediaStream;
-  private remoteStream : MediaStream;
   callInput: any;
 
   currentUser_id: string = "";
