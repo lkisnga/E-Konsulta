@@ -5,18 +5,13 @@
       <!--sidebar-->
       <app-patient-sidenav></app-patient-sidenav>
     </div>
-    <!--search-->
-    <div class="wrap">
-      <div class="search">
-         <input [(ngModel)]="searchName" (input)="get_labList()" type="text" class="mt-3 form-control rounded" placeholder="Search">
-      </div>
-   </div>
+   <!--
     <div class="col">
       <div *ngFor="let list of list" class="column">
-        <div class="card">
-          <img class="card-img-top" src="{{list.image}}" alt="doctor">
+        <div class="card"> -->
+          <!-- <img class="card-img-top" src="{{list.image}}" alt="doctor"> -->
           <!--<h3><i class="fa fa-user-md"></i></h3>-->
-          <div class="card-body">
+        <!--  <div class="card-body">
             <h6 class="card-title">{{list.name}}</h6>
             <div>
                <p class="card-text">{{list.address}}</p>
@@ -25,5 +20,25 @@
           </div>
         </div>
       </div>
+  </div> -->
+
+  <div class="col col-sm-offset-3 py-4 mx-3">
+    <input [(ngModel)]="searchName" (input)="get_labList()" type="text" class="form-control rounded" placeholder="Search">
+    <div *ngFor="let list of list" class="card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{list.image}}" class="rounded-start" width="100" height="100" alt="doctor">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h6 class="card-title">{{list.name}}</h6>
+          <div>
+            <p class="card-text mb-1">{{list.address}}</p>
+          </div>
+          <a (click)="view_review(list)" class="view text-center mb-0">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

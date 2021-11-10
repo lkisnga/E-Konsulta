@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+.form-control{
+  width: 300px !important;
+  margin-bottom: 20px;
+}
+
 /*search
 .search {
   width: 100%;
@@ -22,15 +27,6 @@
 .searchTerm:focus{
   color: #00B4CC;
 }*/
-
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 25%;
-  position: absolute;
-  top: 17%;
-  left: 29%;
-  transform: translate(-50%, -50%);
-}
 
 /*cards
 .col{
@@ -59,14 +55,14 @@
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  float: left;
-  width: 25%;
+  width: 24%;
   text-align: left;
-  max-height: 150px !important;
+  max-height: 200px !important;
   /*width: 300px !important; */
   font-size: 12px;
-  margin-top: 100px !important;
+  margin-top: 10px !important;
   margin-right: 5px;
+  display: inline-block;
 }
 
 .fa{
@@ -75,6 +71,9 @@
 
 .card-body{
   margin-left: 5px !important;
+}
+.card-text{
+  font-size: 9px !important;
 }
 
 /*view Button*/
@@ -86,8 +85,8 @@
   color: rgb(0, 129, 138);
   padding: 2px 15px;
   cursor: pointer;
-
   float: right;
+  font-size: 9px;
 }
 
 .view:hover{
