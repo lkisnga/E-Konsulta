@@ -9,8 +9,8 @@ const mediaConstraints = {
 
 const servers = {
   iceServers: [
-    {//'stun:stun2.l.google.com:19302'
-      urls: ['stun:stun1.l.google.com:19302'],
+    {//'stun:stun1.l.google.com:19302',
+      urls: ['stun:stun2.l.google.com:19302'],
     },
   ],
   iceCandidatePoolSize: 10,
