@@ -10,7 +10,9 @@ const mediaConstraints = {
 const servers = {
   iceServers: [
     {
-      urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'],
+      urls: ["turn:13.250.13.83:3478?transport=udp"],
+      "username": "YzYNCouZM1mhqhmseWk6",
+      "credential": "YzYNCouZM1mhqhmseWk6"
     },
   ],
   iceCandidatePoolSize: 10,
@@ -43,13 +45,10 @@ export class VideoCallComponent implements AfterViewInit {
   {
     this.remoteUser = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
-    console.log(this.currentUser_id);
-    console.log(this.remoteUser);
   }
 
   ngAfterViewInit(): void { 
     this.requestMediaDevices();
-    this.remoteVideo();
   }
   private async requestMediaDevices():Promise<void> {
     this.localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
