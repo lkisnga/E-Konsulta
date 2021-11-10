@@ -25,52 +25,56 @@
 
 /*Resize the wrap to see the search bar change!*/
 .wrap{
-  width: 30%;
+  width: 25%;
   position: absolute;
-  top: 20%;
-  left: 32%;
+  top: 17%;
+  left: 29%;
   transform: translate(-50%, -50%);
 }
 
-/*cards*/
+/*cards
 .col{
-  margin-top: 100px;
-}
-/* Float four columns side by side */
+  margin-top: 100px !important;
+  float: left;
+  width: 25%;
+}*/
+/* Float four columns side by side
 .column {
   float: left;
   width: 25%;
   padding: 5px;
   font-size: 12px;
-  height: 300px;
-}
+} */
 
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
+/* Remove extra left and right margins, due to padding
+.row {margin: 0 -5px;} */
 
-/* Clear floats after the columns */
+/* Clear floats after the columns
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
+}*/
 
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  padding: 8px;
+  float: left;
+  width: 25%;
   text-align: left;
-  height: 250px !important;
+  max-height: 150px !important;
+  /*width: 300px !important; */
+  font-size: 12px;
+  margin-top: 100px !important;
+  margin-right: 5px;
 }
-.card-img-top{
-  height: 100px;
-  width: 100px;
-}
-.card-text{
-  margin-bottom: 10px;
-}
+
 .fa{
   color: #00B4CC;
+}
+
+.card-body{
+  margin-left: 5px !important;
 }
 
 /*view Button*/
@@ -80,8 +84,10 @@
   text-decoration: none;
   outline: none;
   color: rgb(0, 129, 138);
-  padding: 2px 10px;
+  padding: 2px 15px;
   cursor: pointer;
+
+  float: right;
 }
 
 .view:hover{
