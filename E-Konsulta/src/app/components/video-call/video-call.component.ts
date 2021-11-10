@@ -49,6 +49,7 @@ export class VideoCallComponent implements AfterViewInit {
 
   ngAfterViewInit(): void { 
     this.requestMediaDevices();
+    this.remoteVideo();
   }
   private async requestMediaDevices():Promise<void> {
     this.localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
@@ -87,7 +88,7 @@ export class VideoCallComponent implements AfterViewInit {
   }
   //Create Call
   async Call() {
-      this.remoteVideo();
+    this.remoteVideo();
     // Reference Firestore collections for signaling
       const callDoc = this.db.firestore.collection('calls').doc();
       const offerCandidates = callDoc.collection('offerCandidates');
