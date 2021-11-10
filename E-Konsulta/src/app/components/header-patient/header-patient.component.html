@@ -28,11 +28,7 @@
     <div class="collapse navbar-collapse" id="toggleHeader">
       <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
         <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
-          <div><span class="fa-stack fa-1x">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
-          </span>
-          </div>
+          <i class="bi bi-bell-fill"></i>
         </div>
         <div class="dropdown" *ngIf="notification" >
           <div class="notify_item">
@@ -49,10 +45,8 @@
           </div>
         </div>
         <!--  Profile  -->
-          <div><a href="/patient-profile"><span class="fa-stack fa-1x">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-user fa-stack-1x fa-inverse"></i>
-          </span></a>
+          <div>
+            <a href="/patient-profile"><i class="bi bi-person-circle"></i></a>
         </div>
         </div>
     </div>
