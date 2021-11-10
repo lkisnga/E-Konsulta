@@ -9,7 +9,7 @@
   padding: 6px;
 }
 
-.fa-video-camera, .fa-user-circle{
+.bi{
   color: rgb(0, 129, 138);
 }
 
@@ -19,8 +19,8 @@
   background-color: transparent;
 }
 
-#btn.focus, #btn:hover{
-  color: darkcyan;
+.bi-camera-video-fill:hover{
+  color: rgb(0, 103, 110);
 }
 /*chat*/
 img{
