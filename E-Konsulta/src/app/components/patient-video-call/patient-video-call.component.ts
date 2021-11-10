@@ -9,8 +9,8 @@ const mediaConstraints = {
 
 const servers = {
   iceServers: [
-    {//'stun:stun1.l.google.com:19302',
-      urls: ['stun:stun2.l.google.com:19302'],
+    {
+      urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'],
     },
   ],
   iceCandidatePoolSize: 10,
@@ -81,7 +81,6 @@ export class PatientVideoCallComponent implements AfterViewInit{
 
     this.remoteVideo();
     const callId = this.callInput;
-    console.log(callId);
     const callDoc = this.db.firestore.collection('calls').doc(callId);
     const offerCandidates = callDoc.collection('offerCandidates');
     const answerCandidates = callDoc.collection('answerCandidates');

@@ -9,8 +9,8 @@ const mediaConstraints = {
 
 const servers = {
   iceServers: [
-    {//'stun:stun1.l.google.com:19302', 
-      urls: ['stun:stun2.l.google.com:19302'],
+    {
+      urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'],
     },
   ],
   iceCandidatePoolSize: 10,
@@ -41,17 +41,14 @@ export class VideoCallComponent implements AfterViewInit {
   
   ngOnInit()
   {
-
     this.remoteUser = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
-
     console.log(this.currentUser_id);
     console.log(this.remoteUser);
   }
 
   ngAfterViewInit(): void { 
     this.requestMediaDevices();
-    this.remoteVideo();
   }
   private async requestMediaDevices():Promise<void> {
     this.localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
@@ -90,6 +87,7 @@ export class VideoCallComponent implements AfterViewInit {
   }
   //Create Call
   async Call() {
+      this.remoteVideo();
     // Reference Firestore collections for signaling
       const callDoc = this.db.firestore.collection('calls').doc();
       const offerCandidates = callDoc.collection('offerCandidates');
