@@ -62,7 +62,7 @@ export class VideoCallComponent implements AfterViewInit {
   this.localVideo.nativeElement.srcObject = this.localStream;
     //this.pauseLocalVideo();
   }
-  private async remoteVideo()
+  private remoteVideo()
   {
     pc.ontrack = this.handleTrackEvent;
   }
