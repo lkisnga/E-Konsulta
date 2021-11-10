@@ -87,7 +87,7 @@ export class VideoCallComponent implements AfterViewInit {
     this.localVideo.nativeElement.srcObject = this.localStream;*/
   }
   //Create Call
-  async Call() {
+  async Call(): Promise<void> {
     this.remoteVideo();
     // Reference Firestore collections for signaling
       const callDoc = this.db.firestore.collection('calls').doc();
