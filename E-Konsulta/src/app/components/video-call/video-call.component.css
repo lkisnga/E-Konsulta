@@ -1,8 +1,88 @@
+*{
+  box-sizing: border-box;
+}
+/*
+.row{
+  background-color: rgb(0, 129, 138);
+} */
 video{
-    width: 100%;
-    background: gray;
+  background: rgb(194, 194, 194);
+  border-radius: 5pt;
+  margin: 5px;
+  max-width: 650px;
 }
 
-button {
-    margin: 1rem;
+.video-description{
+  margin-top: 10px;
+}
+
+/*buttons*/
+button{
+  margin: 20px 0 30px 0;
+  font-size: 1.3rem;
+}
+
+i{
+  padding: 8px 10px;
+}
+
+.bi-mic:hover,
+.bi-camera-video:hover,
+.bi-telephone:hover,
+.bi-telephone-inbound:hover{
+  border-radius: 100%;
+  background-color: rgb(235, 235, 235);
+  opacity: 0.8;
+  color: rgb(15, 15, 15);
+}
+
+.start-local{
+  border: 0;
+  color: white;
+  background-color: transparent;
+  font-size: 12px !important;
+}
+.stop-local{
+  border: 0;
+  color: white;
+  background-color: transparent;
+  font-size: 12px !important;
+}
+.mic-on{
+  border: 0;
+  color: white;
+  background-color: transparent;
+}
+
+.video-on{
+  border: 0;
+  color: white;
+  background-color: transparent;
+}
+
+.call{
+  border: 0;
+  color: white;
+  background-color: transparent;
+}
+
+.hangup{
+  border: 0;
+  color: white;
+  background-color: transparent;
+  transform: rotate(135deg);
+}
+.hang > span i:hover{
+  background-color: red;
+  color: white;
+}
+.answer{
+  border: 0;
+  color: white;
+  background-color: transparent;
+}
+
+.options{
+  margin:auto;
+  width: 500px;
 }
