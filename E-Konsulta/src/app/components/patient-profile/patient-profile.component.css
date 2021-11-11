@@ -6,7 +6,15 @@ body{
 *{
   box-sizing: border-box;
 }
-
+#insBal
+{
+  margin-right: 1%;
+}
+#insBal2
+{
+  margin-right: 1%;
+  margin-left: 1%;
+}
 /*col*/
 .first{
   margin: 100px 0 200px 20px !important;
