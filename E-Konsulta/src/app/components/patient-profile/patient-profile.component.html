@@ -94,7 +94,10 @@
         <span id="insBal2">Limit</span><button class="btn btn-primary">5000php</button>
         <br><br>
         <h5 id="editLabel">Request LOA</h5>
-        <button class="btn btn-success">Request</button>
+        <button (click)="request_LOA()" class="btn btn-success">Request</button>
+        <div *ngIf="request_error.length > 0" style="margin-top: 2%;" class="alert alert-danger">
+          {{request_error}}
+        </div>
       </div>
       <div class="modal-footer">
       </div>

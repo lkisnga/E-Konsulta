@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -26,6 +27,8 @@ export class PatientProfileComponent implements OnInit {
   info : any = [];
   insList : any = [];
   file : any;
+
+  request_error: string="";
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -90,6 +93,28 @@ export class PatientProfileComponent implements OnInit {
       this.ngOnInit();
     })
   }
+
+  request_LOA()
+  {
+    this.userservice.check_LOA(this.info.health_insurance,this.userID,formatDate(new Date(),'MM/dd/yyyy','en'))
+    .then(e=>{
+      if(e.empty)
+      {
+        this.userservice.request_LOA(this.info.health_insurance,this.userID)
+          .then(()=>{
+            console.log('Request Sent!');
+          })
+      }
+      else
+      {
+        this.request_error = "Wait after 24hours to request again";
+        setTimeout(() => {
+          this.request_error = "";
+        }, 3000);
+      }
+    })
+  }
+
   logout()
   {
     this.afu.signout();
