@@ -86,3 +86,11 @@ i{
   margin:auto;
   width: 500px;
 }
+
+@media screen and (max-width: 500px) {
+  video{
+    width: 50% !important;
+    float: left;
+  }
+
+}
