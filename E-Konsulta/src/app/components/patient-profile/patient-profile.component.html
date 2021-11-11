@@ -40,17 +40,33 @@
       </div>
       <form #form="ngForm" (ngSubmit)="update(form.value)">
         <div class="modal-body">
-          Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="38" readonly> <br><br>
-          Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="38"> <br><br>
-          Date of Birth: &nbsp;&nbsp; <input [(ngModel)]="model.dob" name="dob" type="date"><br><br>
-          Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="38"><br><br>
-          Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="38"><br><br>
-          Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="38"><br><br>
-          Health Insurance: &nbsp; <select [(ngModel)]="model.health_insurance" name="health_insurance" type="text">
-          <option value="{{model.health_insurance}}" selected>{{info.insurance_name}}</option>
-          <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
-          </select><br><br>
-          Insurance #: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.member_id" name="member_ID" type="text" size="38"><br><br>
+          <p>
+            Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.email" name="email" type="text" size="45" readonly>
+          </p>
+          <p>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.fullname" name="fullname" type="text" size="45">
+          </p>
+          <p>Date of Birth: &nbsp;&nbsp; <input [(ngModel)]="model.dob" name="dob" type="date"></p>
+          <p>
+            Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="45">
+          </p>
+          <p>
+            Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="45">
+          </p>
+          <p>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.address" name="address" type="text" size="45">
+          </p>
+          <p>
+            Health Insurance: &nbsp; <select [(ngModel)]="model.health_insurance" name="health_insurance" type="text">
+              <option value="{{model.health_insurance}}" selected>{{info.insurance_name}}</option>
+              <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
+              </select>
+          </p>
+          <p>Insurance #: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.member_id" name="member_ID" type="text" size="45"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
