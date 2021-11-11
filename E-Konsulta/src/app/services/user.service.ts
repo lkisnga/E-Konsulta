@@ -307,9 +307,25 @@ export class UserService {
       isVerified: "verified"
     })
   }
-  //not yet done
-  create_Insurance_LOA(id,record)
-  {/*
+  get_patient_insuranceInfo(id,ins_id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info')
+    .where('health_insurance','==',ins_id).get();
+  }
+  check_LOA(ins_id,pat_id,nowDate)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA')
+    .where('patient_id','==',pat_id).where('createdAt','==',nowDate).get();
+  }
+  request_LOA(ins_id,pat_id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA')
+    .add({
+      patient_id: pat_id,
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+      status: 'pending'
+    })
+    /*
     this.store.ref('Insurance-LOA/' + id + '/patients/'+ record.id +'/'+ record.filename).put(record.file).then(()=>{
       
 
