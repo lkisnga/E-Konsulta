@@ -8,7 +8,7 @@
       <div class="d-flex justify-content-between border-bottom patient-center">
         <h4 class="user mx-2"><img src="{{patientInfo.image}}" width="40x" height="40">{{patientInfo.fullname}}</h4>
         <div class=" d-flex">
-          <button (click)="video_call()" id="btn"><i class="fa fa-video-camera"></i></button>
+          <button (click)="video_call()" id="btn"><i class="bi bi-camera-video-fill"></i></button>
         </div>
       </div>
       <!--THIS SECTION IS FOR THE CHAT-->
@@ -25,8 +25,16 @@
         </div>
       </div>
       <div class="below">
-        <input [(ngModel)]="content" type="text" class="chat-type">
-        <button (click)="send_message()" class="chat-send">Send</button>
+        <div class="image-upload">
+          <label for="file-input" class="mt-1">
+            <i class="bi bi-plus-circle-fill"></i>
+          </label>
+          <input id="file-input" type="file"/>
+        </div>
+        <div class="right">
+          <input [(ngModel)]="content" type="text" class="chat-type">
+          <button (click)="send_message()" class="chat-send"><i class="bi bi-send-fill"></i></button>
+        </div>
       </div>
     </div>
   </div>

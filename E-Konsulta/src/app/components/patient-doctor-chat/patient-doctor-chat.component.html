@@ -25,8 +25,17 @@
         </div>
       </div>
       <div class="below">
-        <input [(ngModel)]="content" type="text" class="chat-type">
-        <button (click)="send_message()" class="chat-send">Send</button>
+        <div class="image-upload">
+          <label for="file-input" class="mt-1">
+            <i class="bi bi-plus-circle-fill"></i>
+          </label>
+          <input id="file-input" type="file"/>
+        </div>
+        <div class="right">
+          <input [(ngModel)]="content" type="text" class="chat-type">
+          <button (click)="send_message()" class="chat-send"><i class="bi bi-send-fill"></i></button>
+        </div>
+        <!--<button (click)="send_message()" class="chat-send">Send</button> -->
       </div>
     </div>
   </div>
