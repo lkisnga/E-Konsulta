@@ -38,34 +38,28 @@ export class PatientRecordsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    var data;
+    var tempArray = [];
     this.userID = this.afu.get_UID();
     this.userservice.get_UserInfo(this.userID).then(e=>{
-      console.log(e.data());
       this.info = e.data();
     }).then(()=>{
-      var data;
-      var tempArray = [];
-
       this.userservice.get_Lab_Results_Patient(this.info.email).then(e => {
         e.forEach(item => {
-          data = item.data();
+          if(item.data().status != 'pending')
+          {
+            this.userservice.get_labInfo(item.data().diagnostic_center)
+            .forEach(res=>{
+              data = item.data();
+              data.from = res.data().name;
+              tempArray.push(data);
+            })
+          }
         })
-      }).then(()=>{
-        //console.log(data.diagnostic_center);
-        if(data != undefined)
-        {
-          this.userservice.get_labInfo(data.diagnostic_center).forEach(e=>{
-            console.log(e.data());
-            data.from = e.data().name;
-          })
-          if(data.status == "sent")
-          tempArray.push(data);
-        }
       })
-      this.list = tempArray;
-      console.log(this.list);
     })
+    this.list = tempArray;
+    console.log(this.list);
   }
 
   viewFile(e)

@@ -107,6 +107,7 @@ export class AdminDoctorsComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_doctorList().then(res=>{
       res.forEach(doc=>{
+        console.log(doc.data());
         this.userservice.get_specializationInfo(doc.data().specialization).then(e=>{
           if(doc.data().isVerified == this.isVerified)
           {
