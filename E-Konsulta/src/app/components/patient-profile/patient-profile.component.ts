@@ -28,6 +28,8 @@ export class PatientProfileComponent implements OnInit {
   insList : any = [];
   file : any;
 
+  insurance_info: any = [];
+
   request_error: string="";
   constructor(public userservice : UserService, public afu : AuthService) { }
 
@@ -47,6 +49,13 @@ export class PatientProfileComponent implements OnInit {
         data = e.data();
         data.insurance_name=item.data().name;
         this.info = data;
+      }).then(()=>{
+        this.userservice.get_patient_insuranceInfo(this.userID,this.info.health_insurance)
+        .then(res=>{
+          res.forEach(a=>{
+            this.insurance_info = a.data();
+          })
+        })
       })
     })
     this.insurance_list();
@@ -96,6 +105,7 @@ export class PatientProfileComponent implements OnInit {
 
   request_LOA()
   {
+    //Check if the user already sent a request within the Day
     this.userservice.check_LOA(this.info.health_insurance,this.userID,formatDate(new Date(),'MM/dd/yyyy','en'))
     .then(e=>{
       if(e.empty)

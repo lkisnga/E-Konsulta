@@ -307,6 +307,11 @@ export class UserService {
       isVerified: "verified"
     })
   }
+  get_patient_insuranceInfo(id,ins_id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info')
+    .where('health_insurance','==',ins_id).get();
+  }
   check_LOA(ins_id,pat_id,nowDate)
   {
     return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA')

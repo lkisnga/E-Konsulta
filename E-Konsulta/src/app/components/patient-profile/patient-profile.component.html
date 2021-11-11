@@ -101,13 +101,13 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Insurance Name</h5>
+        <h5 class="modal-title" id="editLabel">{{info.insurance_name}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <p>Package:</p>
-        <span id="insBal">Current Spent</span><button class="btn btn-info">2000php</button>
-        <span id="insBal2">Limit</span><button class="btn btn-primary">5000php</button>
+        <p>Package: {{insurance_info.Package}}</p>
+        <span id="insBal">Current Spent</span><button class="btn btn-info">{{insurance_info.spent}}php</button>
+        <span id="insBal2">Limit</span><button class="btn btn-primary">{{insurance_info.limit}}php</button>
         <br><br>
         <h5 id="editLabel">Request LOA</h5>
         <button (click)="request_LOA()" class="btn btn-success">Request</button>
