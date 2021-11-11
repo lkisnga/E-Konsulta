@@ -14,14 +14,16 @@
         <h3 class="patient">{{info.fullname}}</h3>
       </div>
       <div class="col-4 mt-4 second">
-        <p>Patient ID: <span class="info info-1">{{userID}}</span></p>
-        <p>Name: <span class="info info-2">{{info.fullname}}</span></p>
-        <p>Date of Birth: <span class="info info-3">{{info.dob}}</span></p>
-        <p>Email: <span class="info info-4">{{info.email}}</span></p>
-        <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
-        <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
-        <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
-        <p>Insurance Status:</p>
+        <div>
+          <p>Patient ID: <span class="info info-1">{{userID}}</span></p>
+          <p>Name: <span class="info info-2">{{info.fullname}}</span></p>
+          <p>Date of Birth: <span class="info info-3">{{info.dob}}</span></p>
+          <p>Email: <span class="info info-4">{{info.email}}</span></p>
+          <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
+          <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
+          <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
+          <button id="insuranceBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#insuranceBt">Insurance</button>
+        </div>
         <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
       </div>
       <div class="col-2 third">
@@ -64,7 +66,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Edit</h5>
+        <h5 class="modal-title" id="editLabel">Options</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -78,4 +80,25 @@
   </div>
 </div>
 <!--end of logout modal-->
+<!--Insurance Modal-->
+<div class="modal fade" id="insuranceBt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Insurance Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Package:</p>
+        <span id="insBal">Current Spent</span><button class="btn btn-info">2000php</button>
+        <span id="insBal2">Limit</span><button class="btn btn-primary">5000php</button>
+        <br><br>
+        <h5 id="editLabel">Request LOA</h5>
+        <button class="btn btn-success">Request</button>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
