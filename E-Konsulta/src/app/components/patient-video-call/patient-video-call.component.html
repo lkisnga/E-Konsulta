@@ -1,17 +1,21 @@
-<div class="container-fluid">
-    <div class="container bg-primary row">
-        <div class="col">
-            <p class="video-description">Local</p>
-            <video #local_video [autoplay]="true" [muted]="true"></video>
-        </div>
-        <div class="col">
-            <p class="video-description">remote:</p>
-            <video #received_video [autoplay]="true"></video>
-        </div>
-    </div>
-    <button class="btn btn-primary">Start Local</button>
-    <button class="btn btn-info">Stop Local</button>
-    <button  class="btn btn-success">Call</button>
-    <button class="btn btn-danger">Hangup</button>
-    <button (click)="answerCall()" class="btn btn-success">Answer</button>
+<div class="bg-dark row">
+  <div class="col col-6">
+    <p class="video-description text-center text-light">Local:</p>
+    <video class="v1" #local_video [autoplay]="true" [muted]="true"></video>
+  </div>
+  <div class="col col-6">
+    <p class="video-description text-center text-light">Remote:</p>
+    <video class="v2" #received_video [autoplay]="true"></video>
+  </div>
+
+  <div class="options">
+    <button class="start-local"><span><i class="bi bi-arrow-right-circle"></i></span> Start Local</button>
+    <button class="stop-local"><span><i class="bi bi-stop"></i></span>Stop Local</button>
+    <button class="mic-on"><i class="bi bi-mic"></i></button>
+    <button class="video-on"><i class="bi bi-camera-video"></i></button>
+    <button class="call"><span><i class="bi bi-telephone"></i></span></button>
+    <button class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
+    <button (click)="answerCall()" class="answer"><i class="bi bi-telephone-inbound"></i></button>
+  </div>
 </div>
+

@@ -17,10 +17,14 @@
   border: none;
   outline: none;
   background-color: transparent;
+  padding: 4px 10px;
 }
-
+.bi-camera-video-fill{
+  padding: 4px 10px;
+}
 .bi-camera-video-fill:hover{
-  color: rgb(0, 103, 110);
+  background-color: rgb(235, 235, 235);
+  border-radius: 5px;
 }
 /*chat*/
 img{
@@ -101,7 +105,7 @@ img.to{
 }
 
 .chat-send{
-  font-size: 16px;
+  font-size: 14px;
   background-color: transparent;
   color: white;
   /*border: 1px solid rgb(0, 129, 138);

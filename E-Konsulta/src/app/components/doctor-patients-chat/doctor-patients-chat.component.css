@@ -18,9 +18,12 @@
   outline: none;
   background-color: transparent;
 }
-
+.bi-camera-video-fill{
+  padding: 4px 10px;
+}
 .bi-camera-video-fill:hover{
-  color: rgb(0, 103, 110);
+  background-color: rgb(235, 235, 235);
+  border-radius: 5px;
 }
 
 /*chat*/
@@ -78,7 +81,7 @@ img.to{
   cursor: pointer;
   margin-left: 30px;
   margin-right: 5px;
-  font-size: 16px;
+  font-size: 14px;
 }
 .image-upload,
 .right{
