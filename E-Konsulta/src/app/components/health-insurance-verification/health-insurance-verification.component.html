@@ -21,7 +21,7 @@
           <button (click)="isVerified_Doc('pending')" type="button" class="btn btn-outline-info">Pending</button>
           <button (click)="isVerified_Doc('verified')" type="button" class="btn btn-outline-info">Verified</button>
         </div>
-        <table class="table table-info table striped">
+        <table *ngIf="pending" class="table table-info table striped">
           <thead>
             <tr>
               <th scope="col">User Email</th>
@@ -38,7 +38,30 @@
               <td>{{list.member_ID}}</td>
               <td>{{list.isVerified}}</td>
               <td>
-                <button (click)="verify(list)" class="btn btn-success">Verify</button>
+                <button (click)="verify(list,'verified')" class="btn btn-success">Verify</button>
+                <button (click)="verify(list,'declined')" class="btn btn-danger">Decline</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table *ngIf="verified" class="table table-info table striped">
+          <thead>
+            <tr>
+              <th scope="col">User Email</th>
+              <th scope="col">Name</th>
+              <th scope="col">Insurance Account ID</th>
+              <th scope="col">Verification Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of list2">
+              <th scope="row">{{list.email}}</th>
+              <td>{{list.fullname}}</td>
+              <td>{{list.member_ID}}</td>
+              <td>{{list.isVerified}}</td>
+              <td>
+                <button (click)="update_info(list)" class="btn btn-warning">Update Info</button>
               </td>
             </tr>
           </tbody>
