@@ -7,3 +7,52 @@ h5{
   color: rgb(0, 129, 138);
 }
 
+/*inside the modal*/
+/*styling update profile*/
+input{
+  padding: 2px 6px;
+}
+input:focus{
+  outline: 0;
+}
+.info-modal{
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+.cancel,
+.update
+{
+  border:none;
+  padding: 5px 20px;
+  font-size: 10pt;
+  border-radius: 3px;
+}
+.cancel{
+  border: 1px solid maroon;
+  background-color:white;
+  color: maroon;
+}
+.update{
+  border: 1px solid rgb(0, 129, 138);
+  background-color:white;
+  color: rgb(0, 129, 138);
+}
+
+.cancel:hover{
+  background-color: maroon;
+  color: white;
+}
+
+.update:hover{
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
+
+select{
+  padding: 3px 6px;
+}
+
+/**/
+#verify{
+  margin-right: 5px;
+}
