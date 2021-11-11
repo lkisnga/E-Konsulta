@@ -158,6 +158,9 @@ body{
 input{
   padding: 2px 6px;
 }
+input:focus{
+  outline: 0;
+}
 .info-modal{
   border-radius: 3px;
   border: 1px solid gray;
@@ -172,7 +175,6 @@ input{
   padding: 5px 20px;
   font-size: 10pt;
   border-radius: 3px;
-  font-weight: 700;
 }
 .cancel,
 .no{
