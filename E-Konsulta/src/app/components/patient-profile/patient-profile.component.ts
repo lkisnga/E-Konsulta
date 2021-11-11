@@ -105,24 +105,34 @@ export class PatientProfileComponent implements OnInit {
 
   request_LOA()
   {
-    //Check if the user already sent a request within the Day
-    this.userservice.check_LOA(this.info.health_insurance,this.userID,formatDate(new Date(),'MM/dd/yyyy','en'))
-    .then(e=>{
-      if(e.empty)
-      {
-        this.userservice.request_LOA(this.info.health_insurance,this.userID)
-          .then(()=>{
-            console.log('Request Sent!');
-          })
-      }
-      else
-      {
-        this.request_error = "Wait after 24hours to request again";
-        setTimeout(() => {
-          this.request_error = "";
-        }, 3000);
-      }
-    })
+    if(this.info.isVerified != 'pending')
+    {
+      //Check if the user already sent a request within the Day
+      this.userservice.check_LOA(this.info.health_insurance,this.userID,formatDate(new Date(),'MM/dd/yyyy','en'))
+      .then(e=>{
+        if(e.empty)
+        {
+          this.userservice.request_LOA(this.info.health_insurance,this.userID)
+            .then(()=>{
+              console.log('Request Sent!');
+            })
+        }
+        else
+        {
+          this.request_error = "Wait after 24hours to request again";
+          setTimeout(() => {
+            this.request_error = "";
+          }, 3000);
+        }
+      })
+    }
+    else
+    {
+      this.request_error = "Your insurance is not yet verified.";
+          setTimeout(() => {
+            this.request_error = "";
+          }, 3000);
+    }
   }
 
   logout()

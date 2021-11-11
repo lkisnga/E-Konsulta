@@ -77,7 +77,13 @@ export class PatientConsultationComponent implements OnInit {
             data.schedule = e.doc.data().schedule;
             data.image = img.data().image;
             data.uid = a.id;
-            tempArray.push(data);
+            if(e.type == 'added')
+             tempArray.push(data);
+            else if(e.type == 'modified')
+            {
+              var index = tempArray.findIndex( x => x.fullname === data.fullname); 
+              tempArray.splice(index,1,data);
+            }
           })  
         })
       })
