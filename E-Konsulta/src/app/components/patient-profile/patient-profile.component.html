@@ -1,5 +1,4 @@
 <app-header-patient></app-header-patient>
-
   <div class="row flex-nowrap">
     <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" >
       <app-patient-sidenav></app-patient-sidenav>
@@ -22,9 +21,9 @@
           <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
           <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
           <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
-          <button id="insuranceBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#insuranceBt">Insurance</button>
+          <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button id="insuranceBtn" class="insurance" data-bs-toggle="modal" data-bs-target="#insuranceBt">INSURANCE</button>
         </div>
-        <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
       </div>
       <div class="col-2 third">
         <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
@@ -82,7 +81,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Options</h5>
+        <h5 class="modal-title" id="editLabel">Log out</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -105,17 +104,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <p>Package: {{insurance_info.Package}}</p>
-        <span id="insBal">Current Spent</span><button class="btn btn-info">{{insurance_info.spent}}php</button>
-        <span id="insBal2">Limit</span><button class="btn btn-primary">{{insurance_info.limit}}php</button>
-        <br><br>
-        <h5 id="editLabel">Request LOA</h5>
-        <button (click)="request_LOA()" class="btn btn-success">Request</button>
+        <p>Package: &nbsp;&nbsp; {{insurance_info.Package}}</p>
+        <p><span id="insBal">Current Spent: </span><button class="php">{{insurance_info.spent}}php</button></p>
+        <p><span id="insBal2">Limit: </span><button class="php">{{insurance_info.limit}}php</button></p>
+        <br>
+        <!-- <h5 id="editLabel">Request LOA</h5> -->
+        <button (click)="request_LOA()" class="request">REQUEST LOA</button>
         <div *ngIf="request_error.length > 0" style="margin-top: 2%;" class="alert alert-danger">
           {{request_error}}
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="close" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

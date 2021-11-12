@@ -99,17 +99,41 @@ body{
 .edit{
   color: #333;
   border:none;
-  padding: 4px 130px;
+  padding: 4px 125px;
   background-color: rgb(245, 244, 244);
-  margin-top: 20px;
+  margin: 5px 0;
   border-radius: 3px;
   font-weight: 700;
 }
-
+.edit:hover{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.request{
+  color: white;
+  border:none;
+  padding: 4px 180px;
+  border: 1px solid;
+  margin: 5px 0;
+  border-radius: 3px;
+  background-color: rgb(0, 129, 138);
+}
+.insurance{
+  color: white;
+  border:none;
+  padding: 4px 102px;
+  border: 1px solid;
+  margin: 5px 0;
+  border-radius: 3px;
+  background-color: rgb(0, 129, 138);
+}
+.insurance:hover,
+.request:hover{
+  background-color: rgb(0, 113, 121);
+}
 .logout{
   border:none;
   border: 1px solid rgb(0, 129, 138);
-  padding: 10px 40px;
+  padding: 7px 35px;
   margin-right: -20px !important;
   background-color:  white;
   color: rgb(0, 129, 138);
@@ -122,22 +146,6 @@ body{
 .logout:hover{
   background-color: rgb(0, 129, 138);
   color: white;
-}
-
-.add-admin{
-  background-color: rgb(245, 244, 244);
-  border: none;
-  border-radius: 3px;
-  margin-left: 72px;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-weight: 700;
-  color: #333;
-}
-
-.add-admin:hover,
-.edit:hover{
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 /*information*/
@@ -174,10 +182,15 @@ input{
   font-size: 14px;
 }
 
+input:focus{
+  outline: 0;
+}
+
 .cancel,
 .update,
 .yes,
-.no
+.no,
+.close
 {
   border:none;
   padding: 5px 20px;
@@ -185,20 +198,29 @@ input{
   border-radius: 3px;
 }
 .cancel,
-.no{
+.no,
+.close{
   border: 1px solid maroon;
+  border-radius: 3px;
   background-color:white;
   color: maroon;
 }
 .update,
 .yes{
   border: 1px solid rgb(0, 129, 138);
+  border-radius: 3px;
+  background-color:white;
+  color: rgb(0, 129, 138);
+}
+.php{
+  border: none;
   background-color:white;
   color: rgb(0, 129, 138);
 }
 
 .cancel:hover,
-.no:hover{
+.no:hover,
+.close:hover{
   background-color: maroon;
   color: white;
 }
