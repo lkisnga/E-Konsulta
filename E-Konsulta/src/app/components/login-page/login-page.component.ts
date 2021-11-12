@@ -14,7 +14,7 @@ export class LoginPageComponent implements OnInit {
   password : string = "";
   message : string = "";
   errorMessage : string = "";
-  error: {name : string, message : string} = {name: '',message: ''}; 
+  error: {name : string, message : string} = {name: '',message: ''};
 
   constructor(private authservice : AuthService, private router: Router) { }
 
@@ -55,13 +55,13 @@ export class LoginPageComponent implements OnInit {
 
   validateForm(email, password)
   {
-    if(email.lenght === 0)
+    if(email.length === 0)
     {
       this.errorMessage = "please enter email id";
       return false;
     }
 
-    if (password.lenght === 0) {
+    if (password.length === 0) {
       this.errorMessage = "please enter password";
       return false;
     }
