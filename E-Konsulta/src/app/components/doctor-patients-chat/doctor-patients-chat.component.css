@@ -62,7 +62,7 @@ img.to{
   clear: both;
 }
 .cont-chat{
-  max-height: 450px !important;
+  max-height: 430px !important;
   overflow-y: scroll;
 }
 .below{
@@ -104,7 +104,7 @@ img.to{
 }
 
 .chat-send{
-  font-size: 30px;
+  font-size: 25px;
   background-color: transparent;
   color: white;
   /*border: 1px solid rgb(0, 129, 138);
@@ -114,10 +114,15 @@ img.to{
   margin-left: 5px;
   transform: rotate(45deg);
 }
-
+/*
 .chat-send:hover{
-  background-color: rgb(235, 235, 235);
-  border-radius: 5px;
+  transform: rotate(-45deg);
+  transform: scale(0.8);
+  transition: ease .25s;
+} */
+
+.bi-send-fill:hover{
+  color: rgb(3, 175, 187);
 }
 
 .left-profile{
