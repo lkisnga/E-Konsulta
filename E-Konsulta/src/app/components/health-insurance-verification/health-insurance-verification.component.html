@@ -61,7 +61,7 @@
               <td>{{list.member_ID}}</td>
               <td>{{list.isVerified}}</td>
               <td>
-                <button (click)="edit_info(list)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
+                <button (click)="edit_info(list)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
               </td>
             </tr>
           </tbody>
@@ -79,12 +79,14 @@
           </div>
           <form #form="ngForm" (ngSubmit)="update_info(form.value)">
             <div class="modal-body">
-              <p>Insurance Package: <input [(ngModel)]="userIns.Package" name="Package" type="text" size="35"></p>
+              <p>Insurance Package: <input [(ngModel)]="userIns.Package" name="Package" type="text" size="35" required></p>
               <p>Currently Spent:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="userIns.spent" name="spent" type="text" size="35"></p>
               <p>Limit: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input [(ngModel)]="userIns.limit" name="limit" type="text" size="35"></p>
               <p>Balance:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input [(ngModel)]="balance" name="balance" type="text" size="35"></p>
+                <input [(ngModel)]="balance" name="balance" type="text" size="35">
+              </p>
+              <p>Last Update: {{userIns.updatedAt}}</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>

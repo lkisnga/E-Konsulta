@@ -80,10 +80,10 @@ export class UserService {
       createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
     })
   }
-  patient_insuranceInfo_Checker(user_id,insInfo_id)
+  update_patient_insuranceInfo(user_id,insInfo_id,record)
   {
     return this.db.firestore.collection('Users').doc(user_id).collection('Insurance_Info')
-    .doc(insInfo_id).get();
+    .doc(insInfo_id).update(record);
   }
 
 

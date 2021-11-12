@@ -91,6 +91,7 @@ export class HealthInsuranceVerificationComponent implements OnInit {
       e.forEach(item=>{
         data = item.data();
         data.uid = item.id;
+        data.updatedAt = item.data().updatedAt;
         this.userIns = data;
       })
     }).then(()=>{
@@ -110,7 +111,13 @@ export class HealthInsuranceVerificationComponent implements OnInit {
         console.log("Created!");
       })
     }
-    //update for existing record
+    else
+    {
+      this.userservice.update_patient_insuranceInfo(this.patient_id,this.userIns.uid,record)
+      .then(()=>{
+        console.log('Updated!');
+      })
+    }
   }
 
 }
