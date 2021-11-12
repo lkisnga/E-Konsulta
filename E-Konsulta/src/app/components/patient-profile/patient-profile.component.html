@@ -19,6 +19,7 @@
           <p>Date of Birth: <span class="info info-3">{{info.dob}}</span></p>
           <p>Email: <span class="info info-4">{{info.email}}</span></p>
           <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
+          <p>Address: <span class="info info-8">{{info.address}}</span></p>
           <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
           <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
           <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
@@ -110,14 +111,13 @@
             </select>
         </p>
         <p>Insurance #: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="member_ID" name="member_ID" type="text" size="45"></p>
-        <button (click)="update_insurance()" class="btn btn-success">Send Verification</button>
+        <button (click)="update_insurance()" class="verification text-center">Send Verification</button>
         <h5 id="editLabel">Info</h5>
         <p>Package: {{insurance_info.Package}}</p>
-        <span id="insBal">Current Spent</span><button class="btn btn-info">{{insurance_info.spent}}php</button>
-        <span id="insBal2">Limit</span><button class="btn btn-primary">{{insurance_info.limit}}php</button>
-        <br><br>
-        <h5 id="editLabel">Request LOA</h5>
-        <button (click)="request_LOA()" class="btn btn-success">Request</button>
+        <span id="insBal">Current Spent:</span><button class="php">{{insurance_info.spent}}php</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span id="insBal2">Limit:</span><button class="php">{{insurance_info.limit}}php</button> <br><br>
+        <button (click)="request_LOA()" class="request">REQUEST LOA</button>
         <div *ngIf="request_error.length > 0" style="margin-top: 2%;" class="alert alert-danger">
           {{request_error}}
         </div>

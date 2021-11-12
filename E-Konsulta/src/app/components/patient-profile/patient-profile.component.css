@@ -108,13 +108,27 @@ body{
 .edit:hover{
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
-.request{
+.verification{
+  font-size: 14px;
   color: white;
   border:none;
-  padding: 4px 180px;
+  padding: 4px 20px;
   border: 1px solid;
-  margin: 5px 0;
   border-radius: 3px;
+  margin-bottom: 10px;
+  width: 200px;
+  background-color: rgb(0, 129, 138);
+  text-transform: uppercase;
+}
+.request{
+  font-size: 14px;
+  color: white;
+  border:none;
+  padding: 4px 20px;
+  border: 1px solid;
+  border-radius: 3px;
+  text-align: center;
+  width: 200px;
   background-color: rgb(0, 129, 138);
 }
 .insurance{
@@ -127,7 +141,8 @@ body{
   background-color: rgb(0, 129, 138);
 }
 .insurance:hover,
-.request:hover{
+.request:hover,
+.verification:hover{
   background-color: rgb(0, 113, 121);
 }
 .logout{
@@ -174,6 +189,9 @@ body{
 }
 .info-7{
   margin-left: 45px;
+}
+.info-8{
+  margin-left: 64px;
 }
 
 /*inside the modal*/
@@ -233,4 +251,13 @@ input:focus{
 
 select{
   padding: 3px 6px;
+}
+
+.row{
+  filter: blur(0) !important;
+  opacity: 1 !important;
+}
+.modal--active .row {
+  filter: blur(8px) !important;
+  opacity: 1 !important;
 }

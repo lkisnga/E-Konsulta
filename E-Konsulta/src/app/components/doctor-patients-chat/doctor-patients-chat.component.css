@@ -81,7 +81,7 @@ img.to{
   cursor: pointer;
   margin-left: 30px;
   margin-right: 5px;
-  font-size: 14px;
+  font-size: 30px;
 }
 .image-upload,
 .right{
@@ -92,7 +92,7 @@ img.to{
 .chat-type{
   font-size: 12px;
   padding: 5px 10px;
-  width: 700px;
+  width: 400px;
   margin-left: 5px;
   display: inline-block;
   border: 0;
@@ -104,7 +104,7 @@ img.to{
 }
 
 .chat-send{
-  font-size: 16px;
+  font-size: 30px;
   background-color: transparent;
   color: white;
   /*border: 1px solid rgb(0, 129, 138);
@@ -112,6 +112,7 @@ img.to{
   border: 0;
   padding: 4px 10px;
   margin-left: 5px;
+  transform: rotate(45deg);
 }
 
 .chat-send:hover{
