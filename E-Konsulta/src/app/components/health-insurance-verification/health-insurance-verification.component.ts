@@ -59,11 +59,11 @@ export class HealthInsuranceVerificationComponent implements OnInit {
     console.log(this.list);
   }
   verify(e,stats)
-  {/*
-    this.userservice.verify_userInsurance(e.uid).then(()=>{
+  {
+    this.userservice.verify_userInsurance(e.uid,stats).then(()=>{
       console.log("Successfully Verified!");
       this.ngOnInit();
-    })*/
+    })
   }
   update_info(e)
   {

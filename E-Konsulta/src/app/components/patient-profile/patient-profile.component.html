@@ -24,6 +24,10 @@
           <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
           <button id="insuranceBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#insuranceBt">Insurance</button>
         </div>
+        <div *ngIf="info.isVerified == 'declined'" class="alert alert-warning">
+            Your member ID was declined by your insurance provider. Please check if the ID provided
+            is correct Or contact your insurance provider.
+        </div>
         <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
       </div>
       <div class="col-2 third">
@@ -60,13 +64,6 @@
             Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input [(ngModel)]="model.address" name="address" type="text" size="45">
           </p>
-          <p>
-            Health Insurance: &nbsp; <select [(ngModel)]="model.health_insurance" name="health_insurance" type="text">
-              <option value="{{model.health_insurance}}" selected>{{info.insurance_name}}</option>
-              <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
-              </select>
-          </p>
-          <p>Insurance #: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.member_id" name="member_ID" type="text" size="45"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -105,6 +102,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
+        <h5 id="editLabel">Edit</h5>
+        <p>Status: {{info.isVerified}}</p>
+        <p>
+          Health Insurance: &nbsp; <select [(ngModel)]="health_insurance" name="health_insurance" type="text">
+            <option value="{{info.health_insurance}}" selected>{{info.insurance_name}}</option>
+            <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
+            </select>
+        </p>
+        <p>Insurance #: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="member_ID" name="member_ID" type="text" size="45"></p>
+        <button (click)="update_insurance()" class="btn btn-success">Send Verification</button>
+        <h5 id="editLabel">Info</h5>
         <p>Package: {{insurance_info.Package}}</p>
         <span id="insBal">Current Spent</span><button class="btn btn-info">{{insurance_info.spent}}php</button>
         <span id="insBal2">Limit</span><button class="btn btn-primary">{{insurance_info.limit}}php</button>
@@ -113,6 +121,9 @@
         <button (click)="request_LOA()" class="btn btn-success">Request</button>
         <div *ngIf="request_error.length > 0" style="margin-top: 2%;" class="alert alert-danger">
           {{request_error}}
+        </div>
+        <div *ngIf="request_sent.length > 0" style="margin-top: 2%;" class="alert alert-warning">
+          {{request_sent}}
         </div>
       </div>
       <div class="modal-footer">

@@ -9,8 +9,6 @@ export class PatientInfo
   dob : string;
   password : string;
   contact_number : string;
-  health_insurance : string
-  member_id : string;
   address: string;
 }
 @Component({
@@ -31,6 +29,11 @@ export class PatientProfileComponent implements OnInit {
   insurance_info: any = [];
 
   request_error: string="";
+  request_sent: string = "";
+
+  health_insurance: string = "";
+  member_ID: string = "";
+
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -45,6 +48,10 @@ export class PatientProfileComponent implements OnInit {
 
     var data;
     this.userservice.get_UserInfo(this.userID).then(e => {
+
+      this.health_insurance = e.data().health_insurance;
+      this.member_ID = e.data().member_ID;
+
       this.userservice.get_HealthInsurance_Info(e.data().health_insurance).then(item=>{
         data = e.data();
         data.insurance_name=item.data().name;
@@ -59,8 +66,8 @@ export class PatientProfileComponent implements OnInit {
       })
     })
     this.insurance_list();
-    
   }
+
   choosefile(e)
   {
     this.file = e.target.files[0];
@@ -92,20 +99,30 @@ export class PatientProfileComponent implements OnInit {
     this.model.contact_number = this.info.contact_number;
     this.model.password = this.info.password;
     this.model.address = this.info.address;
-    this.model.health_insurance = this.info.health_insurance;
-    this.model.member_id = this.info.member_ID;
   }
   update(e)
   {
-    this.userservice.update_user(this.userID,e).then(e=>{
+    this.userservice.update_user(this.userID,e).then(()=>{
       console.log("patient Updated!");
+      this.ngOnInit();
+    })
+  }
+  update_insurance()
+  {
+    let record = {}
+    record['isVerified'] = 'pending';
+    record['health_insurance'] = this.health_insurance;
+    record['member_ID'] = this.member_ID;
+    this.userservice.update_patient_insurance(this.userID,record).then(()=>{
+      console.log("Sent!");
       this.ngOnInit();
     })
   }
 
   request_LOA()
   {
-    if(this.info.isVerified != 'pending')
+    console.log(this.info.isVerified)
+    if(this.info.isVerified != 'pending' && this.info.isVerified != 'declined')
     {
       //Check if the user already sent a request within the Day
       this.userservice.check_LOA(this.info.health_insurance,this.userID,formatDate(new Date(),'MM/dd/yyyy','en'))
@@ -114,7 +131,10 @@ export class PatientProfileComponent implements OnInit {
         {
           this.userservice.request_LOA(this.info.health_insurance,this.userID)
             .then(()=>{
-              console.log('Request Sent!');
+              this.request_sent = "Request Sent!";
+              setTimeout(() => {
+                this.request_sent = "";
+              }, 3000);
             })
         }
         else

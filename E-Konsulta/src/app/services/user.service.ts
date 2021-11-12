@@ -301,10 +301,10 @@ export class UserService {
       createdAt: formatDate(new Date(),"MM/dd/yyyy",'en')
     })
   }
-  verify_userInsurance(id)
+  verify_userInsurance(id,stats)
   {
     return this.db.firestore.collection('Users').doc(id).update({
-      isVerified: "verified"
+      isVerified: stats
     })
   }
   get_patient_insuranceInfo(id,ins_id)
@@ -386,6 +386,10 @@ export class UserService {
     }).catch((error)=>{
       console.log(error);
     })
+  }
+  update_patient_insurance(user_id,record)
+  {
+    return this.db.collection('Users').doc(user_id).update(record);
   }
   //Update Current User Health Insurance Info
   update_userInsurance(id,record)
