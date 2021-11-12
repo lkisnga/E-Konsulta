@@ -37,14 +37,33 @@
       </div>
       <form #form="ngForm" (ngSubmit)="update(form.value)">
         <div class="modal-body">
-          Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="46"> <br><br>
-          Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="46" readonly> <br><br>
-          Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="46"><br><br>
-          Date of Birth: &nbsp; <input [(ngModel)]="model.dob" name="dob" type="date"><br><br>
-          Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="46"><br><br>
-          Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="46"><br><br>
-          License #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.license_number" name="license_number" type="text" size="46"><br><br>
-          Specialization: <select [(ngModel)]="model.specialization" name="specialization" id="">
+          <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.fullname" name="fullname" type="text" size="45">
+          </p>
+          <p>
+            Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.email" name="email" type="text" size="45" readonly>
+          </p>
+          <p>
+            Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.password" name="password" type="text" size="45">
+          </p>
+          <p>
+            Date of Birth:  &nbsp;&nbsp; <input [(ngModel)]="model.dob" name="dob" type="date">
+          </p>
+          <p>
+            Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="45">
+          </p>
+          <p>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.address" name="address" type="text" size="45">
+          </p>
+          <p>
+            License #:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.license_number" name="license_number" type="text" size="45">
+          </p>
+          Specialization: &nbsp;<select [(ngModel)]="model.specialization" name="specialization" id="">
             <option value="{{model.specialization}}" selected>{{spInfo.name}}</option>
             <option *ngFor="let list of spList" value="{{list.uid}}">{{list.name}}</option>
           </select>
@@ -71,8 +90,8 @@
         <p>Are you sure you want to logout?</p>
       </div>
       <div class="modal-footer">
-        <button [routerLink]="['/']" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
         <button [routerLink]="['/doctor-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
+        <button [routerLink]="['/']" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
       </div>
     </div>
   </div>
