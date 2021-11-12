@@ -68,6 +68,25 @@ export class UserService {
       fullname: name
     })
   }
+  create_patient_insuranceInfo(patient_id,record)
+  {
+    return this.db.firestore.collection('Users').doc(patient_id).collection('Insurance_Info')
+    .add({
+      Package: record.Package,
+      health_insurance: record.health_insurance,
+      limit: record.limit,
+      spent: record.spent,
+      updatedAt: record.updatedAt,
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+    })
+  }
+  patient_insuranceInfo_Checker(user_id,insInfo_id)
+  {
+    return this.db.firestore.collection('Users').doc(user_id).collection('Insurance_Info')
+    .doc(insInfo_id).get();
+  }
+
+
   userReply_exist(id,user_id)
   {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews')
@@ -312,6 +331,7 @@ export class UserService {
     return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info')
     .where('health_insurance','==',ins_id).get();
   }
+
   check_LOA(ins_id,pat_id,nowDate)
   {
     return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA')
