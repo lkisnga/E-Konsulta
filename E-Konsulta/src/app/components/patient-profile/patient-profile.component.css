@@ -112,11 +112,10 @@ body{
   font-size: 14px;
   color: white;
   border:none;
-  padding: 4px 20px;
+  padding: 4px 165px;
   border: 1px solid;
   border-radius: 3px;
   margin-bottom: 10px;
-  width: 200px;
   background-color: rgb(0, 129, 138);
   text-transform: uppercase;
 }
@@ -124,11 +123,10 @@ body{
   font-size: 14px;
   color: white;
   border:none;
-  padding: 4px 20px;
+  padding: 4px 185px;
   border: 1px solid;
   border-radius: 3px;
   text-align: center;
-  width: 200px;
   background-color: rgb(0, 129, 138);
 }
 .insurance{
