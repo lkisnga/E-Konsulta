@@ -110,7 +110,14 @@ export class PatientProfileComponent implements OnInit {
   update_insurance()
   {
     let record = {}
-    record['isVerified'] = 'pending';
+    if(this.info.isVerified == 'verified' && this.info.health_insurance == this.health_insurance)
+    {
+      record['isVerified'] = 'verified';
+    }
+    else
+    {
+      record['isVerified'] = 'pending';
+    }
     record['health_insurance'] = this.health_insurance;
     record['member_ID'] = this.member_ID;
     this.userservice.update_patient_insurance(this.userID,record).then(()=>{
