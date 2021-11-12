@@ -93,7 +93,7 @@ body{
 .edit{
   color: #333;
   border:none;
-  padding: 4px 130px;
+  padding: 4px 125px;
   background-color: rgb(245, 244, 244);
   margin-top: 20px;
   border-radius: 3px;
@@ -103,7 +103,7 @@ body{
 .logout{
   border:none;
   border: 1px solid rgb(0, 129, 138);
-  padding: 10px 40px;
+  padding: 7px 35px;
   margin-right: -20px !important;
   background-color:  white;
   color: rgb(0, 129, 138);
@@ -123,7 +123,7 @@ body{
   border: none;
   border-radius: 3px;
   margin-left: 72px;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px 20px;
   font-weight: 700;
   color: #333;

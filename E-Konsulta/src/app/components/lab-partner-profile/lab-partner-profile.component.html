@@ -35,11 +35,26 @@
       </div>
       <form #userInfo="ngForm" (ngSubmit)="updateInfo(userInfo.value)" class="form">
         <div class="modal-body">
-          Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.name" name="name" type="text" size="38"> <br><br>
-          Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.email" name="email" type="text" size="38" readonly> <br><br>
-          Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.password" name="password" type="text" size="38"> <br><br>
-          Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="38"><br><br>
-          Contact #: &nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="38"><br><br>
+          <p>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.name" name="name" type="text" size="47">
+          </p>
+          <p>
+            Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.email" name="email" type="text" size="47" readonly>
+          </p>
+          <p>
+            Password: &nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.password" name="password" type="text" size="47">
+          </p>
+          <p>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.address" name="address" type="text" size="47">
+          </p>
+          <p>
+            Contact #: &nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="47">
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -62,8 +77,8 @@
         <p>Are you sure you want to logout?</p>
       </div>
       <div class="modal-footer">
-        <button (click)="logout()" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
         <button [routerLink]="['/lab-partner-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
+        <button (click)="logout()" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
       </div>
     </div>
   </div>
