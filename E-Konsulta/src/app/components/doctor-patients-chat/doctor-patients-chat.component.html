@@ -45,8 +45,33 @@
         <h4 class="user left-name">{{patientInfo.fullname}}</h4>
         <div class="doctor-files">
           <a href="#billing">Billing</a>
-          <a href="#prescription">Prescription</a>
-          <a href="#sharedFiles">Shared Files</a>
+          <a href="#prescription" data-bs-toggle="modal" data-bs-target="#pres">Prescription</a>
+          <a href="#sharedFiles" >Shared Files</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="pres" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editLabel">Send files</h5>
+          <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Consultation summary</h5>
+          <input [(ngModel)]="filename" type="text" placeholder="File name">
+          <input #file type="file" (change)="choosefile($event,'cs')">
+          <h5>Prescription</h5>
+          <input [(ngModel)]="filename2" type="text" placeholder="File name">
+          <input #file2 type="file" (change)="choosefile($event,'prs')">
+        </div>
+        <div *ngIf="error_message.length > 0" class="alert alert-danger">
+          {{error_message}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="yes" (click)="uploadFile()">Send</button>
         </div>
       </div>
     </div>
