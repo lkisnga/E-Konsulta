@@ -54,6 +54,7 @@ import { PatientDoctorsListComponent } from './components/patient-doctors-list/p
 import { PatientDoctorsListViewComponent } from './components/patient-doctors-list-view/patient-doctors-list-view.component';
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { PatientVideoCallComponent } from './components/patient-video-call/patient-video-call.component';
+import { PatientPaymentComponent } from './components/patient-payment/patient-payment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -109,7 +110,8 @@ const routes: Routes = [
   { path: 'patient-doctors-lists', component: PatientDoctorsListComponent},
   { path: 'patient-doctors-lists-view', component: PatientDoctorsListViewComponent},
   { path: 'video-call', component: VideoCallComponent},
-  { path: 'patient-video-call', component: PatientVideoCallComponent }
+  { path: 'patient-video-call', component: PatientVideoCallComponent },
+  { path: 'patient-payment', component: PatientPaymentComponent}
 ];
 
 
@@ -176,5 +178,6 @@ export const routingComponents = [
   PatientDoctorsListComponent,
   PatientDoctorsListViewComponent,
   VideoCallComponent,
-  PatientVideoCallComponent
+  PatientVideoCallComponent,
+  PatientPaymentComponent
 ];
