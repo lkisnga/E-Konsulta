@@ -1,6 +1,8 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-health-insurance-verification',
@@ -15,6 +17,11 @@ export class HealthInsuranceVerificationComponent implements OnInit {
 
   pending : boolean = true;
   verified : boolean = false;
+
+  userIns : any = [];
+  balance : number= 0;
+
+  patient_id : string = "";
 
 
   constructor(public afu : AuthService, public userservice : UserService) { }
@@ -36,6 +43,11 @@ export class HealthInsuranceVerificationComponent implements OnInit {
   ngOnInit(): void {
     this.userId=this.afu.get_UID();
 
+    this.patientList();
+  }
+
+  patientList()
+  {
     var data;
     var tempArray = [],tempArray2 = [];
     this.userservice.get_insurance_verification(this.userId).then(e=>{
@@ -56,8 +68,13 @@ export class HealthInsuranceVerificationComponent implements OnInit {
     })
     this.list2 = tempArray2;
     this.list = tempArray;
-    console.log(this.list);
   }
+
+  get_patient_insuranceInfo()
+  {
+    
+  }
+
   verify(e,stats)
   {
     this.userservice.verify_userInsurance(e.uid,stats).then(()=>{
@@ -65,9 +82,42 @@ export class HealthInsuranceVerificationComponent implements OnInit {
       this.ngOnInit();
     })
   }
-  update_info(e)
+  edit_info(info)
   {
-    console.log(e);
+    this.patient_id = info.uid;
+    this.userIns = [];
+    var data;
+    this.userservice.get_patient_insuranceInfo(info.uid,this.userId).then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        data.updatedAt = item.data().updatedAt;
+        this.userIns = data;
+      })
+    }).then(()=>{
+      this.balance = this.userIns.limit - this.userIns.spent;
+    })
+  } 
+  update_info(info)
+  {
+    let record = {};
+    record = info;
+    record['health_insurance'] = this.userId;
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    if(this.userIns.uid == undefined)
+    {
+      this.userservice.create_patient_insuranceInfo(this.patient_id,record)
+      .then(()=>{
+        console.log("Created!");
+      })
+    }
+    else
+    {
+      this.userservice.update_patient_insuranceInfo(this.patient_id,this.userIns.uid,record)
+      .then(()=>{
+        console.log('Updated!');
+      })
+    }
   }
 
 }
