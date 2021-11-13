@@ -1,4 +1,28 @@
+body{
+  font-family: "Roboto";
+}
 * {
   box-sizing: border-box;
 }
 
+.wizard-title{
+  font-size: 24px;
+  color: rgb(0, 129, 138);
+}
+
+#continue{
+  color: rgb(0, 129, 138);
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 3px;
+  background-color: transparent;
+  padding: 3px 12px;
+}
+
+#continue:hover{
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
+
+#paymentLabel{
+  color: rgb(0, 129, 138);
+}
