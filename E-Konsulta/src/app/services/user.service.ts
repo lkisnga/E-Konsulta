@@ -155,10 +155,11 @@ export class UserService {
         {
           this.store.storage.ref('Medical-Records/' + patient_id + '/Records/' + filename).getDownloadURL()
           .then(e=>{
-            this.db.collection('Medical_Records').doc(patient_id).set({
+            this.db.collection('Medical_Records').add({
               filname : filename,
               file : e,
               doctor_id: doc_id,
+              patient_id: patient_id,
               createdAt : formatDate(new Date(),'MM/dd/yyyy','en')
             })
           })
@@ -176,10 +177,11 @@ export class UserService {
         {
           this.store.storage.ref('Prescription-Records/' + patient_id + '/Records/' + filename).getDownloadURL()
           .then(e=>{
-            this.db.collection('Prescription').doc(patient_id).set({
+            this.db.collection('Prescription').add({
               filname : filename,
               file : e,
               doctor_id: doc_id,
+              patient_id: patient_id,
               createdAt : formatDate(new Date(),'MM/dd/yyyy','en')
             })
           })
