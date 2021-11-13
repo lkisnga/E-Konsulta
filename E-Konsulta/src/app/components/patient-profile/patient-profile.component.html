@@ -22,7 +22,7 @@
           <p>Address: <span class="info info-8">{{info.address}}</span></p>
           <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
           <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
-          <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button (click)="edit()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
           <button id="insuranceBtn" class="insurance" data-bs-toggle="modal" data-bs-target="#insuranceBt">INSURANCE</button>
         </div>
         <div *ngIf="info.isVerified == 'declined'" class="alert alert-warning">

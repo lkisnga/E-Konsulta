@@ -3,12 +3,80 @@
   <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
     <app-patient-sidenav></app-patient-sidenav>
   </div>
-  <div class="col mt-4">
-    <form #form="ngForm" (ngSubmit)="booknow()" action="">
+
+    <!--<form #form="ngForm" (ngSubmit)="booknow()" action="">
       Doctor Name: <br>
       Available Schedule: <br>
-      <button class="btn btn-primary" type="submit">Book now</button>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form> -->
+    <form class="col m-4 p-2" action="">
+      <div class="card-body card-min-size ">
+        <div class="card">
+          <div class="card-body px-4">
+            <div class="col py-3">Doctor: </div>
+              <div id="schedule-container">
+                <div class="wizard-title">Select Schedule</div>
+                <div class="mt-2">
+                  <label>
+                    Please fill in required fields
+                    <small class="text-danger font-weight-bold">*</small>
+                  </label>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Scheduled Date</label>
+                      <small class="text-danger font-weight-bold">*</small>
+                      <div class="input-group date" id="datepicker">
+                        <input type="date" class="form-control" id="date"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Scheduled Time</label>
+                      <small class="text-danger font-weight-bold">*</small>
+                      <select class="form-select required bg-white" id="scheduled_time">
+                        <option value></option>
+                        <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                        <option value="11:00 AM - 12:00 NN">11:00 AM - 12:00 NN</option>
+                        <option value="12:00 NN - 1:00 PM">12:00 NN - 1:00 PM</option>
+                        <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                        <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                        <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4">
+                    <button id="continue">Continue</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
     </form>
-  </div>
-
 </div>
+
+<!--payment modal
+<div class="modal fade" id="paymentInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paymentLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentLabel">Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <form action="">
+        <div class="modal-body">
+          <p>sample Text</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="update" data-bs-dismiss="modal">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>-->
