@@ -33,8 +33,15 @@ export class PatientDoctorsListViewComponent implements OnInit {
     let record = {};
     record['doctor_id'] = this.docInfo.uid;
     record['patient_id'] = this.userid;
-    this.userservice.create_doctor_upcoming(record);
-    this.create_chat();
+    this.userservice.check_upcoming(this.docInfo.uid,this.userid).then(e=>{
+      if(!e.empty)
+        console.log('not empty!');
+      else
+      {
+        this.userservice.create_doctor_upcoming(record);
+        this.create_chat();
+      }
+    })
   }
   create_chat()
   {

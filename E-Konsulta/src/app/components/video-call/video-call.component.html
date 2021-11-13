@@ -7,6 +7,8 @@
     <p class="video-description text-center text-light">Remote:</p>
     <video #received_video [autoplay]="true"></video>
   </div>
+</div>
+<div class="bg-dark row">
   <div class="options">
     <button (click)="startLocalVideo()" class="start-local"><span><i class="bi bi-arrow-right-circle"></i></span>Start Local</button>
     <button (click)="pauseLocalVideo()" class="stop-local"><span><i class="bi bi-stop"></i></span>Stop Local</button>
@@ -15,5 +17,4 @@
     <button (click)="Call()" class="call"><span><i class="bi bi-telephone"></i></span></button>
     <button class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
   </div>
-
 </div>

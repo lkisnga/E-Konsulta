@@ -257,6 +257,7 @@ export class UserService {
     return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id)
     .where('doctor_id','==',doc_id)
   }
+
   create_doctor_upcoming(data)
   {
     return this.db.firestore.collection('upcoming')
@@ -268,6 +269,12 @@ export class UserService {
       schedule: formatDate(new Date(),'short','en')
     })
   }
+  check_upcoming(doc_id,pat_id)
+  {
+    return this.db.firestore.collection('upcoming').where('doctor_id','==',doc_id).where('patient_id','==',pat_id)
+    .get();
+  }
+
   doctor_reply(id,feedback,name,review_id,sent_to)
   {
     return this.db.collection('Users').doc(id).collection('reviews').doc(review_id)
