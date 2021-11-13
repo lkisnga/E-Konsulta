@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 const mediaConstraints = {
   audio: true,
-  video: {width: 720, height: 540}
+  video: {width: 650, height: 400}
 };
 
 const servers = {
