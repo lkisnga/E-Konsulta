@@ -145,6 +145,49 @@ export class UserService {
       })
     })
   }
+  
+  send_medicalRecord(patient_id,doc_id,filename,file)
+  {
+   return this.store.ref('Medical-Records/' + patient_id + '/Records/' + filename).put(file)
+    .then(()=>{
+      this.afau.onAuthStateChanged(user=>{
+        if(user)
+        {
+          this.store.storage.ref('Medical-Records/' + patient_id + '/Records/' + filename).getDownloadURL()
+          .then(e=>{
+            this.db.collection('Medical_Records').doc(patient_id).set({
+              filname : filename,
+              file : e,
+              doctor_id: doc_id,
+              createdAt : formatDate(new Date(),'MM/dd/yyyy','en')
+            })
+          })
+        }
+      })
+    })
+  }
+
+  send_prescriptionRecord(patient_id,doc_id,filename,file)
+  {
+   return this.store.ref('Prescription-Records/' + patient_id + '/Records/' + filename).put(file)
+    .then(()=>{
+      this.afau.onAuthStateChanged(user=>{
+        if(user)
+        {
+          this.store.storage.ref('Prescription-Records/' + patient_id + '/Records/' + filename).getDownloadURL()
+          .then(e=>{
+            this.db.collection('Prescription').doc(patient_id).set({
+              filname : filename,
+              file : e,
+              doctor_id: doc_id,
+              createdAt : formatDate(new Date(),'MM/dd/yyyy','en')
+            })
+          })
+        }
+      })
+    })
+  }
+
   lab_request(e,role,id)
   {
     console.log(role);

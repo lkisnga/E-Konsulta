@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,7 +10,11 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './doctor-patients-chat.component.html',
   styleUrls: ['./doctor-patients-chat.component.css']
 })
+
 export class DoctorPatientsChatComponent implements OnInit {
+
+  @ViewChild('file') files : ElementRef;
+  @ViewChild('file2') files2 : ElementRef;
 
   userid : string = "";
   patientInfo : any = [];
@@ -20,6 +24,14 @@ export class DoctorPatientsChatComponent implements OnInit {
   chat$ : Observable<any>;
 
   imgUrl : any;
+
+  file1 : any = "";
+  file2: any = "";
+
+  filename : string = "";
+  filename2 : string = "";
+
+  error_message = "";
 
   constructor(
     public afu : AuthService,
@@ -69,7 +81,54 @@ export class DoctorPatientsChatComponent implements OnInit {
       console.log("Empty!");
     }
   }
+  
+  choosefile(e,type)
+  {
+    if(type=="cs")
+    {
+      this.file1 = e.target.files[0];
+      console.log(e.target.files[0]);
+    }
+    else if(type=="prs")
+    {
+      this.file2 = e.target.files[0];
+      console.log(e.target.files[0]);
+    }
+  }
 
+  uploadFile()
+  {
+    console.log(this.filename);
+    if(this.filename != "" && this.filename2 != "")
+    {
+      this.userservice.send_medicalRecord(this.patientInfo.uid,this.userid,this.filename+".pdf",this.file1)
+      .catch(error=>{
+        console.log(error)
+      }).then(()=>{
+        console.log("Stored successfully!");
+      })
+      this.userservice.send_prescriptionRecord(this.patientInfo.uid,this.userid,this.filename2+".pdf",this.file2)
+      .catch(error=>{
+        console.log(error)
+      }).then(()=>{
+        console.log("Stored successfully2!");
+      })
+    }
+    else
+    {
+      this.error_message = "Make sure the fields are not empty!";
+      setTimeout(() => {
+        this.error_message = "";
+      }, 5000);
+    }
+  }
+  close()
+  {
+    this.filename = "";
+    this.filename2 = "";
+    this.files.nativeElement.value = "";
+    this.files2.nativeElement.value= "";
+  }
   video_call()
   {
     window.open('/video-call','_blank','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
