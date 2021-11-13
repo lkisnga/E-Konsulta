@@ -1,1 +1,55 @@
-<p>patient-payment works!</p>
+<app-header-patient></app-header-patient>
+<div class="row flex-nowrap">
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
+    <app-patient-sidenav></app-patient-sidenav>
+  </div>
+    <form class="col m-4 p-2" action="">
+      <div class="card-body card-min-size ">
+        <div class="card">
+          <div class="card-body px-4">
+              <div id="schedule-container">
+                <div class="wizard-title">Payment Methods</div>
+                <div class="row mt-4 mb-4">
+                  <div class="col-md-1">
+                    <button id="gcash">GCash</button>
+                  </div>
+                  <div class="col-md-2">
+                    <button id="credit">Credit Card</button>
+                  </div>
+                </div>
+                <div class="row-md-4">
+                  <div class="col-md-6 mt-4">
+                    <p>By clicking Submit, you agree to our <button id="terms" data-bs-toggle="modal" data-bs-target="#termsC">Terms and Conditions</button>.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <button  routerLink="/" id="submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </form>
+</div>
+
+<!--terms modal -->
+<div class="modal fade" id="termsC" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paymentLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsLabel">Terms and Conditions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <form action="">
+        <div class="modal-body">
+          <p>sample Text</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="close" data-bs-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<!--</div>-->

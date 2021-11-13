@@ -3,12 +3,6 @@
   <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
     <app-patient-sidenav></app-patient-sidenav>
   </div>
-
-    <!--<form #form="ngForm" (ngSubmit)="booknow()" action="">
-      Doctor Name: <br>
-      Available Schedule: <br>
-      <button class="btn btn-primary" type="submit">Submit</button>
-    </form> -->
     <form class="col m-4 p-2" action="">
       <div class="card-body card-min-size ">
         <div class="card">
@@ -50,7 +44,7 @@
                 </div>
                 <div class="row mt-4">
                   <div class="col-md-4">
-                    <button id="continue">Continue</button>
+                    <button routerLink="/patient-payment" id="continue">Continue <span><i class="bi bi-arrow-right"></i></span></button>
                   </div>
                 </div>
               </div>

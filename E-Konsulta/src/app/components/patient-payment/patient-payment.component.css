@@ -1,0 +1,67 @@
+*
+{
+  box-sizing: border-box;
+}
+.wizard-title{
+  font-size: 24px;
+  color: rgb(0, 129, 138);
+}
+#gcash, #credit{
+  color: white;
+  background-color: rgb(0, 129, 138);
+  border: none;
+  border-radius: 3px;
+  padding: 3px 12px;
+}
+
+#gcash:hover, #credit:hover{
+  background-color: rgb(2, 148, 158);
+}
+#submit{
+  color: rgb(0, 129, 138);
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 3px;
+  background-color: transparent;
+  padding: 3px 12px;
+}
+
+#submit:hover{
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
+p{
+
+}
+p, #terms{
+  font-size: 12px;
+}
+#terms
+{
+  color: rgb(0, 129, 138);
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
+
+#termsLabel{
+  color: rgb(0, 129, 138);
+}
+
+#terms:hover{
+  text-decoration: underline;
+}
+
+/*modal*/
+.close
+{
+  border:none;
+  padding: 5px 20px;
+  font-size: 10pt;
+  border-radius: 3px;
+}
+.close{
+  border: 1px solid maroon;
+  border-radius: 3px;
+  background-color:white;
+  color: maroon;
+}
