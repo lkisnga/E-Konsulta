@@ -1,7 +1,8 @@
-
+.presc, .csummary{
+  color: rgb(0, 129, 138);
+}
 .patient-center{
   margin-top: 50px;
-
 }
 
 .user{
@@ -68,6 +69,12 @@ img.to{
 .below{
   display: inline;
   border-top: 1px solid black;
+}
+input{
+  font-size: 14px;
+}
+input:focus{
+  outline: 0;
 }
 
 .image-upload > input
@@ -166,17 +173,16 @@ a:hover{
   border-left: 1px solid rgb(0, 129, 138);
 }
 
-.yes,
-.no
-{
-  border:none;
+.send{
+  border: none;
+  background-color: rgb(0, 129, 138);
   padding: 5px 20px;
   font-size: 10pt;
   border-radius: 3px;
-}
-.yes:hover{
-  background-color: rgb(0, 129, 138);
   color: white;
+}
+.send:hover{
+  background-color: rgb(2, 148, 158);
 }
 
 #send-files{

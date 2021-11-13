@@ -60,24 +60,26 @@
           <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
-          <div class="row">
-            <div class="col">
-              <h5>Prescription</h5>
-            </div>
-            <div class="col">
+          <p class="presc">Prescription</p>
+            <div class="row mx-2">
               <input [(ngModel)]="filename2" type="text" placeholder="File name">
-              <input #file2 type="file" (change)="choosefile($event,'prs')">
-            </div>
           </div>
-          <h5>Consultation summary</h5>
-          <input [(ngModel)]="filename" type="text" placeholder="File name">
-          <input #file type="file" (change)="choosefile($event,'cs')">
+          <div class="row mx-0 mt-1">
+            <input #file2 type="file" (change)="choosefile($event,'prs')">
+          </div>
+          <p class="mt-4 csummary">Consultation summary</p>
+          <div class="row mx-2">
+            <input [(ngModel)]="filename" type="text" placeholder="File name">
+          </div>
+          <div class="row mx-0 mt-1">
+            <input #file type="file" (change)="choosefile($event,'cs')">
+          </div>
         </div>
         <div *ngIf="error_message.length > 0" class="alert alert-danger">
           {{error_message}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="yes" (click)="uploadFile()">Send</button>
+          <button type="button" class="send" (click)="uploadFile()">Send</button>
         </div>
       </div>
     </div>
