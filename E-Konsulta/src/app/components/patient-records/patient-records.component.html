@@ -20,6 +20,7 @@
           <button type="button" class="btn btn-outline-info" (click)="medicalRecords()">Medical Records</button>
           <button type="button" class="btn btn-outline-info" (click)="labResult()">Laboratory Result</button>
           <button type="button" class="btn btn-outline-info" (click)="prescription()">Prescription</button>
+          <button type="button" class="btn btn-outline-info" (click)="insuranceLOA()">Insurance LOA</button>
         </div>
         <div *ngIf="medicalrecords">
           Medical Records
@@ -48,6 +49,9 @@
         </div>
         <div *ngIf="presc">
           Prescription
+        </div>
+        <div *ngIf="insurance_loa">
+          Insurance LOA
         </div>
       </div>
     </div>

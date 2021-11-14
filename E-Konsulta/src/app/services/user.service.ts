@@ -362,13 +362,13 @@ export class UserService {
   }
   get_Insurance_LOA(id)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').get();
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').get();
   }
   approve_LOA(id,loa_id,status)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').doc(loa_id)
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').doc(loa_id)
     .update({
-      approval_status: status,
+      status: status,
       createdAt: formatDate(new Date(),"MM/dd/yyyy",'en')
     })
   }
@@ -386,30 +386,37 @@ export class UserService {
 
   check_LOA(ins_id,pat_id,nowDate)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA')
+    return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA_Request')
     .where('patient_id','==',pat_id).where('createdAt','==',nowDate).get();
   }
   request_LOA(ins_id,pat_id)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA')
+    return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA_Request')
     .add({
       patient_id: pat_id,
       createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
       status: 'pending'
     })
-    /*
-    this.store.ref('Insurance-LOA/' + id + '/patients/'+ record.id +'/'+ record.filename).put(record.file).then(()=>{
-      
-
-      this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA').add({
-        fullname: record.fullname,
-        filename: record.filename,
-        file: record.file,
-        from: record.from,
-        createdAt: formatDate(new Date(),"MM/dd/yyyy", 'en'),
-        approval_status: "pending"
+  }
+  create_Insurance_LOA(insurance_id,patient_id,data) //send file and save file
+  {
+   return this.store.ref('Insurance-LOA/' + insurance_id + '/patients/' + patient_id + '/' + data.filename).put(data.file)
+    .then(()=>{
+      this.afau.onAuthStateChanged(user => {
+        if(user)
+       this.store.storage.ref('Insurance-LOA/' + insurance_id + '/patients/' + patient_id + '/' + data.filename).getDownloadURL().then(e =>{
+            this.db.collection('Insurance_LOA').doc(insurance_id).set({
+              filename: data.filename,
+              file : e,
+              patient_id : patient_id,
+              insurance_id: insurance_id,
+              createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+            })
+          })
+        })
+      }).catch(error => {
+        console.log(error.message);
       })
-    })*/
   }
   get_health_review(id)
   {

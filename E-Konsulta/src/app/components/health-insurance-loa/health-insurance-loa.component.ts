@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,9 +9,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HealthInsuranceLoaComponent implements OnInit {
 
+  @ViewChild('loa_file') loafile : ElementRef;
+
   userId : string = "";
   loa_list: any = [];
   approve_list: any=[];
+
+  file : any;
+  filename: string = "";
+
+  patient_id : string = "";
+
   constructor(public userservice : UserService,public afu :AuthService) { }
 
   pending = false;
@@ -38,10 +46,14 @@ export class HealthInsuranceLoaComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_Insurance_LOA(this.userId).then(e=>{
       e.forEach(item=>{
-        data = item.data();
-        data.uid= item.id;
-        if(data.approval_status=="pending")
-          tempArray.push(data);
+        this.userservice.get_UserInfo(item.data().patient_id).then(res=>{
+          data = item.data();
+          data.uid= item.id;
+          data.fullname = res.data().fullname;
+          console.log(data);
+          if(data.status=="pending")
+            tempArray.push(data);
+        })
       })
     })
     this.loa_list = tempArray;
@@ -55,7 +67,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
       e.forEach(item=>{
         data = item.data();
         data.uid= item.id;
-        if(data.approval_status=="approved" || data.approval_status=="declined")
+        if(data.approval_status=="sent" || data.approval_status=="declined")
           tempArray.push(data);
       })
     })
@@ -65,12 +77,32 @@ export class HealthInsuranceLoaComponent implements OnInit {
   {
     window.open(e);
   }
-  approve_LOA(e)
+
+  choosefile(e)
   {
-    var status = "approved"
-    this.userservice.approve_LOA(this.userId,e,status).then(()=>{
-      this.ngOnInit();
-    });
+    this.file = e.target.files[0];
+    console.log(this.file)
+  }
+  send_LOA()
+  {
+    if(this.filename != "" && this.loafile.nativeElement.value != "")
+    {
+      let record = {}
+      record['filename'] = this.filename+'.pdf';
+      record['file'] = this.file;
+      this.userservice.create_Insurance_LOA(this.userId,this.patient_id,record)
+      .then(()=>{
+        console.log('added');
+      });
+
+    }
+    else
+      console.log('Filname or File is empty!');
+  }
+  clear()
+  {
+    this.filename = "";
+    this.loafile.nativeElement.value = "";
   }
   decline_LOA(e)
   {

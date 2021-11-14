@@ -18,23 +18,34 @@ export class PatientRecordsComponent implements OnInit {
   medicalrecords = false;
   labresult = false;
   presc =  false;
+  insurance_loa = false;
 
   medicalRecords(){
     this.medicalrecords = true;
     this.labresult = false;
     this.presc = false;
+    this.insurance_loa = false;
   }
 
   labResult(){
     this.medicalrecords = false;
     this.labresult = true;
     this.presc = false;
+    this.insurance_loa = false;
   }
 
   prescription(){
     this.medicalrecords = false;
     this.labresult = false;
     this.presc = true;
+    this.insurance_loa = false;
+  }
+  insuranceLOA()
+  {
+    this.medicalrecords = false;
+    this.labresult = false;
+    this.presc = false;
+    this.insurance_loa = true;
   }
 
   ngOnInit(): void {

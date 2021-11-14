@@ -16,8 +16,8 @@ export class DoctorPatientsChatComponent implements OnInit {
   @ViewChild('file') files : ElementRef;
   @ViewChild('file2') files2 : ElementRef;
 
-  userid : string = "";
-  patientInfo : any = [];
+  userid : string = ""; // Doctor ID
+  patientInfo : any = []; //Patient Information includng its ID
   chat_id : string = "";
 
   content : string = "";

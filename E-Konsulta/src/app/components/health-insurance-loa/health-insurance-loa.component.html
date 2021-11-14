@@ -17,8 +17,6 @@
             <tr>
               <th scope="col">Date</th>
               <th scope="col">Name</th>
-              <th scope="col">Filename</th>
-              <th scope="col">File</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -26,12 +24,8 @@
             <tr *ngFor="let list of loa_list">
               <td>{{list.createdAt}}</td>
               <td>{{list.fullname}}</td>
-              <td>{{list.filename}}</td>
               <td>
-                <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
-              </td>
-              <td>
-                <button (click)="approve_LOA(list.uid)" class="btn btn-success">Approve</button>
+                <button (click)="patient_id = list.uid" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
                 <button (click)="decline_LOA(list.uid)" class="btn btn-danger">Decline</button>
               </td>
             </tr>
@@ -61,6 +55,25 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sendFle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Send File</h5>
+        <button (click)="clear()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Insert File</p>
+        <input [(ngModel)]="filename" type="text" placeholder="Input filename">
+        <input #loa_file type="file" (change)="choosefile($event)">
+      </div>
+      <div class="modal-footer">
+        <button (click)="send_LOA()" class="btn btn-primary" type="button" class="yes">Send</button>
       </div>
     </div>
   </div>
