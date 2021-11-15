@@ -41,7 +41,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
   ngOnInit(): void {
      this.userId=this.afu.get_UID()
      this.pending_list();
-     this.approved_list();
+     this.sentList();
   }
 
   pending_list()
@@ -63,16 +63,18 @@ export class HealthInsuranceLoaComponent implements OnInit {
     this.loa_list = tempArray;
   }
 
-  approved_list()
+  sentList()
   {
     var data;
     var tempArray = [];
-    this.userservice.get_Insurance_LOA(this.userId).then(e=>{
+    this.userservice.get_LOA_sent(this.userId).then(e=>{
       e.forEach(item=>{
-        data = item.data();
-        data.uid= item.id;
-        if(data.status=="sent")
+        this.userservice.get_UserInfo(item.data().patient_id).then(res=>{
+          data = item.data();
+          data.fullname = res.data().fullname;
+          data.id = item.id;
           tempArray.push(data);
+        })
       })
     })
     this.sent_list = tempArray;
@@ -99,11 +101,12 @@ export class HealthInsuranceLoaComponent implements OnInit {
       this.userservice.create_Insurance_LOA(this.userId,this.patientInfo.patient_id,record)
       .then(()=>{
         var status = "sent"
-        this.userservice.update_LOA_Request(this.userId,this.patientInfo.uid,status).then(()=>{
+        this.userservice.update_LOA_Request(this.userId,this.patientInfo.uid,status)
+        .then(()=>{
           this.ngOnInit();
           this.file2_message = "Request has been sent";
           setTimeout(() => {
-            this.err_message = "";
+            this.file2_message = "";
           }, 5000);
         });
       });
