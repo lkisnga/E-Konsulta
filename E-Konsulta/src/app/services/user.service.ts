@@ -178,7 +178,7 @@ export class UserService {
           this.store.storage.ref('Prescription-Records/' + patient_id + '/Records/' + filename).getDownloadURL()
           .then(e=>{
             this.db.collection('Prescription').add({
-              filname : filename,
+              filename : filename,
               file : e,
               doctor_id: doc_id,
               patient_id: patient_id,
@@ -188,6 +188,11 @@ export class UserService {
         }
       })
     })
+  }
+
+  get_patient_prescription(patient_id)
+  {
+    return this.db.firestore.collection('Prescription').where('patient_id','==',patient_id).get();
   }
 
   lab_request(e,role,id)
@@ -386,6 +391,7 @@ export class UserService {
       isVerified: stats
     })
   }
+
   get_patient_insuranceInfo(id,ins_id)
   {
     return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info')

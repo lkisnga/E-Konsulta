@@ -14,6 +14,8 @@ export class PatientRecordsComponent implements OnInit {
   list : any = [];
 
   loaList : any = [];
+
+  presList : any = [];
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
@@ -54,6 +56,8 @@ export class PatientRecordsComponent implements OnInit {
     this.userID = this.afu.get_UID();
     this.lab_Result();
     this.insurance_LOA();
+    this.prescription_record();
+
   }
 
   lab_Result()
@@ -96,6 +100,24 @@ export class PatientRecordsComponent implements OnInit {
       })
     })
     this.loaList = tempArray;
+  }
+
+  prescription_record()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_patient_prescription(this.userID).then(e=>{
+      e.forEach(item=>{
+        console.log(item.data());
+        this.userservice.get_UserInfo(this.userID).then(res=>{
+          data = item.data();
+          data.fullname = res.data().fullname;
+          data.id = item.id;
+          tempArray.push(data);
+        })
+      })
+    })
+    this.presList = tempArray;
   }
 
   viewFile(e)
