@@ -47,7 +47,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let list of approve_list">
+            <tr *ngFor="let list of sent_list">
               <td>{{list.createdAt}}</td>
               <td>{{list.fullname}}</td>
               <td>{{list.filename}}</td>
@@ -76,6 +76,9 @@
         <input #loa_file type="file" (change)="choosefile($event)">
       </div>
       <div *ngIf="file_message.length > 0" class="alert alert-danger">
+        {{file_message}}
+      </div>
+      <div *ngIf="file2_message.length > 0" class="alert alert-success">
         {{file_message}}
       </div>
       <div class="modal-footer">

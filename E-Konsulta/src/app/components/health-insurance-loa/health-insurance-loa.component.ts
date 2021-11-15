@@ -13,7 +13,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
 
   userId : string = "";
   loa_list: any = [];
-  approve_list: any=[];
+  sent_list: any=[];
 
   file : any;
   filename: string = "";
@@ -22,6 +22,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
 
   err_message : string = "";
   file_message : string = "";
+  file2_message: string = "";
   constructor(public userservice : UserService,public afu :AuthService) { }
 
   pending = false;
@@ -60,7 +61,6 @@ export class HealthInsuranceLoaComponent implements OnInit {
       })
     })
     this.loa_list = tempArray;
-    //console.log(this.loa_list);
   }
 
   approved_list()
@@ -71,11 +71,11 @@ export class HealthInsuranceLoaComponent implements OnInit {
       e.forEach(item=>{
         data = item.data();
         data.uid= item.id;
-        if(data.approval_status=="sent" || data.approval_status=="declined")
+        if(data.status=="sent")
           tempArray.push(data);
       })
     })
-    this.approve_list = tempArray;
+    this.sent_list = tempArray;
   }
 
   open_LOA(e)
@@ -101,7 +101,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
         var status = "sent"
         this.userservice.update_LOA_Request(this.userId,this.patientInfo.uid,status).then(()=>{
           this.ngOnInit();
-          this.err_message = "Request has been sent";
+          this.file2_message = "Request has been sent";
           setTimeout(() => {
             this.err_message = "";
           }, 5000);
