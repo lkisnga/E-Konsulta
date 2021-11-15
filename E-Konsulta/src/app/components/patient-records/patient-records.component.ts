@@ -12,6 +12,8 @@ export class PatientRecordsComponent implements OnInit {
   userID : any = "";
   info : any = [];
   list : any = [];
+
+  loaList : any = [];
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
@@ -49,9 +51,15 @@ export class PatientRecordsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userID = this.afu.get_UID();
+    this.lab_Result();
+    this.insurance_LOA();
+  }
+
+  lab_Result()
+  {
     var data;
     var tempArray = [];
-    this.userID = this.afu.get_UID();
     this.userservice.get_UserInfo(this.userID).then(e=>{
       this.info = e.data();
     }).then(()=>{
@@ -71,6 +79,23 @@ export class PatientRecordsComponent implements OnInit {
     })
     this.list = tempArray;
     console.log(this.list);
+  }
+
+  insurance_LOA()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_patient_LOA(this.userID).then(e=>{
+      e.forEach(item=>{
+        this.userservice.get_UserInfo(this.userID).then(res=>{
+          data = item.data();
+          data.id = item.id;
+          data.fullname = res.data().fullname;
+          tempArray.push(data);
+        })
+      })
+    })
+    this.loaList = tempArray;
   }
 
   viewFile(e)

@@ -395,6 +395,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Insurance_LOA').where('insurance_id','==',ins_id).get();
   }
+  get_patient_LOA(patient_id)
+  {
+    return this.db.firestore.collection('Insurance_LOA').where('patient_id','==',patient_id).get();
+  }
   check_LOA(ins_id,pat_id,nowDate)
   {
     return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA_Request')
