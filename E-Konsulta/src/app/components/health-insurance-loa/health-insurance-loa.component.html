@@ -11,6 +11,9 @@
         <button type="button" class="btn btn-outline-info" (click)="pendingFunction()">Pending</button>
         <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
       </div>
+      <div *ngIf="err_message.length > 0" class="alert alert-info">
+        {{err_message}}
+      </div>
       <div *ngIf="pending">
         <table class="table table-striped table-bordered">
           <thead>
@@ -71,6 +74,9 @@
         <p>Insert File</p>
         <input [(ngModel)]="filename" type="text" placeholder="Input filename">
         <input #loa_file type="file" (change)="choosefile($event)">
+      </div>
+      <div *ngIf="file_message.length > 0" class="alert alert-danger">
+        {{file_message}}
       </div>
       <div class="modal-footer">
         <button (click)="send_LOA()" class="btn btn-primary" type="button" class="yes">Send</button>

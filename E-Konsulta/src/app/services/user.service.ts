@@ -366,11 +366,19 @@ export class UserService {
   }
   update_LOA_Request(id,loa_id,status)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').doc(loa_id)
-    .update({
-      status: status,
-      createdAt: formatDate(new Date(),"MM/dd/yyyy",'en')
-    })
+    if(status=='sent')
+    {
+      return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').doc(loa_id)
+      .update({
+        status: status,
+        createdAt: formatDate(new Date(),"MM/dd/yyyy",'en')
+      })
+    }
+    if(status=='declined')
+    {
+      return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').doc(loa_id)
+      .delete();
+    }
   }
   verify_userInsurance(id,stats)
   {

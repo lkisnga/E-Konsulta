@@ -20,6 +20,8 @@ export class HealthInsuranceLoaComponent implements OnInit {
 
   patientInfo : any = [];
 
+  err_message : string = "";
+  file_message : string = "";
   constructor(public userservice : UserService,public afu :AuthService) { }
 
   pending = false;
@@ -34,6 +36,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
     this.pending = false;
     this.done = true;
   }
+
   ngOnInit(): void {
      this.userId=this.afu.get_UID()
      this.pending_list();
@@ -59,6 +62,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
     this.loa_list = tempArray;
     //console.log(this.loa_list);
   }
+
   approved_list()
   {
     var data;
@@ -73,6 +77,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
     })
     this.approve_list = tempArray;
   }
+
   open_LOA(e)
   {
     window.open(e);
@@ -83,6 +88,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
     this.file = e.target.files[0];
     console.log(this.file)
   }
+
   send_LOA()
   {
     if(this.filename != "" && this.loafile.nativeElement.value != "")
@@ -95,23 +101,37 @@ export class HealthInsuranceLoaComponent implements OnInit {
         var status = "sent"
         this.userservice.update_LOA_Request(this.userId,this.patientInfo.uid,status).then(()=>{
           this.ngOnInit();
+          this.err_message = "Request has been sent";
+          setTimeout(() => {
+            this.err_message = "";
+          }, 5000);
         });
       });
-
     }
     else
-      console.log('Filname or File is empty!');
+    {
+      this.file_message = "Filename or File is empty!";
+      setTimeout(() => {
+        this.file_message = "";
+      }, 5000);
+    }
   }
+
   clear()
   {
     this.filename = "";
     this.loafile.nativeElement.value = "";
   }
-  decline_LOA(e)
+
+  decline_LOA(request_id)
   {
     var status = "declined"
-    this.userservice.update_LOA_Request(this.userId,e,status).then(()=>{
+    this.userservice.update_LOA_Request(this.userId,request_id,status).then(()=>{
       this.ngOnInit();
+      this.err_message = "Request has been delclined";
+      setTimeout(() => {
+        this.err_message = "";
+      }, 5000);
     });
   }
 
