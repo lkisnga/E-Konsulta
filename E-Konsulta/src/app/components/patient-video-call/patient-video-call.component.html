@@ -1,13 +1,15 @@
 <div class="bg-dark row">
   <div class="col">
-    <p class="video-description text-center text-light">Local:</p>
+    <p class="video-description text-center text-light">Patient's Name</p>
     <video #local_video [autoplay]="true" [muted]="true"></video>
   </div>
   <div class="col">
-    <p class="video-description text-center text-light">Remote:</p>
+    <p class="video-description text-center text-light">Doctor's Name</p>
     <video #received_video [autoplay]="true"></video>
   </div>
+</div>
 
+<div class="bg-dark row mb-2">
   <div class="options">
     <button class="start-local"><span><i class="bi bi-arrow-right-circle"></i></span> Start Local</button>
     <button class="stop-local"><span><i class="bi bi-stop"></i></span>Stop Local</button>
