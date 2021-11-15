@@ -25,7 +25,7 @@
               <td>{{list.createdAt}}</td>
               <td>{{list.fullname}}</td>
               <td>
-                <button (click)="patient_id = list.uid" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
+                <button (click)="patientInfo = list" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
                 <button (click)="decline_LOA(list.uid)" class="btn btn-danger">Decline</button>
               </td>
             </tr>

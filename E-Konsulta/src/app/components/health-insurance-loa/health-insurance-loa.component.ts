@@ -18,7 +18,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
   file : any;
   filename: string = "";
 
-  patient_id : string = "";
+  patientInfo : any = [];
 
   constructor(public userservice : UserService,public afu :AuthService) { }
 
@@ -90,9 +90,12 @@ export class HealthInsuranceLoaComponent implements OnInit {
       let record = {}
       record['filename'] = this.filename+'.pdf';
       record['file'] = this.file;
-      this.userservice.create_Insurance_LOA(this.userId,this.patient_id,record)
+      this.userservice.create_Insurance_LOA(this.userId,this.patientInfo.patient_id,record)
       .then(()=>{
-        console.log('added');
+        var status = "sent"
+        this.userservice.update_LOA_Request(this.userId,this.patientInfo.uid,status).then(()=>{
+          this.ngOnInit();
+        });
       });
 
     }
@@ -107,7 +110,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
   decline_LOA(e)
   {
     var status = "declined"
-    this.userservice.approve_LOA(this.userId,e,status).then(()=>{
+    this.userservice.update_LOA_Request(this.userId,e,status).then(()=>{
       this.ngOnInit();
     });
   }

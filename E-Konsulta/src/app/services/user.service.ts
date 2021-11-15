@@ -364,7 +364,7 @@ export class UserService {
   {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').get();
   }
-  approve_LOA(id,loa_id,status)
+  update_LOA_Request(id,loa_id,status)
   {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('Insurance_LOA_Request').doc(loa_id)
     .update({
