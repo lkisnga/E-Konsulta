@@ -2,75 +2,33 @@
   box-sizing: border-box;
 }
 
-/*search*/
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
-.searchTerm {
-  width: 100%;
-  border: 1px solid #00B4CC;
-  padding: 15px;
-  height: 25px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-
-}
-
-.searchTerm:focus{
-  color: #00B4CC;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 30%;
-  position: absolute;
-  top: 20%;
-  left: 32%;
-  transform: translate(-50%, -50%);
-}
-
-/*cards*/
-.col{
-  margin-top: 100px;
-}
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 5px;
-  font-size: 12px;
-  height: 300px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.form-control{
+  width: 300px !important;
+  margin-bottom: 20px;
 }
 
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  padding: 8px;
+  width: 24%;
   text-align: left;
-  height: 250px !important;
+  max-height: 200px !important;
+  /*width: 300px !important; */
+  font-size: 12px;
+  margin-top: 10px !important;
+  margin-right: 5px;
+  display: inline-block;
 }
-.card-img-top{
-  height: 100px;
-  width: 100px;
-}
-.card-text{
-  margin-bottom: 10px;
-}
+
 .fa{
   color: #00B4CC;
+}
+
+.card-body{
+  margin-left: 5px !important;
+}
+.card-text{
+  font-size: 9px !important;
 }
 
 /*view Button*/
@@ -80,8 +38,10 @@
   text-decoration: none;
   outline: none;
   color: rgb(0, 129, 138);
-  padding: 2px 10px;
+  padding: 2px 15px;
   cursor: pointer;
+  float: right;
+  font-size: 9px;
 }
 
 .view:hover{

@@ -5,22 +5,6 @@
       <!--sidebar-->
       <app-patient-sidenav></app-patient-sidenav>
     </div>
-   <!-- <div class="col">
-      <div *ngFor="let list of list" class="column">
-        <div class="card">
-          <img class="card-img-top" src="{{list.image}}" alt="doctor"> -->
-          <!--<h3><i class="fa fa-user-md"></i></h3>-->
-          <!--<div class="card-body">
-            <h6 class="card-title">{{list.fullname}}</h6>
-            <div *ngFor="let spList of spList">
-               <p *ngIf="list.specialization == spList.uid" class="card-text">{{spList.name}}</p>
-            </div>
-            <a (click)="view_review(list)" class="view text-center">View</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="col col-sm-offset-3 py-4 mx-3">
       <input [(ngModel)]="searchName" (input)="doctor_list()" type="text" class="form-control rounded" placeholder="Search">
       <div *ngFor="let list of list" class="card">
@@ -40,6 +24,4 @@
         </div>
       </div>
     </div>
-
-
   </div>
