@@ -23,7 +23,24 @@
           <button type="button" class="btn btn-outline-info" (click)="insuranceLOA()">Insurance LOA</button>
         </div>
         <div *ngIf="medicalrecords">
-          Medical Records
+          <table class="table table-info table-bordered">
+            <thead>
+              <tr>
+                <th>File Name</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let list of medicalList">
+                  <td>{{list.filename}}</td>
+                  <td>{{list.createdAt}}</td>
+                  <td>
+                    <button (click)="viewFile(list.file)" class="btn btn-success">View</button>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
         </div>
         <div *ngIf="labresult">
           <table class="table table-info table-bordered">

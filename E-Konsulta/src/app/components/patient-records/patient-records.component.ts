@@ -16,6 +16,8 @@ export class PatientRecordsComponent implements OnInit {
   loaList : any = [];
 
   presList : any = [];
+
+  medicalList : any = [];
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
@@ -57,6 +59,7 @@ export class PatientRecordsComponent implements OnInit {
     this.lab_Result();
     this.insurance_LOA();
     this.prescription_record();
+    this.medical_record();
 
   }
 
@@ -91,12 +94,9 @@ export class PatientRecordsComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_patient_LOA(this.userID).then(e=>{
       e.forEach(item=>{
-        this.userservice.get_UserInfo(this.userID).then(res=>{
-          data = item.data();
-          data.id = item.id;
-          data.fullname = res.data().fullname;
-          tempArray.push(data);
-        })
+        data = item.data();
+        data.id = item.id;
+        tempArray.push(data);
       })
     })
     this.loaList = tempArray;
@@ -109,15 +109,29 @@ export class PatientRecordsComponent implements OnInit {
     this.userservice.get_patient_prescription(this.userID).then(e=>{
       e.forEach(item=>{
         console.log(item.data());
-        this.userservice.get_UserInfo(this.userID).then(res=>{
-          data = item.data();
-          data.fullname = res.data().fullname;
-          data.id = item.id;
-          tempArray.push(data);
-        })
+        data = item.data();
+        data.id = item.id;
+        tempArray.push(data);
       })
     })
     this.presList = tempArray;
+  }
+
+  medical_record()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_patient_medical(this.userID).then(e=>{
+      e.forEach(item=>{
+        this.userservice.get_UserInfo(this.userID).then(res=>{
+          data = item.data();
+          data.uid = item.id;
+          data.fullname = res.data().fullname;
+          tempArray.push(data)
+        })
+      })
+    })
+    this.medicalList = tempArray;
   }
 
   viewFile(e)

@@ -156,7 +156,7 @@ export class UserService {
           this.store.storage.ref('Medical-Records/' + patient_id + '/Records/' + filename).getDownloadURL()
           .then(e=>{
             this.db.collection('Medical_Records').add({
-              filname : filename,
+              filename : filename,
               file : e,
               doctor_id: doc_id,
               patient_id: patient_id,
@@ -166,6 +166,11 @@ export class UserService {
         }
       })
     })
+  }
+
+  get_patient_medical(patient_id)
+  {
+    return this.db.firestore.collection('Medical_Records').where('patient_id','==',patient_id).get();
   }
 
   send_prescriptionRecord(patient_id,doc_id,filename,file)
