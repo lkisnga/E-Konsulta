@@ -23,7 +23,7 @@ export class PatientConsultationComponent implements OnInit {
   ) { }
 
   /** set to false so that when loading the patient's page, content of that function is not displayed */
-  upcoming = false;
+  upcoming = true;
   done = false;
 
   upcomingFunction(){
@@ -81,10 +81,10 @@ export class PatientConsultationComponent implements OnInit {
              tempArray.push(data);
             else if(e.type == 'modified')
             {
-              var index = tempArray.findIndex( x => x.fullname === data.fullname); 
+              var index = tempArray.findIndex( x => x.fullname === data.fullname);
               tempArray.splice(index,1,data);
             }
-          })  
+          })
         })
       })
     })
