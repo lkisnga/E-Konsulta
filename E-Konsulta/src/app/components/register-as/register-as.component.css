@@ -58,6 +58,12 @@ body{
 
 .row{
   margin-top: 120px !important;
+  margin:auto;
+  width: 1000px;
+}
+.iam{
+  font-weight: lighter;
+  color: rgb(2, 164, 175);
 }
 .bttn1{
   display: inline-flex;
@@ -98,9 +104,9 @@ body{
 }
 .button-icon,
 .button-text{
-  display: inline-block;
+  display: inline-flex;
   align-items: center;
-  padding: 0 14px;
+  padding: 0 12px;
   color: white;
   height: 100%;
   margin-bottom: 5px;
@@ -109,30 +115,30 @@ body{
 .button-icon{
   font-size: 1.7em;
 }
+.button-text{
+  width: 160px;
+}
 
-
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
   body{
-    overflow-y: hidden;
+    overflow: hidden;
   }
   .row{
-    margin-top: 70px !important;
+    margin-top: 90px !important;
   }
   .bttn1, .bttn{
-    display: block;
+    margin-bottom: 10px;
+  }
+  .button-icon,
+  .button-text{
+    width: 200px;
     margin-bottom: 10px;
   }
   .iam{
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 43%;
   }
 }
 
-@media screen and (min-width: 610px)
-{
 
-  .bttn1, .bttn{
-    margin-right: 10px;
-  }
-}
