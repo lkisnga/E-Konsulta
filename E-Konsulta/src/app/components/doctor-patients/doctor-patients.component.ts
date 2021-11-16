@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class DoctorPatientsComponent implements OnInit {
 
   userList : any = [];
-  userList2$ : Observable<any>; 
+  userList2$ : Observable<any>;
   userId : string = "";
 
   constructor(
@@ -23,7 +23,7 @@ export class DoctorPatientsComponent implements OnInit {
     public chats : ChatService
   ) { }
    /** set to false so that when loading the patient's page, content of that function is not displayed */
-   upcoming = false;
+   upcoming = true;
    done = false;
 
    upcomingFunction(){
@@ -68,13 +68,13 @@ export class DoctorPatientsComponent implements OnInit {
              tempArray.push(data);
             else if(e.type == 'modified')
             {
-              var index = tempArray.findIndex( x => x.fullname === data.fullname); 
+              var index = tempArray.findIndex( x => x.fullname === data.fullname);
               tempArray.splice(index,1,data);
             }
           })
         })
       })
-    })  
+    })
     this.userList = tempArray;
   }
 }

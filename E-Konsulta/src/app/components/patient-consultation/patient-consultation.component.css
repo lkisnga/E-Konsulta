@@ -13,10 +13,6 @@
 }
 .book:hover{
   background-color: white;
-  border-left: none;
-  border-bottom: 2px solid rgb(0, 129, 138);
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 }
 .up, .done{
   border: 1px solid white;

@@ -6,28 +6,27 @@
   <div class="col mt-4">
     <h5 class="usr">Patients</h5>
     <div class="text-left py-1">
-      <div class="btn-group pb-4">
-        <button type="button" class="btn btn-outline-info" (click)="upcomingFunction()">Upcoming</button>
-        <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
+      <div class="btn-group my-2">
+        <button type="button" class="up" (click)="upcomingFunction()">Upcoming</button>
+        <button type="button" class="done" (click)="doneFunction()">Done</button>
       </div>
-      <div *ngIf="upcoming" class="list-group">
-        <div *ngFor="let list of userList">
+      <div *ngIf="upcoming">
+        <div *ngFor="let list of userList" class="list-group list-group-flush">
            <a (click)="chat(list)" class="list-group-item list-group-item-action">
-              {{list.fullname}}
-              <div class="container">
-                <div *ngIf="list.upcoming_status == 'pending'">
-                   <button id="btnUpcoming" class="btn btn-warning col" >Accept</button>
-                   <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
-                </div>
-                <div *ngIf="list.upcoming_status == 'ongoing'">
-                  <button id="btnUpcoming" class="btn btn-success col" >Join now</button>
-                  <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
-                </div>
-            </div>
+            <div *ngIf="list.upcoming_status == 'pending'">
+              <span class="full-name mb-2 col">{{list.fullname}}</span>
+              <button id="btnUpcoming" class="pending" >Accept</button>
+              <button id="btnSched" class="schedule">Schedule | {{list.schedule}}</button>
+           </div>
+           <div *ngIf="list.upcoming_status == 'ongoing'">
+             <span class="full-name mb-2 col">{{list.fullname}}</span>
+             <button id="btnUpcoming" class="join-now" >Join now</button>
+             <button id="btnSched" class="schedule">Schedule | {{list.schedule}}</button>
+           </div>
           </a>
         </div>
       </div>
-      <div *ngIf="done" class="list-group">
+      <div *ngIf="done" class="list-group list-group-flush mt-2">
         <div *ngFor="let list of userList">
           <a *ngIf="list.upcoming_status == 'done'" (click)="chat(list)" class="list-group-item list-group-item-action">{{list.fullname}}</a>
         </div>
