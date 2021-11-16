@@ -1,6 +1,21 @@
-.usr{
+*
+{
+  box-sizing: border-box;
+}
+.wizard-title{
+  font-size: 24px;
   color: rgb(0, 129, 138);
 }
-.set-sched{
-  margin-top: 20px;
+
+#set{
+  color: rgb(0, 129, 138);
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 3px;
+  background-color: transparent;
+  padding: 3px 12px;
+}
+
+#set:hover{
+  background-color: rgb(0, 129, 138);
+  color: white;
 }

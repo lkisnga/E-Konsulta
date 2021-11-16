@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor - User Analytics</title>
+  <title>Doctor - Patientss Analytics</title>
 
 </head>
 <body>
-
   <app-header-doctor></app-header-doctor>
     <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
@@ -17,12 +16,12 @@
         <app-doctor-sidenav></app-doctor-sidenav>
       </div>
       <div class="col mt-4">
-        <h5 class="usr">User Analytics</h5>
+        <h5 class="usr">Patients Analytics</h5>
         <div class="text-left py-1">
-          <div class="btn-group">
-            <button type="button" class="btn btn-outline-info" (click)="dailyFunction()">Daily</button>
-            <button type="button" class="btn btn-outline-info" (click)="weeklyFunction()">Weekly</button>
-            <button type="button" class="btn btn-outline-info" (click)="monthlyFunction()">Monthly</button>
+          <div class="btn-group my-2">
+            <button type="button" class="daily" (click)="dailyFunction()">Daily</button>
+            <button type="button" class="weekly" (click)="weeklyFunction()">Weekly</button>
+            <button type="button" class="monthly" (click)="monthlyFunction()">Monthly</button>
           </div>
 
           <div *ngIf="daily">

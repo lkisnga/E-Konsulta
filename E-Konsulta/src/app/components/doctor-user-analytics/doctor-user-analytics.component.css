@@ -1,3 +1,21 @@
 .usr{
   color: rgb(0, 129, 138);
 }
+.daily,
+.weekly,
+.monthly{
+  border: 1px solid white;
+  background-color: rgb(0, 129, 138);
+  color: white;
+  padding: 4px 12px;
+}
+.daily:hover,
+.weekly:hover,
+.monthly:hover{
+  color: rgb(0, 129, 138);
+  background-color: rgb(235, 233, 233);
+}
+.up:active,
+.done:active{
+  background-color: rgb(194, 251, 255);
+}

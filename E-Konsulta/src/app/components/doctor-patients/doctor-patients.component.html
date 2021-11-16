@@ -10,8 +10,8 @@
         <button type="button" class="up" (click)="upcomingFunction()">Upcoming</button>
         <button type="button" class="done" (click)="doneFunction()">Done</button>
       </div>
-      <div *ngIf="upcoming">
-        <div *ngFor="let list of userList" class="list-group list-group-flush">
+      <div *ngIf="upcoming" class="list-group list-group-flush mt-2">
+        <div *ngFor="let list of userList">
            <a (click)="chat(list)" class="list-group-item list-group-item-action">
             <div *ngIf="list.upcoming_status == 'pending'">
               <span class="full-name mb-2 col">{{list.fullname}}</span>

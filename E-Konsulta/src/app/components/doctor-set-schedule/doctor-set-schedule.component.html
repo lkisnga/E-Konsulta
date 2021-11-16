@@ -7,18 +7,53 @@
   <title>Doctor - Set Schedule</title>
 </head>
 <body>
-
   <app-header-doctor></app-header-doctor>
   <div class="row flex-nowrap">
     <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
       <app-doctor-sidenav></app-doctor-sidenav>
     </div>
-    <div class="col mt-4">
-      <h5 class="usr">Set Schedule</h5>
-      <div class="set-sched">
-        <ejs-schedule height="550px" width="1100px"></ejs-schedule>
+    <form class="col m-4 p-2" action="">
+      <div class="card-body card-min-size ">
+        <div class="card">
+          <div class="card-body px-4">
+            <div id="schedule-container">
+              <div class="wizard-title">Set Schedule</div>
+              <div class="row mt-4">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Pick Date</label>
+                    <small class="text-danger font-weight-bold">*</small>
+                    <div class="input-group date" id="datepicker">
+                      <input type="date" class="form-control" id="date"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Pick Time</label>
+                    <small class="text-danger font-weight-bold">*</small>
+                    <select class="form-select required bg-white" id="scheduled_time">
+                      <option value></option>
+                      <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                      <option value="11:00 AM - 12:00 NN">11:00 AM - 12:00 NN</option>
+                      <option value="12:00 NN - 1:00 PM">12:00 NN - 1:00 PM</option>
+                      <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                      <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                      <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-md-4">
+                  <button  routerLink="/" id="set">Set</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 
 </body>
