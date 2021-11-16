@@ -1,11 +1,36 @@
 <app-header></app-header>
-
-<p class="iam">I am a </p>
-<div class="buttons">
-  <button  [routerLink]="['/doctor-registration']" type="button" class="btn py-2">Doctor</button>
-  <button  [routerLink]="['/patient-registration']" type="button" class="btn py-2">Patient</button>
-  <button  [routerLink]="['/health-insurance-registration']" type="button" class="btn py-2">Health Insurance</button>
-  <button  [routerLink]="['/lab-partner-registration']" type="button" class="btn py-2">Laboratory Partner</button>
+<div class="container">
+  <div class="row justify-content-md-center mt-4">
+    <form class="mt-4" action="">
+      <div class="row mb-4">
+        <div class="p-2">I am</div>
+        <div class="col col-md-2">
+          <button  [routerLink]="['/doctor-registration']" type="button" class="bttn1 py-2">
+            <span class="button-icon"><i class="bi bi-person-check-fill"></i></span>
+            <span class="button-text">Doctor</span>
+          </button>
+        </div>
+        <div class="col-md-2">
+          <button  [routerLink]="['/patient-registration']" type="button" class="bttn py-2">
+            <span class="button-icon"><i class="bi bi-people"></i></span>
+            <span class="button-text">Patient</span>
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button  [routerLink]="['/health-insurance-registration']" type="button" class="bttn py-2">
+            <span class="button-icon"><i class="bi bi-heart-fill"></i></span>
+            <span class="button-text">Health Insurance</span>
+          </button>
+        </div>
+        <div class="col col-lg">
+          <button  [routerLink]="['/lab-partner-registration']" type="button" class="bttn py-2">
+            <span class="button-icon"><i class="bi bi-building"></i></span>
+            <span class="button-text">Laboratory Partner</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
 <app-footer></app-footer>
