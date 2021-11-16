@@ -4,31 +4,32 @@
     <app-patient-sidenav></app-patient-sidenav>
   </div>
   <div class="col mx-3 mt-4">
-    <button type="button" class="btn btn-info" [routerLink]="['/patient-doctors-lists']">Book a Consultation</button>
+    <button type="button" class="book" [routerLink]="['/patient-doctors-lists']">Book a Consultation <span><i class="bi bi-pen-fill"></i></span></button>
     <div class="text-left py-2">
       <div class="btn-group my-2">
-        <button type="button" class="btn btn-outline-info" (click)="upcomingFunction()">Upcoming</button>
-        <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
+        <button type="button" class="up active" (click)="upcomingFunction()">Upcoming</button>
+        <button type="button" class="done" (click)="doneFunction()">Done</button>
       </div>
-      <div *ngIf="upcoming" class="list-group">
+      <div *ngIf="upcoming" class="list-group list-group-flush mt-3">
         <a *ngFor="let list of docList" (click)="chat(list)" class="list-group-item list-group-item-action">
-          <span class="">{{list.fullname}}</span>
-          <div class="container">
-              <div *ngIf="list.upcoming_status == 'pending'">
-                 <button id="btnUpcoming" class="btn btn-warning col" >Pending</button>
-                 <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
-              </div>
-              <div *ngIf="list.upcoming_status == 'ongoing'">
-                <button id="btnUpcoming" class="btn btn-success col" >Join now</button>
-                <button id="btnSched" class="btn btn-dark">Schedule | {{list.schedule}}</button>
-              </div>
-          </div>
+          <!--<span class="">{{list.fullname}}</span> -->
+
+            <div *ngIf="list.upcoming_status == 'pending'">
+              <span class="full-name mb-2 col">{{list.fullname}}</span>
+              <button id="btnUpcoming" class="pending" >Pending <span><i class="bi bi-stopwatch"></i></span></button>
+              <button id="btnSched" class="schedule">Schedule | {{list.schedule}}</button>
+           </div>
+           <div *ngIf="list.upcoming_status == 'ongoing'">
+            <span class="full-name mb-2 col">{{list.fullname}}</span>
+             <button id="btnUpcoming" class="join-now" >Join now <span><i class="bi bi-plus-circle-dotted"></i></span></button>
+             <button id="btnSched" class="schedule">Schedule | {{list.schedule}}</button>
+           </div>
         </a>
       </div>
       <div *ngIf="error_message.length>0" class="alert alert-danger" role="alert">
           {{error_message}}
       </div>
-      <div *ngIf="done" class="list-group">
+      <div *ngIf="done" class="list-group list-group-flush mt-3">
           <a routerLink="/patient-doctor-chat" class="list-group-item list-group-item-action">Choi Hyunsuk</a>
       </div>
     </div>
