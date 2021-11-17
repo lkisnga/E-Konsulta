@@ -10,7 +10,10 @@
   padding: 6px;
 }
 
-.bi{
+.bi-camera-video-fill,
+.bi-send-fill,
+.bi-plus-circle-fill
+{
   color: rgb(0, 129, 138);
 }
 
@@ -40,7 +43,7 @@ img.to{
 }
 
 #msg-to{
-  border-radius: 50px;
+  border-radius: 40px;
   font-size: 12px;
   background-color: rgb(0, 129, 138);
   opacity: 0.9;
@@ -53,7 +56,7 @@ img.to{
 
 /*FROM*/
 #msg-from{
-  border-radius: 50px;
+  border-radius: 40px;
   font-size: 12px;
   background-color: rgb(235, 235, 235);
   color: rgb(27, 27, 27);
@@ -63,12 +66,13 @@ img.to{
   clear: both;
 }
 .cont-chat{
-  max-height: 430px !important;
+  height: 430px !important;
   overflow-y: scroll;
 }
 .below{
-  display: inline;
-  border-top: 1px solid black;
+  display: inline-flex;
+  border-top: 1px solid rgb(233, 230, 230);
+  float: right;
 }
 input{
   font-size: 14px;
@@ -77,33 +81,36 @@ input:focus{
   outline: 0;
 }
 
+/*hide choose file*/
+input[type=file]::file-selector-button{
+  display: none;
+}
+/*
 .image-upload > input
 {
   display: none;
-}
+} */
 
 .image-upload i
 {
   width: 80px;
   cursor: pointer;
-  margin-left: 30px;
   margin-right: 5px;
   font-size: 25px;
 }
 .image-upload,
 .right{
   float: left;
-  margin-top: 20px;
 }
 
 .chat-type{
   font-size: 12px;
   padding: 5px 10px;
-  width: 400px;
-  margin-left: 5px;
+  width: 420px;
   display: inline-block;
   border: 0;
   background-color: rgb(235, 235, 235);
+  margin-top: -5px;
 }
 
 .chat-type:focus{
@@ -166,7 +173,7 @@ a:hover{
 
 .second{
   width: 850px;
-  margin: -30px 0 0 -20px;
+  margin: -40px 0 0 -20px;
 }
 
 .third{
@@ -187,4 +194,13 @@ a:hover{
 
 #send-files{
   color: rgb(0, 129, 138);
+}
+
+
+.end{
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: red;
+  padding: 4px 8px;
 }
