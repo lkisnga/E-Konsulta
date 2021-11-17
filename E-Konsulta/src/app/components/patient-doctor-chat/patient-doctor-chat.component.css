@@ -40,7 +40,7 @@ img.to{
 }
 
 #msg-to{
-  border-radius: 50px;
+  border-radius: 40px;
   font-size: 12px;
   background-color: rgb(0, 129, 138);
   opacity: 0.9;
@@ -53,7 +53,7 @@ img.to{
 
 /*FROM*/
 #msg-from{
-  border-radius: 50px;
+  border-radius: 40px;
   font-size: 12px;
   background-color: rgb(235, 235, 235);
   color: rgb(27, 27, 27);
@@ -63,12 +63,13 @@ img.to{
   clear: both;
 }
 .cont-chat{
-  max-height: 430px !important;
+  height: 430px !important;
   overflow-y: scroll;
 }
 .below{
-  display: inline;
-  border-top: 1px solid black;
+  display: inline-flex;
+  border-top: 1px solid rgb(233, 230, 230);
+  float: right;
 }
 input{
   font-size: 14px;
@@ -77,8 +78,14 @@ input:focus{
   outline: 0;
 }
 
+/*
 .image-upload > input
 {
+  display: none;
+}
+*/
+/*hide choose file*/
+input[type=file]::file-selector-button{
   display: none;
 }
 
@@ -93,7 +100,6 @@ input:focus{
 .image-upload,
 .right{
   float: left;
-  margin-top: 20px;
 }
 
 .chat-type{

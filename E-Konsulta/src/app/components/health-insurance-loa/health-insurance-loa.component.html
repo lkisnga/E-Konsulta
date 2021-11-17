@@ -8,8 +8,8 @@
   <div class="col mt-4 mx-3">
     <div class="text-left">
       <div class="btn-group py-3">
-        <button type="button" class="btn btn-outline-info" (click)="pendingFunction()">Pending</button>
-        <button type="button" class="btn btn-outline-info" (click)="doneFunction()">Done</button>
+        <button type="button" class="pending" (click)="pendingFunction()">Pending</button>
+        <button type="button" class="done" (click)="doneFunction()">Done</button>
       </div>
       <div *ngIf="err_message.length > 0" class="alert alert-info">
         {{err_message}}
@@ -36,7 +36,7 @@
         </table>
       </div>
       <div *ngIf="done">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">Date</th>
@@ -51,7 +51,7 @@
               <td>{{list.fullname}}</td>
               <td>{{list.filename}}</td>
               <td>
-                <button (click)="open_LOA(list.file)" class="btn btn-info">View File</button>
+                <button (click)="open_LOA(list.file)" class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
               </td>
             </tr>
           </tbody>

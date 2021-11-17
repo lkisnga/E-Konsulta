@@ -18,10 +18,10 @@
       <div class="col mx-3 mt-4">
         <h5 class="usr py-1">Verification</h5>
         <div class="btn-group">
-          <button (click)="isVerified_Doc('pending')" type="button" class="btn btn-outline-info">Pending</button>
-          <button (click)="isVerified_Doc('verified')" type="button" class="btn btn-outline-info">Verified</button>
+          <button (click)="isVerified_Doc('pending')" type="button" class="pending">Pending</button>
+          <button (click)="isVerified_Doc('verified')" type="button" class="verified">Verified</button>
         </div>
-        <table *ngIf="pending" class="table table-info table striped mt-2">
+        <table *ngIf="pending" class="table striped mt-2">
           <thead>
             <tr>
               <th scope="col">User Email</th>
@@ -44,7 +44,7 @@
             </tr>
           </tbody>
         </table>
-        <table *ngIf="verified" class="table table-info table striped mt-2">
+        <table *ngIf="verified" class="table striped mt-2">
           <thead>
             <tr>
               <th scope="col">User Email</th>
