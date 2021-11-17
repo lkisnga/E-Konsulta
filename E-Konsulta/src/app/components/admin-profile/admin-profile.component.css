@@ -1,10 +1,9 @@
+*{
+  box-sizing: border-box;
+}
 body{
   overflow: hidden;
   font-size: 14px;
-}
-
-*{
-  box-sizing: border-box;
 }
 
 /*col*/
@@ -27,8 +26,7 @@ body{
   margin: 10px 10px 10px 70px;
   cursor: pointer;
   border: 2px solid rgb(0, 129, 138);
-  /*border: 1px solid #999;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;*/
+  border-radius: 5px;
 }
 
 /*label in modal*/
@@ -55,7 +53,7 @@ body{
   color: black;
   display: inline-block;
   border: 1px solid #999;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 5px 27px;
   outline: none;
   white-space: nowrap;
@@ -79,7 +77,7 @@ body{
   display: inline-block;
   border: 1px solid rgb(0, 129, 138);
   color: rgb(0, 129, 138);
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: transparent;
   font-size: 10pt;
   padding: 5px 10px;
@@ -96,7 +94,7 @@ body{
   padding: 4px 125px;
   background-color: rgb(245, 244, 244);
   margin-top: 20px;
-  border-radius: 3px;
+  border-radius: 5px;
   font-weight: 700;
 }
 
@@ -109,7 +107,7 @@ body{
   color: rgb(0, 129, 138);
   font-size: 10pt;
   margin-top: 500px;
-  border-radius: 3px;
+  border-radius: 5px;
   font-weight: 700;
 }
 
@@ -121,7 +119,7 @@ body{
 .add-admin{
   background-color: rgb(245, 244, 244);
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-left: 72px;
   margin-top: 10px;
   padding: 10px 20px;
@@ -137,7 +135,7 @@ body{
 /*information*/
 .info{
   border: 1px solid rgb(207, 207, 207);
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 4px 15px;
 }
 .info-1{
@@ -162,7 +160,7 @@ input:focus{
   outline: 0;
 }
 .info-modal{
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid gray;
 }
 
@@ -174,7 +172,7 @@ input:focus{
   border:none;
   padding: 5px 20px;
   font-size: 10pt;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .cancel,
 .no{
