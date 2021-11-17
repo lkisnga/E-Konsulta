@@ -167,7 +167,29 @@ export class UserService {
       })
     })
   }
-
+  create_schedule(id,info)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Schedule').add({
+      date: info.date
+    })
+  }
+  create_schedule_time(id,sched_id,time,limit)
+  {
+    return this.db.collection('Users').doc(id).collection('Schedule').doc(sched_id).collection('Time')
+    .add({
+      time: time,
+      limit: limit
+    })
+  }
+  schedule_checker(id,date)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Schedule').where('date','==',date).get();
+  }
+  schedule_time_checker(id,sched_id,time)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Schedule').doc(sched_id).collection('Time')
+    .where('time','==',time).get();
+  }
   get_patient_medical(patient_id)
   {
     return this.db.firestore.collection('Medical_Records').where('patient_id','==',patient_id).get();

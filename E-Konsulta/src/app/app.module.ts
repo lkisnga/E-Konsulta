@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -165,6 +165,7 @@ import { PatientPaymentComponent } from './components/patient-payment/patient-pa
     BrowserModule,
     AngularFireStorageModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     ScheduleModule, RecurrenceEditorModule
   ],
   providers: [AuthService, UserService, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService],

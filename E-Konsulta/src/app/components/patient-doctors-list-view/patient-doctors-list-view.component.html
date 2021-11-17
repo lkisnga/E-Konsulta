@@ -7,7 +7,10 @@
       <div class="card-body card-min-size ">
         <div class="card">
           <div class="card-body px-4">
-            <div class="col py-3">Doctor: </div>
+            <div class="col py-3">
+              Doctor: {{docInfo.fullname}}
+              <p>Specialization: {{docInfo.ins}}</p>
+            </div>
               <div id="schedule-container">
                 <div class="wizard-title">Select Schedule</div>
                 <div class="mt-2">
@@ -22,7 +25,9 @@
                       <label>Scheduled Date</label>
                       <small class="text-danger font-weight-bold">*</small>
                       <div class="input-group date" id="datepicker">
-                        <input type="date" class="form-control" id="date"/>
+                        <select id="" class="form-select">
+                            <option value="">test</option>
+                        </select>
                       </div>
                     </div>
                   </div>

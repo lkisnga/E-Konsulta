@@ -12,48 +12,122 @@
     <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
       <app-doctor-sidenav></app-doctor-sidenav>
     </div>
-    <form class="col m-4 p-2" action="">
+    <div class="col m-4 p-2" action="">
       <div class="card-body card-min-size ">
-        <div class="card">
-          <div class="card-body px-4">
-            <div id="schedule-container">
-              <div class="wizard-title">Set Schedule</div>
-              <div class="row mt-4">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>Pick Date</label>
-                    <small class="text-danger font-weight-bold">*</small>
-                    <div class="input-group date" id="datepicker">
-                      <input type="date" class="form-control" id="date"/>
+        <form #form="ngForm" (ngSubmit)="setSchedule(form.value)">
+          <div class="card">
+            <div class="card-body px-4">
+              <div id="schedule-container">
+                <div class="wizard-title">Set Schedule</div>
+                <div class="row mt-4">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Pick Date</label>
+                      <small class="text-danger font-weight-bold">*</small>
+                      <div class="input-group date" id="datepicker">
+                        <input [(ngModel)]="date" name="date" type="date" class="form-control" id="date" min="{{min}}" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Start Time</label>
+                      <small class="text-danger font-weight-bold">*</small>
+                      <select [(ngModel)]="start" name="start" class="form-select required bg-white" id="scheduled_time" required>
+                        <option value="" selected>Select Start Time</option>
+                        <option value="1:00 AM">1:00 AM</option>
+                        <option value="2:00 AM">2:00 AM</option>
+                        <option value="3:00 AM">3:00 AM</option>
+                        <option value="4:00 AM">4:00 AM</option>
+                        <option value="5:00 AM">5:00 AM</option>
+                        <option value="6:00 AM">6:00 AM</option>
+                        <option value="7:00 AM">7:00 AM</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="7:00 PM">7:00 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                        <option value="9:00 PM">9:00 PM</option>
+                        <option value="10:00 PM">10:00 PM</option>
+                        <option value="11:00 PM">11:00 PM</option>
+                        <option value="12:00 AM">12:00 AM</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>End Time</label>
+                      <small class="text-danger font-weight-bold">*</small>
+                      <select [(ngModel)]="end" name="end" class="form-select required bg-white" id="scheduled_time" required>
+                        <option value="" selected>Select End Time</option>
+                        <option value="1:00 AM">1:00 AM</option>
+                        <option value="2:00 AM">2:00 AM</option>
+                        <option value="3:00 AM">3:00 AM</option>
+                        <option value="4:00 AM">4:00 AM</option>
+                        <option value="5:00 AM">5:00 AM</option>
+                        <option value="6:00 AM">6:00 AM</option>
+                        <option value="7:00 AM">7:00 AM</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="7:00 PM">7:00 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                        <option value="9:00 PM">9:00 PM</option>
+                        <option value="10:00 PM">10:00 PM</option>
+                        <option value="11:00 PM">11:00 PM</option>
+                        <option value="12:00 AM">12:00 AM</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Patient Limit</label>
+                      <small class="text-danger font-weight-bold">*</small>
+                      <input [(ngModel)]="limit" name="limit" type="number" class="form-control bg-white" required>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>Pick Time</label>
-                    <small class="text-danger font-weight-bold">*</small>
-                    <select class="form-select required bg-white" id="scheduled_time">
-                      <option value></option>
-                      <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-                      <option value="11:00 AM - 12:00 NN">11:00 AM - 12:00 NN</option>
-                      <option value="12:00 NN - 1:00 PM">12:00 NN - 1:00 PM</option>
-                      <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
-                      <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
-                      <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
-                    </select>
+                <div class="row mt-4">
+                  <div class="col-md-4">
+                    <button type="submit" id="set">Set</button>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </form>
+        <!--THIS IS FOR THE LIST-->
+        <div class="card">
+          <div class="card-body px-4">
+            <div id="schedule-container">
+              <div class="wizard-title">Schedule</div>
+              <div class="row mt-4">
+                
+              </div>
               <div class="row mt-4">
                 <div class="col-md-4">
-                  <button  routerLink="/" id="set">Set</button>
+                  <button  routerLink="/" id="set">Clear</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 
 </body>
