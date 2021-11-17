@@ -23,10 +23,12 @@
       <button type="button" class="add-admin" [routerLink]="['/registration']">ADD ANOTHER ADMIN</button>
     </div>
     <div class="col-4 mt-4 second" *ngIf="authservice.currentUser">
-      <p>User UID: <span class="info info-1">{{authservice.currentUserId}}</span></p>
-      <p>Role: <span class="info info-2">{{userData.role}}</span></p>
-      <p>Name: <span class="info info-3">{{userData.fullname}}</span></p>
-      <p>Email: <span class="info info-4">{{authservice.currentUserName}}</span></p>
+      <div class="information">
+        <p><br> User UID: <span class="info info-1">{{authservice.currentUserId}}</span></p>
+        <p>Role: <span class="info info-2">{{userData.role}}</span></p>
+        <p>Name: <span class="info info-3">{{userData.fullname}}</span></p>
+        <p>Email: <span class="info info-4">{{authservice.currentUserName}}</span></p>
+      </div>
       <button class="edit" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
     </div>
     <div class="col-2 third">

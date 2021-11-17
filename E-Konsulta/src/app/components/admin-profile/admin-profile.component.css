@@ -11,10 +11,16 @@ body{
   margin: 100px 0 200px 20px !important;
 }
 .second{
-  margin-top: 130px !important;
+  margin-top: 120px !important;
   font-size: 14px;
 }
-
+.information{
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  width: 380px;
+  border-radius: 5px;
+  padding: 4px 15px;
+  background-color: #fdfdfd;
+}
 .admin{
   color: rgb(0, 129, 138);
   padding: 12px 4px;
@@ -25,8 +31,8 @@ body{
 .profile-pic{
   margin: 10px 10px 10px 70px;
   cursor: pointer;
-  border: 2px solid rgb(0, 129, 138);
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
 /*label in modal*/
@@ -91,7 +97,7 @@ body{
 .edit{
   color: #333;
   border:none;
-  padding: 4px 125px;
+  padding: 4px 175px;
   background-color: rgb(245, 244, 244);
   margin-top: 20px;
   border-radius: 5px;
@@ -140,6 +146,7 @@ body{
 }
 .info-1{
   margin-left: 10px;
+  margin-top: 5px;
 }
 .info-2{
   margin-left: 35px;
