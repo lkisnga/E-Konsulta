@@ -11,48 +11,46 @@
               Doctor: {{docInfo.fullname}}
               <p>Specialization: {{docInfo.ins}}</p>
             </div>
-              <div id="schedule-container">
-                <div class="wizard-title">Select Schedule</div>
-                <div class="mt-2">
-                  <label>
-                    Please fill in required fields
-                    <small class="text-danger font-weight-bold">*</small>
-                  </label>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Scheduled Date</label>
+              <form #form="ngForm" (ngSubmit)="submit(form.value)">
+                <div id="schedule-container">
+                  <div class="wizard-title">Select Schedule</div>
+                  <div class="mt-2">
+                    <label>
+                      Please fill in required fields
                       <small class="text-danger font-weight-bold">*</small>
-                      <div class="input-group date" id="datepicker">
-                        <select id="" class="form-select">
-                            <option value="">test</option>
+                    </label>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Scheduled Date</label>
+                        <small class="text-danger font-weight-bold">*</small>
+                        <div class="input-group date" id="datepicker">
+                          <select [(ngModel)]="schedule" name="schedule" #date (change)="get_time(date.value)" class="form-select">
+                              <option value="" selected>Select Date</option>
+                              <option *ngFor="let list of scheduleList" value="{{list.uid}}">{{list.date}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Scheduled Time</label>
+                        <small class="text-danger font-weight-bold">*</small>
+                        <select [(ngModel)]="time" name="time" class="form-select required bg-white" id="scheduled_time">
+                          <option value="" selected>Select Time</option>
+                          <option *ngFor="let list of timeList" value="{{list.uid}}">{{list.time}}</option>
                         </select>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Scheduled Time</label>
-                      <small class="text-danger font-weight-bold">*</small>
-                      <select class="form-select required bg-white" id="scheduled_time">
-                        <option value></option>
-                        <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-                        <option value="11:00 AM - 12:00 NN">11:00 AM - 12:00 NN</option>
-                        <option value="12:00 NN - 1:00 PM">12:00 NN - 1:00 PM</option>
-                        <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
-                        <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
-                        <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
-                      </select>
+                  <div class="row mt-4">
+                    <div class="col-md-4">
+                      <button type="submit" id="continue">Continue <span><i class="bi bi-arrow-right"></i></span></button>
                     </div>
                   </div>
                 </div>
-                <div class="row mt-4">
-                  <div class="col-md-4">
-                    <button routerLink="/patient-payment" id="continue">Continue <span><i class="bi bi-arrow-right"></i></span></button>
-                  </div>
-                </div>
-              </div>
+              </form>
           </div>
         </div>
       </div>

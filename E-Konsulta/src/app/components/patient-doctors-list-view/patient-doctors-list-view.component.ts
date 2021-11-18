@@ -15,6 +15,12 @@ export class PatientDoctorsListViewComponent implements OnInit {
   docInfo : any = [];
   userid : any;
 
+  scheduleList : any = [];
+  timeList : any = [];
+
+  schedule : string = "";
+  time : string = "";
+
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -26,7 +32,42 @@ export class PatientDoctorsListViewComponent implements OnInit {
     this.userid = this.afu.get_UID();
     this.docInfo = JSON.parse(localStorage.getItem('data'));
     console.log(this.docInfo);
-  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+    this.get_schedule();
+  }
+
+  get_schedule()
+  {
+    var data;
+    var tempArray= [];
+    this.userservice.get_schedule(this.docInfo.uid).then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.scheduleList = tempArray;
+  }
+  get_time(sched_id)
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_schedule_time(sched_id).then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.timeList = tempArray;
+  }
+
+  submit(info)
+  {
+    console.log(info);
+    //routerLink="/patient-payment"
+  }
 
   booknow()
   {
