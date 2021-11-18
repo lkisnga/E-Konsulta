@@ -14,13 +14,15 @@
 
     <!--2nd column-->
     <div class="col-4 mt-4 first">
-      <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
-      <div class="imagee">
-        <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button>
-        <input type="file" (change)="choosefile($event)" class="custom-file-input">
+      <div class="main-profile">
+        <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
+        <div class="imagee">
+          <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up-fill"></i></button>
+          <input type="file" (change)="choosefile($event)" class="custom-file-input">
+        </div>
+        <h3 class="admin">{{userData.fullname}}</h3>
+        <button type="button" class="add-admin" [routerLink]="['/registration']">ADD ANOTHER ADMIN</button>
       </div>
-      <h3 class="admin">{{userData.fullname}}</h3>
-      <button type="button" class="add-admin" [routerLink]="['/registration']">ADD ANOTHER ADMIN</button>
     </div>
     <div class="col-4 mt-4 second" *ngIf="authservice.currentUser">
       <div class="information">
@@ -28,8 +30,9 @@
         <p>Role: <span class="info info-2">{{userData.role}}</span></p>
         <p>Name: <span class="info info-3">{{userData.fullname}}</span></p>
         <p>Email: <span class="info info-4">{{authservice.currentUserName}}</span></p>
+        <button class="edit" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
       </div>
-      <button class="edit" (click)="editUser()" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+
     </div>
     <div class="col-2 third">
       <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
