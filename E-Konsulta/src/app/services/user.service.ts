@@ -167,29 +167,41 @@ export class UserService {
       })
     })
   }
-  create_schedule(id,info)
+  //SCHEDULE
+  create_schedule(doc_id,info)
   {
-    return this.db.firestore.collection('Users').doc(id).collection('Schedule').add({
-      date: info.date
+    return this.db.firestore.collection('Schedule').add({
+      date: info.date,
+      doctor_id: doc_id
     })
   }
-  create_schedule_time(id,sched_id,time,limit)
+  check_schedule(doc_id,date)
   {
-    return this.db.collection('Users').doc(id).collection('Schedule').doc(sched_id).collection('Time')
-    .add({
-      time: time,
-      limit: limit
+    return this.db.firestore.collection('Schedule').where('doctor_id','==',doc_id).where('date','==',date)
+    .get();
+  }
+  create_schedule_time(sched_id,info)
+  {
+    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').add({
+      time: info.start + '-' + info.end,
+      limit: info.limit
     })
   }
-  schedule_checker(id,date)
+  check_schedule_time(sched_id,info)
   {
-    return this.db.firestore.collection('Users').doc(id).collection('Schedule').where('date','==',date).get();
+    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').
+    where('time','==',info.start + '-' + info.end).get();
   }
-  schedule_time_checker(id,sched_id,time)
+
+  get_schedule(doc_id)
   {
-    return this.db.firestore.collection('Users').doc(id).collection('Schedule').doc(sched_id).collection('Time')
-    .where('time','==',time).get();
+    return this.db.firestore.collection('Schedule').where('doctor_id','==',doc_id).get();
   }
+  get_schedule_time(sched_id)
+  {
+    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').get();
+  }
+  //END OF SCHEDULE
   get_patient_medical(patient_id)
   {
     return this.db.firestore.collection('Medical_Records').where('patient_id','==',patient_id).get();

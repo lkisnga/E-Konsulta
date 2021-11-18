@@ -20,6 +20,9 @@ export class DoctorSetScheduleComponent implements OnInit {
   end : string = "";
   limit : string = "";
 
+  schedule: any = [] ;
+  sched_time : any = [];
+
   constructor(
     public userservice: UserService,
     public afu: AuthService
@@ -27,46 +30,70 @@ export class DoctorSetScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.afu.get_UID();
+    this.get_schedule();
   }
 
   setSchedule(info)
   {
-    var time = info.start + ' - ' + info.end;
-    this.userservice.schedule_checker(this.userId,info.date) // checks if a schedule exist
+    console.log(info);
+    this.userservice.check_schedule(this.userId,info.date)
     .then(e=>{
-      if(e.empty) //if the schedule doesnt exist
-        {
-          this.userservice.create_schedule(this.userId,info).then(()=>{ // create a new Schedule
-            console.log("added!");
-            this.userservice.schedule_checker(this.userId,info.date).then(res=>{ // getting the schedule ID
-              res.forEach(item=>{
-                console.log(info);
-                this.userservice.create_schedule_time(this.userId,item.id,time,info.limit)// Adding Time in Schedule
-                .then(()=>{
-                  console.log('Added Time');
-                })
+      if(e.empty)
+      {
+        this.userservice.create_schedule(this.userId,info).then(()=>{
+          console.log('added schedule!');
+          this.userservice.check_schedule(this.userId,info.date).then(a=>{
+            a.forEach(item=>{
+              this.userservice.create_schedule_time(item.id,info)
+              .then(()=>{
+                this.ngOnInit();
+                console.log('added time!');
               })
             })
           })
-        }
-      else //if a schedule already exist
-        e.forEach(res=>{
-          console.log(info);
-          this.userservice.schedule_time_checker(this.userId,res.id,time).then(a=>{ // checks if a time already exist
+        })
+      }
+      else
+      {
+        e.forEach(sched=>{
+          this.userservice.check_schedule_time(sched.id,info).then(a=>{
             if(a.empty)
             {
-              this.userservice.create_schedule_time(this.userId,res.id,time,info.limit)//Adding Time in Schedule
-              .then(()=>{
-                console.log('Added Time');
+              this.userservice.create_schedule_time(sched.id,info).then(()=>{
+                this.ngOnInit();
+                console.log('added time!');
               })
             }
-            else // if the Time already exist
+            else
             {
-              console.log('Time Already Added!');
+              console.log('Time already exist!');
             }
           })
         })
+      }
     })
+  }
+
+  get_schedule()
+  {
+    var data,data2;
+    var tempArray = [],tempArray2=[];
+    this.userservice.get_schedule(this.userId).then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+        this.userservice.get_schedule_time(item.id).then(as=>{
+          as.forEach(a=>{
+            data2 = a.data();
+            data2.uid= item.id;
+            tempArray2.push(data2);
+          })
+        })
+      })
+    })
+    this.sched_time = tempArray2;
+    this.schedule = tempArray;
   }
 
 }

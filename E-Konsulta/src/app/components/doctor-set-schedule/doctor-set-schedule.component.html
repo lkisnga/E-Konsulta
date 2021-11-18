@@ -116,7 +116,19 @@
             <div id="schedule-container">
               <div class="wizard-title">Schedule</div>
               <div class="row mt-4">
-                
+                <ul class="list-group">
+                  <div *ngFor="let list of schedule">
+                    <li class="list-group-item d-flex justify-content-between align-items-center active">
+                      {{list.date}}
+                    </li>
+                    <div *ngFor="let list2 of sched_time">
+                      <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                        {{list2.time}}
+                        <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      </li>
+                    </div>
+                  </div>
+                </ul>
               </div>
               <div class="row mt-4">
                 <div class="col-md-4">
