@@ -5,20 +5,24 @@
     </div>
     <!--2nd column-->
     <div class="col-4 mt-4 first">
-      <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
-      <div class="imagee">
-        <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button>
-        <input type="file" (change)="choosefile($event)" class="custom-file-input">
+      <div class="main-profile">
+        <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
+        <div class="imagee">
+          <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button>
+          <input type="file" (change)="choosefile($event)" class="custom-file-input">
+        </div>
+        <h3 class="hInsurance">{{info.name}}</h3>
       </div>
-      <h3 class="hInsurance">{{info.name}}</h3>
     </div>
     <div class="col-4 mt-4 second">
-      <p>Health Insurance Name: <span class="info info-1">{{info.name}}</span></p>
-      <p>Branch Name: <span class="info info-2">{{info.branchname}}</span></p>
-      <p>Address: <span class="info info-3">{{info.address}}</span></p>
-      <p>Email: <span class="info info-4">{{info.email}}</span></p>
-      <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
-      <button (click)="editInfo()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+      <div class="information">
+        <p>Health Insurance Name: <span class="info info-1">{{info.name}}</span></p>
+        <p>Branch Name: <span class="info info-2">{{info.branchname}}</span></p>
+        <p>Address: <span class="info info-3">{{info.address}}</span></p>
+        <p>Email: <span class="info info-4">{{info.email}}</span></p>
+        <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
+        <button (click)="editInfo()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+      </div>
     </div>
     <div class="col-2 third">
       <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
