@@ -8,10 +8,10 @@ body{
 
 /*col*/
 .first{
-  margin: 90px 0 200px 20px !important;
+  margin: 80px 0 200px 20px !important;
 }
 .main-profile{
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  /*box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
   width: 320px;
   padding: 20px 15px;
   border-radius: 30px;
@@ -99,7 +99,7 @@ body{
 
 /*buttons*/
 .edit{
-  color: #333;
+  color: rgb(0, 129, 138);
   border:none;
   padding: 4px 158px;
   background-color: rgb(245, 244, 244);
@@ -110,7 +110,7 @@ body{
 }
 
 .logout{
-  color: #333;
+  color: rgb(0, 129, 138);
   border:none;
   padding: 7px 35px;
   margin-right: -20px !important;
@@ -121,12 +121,12 @@ body{
 }
 
 .add-admin{
+  color: rgb(0, 129, 138);
   background-color: rgb(245, 244, 244);
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   font-weight: 700;
-  color: #333;
 }
 
 .add-admin:hover,
