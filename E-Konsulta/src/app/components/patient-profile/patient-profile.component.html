@@ -5,16 +5,18 @@
     </div>
       <!--2nd column-->
       <div class="col-4 mt-4 first">
-        <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
-        <div class="imagee">
-          <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button>
-          <input type="file" (change)="choosefile($event)" class="custom-file-input">
+        <div class="main-profile">
+          <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
+          <div class="imagee">
+            <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button>
+            <input type="file" (change)="choosefile($event)" class="custom-file-input">
+          </div>
+          <h3 class="patient">{{info.fullname}}</h3>
         </div>
-        <h3 class="patient">{{info.fullname}}</h3>
       </div>
       <div class="col-4 mt-4 second">
-        <div>
-          <p>Patient ID: <span class="info info-1">{{userID}}</span></p>
+        <div class="information">
+          <p>Patient ID: <span class="info-1">{{userID}}</span></p>
           <p>Name: <span class="info info-2">{{info.fullname}}</span></p>
           <p>Date of Birth: <span class="info info-3">{{info.dob}}</span></p>
           <p>Email: <span class="info info-4">{{info.email}}</span></p>
