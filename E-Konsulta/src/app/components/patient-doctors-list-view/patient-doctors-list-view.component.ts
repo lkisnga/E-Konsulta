@@ -22,6 +22,7 @@ export class PatientDoctorsListViewComponent implements OnInit {
   schedule : string = "";
   time : string = "";
 
+  error_schedule = "";
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -31,6 +32,8 @@ export class PatientDoctorsListViewComponent implements OnInit {
 
   ngOnInit(): void {
     
+    localStorage.removeItem('schedule');
+
     this.userid = this.afu.get_UID();
     this.docInfo = JSON.parse(localStorage.getItem('data'));
     console.log(this.docInfo);
@@ -67,33 +70,21 @@ export class PatientDoctorsListViewComponent implements OnInit {
 
   submit(info)
   {
-    console.log(info);
-    this.router.navigate(['patient-payment']);
-  }
-
-  booknow()
-  {
-    let record = {};
-    record['doctor_id'] = this.docInfo.uid;
-    record['patient_id'] = this.userid;
-    this.userservice.check_upcoming(this.docInfo.uid,this.userid).then(e=>{
-      if(!e.empty)
-        console.log('not empty!');
-      else
+    if(this.time != "" && this.schedule != "")
+    {
+      if(localStorage.getItem('schedule')==null)
       {
-        this.userservice.create_doctor_upcoming(record);
-        this.create_chat();
+        localStorage.setItem('schedule',JSON.stringify(info));
       }
-    })
-  }
-  create_chat()
-  {
-    this.chats.check_chat(this.docInfo.uid,this.userid).then(e=>{
-      if(e.empty)
-        this.chats.create_chat(this.docInfo.uid,this.userid);
-      else
-        console.log("Chat already exist!");
-    })  
+      this.router.navigate(['patient-payment']);
+    }
+    else
+    {
+      this.error_schedule = "Empty Fields!"
+      setTimeout(() => {
+        this.error_schedule = "";
+      }, 5000);
+    }
   }
 
 }
