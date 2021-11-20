@@ -14,7 +14,7 @@
     </div>
     <div class="col m-4 p-2" action="">
       <div class="card-body card-min-size ">
-        <form #form="ngForm" (ngSubmit)="setSchedule(form.value)">
+        <form #form="ngForm" (ngSubmit)="setSchedule(form.value)" ngNativeValidate>
           <div class="card">
             <div class="card-body px-4">
               <div id="schedule-container">
