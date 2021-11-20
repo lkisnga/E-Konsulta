@@ -201,6 +201,22 @@ export class UserService {
   {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').get();
   }
+  get_scheduleInfo(sched_id)
+  {
+    return this.db.firestore.collection('Schedule').doc(sched_id).get();
+  }
+  get_timeInfo(sched_id,time_id)
+  {
+    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id).get();
+  }
+  patient_book_schedule(sched_id,time_id,userId)
+  {
+    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id)
+    .collection('Reservation').add({
+      patient_id : userId,
+      createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+    })
+  }
   //END OF SCHEDULE
   get_patient_medical(patient_id)
   {
@@ -341,10 +357,11 @@ export class UserService {
   {
     return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id); 
   }
-  update_upcoming(doc_id,patient_id)
+  update_upcoming(upcoming_id)
   {
-    return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id)
-    .where('doctor_id','==',doc_id)
+    return this.db.firestore.collection('upcoming').doc(upcoming_id).update({
+      status: "ongoing"
+    })
   }
 
   create_doctor_upcoming(data)
@@ -355,7 +372,8 @@ export class UserService {
       patient_id: data.patient_id,
       doctor_id: data.doctor_id,
       status: "pending",
-      schedule: formatDate(new Date(),'short','en')
+      schedule: data.schedule,
+      time : data.schedtime
     })
   }
   check_upcoming(doc_id,pat_id)

@@ -24,7 +24,12 @@ export class PatientPaymentComponent implements OnInit {
   error_book : string = "";
 
   docInfo : any = [];
+  schedInfo : any = [];
+
   userId : string = "";
+
+  sched : string = "";
+  schedTime: string = "";
 
   constructor(
     public userservice : UserService,
@@ -35,9 +40,11 @@ export class PatientPaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.docInfo = JSON.parse(localStorage.getItem('data'));
+    this.schedInfo = JSON.parse(localStorage.getItem('schedule'));
     this.userId = this.afu.get_UID();
     console.log(this.docInfo);
     this.paypalButton();
+    this.get_schedule();
 
   }
 
@@ -84,23 +91,28 @@ export class PatientPaymentComponent implements OnInit {
     }
     else
     {
-
+      this.userservice.patient_book_schedule(this.schedInfo.schedule,this.schedInfo.time,this.userId)
+      .then(()=>{
+        let record = {}
+        record['doctor_id'] = this.docInfo.uid;
+        record['patient_id'] = this.userId;
+        record['schedule'] = this.sched;
+        record['schedtime'] = this.schedTime;
+        this.userservice.create_doctor_upcoming(record).then(()=>{
+          console.log('added!');
+          this.create_chat();
+        })
+      })
     }
   }
-  booknow()
+  get_schedule()
   {
-    let record = {};
-    record['doctor_id'] = this.docInfo.uid;
-    record['patient_id'] = this.userId;
-    this.userservice.check_upcoming(this.docInfo.uid,this.userId).then(e=>{
-      if(!e.empty)
-        console.log('not empty!');
-      else
-      {
-        this.userservice.create_doctor_upcoming(record);
-        this.create_chat();
-      }
+    this.userservice.get_scheduleInfo(this.schedInfo.schedule).then(e=>{
+      this.sched= e.data().date;
     })
+    this.userservice.get_timeInfo(this.schedInfo.schedule,this.schedInfo.time).then(res=>{
+      this.schedTime = res.data().time;
+     })
   }
   create_chat()
   {
