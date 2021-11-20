@@ -18,7 +18,7 @@ body{
   z-index: 1;
   background: #FFFFFF;
   margin:auto;
-  box-shadow: 0 0 20px 0 rgba(119, 119, 119, 0.24), 0 5px 5px 0 rgba(112, 112, 112, 0.24);
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 10px 20px;
   margin-bottom: 10px;
 }
@@ -65,7 +65,7 @@ input[type="date"]:valid:before {
 }
 
 .form button:hover,.form button:active,.form button:focus {
-  background: rgb(0, 192, 206);
+  background: rgb(0, 129, 138);
   color: white;
 }
 /*
@@ -127,6 +127,9 @@ select{
   padding: 3px 6px;
   font-size: 12px;
   margin-bottom: 20px;
+}
+select:focus{
+  outline: none;
 }
 .sendButton{
   width: 100%;

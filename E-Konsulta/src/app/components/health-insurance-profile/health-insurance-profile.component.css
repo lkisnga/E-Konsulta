@@ -19,15 +19,15 @@ body{
   text-align: center;
 }
 .second{
-  margin-top: 130px !important;
+  margin-top: 110px !important;
   font-size: 14px;
 }
 
 .information{
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
-  width: 380px;
-  border-radius: 30px;
-  padding: 20px 20px;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  width: 500px;
+  border-radius: 5px;
+  padding: 40px;
 }
 
 .hInsurance{
@@ -104,10 +104,11 @@ body{
 .edit{
   color: rgb(0, 129, 138);
   border:none;
-  padding: 4px 158px;
+  border-radius: 3px;
+  width: 420px;
+  padding: 4px 8px;
   background-color: rgb(245, 244, 244);
   margin-top: 20px;
-  border-radius: 5px;
   font-weight: 700;
   z-index: -1;
 }
@@ -115,6 +116,7 @@ body{
 .logout{
   color: rgb(0, 129, 138);
   border:none;
+  border-radius: 3px;
   padding: 7px 35px;
   margin-right: -20px !important;
   background-color: rgb(245, 244, 244);

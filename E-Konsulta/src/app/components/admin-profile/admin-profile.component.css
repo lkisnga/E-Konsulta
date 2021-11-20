@@ -14,7 +14,6 @@ body{
   /*box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
   width: 320px;
   padding: 20px 15px;
-  border-radius: 30px;
   text-align: center;
 }
 .second{
@@ -22,15 +21,15 @@ body{
   font-size: 14px;
 }
 .information{
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
-  width: 380px;
-  border-radius: 30px;
-  padding: 20px 20px;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  width: 500px;
+  border-radius: 5px;
+  padding: 40px;
 }
 .admin{
   color: rgb(0, 129, 138);
   padding: 10px 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .profile-pic{
   cursor: pointer;
@@ -101,10 +100,11 @@ body{
 .edit{
   color: rgb(0, 129, 138);
   border:none;
-  padding: 4px 158px;
+  border-radius: 3px;
+  padding: 4px 8px;
+  width: 420px;
   background-color: rgb(245, 244, 244);
   margin-top: 20px;
-  border-radius: 5px;
   font-weight: 700;
   z-index: -1;
 }
@@ -112,6 +112,7 @@ body{
 .logout{
   color: rgb(0, 129, 138);
   border:none;
+  border-radius: 3px;
   padding: 7px 35px;
   margin-right: -20px !important;
   background-color: rgb(245, 244, 244);
@@ -124,7 +125,7 @@ body{
   color: rgb(0, 129, 138);
   background-color: rgb(245, 244, 244);
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 10px 20px;
   font-weight: 700;
 }
@@ -138,7 +139,7 @@ body{
 /*information*/
 .info{
   border: 1px solid rgb(207, 207, 207);
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 4px 15px;
 }
 .info-1{
@@ -163,10 +164,6 @@ input{
 input:focus{
   outline: 0;
 }
-.info-modal{
-  border-radius: 5px;
-  border: 1px solid gray;
-}
 
 .cancel,
 .update,
@@ -176,7 +173,7 @@ input:focus{
   border:none;
   padding: 5px 20px;
   font-size: 10pt;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .cancel,
 .no{

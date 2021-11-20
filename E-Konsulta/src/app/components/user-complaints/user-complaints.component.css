@@ -7,10 +7,10 @@ body{
   height: 657px; */
 }
 
-.feedback-page {
+.complain-page {
   width: 500px;
   margin: auto;
-  top: 10px;
+  top: 70px;
   position: relative;
   bottom: 0;
 }
@@ -19,7 +19,7 @@ body{
   z-index: 1;
   background: #FFFFFF;
   margin:auto;
-  box-shadow: 0 0 20px 0 rgba(119, 119, 119, 0.24), 0 5px 5px 0 rgba(112, 112, 112, 0.24);
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 10px 20px;
   margin-bottom: 10px;
 }

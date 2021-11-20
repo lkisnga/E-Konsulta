@@ -4,7 +4,7 @@
      <app-doctor-sidenav></app-doctor-sidenav>
     </div>
       <!--2nd column-->
-      <div class="col-4 mt-4 first">
+      <div class="col-3 mt-4 first">
         <div class="main-profile">
           <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
           <div class="imagee">
@@ -14,9 +14,9 @@
           <h3 class="doctor">{{info.fullname}}</h3>
         </div>
       </div>
-      <div class="col-4 mt-4 second">
+      <div class="col-5 mt-4 second">
         <div class="information">
-          <p> <br> Name: <span class="info info-1">{{info.fullname}}</span></p>
+          <p>Name: <span class="info info-1">{{info.fullname}}</span></p>
           <p>Email: <span class="info info-2">{{info.email}}</span></p>
           <p>Date of Birth: <span class="info info-3">{{info.dob}}</span></p>
           <p>Contact Number: <span class="info info-4">{{info.contact_number}}</span></p>
@@ -24,6 +24,7 @@
           <p>License Number: <span class="info info-6">{{info.license_number}}</span></p>
           <p>Specialization: <span class="info info-7">{{spInfo.name}}</span></p>
           <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button class="cfee" data-bs-toggle="modal" data-bs-target="#cfeeBt">CONSULTATION FEE</button>
         </div>
       </div>
       <div class="col-2 third">
