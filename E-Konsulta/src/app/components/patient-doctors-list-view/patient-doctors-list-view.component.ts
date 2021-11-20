@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { create } from 'domain';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
@@ -24,7 +25,8 @@ export class PatientDoctorsListViewComponent implements OnInit {
   constructor(
     public userservice : UserService,
     public afu : AuthService,
-    public chats : ChatService
+    public chats : ChatService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -66,7 +68,7 @@ export class PatientDoctorsListViewComponent implements OnInit {
   submit(info)
   {
     console.log(info);
-    //routerLink="/patient-payment"
+    this.router.navigate(['patient-payment']);
   }
 
   booknow()
