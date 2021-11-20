@@ -44,6 +44,9 @@
                       </div>
                     </div>
                   </div>
+                  <div *ngIf="error_schedule.length > 0" class="alert alert-danger">
+                    {{error_schedule}}
+                  </div>
                   <div class="row mt-4">
                     <div class="col-md-4">
                       <button type="submit" id="continue">Continue <span><i class="bi bi-arrow-right"></i></span></button>
