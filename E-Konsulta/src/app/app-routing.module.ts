@@ -22,7 +22,6 @@ import { DoctorPaymentsComponent } from './components/doctor-payments/doctor-pay
 import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics/doctor-user-analytics.component';
 import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
 import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
-import { DoctorReservationsComponent } from './components/doctor-reservations/doctor-reservations.component';
 import { PatientConsultationComponent } from './components/patient-consultation/patient-consultation.component';
 import { PatientTransactionHistoryComponent } from './components/patient-transaction-history/patient-transaction-history.component';
 import { PatientRecordsComponent } from './components/patient-records/patient-records.component';
@@ -79,7 +78,6 @@ const routes: Routes = [
   { path: 'doctor-user-analytics', component: DoctorUserAnalyticsComponent},
   { path: 'doctor-transaction-history', component: DoctorTransactionHistoryComponent},
   { path: 'doctor-set-schedule', component: DoctorSetScheduleComponent},
-  { path: 'doctor-reservations', component: DoctorReservationsComponent},
   { path: 'patient-consultation', component: PatientConsultationComponent},
   { path: 'patient-transaction-history', component: PatientTransactionHistoryComponent},
   { path: 'patient-records', component: PatientRecordsComponent},
@@ -147,7 +145,6 @@ export const routingComponents = [
   DoctorUserAnalyticsComponent,
   DoctorTransactionHistoryComponent,
   DoctorSetScheduleComponent,
-  DoctorReservationsComponent,
   PatientConsultationComponent,
   PatientTransactionHistoryComponent,
   PatientRecordsComponent,
