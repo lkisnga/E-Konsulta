@@ -16,12 +16,12 @@
             <div *ngIf="list.upcoming_status == 'pending'">
               <span class="full-name mb-2 col">{{list.fullname}}</span>
               <button id="btnUpcoming" class="pending" >Accept <span><i class="bi bi-check-circle"></i></span></button>
-              <button id="btnSched" class="schedule">Schedule | {{list.schedule}}</button>
+              <button id="btnSched" class="schedule">Schedule | {{list.schedule}} Time | {{list.schedtime}}</button>
            </div>
            <div *ngIf="list.upcoming_status == 'ongoing'">
              <span class="full-name mb-2 col">{{list.fullname}}</span>
              <button id="btnUpcoming" class="join-now" >Join now <span><i class="bi bi-plus-circle-dotted"></i></span></button>
-             <button id="btnSched" class="schedule">Schedule | {{list.schedule}}</button>
+             <button id="btnSched" class="schedule">Schedule | {{list.schedule}} Time | {{list.schedtime}}</button>
            </div>
           </a>
         </div>

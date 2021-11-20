@@ -46,7 +46,6 @@ export class DoctorPatientsComponent implements OnInit {
     console.log(info);
     this.userservice.check_upcoming(this.userId,info.uid).then(e=>{
       e.forEach(res=>{
-        console.log(res.id);
         this.userservice.update_upcoming(res.id).then(()=>{
           this.router.navigate(['/doctor-patient-chat']);
           if(localStorage.getItem('data')==null)
@@ -70,6 +69,7 @@ export class DoctorPatientsComponent implements OnInit {
             data.uid = a.id;
             data.upcoming_status = e.doc.data().status;
             data.schedule = e.doc.data().schedule;
+            data.schedtime = e.doc.data().time;
             data.image = im.data().image;
             //this.userList2$ = data;
             if(e.type == 'added')
