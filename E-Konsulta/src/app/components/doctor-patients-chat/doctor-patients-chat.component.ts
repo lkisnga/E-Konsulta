@@ -40,6 +40,7 @@ export class DoctorPatientsChatComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.userid = this.afu.get_UID();
     this.userservice.get_avatar(this.userid).then(e=>{
       this.imgUrl = e.data().image;
