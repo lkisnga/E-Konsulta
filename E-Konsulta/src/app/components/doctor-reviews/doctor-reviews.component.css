@@ -99,7 +99,7 @@ p.ureply{
   outline: none;
   /*color: rgb(0, 129, 138);*/
   color: gray;
-  margin-left: 695px;
+  float: right;
   font-size: 14px;
 }
 
