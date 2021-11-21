@@ -1,11 +1,9 @@
 body{
   font-size: 14px;
 }
-.addHealth{
-  position:absolute;
-  right: 23px;
-  top: 105px;
-  overflow: hidden;
+
+.content{
+  margin-top: 60px;
 }
 h5{
   color: rgb(0, 129, 138);;

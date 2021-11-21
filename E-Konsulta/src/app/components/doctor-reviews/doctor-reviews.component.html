@@ -20,7 +20,7 @@
               <small>{{list.createdAt}}</small>
             </div>
             <div>
-              <p class="mb-1">{{list.feedback}}</p>
+              <p class="ufeedback">{{list.feedback}}</p>
             </div>
             <div *ngFor="let reply of replyList">
               <div *ngIf="list.from==reply.sent_to" class="reply-to">

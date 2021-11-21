@@ -1,11 +1,10 @@
 body{
   font-size: 14px;
+  overflow: hidden;
 }
-.tbl{
-  margin-left: 200px;
-  margin-top: -45%;
+.content{
+  margin-top: 60px;
 }
-
 h5{
   color: rgb(0, 129, 138);
 }
@@ -22,7 +21,7 @@ h5{
 }
 
 .whole-trans{
-  height: 490px;
+  height: 485px;
   overflow-y: scroll;
   background-color: rgb(238, 238, 238);
   border-radius: 5px;
