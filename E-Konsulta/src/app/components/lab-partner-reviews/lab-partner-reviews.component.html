@@ -25,7 +25,11 @@
             <!--REPLY-->
             <div *ngFor="let reply of replyList">
                 <div *ngIf="list.from==reply.sent_to" class="reply-to">
-                    <h5 class="mb-1"><span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.name}}</h5>
+                    <h5 class="mb-1">
+                      <span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>
+                      {{reply.name}}
+                      <span><button class="trash"><i class="bi bi-trash"></i></button></span>
+                    </h5>
                     <p class="ureply">{{reply.feedback}}</p>
                 </div>
             </div>

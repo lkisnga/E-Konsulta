@@ -106,4 +106,5 @@ p.ureply{
 .trash:hover{
   transform: scale(1.1);
   transition: ease .30s;
+  color: red;
 }

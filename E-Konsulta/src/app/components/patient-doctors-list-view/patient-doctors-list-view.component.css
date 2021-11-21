@@ -26,3 +26,12 @@ body{
 #paymentLabel{
   color: rgb(0, 129, 138);
 }
+
+/*choosing a schedule*/
+select option span{
+  color: green;
+}
+
+.full{
+  color: red;
+}
