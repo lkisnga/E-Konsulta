@@ -96,7 +96,7 @@
       </div>
       <div class="modal-footer">
         <button [routerLink]="['/doctor-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
-        <button [routerLink]="['/']" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
+        <button (click)="logout()" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
       </div>
     </div>
   </div>
@@ -112,11 +112,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <p>Set Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input name="set_fee" type="text" size="45"></p>
+        <p>Set Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="fee" name="fee" type="number" size="45"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="set" data-bs-dismiss="modal">Set</button>
+        <button (click)="update_fee()" type="button" class="set" data-bs-dismiss="modal">Set</button>
       </div>
     </div>
   </div>

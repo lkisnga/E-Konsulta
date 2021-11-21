@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,10 +16,6 @@ declare var paypal;
 export class PatientPaymentComponent implements OnInit {
   @ViewChild('paypal', {static: true}) paypalElement: ElementRef
 
-  product = {
-    price: 777.77,
-    description: 'Doctor Consultation',
-  }
   paidFor: boolean = false;
   unsuc : boolean;
   error_book : string = "";
@@ -58,10 +55,10 @@ export class PatientPaymentComponent implements OnInit {
         return actions.order.create({
           purchase_units: [
             {
-              description: this.product.description,
+              description: "Consultation",
               amount: {
                 currency_code: 'USD',
-                value: this.product.price
+                value: this.docInfo.consultation_fee
               }
             }
           ]
@@ -70,12 +67,26 @@ export class PatientPaymentComponent implements OnInit {
       onApprove: async (data, actions) =>{
         const order = await actions.order.capture();
         this.paidFor = true;
-        console.log(order);
+        console.log(this.sched + this.schedTime);
+        let record = {};
+        record['doctor_name'] = this.docInfo.fullname;
+        record['Specialization'] = this.docInfo.ins;
+        record['patient_id'] = this.userId;
+        record['Schedule'] = this.sched + ' ' + this.schedTime;
+        record['Amount'] = order.purchase_units[0].amount.value;
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.userservice.create_transaction(record).then(()=>{
+          console.log('Added to transaction!');
+        });
       },
       onError: err => {
         this.unsuc = true;
         console.log(err);
-      }
+        this.error_book = "Unsuccessful transaction!!";
+        setTimeout(() => {
+          this.error_book = "";
+        }, 5000);
+        }
     })
     .render(this.paypalElement.nativeElement);
   }
