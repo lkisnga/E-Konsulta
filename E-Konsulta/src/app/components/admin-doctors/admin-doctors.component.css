@@ -15,6 +15,7 @@ h5{
   background-color: rgb(0, 129, 138);
   color: white;
   padding: 4px 12px;
+  
 }
 .pending:hover,
 .verified:hover{

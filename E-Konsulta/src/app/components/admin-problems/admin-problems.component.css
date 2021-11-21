@@ -1,9 +1,9 @@
 body{
   font-size: 14px;
+  overflow: hidden;
 }
-.tbl{
-  margin-left: 200px;
-  margin-top: -45%;
+.content{
+  margin-top: 60px;
 }
 
 h5{

@@ -1,6 +1,9 @@
 body{
   font-size: 14px;
 }
+.content{
+  margin-top: 60px;
+}
 .form-control{
   width: 300px !important;
   margin-bottom: 20px;

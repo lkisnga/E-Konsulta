@@ -1,7 +1,9 @@
 body{
   font-size: 14px;
 }
-
+.content{
+  margin-top: 60px;
+}
 select{
   width: 320px;
   padding: 3px;
