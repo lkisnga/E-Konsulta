@@ -60,23 +60,52 @@ export class PatientDoctorsListViewComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_schedule_time(sched_id).then(e=>{
       e.forEach(item=>{
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
+        this.userservice.reservationChecker(sched_id,item.id).then(res=>{
+          if(res.size >= item.data().limit)
+          {
+            data = item.data();
+            data.uid = item.id;
+            data.status = "full"
+            tempArray.push(data);
+          }
+          else
+          {
+            data = item.data();
+            data.uid = item.id;
+            data.status = "notFull"
+            tempArray.push(data);
+          }
+        })
       })
     })
     this.timeList = tempArray;
+    console.log(this.timeList);
   }
-
   submit(info)
   {
     if(this.time != "" && this.schedule != "")
     {
-      if(localStorage.getItem('schedule')==null)
-      {
-        localStorage.setItem('schedule',JSON.stringify(info));
-      }
-      this.router.navigate(['patient-payment']);
+      this.userservice.reservationChecker(info.schedule,info.time).then(e=>{
+        this.userservice.get_timeInfo(info.schedule,info.time).then(res=>{
+          console.log(e.size + ' ' + res.data().limit);
+          if(e.size >= res.data().limit)
+          {
+            this.error_schedule = "Schedule Full!"
+            setTimeout(() => {
+              this.error_schedule = "";
+            }, 5000);
+          }
+          else
+          {
+            console.log('You can add!');
+            if(localStorage.getItem('schedule')==null)
+            {
+              localStorage.setItem('schedule',JSON.stringify(info));
+            }
+            this.router.navigate(['patient-payment']);
+          }
+        })
+      })
     }
     else
     {

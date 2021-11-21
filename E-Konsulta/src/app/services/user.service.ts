@@ -209,6 +209,11 @@ export class UserService {
   {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id).get();
   }
+  reservationChecker(sched_id,time_id)
+  {
+    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id)
+    .collection('Reservation').get();
+  }
   patient_book_schedule(sched_id,time_id,userId)
   {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id)

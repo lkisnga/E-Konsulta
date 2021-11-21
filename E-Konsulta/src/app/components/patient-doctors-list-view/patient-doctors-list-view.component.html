@@ -39,7 +39,15 @@
                         <small class="text-danger font-weight-bold">*</small>
                         <select [(ngModel)]="time" name="time" class="form-select required bg-white" id="scheduled_time">
                           <option value="" selected>Select Time</option>
-                          <option *ngFor="let list of timeList" value="{{list.uid}}">{{list.time}}</option>
+                          <option *ngFor="let list of timeList" value="{{list.uid}}">
+                            {{list.time}}
+                            <span *ngIf="list.status!='full'">
+                                notfull
+                            </span>
+                            <span *ngIf="list.status=='full'">
+                                full
+                          </span>
+                          </option>
                         </select>
                       </div>
                     </div>
