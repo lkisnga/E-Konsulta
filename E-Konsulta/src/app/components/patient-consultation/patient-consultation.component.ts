@@ -13,6 +13,7 @@ export class PatientConsultationComponent implements OnInit {
   userid : any;
 
   docList: any = [];
+  doneList : any = [];
 
   error_message: string = ""
 
@@ -41,6 +42,7 @@ export class PatientConsultationComponent implements OnInit {
 
     this.userid = this.afu.get_UID();
     this.get_upcoming();
+    this.get_done();
   }
 
   chat(info)
@@ -91,6 +93,22 @@ export class PatientConsultationComponent implements OnInit {
     })
     this.docList = tempArray;
      console.log(this.docList);
+  }
+  get_done()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_patient_consultation(this.userid).then(e=>{
+      e.forEach(item=>{
+        this.userservice.get_UserInfo(item.data().doctor_id).then(a=>{
+          data = item.data();
+          data.fullname = a.data().fullname
+          tempArray.push(data);
+        })
+      })
+    })
+    this.doneList = tempArray;
+    console.log(this.doneList);
   }
 
 }

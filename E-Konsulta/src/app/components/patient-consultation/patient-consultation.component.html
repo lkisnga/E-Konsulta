@@ -28,7 +28,11 @@
           {{error_message}}
       </div>
       <div *ngIf="done" class="list-group list-group-flush mt-3">
-          <a routerLink="/patient-doctor-chat" class="list-group-item list-group-item-action">Choi Hyunsuk</a>
+          <a *ngFor="let list of doneList" class="list-group-item list-group-item-action">
+            <span class="full-name mb-2 col">{{list.fullname}}</span>
+              <button id="btnUpcoming" class="join-now" >Done <span><i class="bi bi-plus-circle-dotted"></i></span></button>
+              <button id="btnSched" class="schedule">Schedule | {{list.schedule}} Time | {{list.schedtime}}</button>
+          </a>
       </div>
     </div>
   </div>

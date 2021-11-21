@@ -389,6 +389,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id).get();
   }
+  get_patient_consultation(patient_id)
+  {
+    return this.db.firestore.collection('Consultation').where('patient_id','==',patient_id).get();
+  }
   create_doctor_upcoming(data)
   {
     return this.db.firestore.collection('upcoming')
