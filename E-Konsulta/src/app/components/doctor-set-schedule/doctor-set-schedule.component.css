@@ -19,3 +19,8 @@
   background-color: rgb(0, 129, 138);
   color: white;
 }
+
+#schedule{
+  height: 200px;
+  overflow-y: scroll;
+}
