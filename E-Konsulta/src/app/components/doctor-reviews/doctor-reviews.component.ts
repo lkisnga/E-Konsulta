@@ -67,6 +67,7 @@ export class DoctorReviewsComponent implements OnInit {
           res.forEach(a=>{
             data2 = a.data();
             data2.uid = a.id;
+            data2.review_id = item.id;
             tempArray2.push(data2);
           })
         })
@@ -75,6 +76,16 @@ export class DoctorReviewsComponent implements OnInit {
       })
     })
     this.fList = tempArray;
+  } 
+
+  remove_reply(info)
+  {
+    console.log(info);
+    this.userservice.remove_doctorReply(this.userId,info.review_id,info.uid)
+    .then(()=>{
+      console.log('Deleted!');
+      this.ngOnInit();
+    })
   }
 
 }
