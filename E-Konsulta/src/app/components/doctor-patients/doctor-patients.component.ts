@@ -16,6 +16,8 @@ export class DoctorPatientsComponent implements OnInit {
   userList2$ : Observable<any>;
   userId : string = "";
 
+  doneList : any = [];
+
   constructor(
     public userservice : UserService,
     public router : Router,
@@ -39,6 +41,7 @@ export class DoctorPatientsComponent implements OnInit {
     this.userId = this.afu.get_UID();
     localStorage.removeItem('data');
     this.get_userInfo();
+    this.get_userDoneInfo();
   }
 
   chat(info)
@@ -68,10 +71,10 @@ export class DoctorPatientsComponent implements OnInit {
             data = a.data();
             data.uid = a.id;
             data.upcoming_status = e.doc.data().status;
+            data.upcoming_id = e.doc.id;
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
             data.image = im.data().image;
-            //this.userList2$ = data;
             if(e.type == 'added')
              tempArray.push(data);
             else if(e.type == 'modified')
@@ -84,5 +87,24 @@ export class DoctorPatientsComponent implements OnInit {
       })
     })
     this.userList = tempArray;
+  }
+
+  get_userDoneInfo()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_consultation(this.userId).then(e=>{
+      e.forEach(item=>{
+        console.log(item.data());
+        this.userservice.get_UserInfo(item.data().patient_id).then(a=>{
+          data = a.data();
+          data.schedule = item.data().schedule;
+          data.schedtime = item.data().time;
+          tempArray.push(data);
+        })
+      })
+    })
+    this.doneList = tempArray;
+    console.log(this.doneList);
   }
 }

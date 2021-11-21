@@ -374,6 +374,21 @@ export class UserService {
     })
   }
 
+  get_upcoming(upcoming_id)
+  {
+    return this.db.firestore.collection('upcoming').doc(upcoming_id).get();
+  }
+  remove_upcoming(upcoming_id)
+  {
+    return this.db.firestore.collection('upcoming').doc(upcoming_id).delete();
+  }
+  create_consultation(record){
+    return this.db.firestore.collection('Consultation').add(record);
+  }
+  get_consultation(doctor_id)
+  {
+    return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id).get();
+  }
   create_doctor_upcoming(data)
   {
     return this.db.firestore.collection('upcoming')

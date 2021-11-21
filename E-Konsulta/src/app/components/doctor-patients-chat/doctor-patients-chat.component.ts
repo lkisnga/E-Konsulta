@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -134,4 +135,25 @@ export class DoctorPatientsChatComponent implements OnInit {
   {
     window.open('/video-call','_blank','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
   }
+
+  finish_consultation()
+  {
+    let record = {};
+    this.userservice.get_upcoming(this.patientInfo.upcoming_id).then(e=>{
+      record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+      record['doctor_id'] = e.data().doctor_id;
+      record['patient_id'] = e.data().patient_id;
+      record['schedule'] = e.data().schedule;
+      record['status'] = "done";
+    }).then(()=>{
+      this.userservice.remove_upcoming(this.patientInfo.upcoming_id).then(()=>{
+        console.log('Upcoming removed!')
+      }).then(()=>{
+        this.userservice.create_consultation(record).then(()=>{
+          console.log('Consultation Record Created!');
+        })
+      })
+    });
+  }
+
 }
