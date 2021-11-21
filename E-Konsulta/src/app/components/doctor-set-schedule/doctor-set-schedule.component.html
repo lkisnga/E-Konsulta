@@ -12,7 +12,7 @@
     <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
       <app-doctor-sidenav></app-doctor-sidenav>
     </div>
-    <div class="col m-4 p-2" action="">
+    <div class="col m-3 p-2" action="">
       <div class="card-body card-min-size ">
         <form #form="ngForm" (ngSubmit)="setSchedule(form.value)" ngNativeValidate>
           <div class="card">
@@ -20,7 +20,7 @@
               <div id="schedule-container">
                 <div class="wizard-title">Set Schedule</div>
                 <div class="row mt-4">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label>Pick Date</label>
                       <small class="text-danger font-weight-bold">*</small>
@@ -29,7 +29,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label>Start Time</label>
                       <small class="text-danger font-weight-bold">*</small>
@@ -61,6 +61,8 @@
                         <option value="12:00 AM">12:00 AM</option>
                       </select>
                     </div>
+                  </div>
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label>End Time</label>
                       <small class="text-danger font-weight-bold">*</small>
@@ -93,7 +95,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label>Patient Limit</label>
                       <small class="text-danger font-weight-bold">*</small>
@@ -111,12 +113,12 @@
           </div>
         </form>
         <!--THIS IS FOR THE LIST-->
-        <div class="card">
+        <div class="card mt-2">
           <div class="card-body px-4">
             <div id="schedule-container">
               <div class="wizard-title">Schedule</div>
               <div class="row mt-4">
-                <ul class="list-group">
+                <ul class="list-group" id="schedule">
                   <div *ngFor="let list of schedule">
                     <li class="list-group-item d-flex justify-content-between align-items-center active">
                       {{list.date}}
