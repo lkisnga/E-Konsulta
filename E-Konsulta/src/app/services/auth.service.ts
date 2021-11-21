@@ -237,6 +237,7 @@ export class AuthService {
       license_number: this.newUser.license_number,
       specialization: this.newUser.specialization,
       dob: this.newUser.dob,
+      consultation_fee : 0,
       createdAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       status: 'active',
@@ -300,6 +301,7 @@ export class AuthService {
   {
     this.afu.signOut();
     localStorage.removeItem('Users');
+    localStorage.removeItem('data');
     this.router.navigate(['/landing']);
   }
 }

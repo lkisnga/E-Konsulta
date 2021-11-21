@@ -299,6 +299,11 @@ export class UserService {
     return this.db.firestore.collection('Users').doc(id).collection('reviews').doc(review_id)
     .collection('reply').get();
   }
+  remove_doctorReply(id,review_id,reply_id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').doc(reply_id).delete();
+  }
   get_Doctor_Reviews(id)
   {
     return this.db.firestore.collection('Users').doc(id).collection('reviews')
@@ -549,6 +554,10 @@ export class UserService {
       console.log(error);
     })
   }
+  update_doctor_fee(user_id,fee)
+  {
+    return this.db.firestore.collection('Users').doc(user_id).update(fee);
+  }
   update_patient_insurance(user_id,record)
   {
     return this.db.collection('Users').doc(user_id).update(record);
@@ -630,4 +639,16 @@ export class UserService {
       console.log(error.message);
     })
   }
+
+  create_transaction(record)
+  {
+    return this.db.firestore.collection('Transaction').add(record);
+  }
+  get_patient_transaction(patient_id)
+  {
+    return this.db.firestore.collection('Transaction').where('patient_id','==',patient_id).get();
+  }
+
+
+
 }

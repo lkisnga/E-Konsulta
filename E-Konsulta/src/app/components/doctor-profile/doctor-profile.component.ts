@@ -30,13 +30,16 @@ export class DoctorProfileComponent implements OnInit {
   imgUrl : any;
   file : any;
 
+  fee : number = 0;
+
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
     
     this.userId = this.afu.get_UID();
     this.userservice.get_patientInfo(this.userId).then(e=>{
-     // console.log(e.data());
+      console.log(e.data());
+     this.fee = e.data().consultation_fee;
       this.info = e.data();
     }).then(()=>{
       this.userservice.get_specializationInfo(this.info.specialization).then(e=>{
@@ -87,6 +90,19 @@ export class DoctorProfileComponent implements OnInit {
       this.ngOnInit();
       alert("Updated successfully!");
     })
+  }
+  update_fee()
+  {
+    let record = {}
+    record["consultation_fee"] = this.fee;
+    this.userservice.update_doctor_fee(this.userId,record).then(()=>{
+      console.log('Updated!');
+    })
+  }
+
+  logout()
+  {
+    this.afu.signout();
   }
 
 }
