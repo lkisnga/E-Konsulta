@@ -101,7 +101,9 @@ textarea{
   padding: 8px;
   margin-top: 10px;
 }
-
+textarea:focus{
+  outline: 0;
+}
 label{
   font-size: 12px;
 }
@@ -150,7 +152,6 @@ select{
   color: white;
   background-color: rgb(0, 129, 138);
 }
-
 .image{
   margin: 10px 0 10px 160px;
 }
