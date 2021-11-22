@@ -36,8 +36,7 @@
 
     </div>
     <div class="col-2 third">
-      <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT <span><i class="bi bi-box-arrow-right"></i></span></button>
-      <button class="deletion"> ACCOUNT DELETION <span><i class="bi bi-exclamation-circle"></i></span></button>
+      <button class="logout" id="logout" data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT <span><i class="bi bi-box-arrow-right"></i></span></button>
     </div>
   </div>
 
@@ -51,11 +50,11 @@
       </div>
       <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
       <div class="modal-body">
-        Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" class="info-modal" type="text" size="47" name="role" readonly> <br><br>
-        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" class="info-modal" type="text" size="47" name="fullname"> <br><br>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" class="info-modal" type="text" size="47" name="email"> <br><br>
-        Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" class="info-modal" type="text" size="47" name="password"><br><br>
-
+        <p>Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" class="info-modal" type="text" size="47" name="role" readonly></p>
+        <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" class="info-modal" type="text" size="47" name="fullname"></p>
+        <p>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" class="info-modal" type="text" size="47" name="email"></p>
+        <p>Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" class="info-modal" type="text" size="47" name="password"></p>
+        <button class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION <span><i class="bi bi-exclamation-circle"></i></span></button>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -87,6 +86,28 @@
 </div>
 <!--end of logout modal-->
 
+<!--start of deletion modal-->
+<div class="modal" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Account Deletion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="deletion-content">This is permanent. When you delete this account, you won't be able to retrieve the content or information.
+          Your chat,  transactions and medical records will also be deleted.</p>
+        <p>Are you sure you want to delete your account?</p>
+      </div>
+      <div class="modal-footer">
+        <button [routerLink]="['/admin-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
+        <button type="button" class="yes" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--end of deletion modal-->
 
 </body>
 </html>

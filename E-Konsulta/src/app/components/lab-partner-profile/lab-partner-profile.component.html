@@ -8,8 +8,8 @@
         <div class="main-profile">
           <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
           <div class="imagee">
-            <button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button>
             <input type="file" (change)="choosefile($event)" class="custom-file-input">
+            <span><button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up"></i></button></span>
           </div>
           <h3 class="lab">{{info.name}}</h3>
         </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-2 third">
-        <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT </button>
+        <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT <span><i class="bi bi-box-arrow-right"></i></span></button>
       </div>
   </div>
 <!--Edit Modal-->
@@ -59,6 +59,7 @@
             Contact #: &nbsp;&nbsp;&nbsp;&nbsp;
             <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="47">
           </p>
+          <button class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION <span><i class="bi bi-exclamation-circle"></i></span></button>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -88,3 +89,25 @@
   </div>
 </div>
 <!--end of logout modal-->
+
+<!--start of deletion modal-->
+<div class="modal" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Account Deletion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="deletion-content">This is permanent. When you delete this account, you won't be able to retrieve the content or information.
+          Your chat,  transactions and medical records will also be deleted.</p>
+        <p>Are you sure you want to delete your account?</p>
+      </div>
+      <div class="modal-footer">
+        <button [routerLink]="['/lab-partner-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
+        <button type="button" class="yes" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of deletion modal-->

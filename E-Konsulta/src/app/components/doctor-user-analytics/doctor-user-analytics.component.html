@@ -17,21 +17,22 @@
       </div>
       <div class="col mt-4">
         <h5 class="usr">Patients Analytics</h5>
-        <div class="text-left py-1">
-          <div class="btn-group my-2">
-            <button type="button" class="daily" (click)="dailyFunction()">Daily</button>
-            <button type="button" class="weekly" (click)="weeklyFunction()">Weekly</button>
-            <button type="button" class="monthly" (click)="monthlyFunction()">Monthly</button>
+        <div class="column">
+          <div class="card">
+            <h6 class="daily">Daily</h6>
+            <div class="card-body">
+              <small>Total Users</small>
+              <p class="card-text">0</p>
+            </div>
           </div>
-
-          <div *ngIf="daily">
-            These are the consultations made daily.
-          </div>
-          <div *ngIf="weekly">
-            These are the consultations made weekly.
-          </div>
-          <div *ngIf="monthly">
-            These are the consultations made monthly.
+        </div>
+        <div class="column">
+          <div class="card">
+            <h6 class="total">Total Consultations</h6>
+            <div class="card-body">
+              <small style="visibility: hidden;">Total Users</small>
+              <p class="card-text">0</p>
+            </div>
           </div>
         </div>
       </div>
