@@ -59,23 +59,23 @@ textarea:focus{
 /*submit1 Button*/
 .add{
   border: 1px solid rgb(0, 129, 138);
-  border-radius: 200px;
+  border-radius: 5x;
   text-decoration: none;
   outline: none;
   color: rgb(0, 129, 138);
   background-color: transparent;
-  padding: 2px 10px;
+  padding: 4px 10px;
   cursor: pointer;
   text-align: center !important;
 }
 .cancel{
   border: 1px solid red;
-  border-radius: 200px;
+  border-radius: 5px;
   text-decoration: none;
   outline: none;
   color: red;
   background-color: transparent;
-  padding: 2px 10px;
+  padding: 4px 10px;
   cursor: pointer;
   text-align: center !important;
 }

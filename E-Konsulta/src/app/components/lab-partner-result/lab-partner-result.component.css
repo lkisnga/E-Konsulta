@@ -23,7 +23,7 @@ body{
 
 /*content*/
 .list-group-item{
-  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   color: gray !important;
   font-size: 12px;
   margin-bottom: 10px;
@@ -34,6 +34,17 @@ body{
   left: 280px;
   top: 100px;
   overflow: hidden;
+}
+.addr{
+  border: none;
+  color: white;
+  background-color: rgb(0, 129, 138);
+  border-radius: 5px;
+  padding: 4px 12px;
+}
+.addr:hover{
+  background-color: rgb(235, 233, 233);
+  color: rgb(0, 129, 138);
 }
 
 input{
@@ -47,4 +58,35 @@ select{
 
 .btn, ::placeholder{
   font-size: 14px !important;
+}
+
+.modal-title{
+  color: rgb(0, 129, 138);
+}
+.cancel{
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: transparent;
+  color: red;
+}
+.cancel:hover{
+  color: white;
+  background-color: red;
+}
+.submit{
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(0, 129, 138);
+}
+.submit:hover{
+  color: white;
+  background-color: rgb(0, 129, 138);
+}
+.cancel,
+.submit{
+  padding: 4px 8px;
+}
+.input:focus{
+  outline: 0;
 }
