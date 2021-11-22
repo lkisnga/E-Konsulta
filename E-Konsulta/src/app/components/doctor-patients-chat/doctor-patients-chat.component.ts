@@ -133,7 +133,7 @@ export class DoctorPatientsChatComponent implements OnInit {
   }
   video_call()
   {
-    window.open('/video-call','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
+    window.open('/video-call','_blank','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
   }
 
   finish_consultation()
