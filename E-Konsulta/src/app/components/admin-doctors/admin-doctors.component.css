@@ -8,18 +8,30 @@ body{
 }
 h5{
   color: rgb(0, 129, 138);
+  margin-top: 70px;
 }
 
-.pending, .verified{
+.pending{
   border: 1px solid white;
   background-color: rgb(0, 129, 138);
   color: white;
   padding: 4px 12px;
-  
+
 }
-.pending:hover,
-.verified:hover{
+.verified{
+  border: 1px solid white;
+  background-color: red;
+  color: white;
+  padding: 4px 12px;
+
+}
+.pending:hover{
   color: rgb(0, 129, 138);
+  background-color: rgb(235, 233, 233);
+}
+
+.verified:hover{
+  color: red;
   background-color: rgb(235, 233, 233);
 }
 .pending:active,
