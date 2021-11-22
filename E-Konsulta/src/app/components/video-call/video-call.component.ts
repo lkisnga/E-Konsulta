@@ -192,4 +192,8 @@ export class VideoCallComponent implements AfterViewInit {
       else
         this.audio.pause();
     } 
+    end_call()
+    {
+      window.close();
+    }
 }
