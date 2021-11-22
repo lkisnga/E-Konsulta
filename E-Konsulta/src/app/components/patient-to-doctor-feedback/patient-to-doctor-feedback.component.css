@@ -48,20 +48,47 @@ body{
 }
 
 /*reply*/
-textarea {
-	width: 100%;
-	border: 1px solid gray;
-  outline: none;
-	padding: 5px 10px;
-	height: 20%;
-	border-radius: 5px 5px 0px 0px;
-	border-bottom: 1px solid gray;
-	transition: all 0.5s;
+textarea{
+  padding: 10px;
   font-size: 12px;
 }
-.btn{
-  font-size: 14px !important;
+textarea:focus{
+  outline: 0;
 }
+
+/*submit1 Button*/
+.add{
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  color: rgb(0, 129, 138);
+  background-color: transparent;
+  padding: 4px 10px;
+  cursor: pointer;
+  text-align: center !important;
+}
+.cancel{
+  border: 1px solid red;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  color: red;
+  background-color: transparent;
+  padding: 4px 10px;
+  cursor: pointer;
+  text-align: center !important;
+}
+
+.add:hover{
+  color: white;
+  background-color: rgb(0, 129, 138);
+}
+.cancel:hover{
+  color: white;
+  background-color: red;
+}
+
 
 .submit{
   margin-top: 5px;
@@ -92,4 +119,8 @@ p.ureply{
   border-radius: 25px;
   width: 100%;
   margin-bottom: 5px;
+}
+
+.modal-title{
+  color: rgb(0, 129, 138);
 }
