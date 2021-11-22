@@ -195,5 +195,8 @@ export class VideoCallComponent implements AfterViewInit {
     end_call()
     {
       window.close();
+      this.db.firestore.collection('calls').doc(this.callInput).delete().then(()=>{
+        console.log('call deleted');
+      });
     }
 }
