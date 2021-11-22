@@ -1,13 +1,12 @@
 body{
   font-size: 14px;
 }
-
 .usr{
-  color: rgb(0, 192, 206);
+  color: rgb(0, 129, 138);
 }
 
 .list-group-item{
-  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   color: gray !important;
   font-size: 12px;
 }
