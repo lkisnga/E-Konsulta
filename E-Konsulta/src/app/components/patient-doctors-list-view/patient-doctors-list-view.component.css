@@ -5,6 +5,10 @@ body{
   box-sizing: border-box;
 }
 
+.card{
+  margin-top: 70px;
+}
+
 .wizard-title{
   font-size: 24px;
   color: rgb(0, 129, 138);
