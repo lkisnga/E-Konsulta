@@ -59,7 +59,7 @@ textarea:focus{
 /*submit1 Button*/
 .add{
   border: 1px solid rgb(0, 129, 138);
-  border-radius: 5px;
+  border-radius: 200px;
   text-decoration: none;
   outline: none;
   color: rgb(0, 129, 138);
@@ -70,7 +70,7 @@ textarea:focus{
 }
 .cancel{
   border: 1px solid red;
-  border-radius: 5px;
+  border-radius: 200px;
   text-decoration: none;
   outline: none;
   color: red;
