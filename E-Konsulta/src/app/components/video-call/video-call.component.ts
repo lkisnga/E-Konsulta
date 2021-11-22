@@ -77,11 +77,10 @@ export class VideoCallComponent implements AfterViewInit {
   }
 
   startLocalVideo():void{
-    /*
     this.localStream.getTracks().forEach(track=>{
       track.enabled = true;
     });
-    this.localVideo.nativeElement.srcObject = this.localStream;*/
+    this.localVideo.nativeElement.srcObject = this.localStream;
   }
   //Create Call
   async Call(): Promise<void> {
