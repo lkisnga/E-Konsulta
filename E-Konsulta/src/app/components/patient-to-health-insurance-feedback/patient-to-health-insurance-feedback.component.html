@@ -45,11 +45,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
         <div class="modal-body">
-          <textarea [(ngModel)]="feedback" name="feedback" id="" cols="50" rows="5" placeholder="...."></textarea>
+          <textarea [(ngModel)]="feedback" name="feedback" id="" cols="70" rows="5" placeholder="Write a reply...."></textarea>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="add_feedback()" type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+          <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="add_feedback()" type="submit" class="add" data-bs-dismiss="modal">Add</button>
         </div>
     </div>
   </div>
