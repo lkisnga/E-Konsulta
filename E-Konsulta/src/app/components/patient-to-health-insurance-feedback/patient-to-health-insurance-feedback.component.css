@@ -31,7 +31,7 @@ body{
 
 /*content*/
 .list-group-item{
-  box-shadow: 0 4px 4px 0 rgba(146, 146, 146, 0.245), 0 6px 20px 0 rgba(104, 104, 104, 0.20);
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   color: gray !important;
   font-size: 12px;
   margin-bottom: 5px;
@@ -48,19 +48,48 @@ body{
 }
 
 /*reply*/
-textarea {
-	width: 100%;
-	border: 1px solid gray;
-  outline: none;
-	padding: 5px 10px;
-	height: 20%;
-	border-radius: 5px 5px 0px 0px;
-	border-bottom: 1px solid gray;
-	transition: all 0.5s;
+textarea{
+  padding: 10px;
   font-size: 12px;
 }
-.btn{
-  font-size: 14px !important;
+textarea:focus{
+  outline: 0;
+}
+
+/*submit1 Button*/
+.add{
+  border: 1px solid rgb(0, 129, 138);
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  color: rgb(0, 129, 138);
+  background-color: transparent;
+  padding: 4px 10px;
+  cursor: pointer;
+  text-align: center !important;
+}
+.cancel{
+  border: 1px solid red;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  color: red;
+  background-color: transparent;
+  padding: 4px 10px;
+  cursor: pointer;
+  text-align: center !important;
+}
+
+.add:hover{
+  color: white;
+  background-color: rgb(0, 129, 138);
+}
+.cancel:hover{
+  color: white;
+  background-color: red;
+}
+.modal-title{
+  color: rgb(0, 129, 138);
 }
 
 .submit{
