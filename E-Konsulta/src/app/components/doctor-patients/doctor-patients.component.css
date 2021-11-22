@@ -4,15 +4,24 @@
 .usr{
   color: rgb(0, 129, 138);
 }
-.up, .done{
+.up{
   border: 1px solid white;
   background-color: rgb(0, 129, 138);
   color: white;
   padding: 4px 12px;
 }
-.up:hover,
-.done:hover{
+.done{
+  border: 1px solid white;
+  background-color: red;
+  color: white;
+  padding: 4px 12px;
+}
+.up:hover{
   color: rgb(0, 129, 138);
+  background-color: rgb(235, 233, 233);
+}
+.done:hover{
+  color: red;
   background-color: rgb(235, 233, 233);
 }
 .up:active,
