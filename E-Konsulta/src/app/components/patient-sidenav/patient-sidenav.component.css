@@ -2,7 +2,7 @@
 #sidenav{
   background-color: rgb(0, 129, 138);
   width: 190px;
-  position: sticky;
+  position: fixed;
   z-index: 99;
   font-size: 14px;
 }

@@ -20,9 +20,19 @@
   color: white;
   padding: 4px 12px;
 }
+.done{
+  border: 1px solid white;
+  background-color: red;
+  color: white;
+  padding: 4px 12px;
+}
 .up:hover,
 .done:hover{
   color: rgb(0, 129, 138);
+  background-color: rgb(235, 233, 233);
+}
+.done:hover{
+  color: red;
   background-color: rgb(235, 233, 233);
 }
 .up:active,
