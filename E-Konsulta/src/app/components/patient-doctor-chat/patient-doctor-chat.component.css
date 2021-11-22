@@ -4,6 +4,9 @@
 .patient-center{
   margin-top: 50px;
 }
+.col{
+  margin-top: 50px !important;
+}
 
 .user{
   color: rgb(0, 129, 138);
@@ -63,8 +66,9 @@ img.to{
   clear: both;
 }
 .cont-chat{
-  height: 430px !important;
+  height: 450px !important;
   overflow-y: scroll;
+
 }
 .below{
   display: inline-flex;
@@ -107,6 +111,7 @@ input[type=file]::file-selector-button{
   padding: 5px 10px;
   width: 400px;
   margin-left: 5px;
+  margin-top: 10px;
   display: inline-block;
   border: 0;
   background-color: rgb(235, 235, 235);
