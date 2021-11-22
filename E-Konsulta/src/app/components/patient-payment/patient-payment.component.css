@@ -2,20 +2,16 @@
 {
   box-sizing: border-box;
 }
+.pay{
+  width: 400px;
+  margin: auto;
+}
 .wizard-title{
   font-size: 24px;
   color: rgb(0, 129, 138);
 }
-#gcash, #credit{
-  color: white;
-  background-color: rgb(0, 129, 138);
-  border: none;
-  border-radius: 3px;
-  padding: 3px 12px;
-}
-
-#gcash:hover, #credit:hover{
-  background-color: rgb(2, 148, 158);
+.card{
+  margin-top: 30px;
 }
 #submit{
   color: rgb(0, 129, 138);

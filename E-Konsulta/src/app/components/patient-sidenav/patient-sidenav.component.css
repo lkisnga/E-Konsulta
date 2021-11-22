@@ -5,6 +5,7 @@
   position: fixed;
   z-index: 99;
   font-size: 14px;
+  margin-top: 60px;
 }
 
 .nav-link{
