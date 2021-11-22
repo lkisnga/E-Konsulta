@@ -10,10 +10,11 @@
 </div>
 <div class="bg-dark row">
   <div class="options">
+    <button *ngIf="call_interval" class="start-local">{{timeLeft}}</button>
     <button (click)="pauseLocalVideo()" class="stop-local"><span><i class="bi bi-stop"></i></span>Pause Video/Mic</button>
     <button class="mic-on"><i class="bi bi-mic"></i></button>
     <button (click)="startLocalVideo()" class="video-on"><i class="bi bi-camera-video"></i></button>
-    <button (click)="Call()" class="call"><span><i class="bi bi-telephone"></i></span></button>
+    <button [disabled]="call_interval" (click)="Call()" class="call"><span><i class="bi bi-telephone"></i></span></button>
     <button class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
   </div>
 </div>

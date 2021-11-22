@@ -32,6 +32,13 @@ export class VideoCallComponent implements AfterViewInit {
   currentUser_id: string = "";
   remoteUser : any = [];
 
+  call_interval: boolean = false;
+
+  audio = new Audio('assets/sounds/Call.mp3');
+
+  timeLeft: number = 13;
+  interval;
+
   @ViewChild('local_video') localVideo: ElementRef;
   @ViewChild('received_video') receivedVideo: ElementRef;
   constructor(
@@ -47,6 +54,18 @@ export class VideoCallComponent implements AfterViewInit {
 
   ngAfterViewInit(): void { 
     this.requestMediaDevices();
+    this.db.firestore.collection('calls').where('offer.doctor_id','==',this.currentUser_id).
+    where('offer.patient_id','==',this.remoteUser.uid).onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(e=>{
+        if(e.type == 'modified')
+        {
+          console.log('modified!');
+          clearInterval(this.interval);
+          this.call_sound('accepted');
+        }
+      })
+    })
   }
   private async requestMediaDevices():Promise<void> {
     this.localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
@@ -84,6 +103,14 @@ export class VideoCallComponent implements AfterViewInit {
   }
   //Create Call
   async Call(): Promise<void> {
+
+    this.call_interval = true;
+    setTimeout(() => {
+      this.call_interval = false;
+    }, 13000);
+    this.callTimer();
+    this.call_sound('call');
+
     this.remoteVideo();
     // Reference Firestore collections for signaling
       const callDoc = this.db.firestore.collection('calls').doc();
@@ -104,8 +131,6 @@ export class VideoCallComponent implements AfterViewInit {
       }
     
       this.callInput = callDoc.id;
-      console.log(this.callInput);
-    
       // Get candidates for caller, save to db
       pc.onicecandidate = event => {
         event.candidate && offerCandidates.add(event.candidate.toJSON());
@@ -146,5 +171,25 @@ export class VideoCallComponent implements AfterViewInit {
         });
       });
     }
-
+    callTimer()
+    {
+      this.interval = setInterval(() => {
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.timeLeft = 13;
+          this.db.firestore.collection('calls').doc(this.callInput).delete().then(()=>{
+            console.log('call deleted');
+          });
+          clearInterval(this.interval);
+        }
+      },1000)
+    }
+    call_sound(con)
+    {
+      if(con == 'call')
+        this.audio.play();
+      else
+        this.audio.pause();
+    } 
 }

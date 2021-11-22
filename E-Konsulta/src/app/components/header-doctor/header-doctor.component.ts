@@ -19,6 +19,13 @@ export class HeaderDoctorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.sound();
+  }
+
+  sound()
+  {
+    const audio = new Audio('assets/sounds/notification.mp3');
+    audio.play();
   }
 
 }

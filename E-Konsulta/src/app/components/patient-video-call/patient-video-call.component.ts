@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 const mediaConstraints = {
   audio: true,
-  video: {width: 720, height: 540}
+  video: {width: 650, height: 400}
 };
 
 const servers = {
@@ -31,6 +31,8 @@ export class PatientVideoCallComponent implements AfterViewInit{
   doctorInfo : any = [];
   currentUser_id : string = "";
 
+  audio = new Audio('assets/sounds/Call.mp3');
+
   @ViewChild('local_video') localVideo: ElementRef;
   @ViewChild('received_video') receivedVideo: ElementRef;
 
@@ -38,8 +40,8 @@ export class PatientVideoCallComponent implements AfterViewInit{
     public db : AngularFirestore,
     public afu : AuthService
   ) { }
-
   ngAfterViewInit(): void {
+
 
     this.doctorInfo = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
@@ -50,6 +52,21 @@ export class PatientVideoCallComponent implements AfterViewInit{
     where('offer.patient_id','==',this.currentUser_id).onSnapshot(snapshot=>{
       let changes = snapshot.docChanges();
       changes.forEach(e=>{
+        if(e.type == 'added')
+        {
+          console.log('exist!');
+          this.call_sound('call');
+        }
+        else if(e.type == 'removed')
+        {
+          console.log('not exist!');
+          this.call_end();
+        }
+        else
+        {
+          console.log('Modified!');
+          this.call_sound('accepted');
+        }
         data = e.doc.id;
       })
       this.callInput = data;
@@ -118,5 +135,20 @@ export class PatientVideoCallComponent implements AfterViewInit{
       });
     });
   };
+  call_sound(con)
+  {
+    if(con =='call')
+      this.audio.play();
+    else
+    {
+      this.audio.pause();
+      this.audio = new Audio('assets/sounds/Call.mp3');
+    }
+  }
+  call_end()
+  {
+    const audio = new Audio('assets/sounds/callEnd.mp3');
+    audio.play();
+  }
 
 }
