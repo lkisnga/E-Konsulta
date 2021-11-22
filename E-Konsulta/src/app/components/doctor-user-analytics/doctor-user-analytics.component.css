@@ -1,21 +1,101 @@
 .usr{
   color: rgb(0, 129, 138);
 }
-.daily,
-.weekly,
-.monthly{
-  border: 1px solid white;
-  background-color: rgb(0, 129, 138);
-  color: white;
-  padding: 4px 12px;
+* {
+  box-sizing: border-box;
 }
-.daily:hover,
-.weekly:hover,
-.monthly:hover{
+body{
+  overflow: hidden;
+}
+.content{
+  margin-top: 120px;
+}
+/*cards*/
+.col{
+  margin-top: 80px;
+}
+
+/*lower cards*/
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 32%;
+  padding: 0 20px;
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+/*lower part*/
+/* Float four columns side by side */
+.column2 {
+  float: left;
+  width: 20%;
+  padding: 0 10px;
+  font-size: 14px;
+}
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .col{
+    margin-top: 10px;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .column2 {
+    width: 50%;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 16px;
+  /*text-align: center; */
+
+}
+
+.daily{
+  background-color: #f2f2f2;
+  border-radius: 20px;
   color: rgb(0, 129, 138);
-  background-color: rgb(235, 233, 233);
+  width: 40%;
+  padding: 4px 14px;
 }
-.up:active,
-.done:active{
-  background-color: rgb(194, 251, 255);
+
+.total{
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  color: rgb(0, 129, 138);
+  width: 70%;
+  padding: 4px 14px;
+}
+
+
+p.card-text{
+  font-size: 40px;
+  text-align: center;
+}
+
+p.consultation,
+p.total
+{
+  margin-left: 20px;
+}
+
+small{
+  font-size: 11px;
 }
