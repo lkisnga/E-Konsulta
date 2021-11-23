@@ -74,7 +74,7 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
               let record = {};
               record['createdAt'] = formatDate(new Date(),'short','en');
               record['title'] = "Feedback"
-              record['description'] = "A patient sent you a feedback! Go to Reviews and Check it!";
+              record['description'] = this.userInfo.fullname+" sent you a feedback! Go to Reviews and Check it!";
               this.notif.send_insurance(this.info2.uid,record)
 
               this.ngOnInit();
