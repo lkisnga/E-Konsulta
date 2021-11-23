@@ -17,7 +17,8 @@
     <div class="collapse navbar-collapse" id="toggleHeader">
       <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
         <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
-          <i class="bi bi-bell-fill"></i>
+          <span><i class="bi bi-bell-fill"></i></span>
+          <span class="badge">7</span>
         </div>
         <div class="dropdown" *ngIf="notification" >
           <div *ngFor="let list of notifList" class="notify_item">
