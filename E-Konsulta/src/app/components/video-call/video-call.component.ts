@@ -32,6 +32,8 @@ export class VideoCallComponent implements AfterViewInit {
   currentUser_id: string = "";
   remoteUser : any = [];
 
+  currentUser : any = [];
+
   call_interval: boolean = false;
 
   audio = new Audio('assets/sounds/Call.mp3');
@@ -50,6 +52,7 @@ export class VideoCallComponent implements AfterViewInit {
   {
     this.remoteUser = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
+    this.currentUser = JSON.parse(localStorage.getItem('Users'));
   }
 
   ngAfterViewInit(): void { 
