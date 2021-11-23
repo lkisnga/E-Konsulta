@@ -7,7 +7,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+
 
 import { AppComponent } from './app.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
@@ -164,9 +164,8 @@ import { PatientPaymentComponent } from './components/patient-payment/patient-pa
     AngularFireStorageModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ScheduleModule, RecurrenceEditorModule
   ],
-  providers: [AuthService, UserService, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
