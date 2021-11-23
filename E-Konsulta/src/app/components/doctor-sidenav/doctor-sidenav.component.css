@@ -3,7 +3,7 @@ body, html {
 }
 
 #sidenav{
-  background-color: rgb(0, 154, 165);
+  background-color: rgb(0, 129, 138);
   width: 190px;
   position: sticky;
   z-index: 99;
