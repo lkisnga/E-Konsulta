@@ -19,6 +19,9 @@ a{
   text-decoration: none;
   list-style-type: none;
 }
+.bi{
+  cursor: pointer;
+}
 .bi-person-circle{
   color: rgb(0, 129, 138);
   position: relative;

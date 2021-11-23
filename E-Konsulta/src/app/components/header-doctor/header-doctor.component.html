@@ -28,15 +28,10 @@
     <div class="collapse navbar-collapse" id="toggleHeader">
       <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
         <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
-          <i class="bi bi-bell-fill"></i>
+          <span><i class="bi bi-bell-fill"></i></span>
+          <span class="badge">7</span>
         </div>
         <div class="dropdown" *ngIf="notification" >
-          <div class="notify_item">
-            <div class="notify_info">
-              <p class="main">User pays a consultation fee.</p>
-						  <p class="small">1 minute ago</p>
-            </div>
-          </div>
           <div class="notify_item">
             <div class="notify_info">
               <p class="main">User pays a consultation fee.</p>
