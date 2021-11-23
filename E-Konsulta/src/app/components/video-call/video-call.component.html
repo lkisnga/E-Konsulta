@@ -1,10 +1,10 @@
 <div class="bg-dark row">
   <div class="col">
-    <p class="video-description text-center text-light">Doctor's Name</p>
+    <p class="video-description text-center text-light">{{currentUser.displayName}}</p>
     <video #local_video [autoplay]="true" [muted]="true"></video>
   </div>
   <div class="col">
-    <p class="video-description text-center text-light">Patient's Name</p>
+    <p class="video-description text-center text-light">{{remoteUser.fullname}}</p>
     <video #received_video [autoplay]="true"></video>
   </div>
 </div>
@@ -15,5 +15,6 @@
     <button (click)="startLocalVideo()" class="video-on"><i class="bi bi-camera-video"></i></button>
     <button [disabled]="call_interval" (click)="Call()" class="call"><span><i class="bi bi-telephone"></i></span></button>
     <button (click)="end_call()" class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
+    <button class="stop-local"><span><i class="bi bi-stop"></i></span>Record</button>
   </div>
 </div>
