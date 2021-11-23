@@ -304,6 +304,11 @@ export class UserService {
     return this.db.firestore.collection('Users').doc(id).collection('reviews').doc(review_id)
     .collection('reply').doc(reply_id).delete();
   }
+  remove_insuranceReply(id,review_id,reply_id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
+    .collection('reply').doc(reply_id).delete();
+  }
   get_Doctor_Reviews(id)
   {
     return this.db.firestore.collection('Users').doc(id).collection('reviews')

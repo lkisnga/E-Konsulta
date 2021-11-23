@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -22,7 +24,11 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
 
   feedback : string = "";
 
-  constructor(public userservice : UserService, public share : SharedDataService, public afu : AuthService) { }
+  constructor(public userservice : UserService, 
+    public share : SharedDataService, 
+    public afu : AuthService,
+    public notif: NotificationService
+  ) { }
 
   ngOnInit(): void {
   
@@ -63,6 +69,14 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
             this.userservice.create_healthInsurance_feedback(this.info2.uid,this.userId,this.feedback,this.userInfo.fullname)
             .then(()=>{
               console.log("Added!");
+
+              //add notification to receiver
+              let record = {};
+              record['createdAt'] = formatDate(new Date(),'short','en');
+              record['title'] = "Feedback"
+              record['description'] = "A patient sent you a feedback! Go to Reviews and Check it!";
+              this.notif.send_insurance(this.info2.uid,record)
+
               this.ngOnInit();
               this.feedback = "";
             })

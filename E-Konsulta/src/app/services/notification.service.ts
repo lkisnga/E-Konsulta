@@ -15,11 +15,14 @@ export class NotificationService {
   send_insurance(id,record)
   {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('Notification')
-    .add(record)
+    .add(record).then(()=>{
+      console.log('added notification!');
+    })
   }
   get_insurance(id)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Notification');
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Notification')
+    .orderBy('createdAt','desc');
   }
 
   notif_sound(id,flag)

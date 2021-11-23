@@ -13,6 +13,7 @@ export class HeaderInsuranceComponent implements OnInit {
   userId : string = "";
   notifList : any = [];
   nof_flag: boolean = false;
+  flag : boolean = false;
   constructor(
     public afu: AuthService,
     public notif : NotificationService
@@ -39,12 +40,17 @@ export class HeaderInsuranceComponent implements OnInit {
     this.notif.get_insurance(this.userId).onSnapshot(snapshot=>{
       let changes = snapshot.docChanges();
       changes.forEach(e=>{
-        if(e.type == 'added')
+        data = e.doc.data();
+        if(e.type == 'added' && this.flag == false)
         {
-          data = e.doc.data();
           tempArray.push(data);
         }
+        if(e.type == 'added' && this.flag == true)
+        {
+          tempArray.unshift(data);
+        }
       })
+      this.flag = true;
     })
     this.notifList = tempArray;
   }

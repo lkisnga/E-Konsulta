@@ -52,6 +52,8 @@ export class HealthInsuranceReviewsComponent implements OnInit {
         this.userservice.get_insurance_reply(this.userId,item.id).then(res=>{
           res.forEach(a=>{
             data2 = a.data();
+            data2.uid = a.id;
+            data2.review_id = item.id;
             tempArray2.push(data2);
           })
           this.replyList = tempArray2;
@@ -76,6 +78,16 @@ export class HealthInsuranceReviewsComponent implements OnInit {
       console.log("Replied Successfully!");
       this.ngOnInit();
     });
+  }
+
+  remove_reply(info)
+  {
+    console.log(info);
+    this.userservice.remove_insuranceReply(this.userId,info.review_id,info.uid)
+    .then(()=>{
+      console.log('Deleted!');
+      this.ngOnInit();
+    })
   }
 
 }
