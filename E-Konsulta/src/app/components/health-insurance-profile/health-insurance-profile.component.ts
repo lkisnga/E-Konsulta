@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 export class InsuranceInfo
@@ -25,11 +26,14 @@ export class HealthInsuranceProfileComponent implements OnInit {
   info : any = [];
   imgUrl : any;
   file : any;
-  constructor(public userservice : UserService, public afu : AuthService) { }
+  constructor(
+    public userservice : UserService, 
+    public afu : AuthService,
+    public notif: NotificationService
+    ) { }
   
   ngOnInit(): void {
     this.userId = this.afu.get_UID();
-
     this.userservice.get_avatar(this.userId).then(e=>{
       this.imgUrl = e.data().image;
     })
@@ -64,7 +68,6 @@ export class HealthInsuranceProfileComponent implements OnInit {
       this.ngOnInit();
     })
   }
-
   logout()
   {
     this.afu.signout();
