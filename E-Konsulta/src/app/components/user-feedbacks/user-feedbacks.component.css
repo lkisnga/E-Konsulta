@@ -141,7 +141,6 @@ select:focus{
   padding: 4px 12px;
 }
 .send:hover, .send:focus{
-  border: 1px solid rgb(0, 192, 206);
   color: white;
   background-color: rgb(0, 129, 138);
 }

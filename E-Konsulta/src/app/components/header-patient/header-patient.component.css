@@ -14,23 +14,44 @@
 .logo{
   margin-left: 10px;
 }
-
-a, .notif-icon{
+a{
   text-decoration: none;
   list-style-type: none;
-  color: rgb(0, 129, 138);
 }
-
-.bi:hover{
-  background-color:rgb(0, 129, 138);
-  color: white;
-  border: 1px solid rgb(0, 129, 138);
-  border-radius: 50%;
-}
-
 .bi{
   cursor: pointer;
-  padding: 2px 4px;
+}
+.bi-person-circle{
+  color: rgb(0, 129, 138);
+  position: relative;
+  display: inline-flex;
+  padding: 10px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 50%;
+  font-size: 18px;
+  margin-left: 4px;
+}
+.notif-icon{
+  color: rgb(0, 129, 138);
+  position: relative;
+  display: inline-flex;
+  padding: 6px 10px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.notif-icon .badge{
+  position: absolute;
+  top: -3px;
+  right: -2px;
+  color: red;
+  padding: 4px;
+}
+.bi-person-circle:hover,
+.notif-icon:hover{
+  transform: scale(1.1);
+  transition: ease .25s;
 }
 
 .navbar-brand{

@@ -9,7 +9,7 @@ body{
 
 /*col*/
 .first{
-  margin: 110px 0 200px 20px !important;
+  margin-top: 110px! important;
 }
 .main-profile{
   /*box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */

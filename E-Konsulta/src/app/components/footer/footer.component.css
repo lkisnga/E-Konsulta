@@ -1,33 +1,11 @@
-/*
-footer{
-  background-color: rgb(0, 192, 206);
-  color: white;
-  position:absolute;
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-}
 
-p{
-  text-align: center;
-}
-
-@media screen and (max-width: 600px)
-{
-  footer{
-    position: relative;
-    bottom: 0;
-    overflow:hidden;
-  }
-}
-*/
 
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(0, 154, 165);
+  background-color: rgb(0, 129, 138);
   color: white;
   font-size: 14px;
   padding: 8px;
