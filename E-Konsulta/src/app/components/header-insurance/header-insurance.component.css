@@ -74,7 +74,7 @@ a{
   /*box-shadow: rgba(0, 129, 138, 0.4) 0px 0px 0px 2px, rgba(0, 129, 138, 0.1)0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   z-index: 1;
-  height: 400px;
+  height: 200px;
   cursor: pointer;
   border-radius: 5px;
   overflow-y: scroll;
