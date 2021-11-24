@@ -413,6 +413,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Transaction').get();
   }
+  update_transaction_admin(id,record)
+  {
+    return this.db.firestore.collection('Transaction').doc(id).update(record);
+  }
   get_today_consultation(doctor_id)
   {
     return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id)

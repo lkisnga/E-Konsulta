@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,6 +10,8 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminTransactionHistoryComponent implements OnInit {
 
   tranList : any = [];
+
+  sent_message : boolean = false;
 
   constructor(
     public userservice : UserService
@@ -26,16 +29,19 @@ export class AdminTransactionHistoryComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_transaction_admin().then(e=>{
       e.forEach(item=>{
-        this.userservice.get_UserInfo(item.data().doctor_id).then(es=>{
-          this.userservice.get_UserInfo(item.data().patient_id).then(as=>{
-            data = item.data();
-            data.doctor_name = es.data().fullname;
-            data.patient_name = as.data().fullname;
-            data.uid = item.id;
-            //console.log(data)
-            tempArray.push(data);
+        if(item.data().status == 'pending')
+        {
+          this.userservice.get_UserInfo(item.data().doctor_id).then(es=>{
+            this.userservice.get_UserInfo(item.data().patient_id).then(as=>{
+              data = item.data();
+              data.doctor_name = es.data().fullname;
+              data.patient_name = as.data().fullname;
+              data.uid = item.id;
+              //console.log(data)
+              tempArray.push(data);
+            })
           })
-        })
+        }
       })
     })
     this.tranList = tempArray;
@@ -44,7 +50,19 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
   send_notif(info)
   {
-    console.log(info);
+    let record = {};
+    record['net_income']=  info.Amount-(info.Amount*(info.deduction/100));
+    record['status'] = "sent";
+    record['updatedAt'] = formatDate(new Date(),'short','en');
+    this.userservice.update_transaction_admin(info.uid,record)
+    .then(()=>{
+      console.log('Sent!');
+      this.ngOnInit();
+      this.sent_message = true;
+      setTimeout(() => {
+        this.sent_message = false;
+      }, 5000);
+    })
   }
 
 }

@@ -72,6 +72,7 @@ export class PatientPaymentComponent implements OnInit {
         let record = {};
         record['status'] = "pending";
         record['deduction'] = 10;
+        record['net_income'] = 0;
         record['doctor_name'] = this.docInfo.fullname;
         record['doctor_id'] = this.docInfo.uid;
         record['Specialization'] = this.docInfo.ins;
@@ -79,6 +80,7 @@ export class PatientPaymentComponent implements OnInit {
         record['Schedule'] = this.sched + ' ' + this.schedTime;
         record['Amount'] = order.purchase_units[0].amount.value;
         record['createdAt'] = formatDate(new Date(),'short','en');
+        record['updatedAt'] = formatDate(new Date(),'short','en');
         this.userservice.create_transaction(record).then(()=>{
           console.log('Added to transaction!');
         });
