@@ -25,7 +25,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
   file2_message: string = "";
   constructor(public userservice : UserService,public afu :AuthService) { }
 
-  pending = false;
+  pending = true;
   done = false;
 
   pendingFunction(){

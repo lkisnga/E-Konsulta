@@ -93,7 +93,7 @@ textarea:focus{
   margin-top: 5px;
   font-size: 11px !important;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 200px;
   border: 1px solid gray;
   padding: 2px 8px;
 }
