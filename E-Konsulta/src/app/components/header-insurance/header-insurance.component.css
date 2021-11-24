@@ -8,6 +8,7 @@
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
   width: 100% !important;
   /*z-index: 99; */
+  position: fixed;
   top:0;
 }
 .logo{
@@ -65,42 +66,35 @@ a{
 
 /*notification*/
 .dropdown{
-  color: rgb(0, 129, 138);
+  color: rgb(43, 42, 42);
   position: absolute;
   top: 48px;
   right: 35px;
   background-color: white;
   width: 270px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  z-index: 1;
-  height: 200px;
+  z-index: 99;
   cursor: pointer;
   border-radius: 5px;
+  height: 400px !important;
   overflow-y: scroll;
 }
 
-.dropdown {
-  height: auto;
-  border-bottom: 1px solid rgb(255, 255, 255);
+.dropdown .notify_item{
+  padding: 4px 8px;
 }
-
 .dropdown .notify_item:last-child{
-  border-bottom: 0;
+  border-bottom: none;
 }
-.notify_item{
-  padding: 6px 8px;
-}
-
 .notify_item:hover{
   background-color: rgb(245, 244, 244);
-  opacity: 0.6;
+
 }
 
 .main{
   font-size: 11px;
 }
 .small{
-  color: rgb(0, 129, 138);
-  margin-top: -2px;
+  color: gray;
   font-size: 9px;
 }
