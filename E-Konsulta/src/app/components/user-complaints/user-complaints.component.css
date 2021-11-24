@@ -126,23 +126,30 @@ select{
 }
 .sendButton{
   width: 100%;
-  padding: 14px 12px;
+  padding: 14px 16px;
+  margin-top: 15px;
 }
 .send{
   font-size: 12px !important;
   text-decoration: none;
-  padding: 4px 12px;
 }
 
 .image{
-  margin: 10px 0 10px 160px;
+  margin-top: 20px;
+  display: inline-flex;
+}
+.selection-done{
+  background-color: transparent;
+  color: green;
+  font-size: 1.2rem;
 }
 /*input file*/
 .custom-file-input {
   color: transparent;
 }
 .custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
+  display: none;
+  margin-right: 0;
 }
 .custom-file-input::before {
   content: 'Add Image';
@@ -168,3 +175,5 @@ select{
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
+

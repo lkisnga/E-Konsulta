@@ -75,12 +75,13 @@ a{
   z-index: 99;
   cursor: pointer;
   border-radius: 5px;
-  height: 450px !important;
+  height: 520px !important;
   overflow-y: scroll;
 }
 
 .notify_info{
   padding: 4px 8px;
+  line-height: 15px;
 }
 .dropdown .notify_item:last-child{
   border-bottom: none;
