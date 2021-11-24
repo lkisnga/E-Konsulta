@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/services/notification.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-complaints',
@@ -7,9 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComplaintsComponent implements OnInit {
 
-  constructor() { }
+content : string = "";
+file: any;
+
+error_message : string = "";
+success_message: string = "";
+
+  constructor(
+    public userservice : UserService,
+    public notif : NotificationService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  get_image(e)
+  {
+    this.file = e.target.files[0]
+    console.log(this.file);
+  }
+
+  send_problem(e)
+  {
+    if(this.file != undefined && this.file != "" && this.file != null)
+    {
+      let record ={};
+      record['file'] = this.file;
+      record['filename'] = this.file.name;
+      record['content'] = e.content;
+      this.userservice.create_problem_review(record).then(()=>{
+        this.success_message = "Feedback Sent!";
+        setTimeout(() => {
+          this.success_message = ""
+        }, 5000);
+      })
+    }
+    else
+    {
+      this.error_message = "Add Image!";
+      setTimeout(() => {
+        this.error_message = "";
+      }, 5000);
+    }
+  
   }
 
 }
