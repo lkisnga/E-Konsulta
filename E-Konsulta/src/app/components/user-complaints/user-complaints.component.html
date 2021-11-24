@@ -14,6 +14,9 @@
       <div class="image">
         <input (change)="get_image($event)" type="file" class="custom-file-input">
       </div>
+      <span *ngIf="file" class="selection-done">File Selected &nbsp;
+        <i class="bi bi-check-circle-fill"></i>
+      </span>
       <div *ngIf="error_message.length>0" class="alert alert-danger">
         {{error_message}}
       </div>
