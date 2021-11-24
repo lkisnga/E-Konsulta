@@ -8,6 +8,7 @@
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
   width: 100% !important;
   /*z-index: 99; */
+  position: fixed;
   top:0;
 }
 .logo{
@@ -65,42 +66,41 @@ a{
 
 /*notification*/
 .dropdown{
-  color: rgb(0, 129, 138);
   position: absolute;
   top: 48px;
   right: 35px;
   background-color: white;
   width: 270px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  z-index: 1;
-  height: 200px;
+  z-index: 99;
   cursor: pointer;
   border-radius: 5px;
+  height: 520px !important;
   overflow-y: scroll;
 }
 
-.dropdown {
-  height: auto;
-  border-bottom: 1px solid rgb(255, 255, 255);
+.notify_info{
+  padding: 4px 8px;
+  line-height: 15px;
 }
-
 .dropdown .notify_item:last-child{
-  border-bottom: 0;
+  border-bottom: none;
 }
-.notify_item{
-  padding: 6px 8px;
-}
-
 .notify_item:hover{
   background-color: rgb(245, 244, 244);
-  opacity: 0.6;
+
 }
 
 .main{
-  font-size: 11px;
+  color: rgb(32, 32, 32);
+  font-size: 12px;
+  margin-top: 8px;
 }
 .small{
-  color: rgb(0, 129, 138);
-  margin-top: -2px;
+  color: gray;
+  font-size: 10px;
+}
+.small-1{
+  color: gray;
   font-size: 9px;
 }

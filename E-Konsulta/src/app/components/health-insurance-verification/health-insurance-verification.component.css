@@ -22,7 +22,8 @@
 .verified:active{
   background-color: rgb(194, 251, 255);
 }
-h5{
+.usr{
+  margin-top: 70px;
   color: rgb(0, 129, 138);
 }
 
