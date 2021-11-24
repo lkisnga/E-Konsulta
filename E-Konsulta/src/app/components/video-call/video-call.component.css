@@ -19,46 +19,37 @@ video{
 
 /*buttons*/
 button{
-  margin: 20px 0 30px 0;
-  font-size: 1.3rem;
+  margin: 50px 0 90px 0;
+  font-size: 1.8rem;
+}
+
+.options{
+  margin:auto;
+  width: 500px;
 }
 
 i{
   padding: 8px 10px;
 }
 
-.bi-mic:hover,
-.bi-camera-video:hover,
-.bi-telephone:hover,
-.bi-telephone-inbound:hover{
-  border-radius: 100%;
-  background-color: rgb(235, 235, 235);
-  opacity: 0.8;
-  color: rgb(15, 15, 15);
-}
-
 .start-local{
   border: 0;
-  color: white;
+  color: red;
   background-color: transparent;
-  font-size: 15px !important;
-}
-.stop-local{
-  border: 0;
-  color: white;
-  background-color: transparent;
-  font-size: 12px !important;
-}
-.mic-on{
-  border: 0;
-  color: white;
-  background-color: transparent;
+  font-size: 1.5rem;
 }
 
 .video-on{
   border: 0;
   color: white;
   background-color: transparent;
+}
+
+.stop-local{
+  border: 0;
+  color: white;
+  background-color: transparent;
+  display: inline-flex;
 }
 
 .call{
@@ -69,23 +60,54 @@ i{
 
 .hangup{
   border: 0;
-  color: white;
+  color:red;
   background-color: transparent;
   transform: rotate(135deg);
 }
-.hang > span i:hover{
-  background-color: red;
-  color: white;
-}
-.answer{
+.record{
   border: 0;
   color: white;
   background-color: transparent;
+  padding: 4px 2px;
+}
+.stop-record{
+  border: 0;
+  color: red;
+  background-color: transparent;
+  padding: 4px 2px;
 }
 
-.options{
-  margin:auto;
-  width: 500px;
+.bi-camera-video:hover{
+  border-radius: 50%;
+  background-color: rgb(235, 235, 235);
+  color: rgb(15, 15, 15);
+  opacity: 0.9;
+}
+.bi-telephone:hover{
+  border-radius: 50%;
+  background-color: rgb(235, 235, 235);
+  color: green;
+}
+.bi-telephone-fill:hover{
+  border-radius: 50%;
+  background-color: rgb(235, 235, 235);
+}
+
+.stop-local:hover{
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+}
+
+.record:hover{
+  border-radius: 50%;
+  background-color: rgb(235, 235, 235);
+  color: red;
+}
+
+.stop-record:hover{
+  border-radius: 50%;
+  background-color: rgb(235, 235, 235);
 }
 
 @media screen and (max-width: 500px) {

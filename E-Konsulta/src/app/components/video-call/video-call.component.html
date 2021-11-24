@@ -11,11 +11,16 @@
 <div class="bg-dark row">
   <div class="options">
     <button *ngIf="call_interval" class="start-local">{{timeLeft}}</button>
-    <button (click)="pauseLocalVideo()" class="stop-local"><span><i class="bi bi-stop"></i></span>Pause Video/Mic</button>
-    <button (click)="startLocalVideo()" class="video-on"><i class="bi bi-camera-video"></i></button>
-    <button [disabled]="call_interval" (click)="Call()" class="call"><span><i class="bi bi-telephone"></i></span></button>
-    <button (click)="end_call()" class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
-    <button (click)="start_record()" class="stop-local"><span><i class="bi bi-stop"></i></span>Record</button>
-    <button (click)="stop_record()" class="stop-local"><span><i class="bi bi-stop"></i></span>Stop Record</button>
+    <button (click)="startLocalVideo()" class="video-on" title="Camera on"><i class="bi bi-camera-video"></i></button>
+    <button (click)="pauseLocalVideo()" class="stop-local" title="Camera/Mic off">
+      <span><i class="bi bi-camera-video-off"></i></span>
+      <span><i class="bi bi-mic-mute"></i></span>
+    </button>
+    <button [disabled]="call_interval" (click)="Call()" class="call" title="Call">
+      <span><i class="bi bi-telephone"></i></span>
+    </button>
+    <button (click)="end_call()" class="hangup"><span class="hang" title="End Call"><i class="bi bi-telephone-fill"></i></span></button>
+    <button (click)="start_record()" class="record" title="Record"><span><i class="bi bi-record-circle"></i></span></button>
+    <button (click)="stop_record()" class="stop-record" title="Stop Recording"><span><i class="bi bi-slash-circle"></i></span></button>
   </div>
 </div>
