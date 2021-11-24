@@ -16,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="toggleHeader">
       <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
-        <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
+        <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)" title="Notifications">
           <span><i class="bi bi-bell-fill"></i></span>
           <span *ngIf="badge=='true' " class="badge">!</span>
         </div>
@@ -30,7 +30,8 @@
           </div>
         </div>
         <!--  Profile  -->
-          <div><a href="/health-insurance-profile"><i class="bi bi-person-circle"></i></a>
+          <div>
+            <a href="/health-insurance-profile" title="Profile"><i class="bi bi-person-circle"></i></a>
         </div>
         </div>
     </div>
