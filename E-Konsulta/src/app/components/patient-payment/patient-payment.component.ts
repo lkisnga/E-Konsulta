@@ -68,8 +68,12 @@ export class PatientPaymentComponent implements OnInit {
         const order = await actions.order.capture();
         this.paidFor = true;
         console.log(this.sched + this.schedTime);
+        //record to be created in Transaction Collection 
         let record = {};
+        record['status'] = "pending";
+        record['deduction'] = 10;
         record['doctor_name'] = this.docInfo.fullname;
+        record['doctor_id'] = this.docInfo.uid;
         record['Specialization'] = this.docInfo.ins;
         record['patient_id'] = this.userId;
         record['Schedule'] = this.sched + ' ' + this.schedTime;

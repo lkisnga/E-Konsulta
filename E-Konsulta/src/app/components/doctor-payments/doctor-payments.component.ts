@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-doctor-payments',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorPaymentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public userservice : UserService,
+    public afu : AuthService
+  ) { }
 
   ngOnInit(): void {
   }

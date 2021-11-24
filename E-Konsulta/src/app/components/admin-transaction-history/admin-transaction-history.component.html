@@ -19,15 +19,23 @@
       <div class="col-9 mx-3 py-4 content">
         <h5>Transaction History</h5>
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item flex-column align-items-start mt-3">
+          <li *ngFor="let list of tranList" class="list-group-item flex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>Name</h5>
-              <small>September 1, 2021</small>
+              <h5 mb-1>{{list.Specialization}}: {{list.doctor_name}}</h5>
+              <small>{{list.createdAt}}</small>
             </div>
-            <div>
-              <p class="mb-1">A user pay an amount of 00.00 as a payment for one consultation. xxxxxxxxxxxxxxxxxxxx</p>
+            <div class="row">
+              <div class="col">
+                <p class="mb-1">A patient named {{list.patient_name}} paid an amount of {{list.Amount}} as a payment for one consultation.</p>
+                <p class="mb-1">patient ID: {{list.patient_id}}</p>
+                <p class="mb-1">Consultation Schedule: {{list.Schedule}}</p>
+                <p class="mb-1">Consultation Fee: {{list.Amount}}</p>
+              </div>
+              <div class="col-md-3">
+                <button (click)="send_notif(list)" class="btn btn-warning">Paid</button>
+              </div>
             </div>
-            <small>Transaction ID</small>
+            <small>Transaction ID: {{list.uid}}</small>
           </li>
         </ul>
       </div>

@@ -409,6 +409,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id).get();
   }
+  get_transaction_admin()// admin side
+  {
+    return this.db.firestore.collection('Transaction').get();
+  }
   get_today_consultation(doctor_id)
   {
     return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id)
