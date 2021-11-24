@@ -110,7 +110,8 @@ export class PatientPaymentComponent implements OnInit {
         record['schedule'] = this.sched;
         record['schedtime'] = this.schedTime;
         this.userservice.create_doctor_upcoming(record).then(()=>{
-          console.log('added!');
+          console.log('added upcoming!');
+          this.router.navigate(['patient-consultation']);
           this.create_chat();
         })
       })
