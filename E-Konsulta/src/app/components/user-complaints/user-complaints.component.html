@@ -9,10 +9,16 @@
  <div class="complain-page">
   <h6>Send Report</h6>
   <div class="form">
-    <form ngNativeValidate #form="ngForm"  class="feedback-form">
-      <textarea name="content" id="" cols="70" rows="5" placeholder="Describe the issue..." required></textarea>
+    <form ngNativeValidate #form="ngForm"  class="feedback-form" (ngSubmit)="send_problem(form.value)" >
+      <textarea [(ngModel)]="content" name="content" id="" cols="70" rows="5" placeholder="Describe the issue..." required></textarea>
       <div class="image">
-        <input type="file" class="custom-file-input">
+        <input (change)="get_image($event)" type="file" class="custom-file-input">
+      </div>
+      <div *ngIf="error_message.length>0" class="alert alert-danger">
+        {{error_message}}
+      </div>
+      <div *ngIf="success_message.length>0" class="alert alert-success">
+        {{success_message}}
       </div>
       <!--Button must be inside the form tag!-->
       <div class="sendButton">

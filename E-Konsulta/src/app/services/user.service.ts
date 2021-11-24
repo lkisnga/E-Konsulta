@@ -42,6 +42,21 @@ export class UserService {
       createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
     })
   }
+  create_problem_review(record)
+  {
+   return this.store.ref('Reviews/' + record.filename).put(record.file)
+    .then(()=>{
+          this.store.storage.ref('Reviews/' + record.filename).getDownloadURL().then(e=>{
+           return this.db.collection('reviews').add({
+            content: record.content,
+            createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+            role: "admin",
+            type: "problem",
+            image : e 
+          })
+        })
+    })
+  }
 
   check_email(e)
   {
@@ -546,7 +561,7 @@ export class UserService {
   }
   get_review_problem()
   {
-    return this.db.firestore.collection('reviews').where('role','==','admin').where('type','==','problem').get();
+    return this.db.firestore.collection('reviews').where('type','==','problem').get()
   }
 
   //Delete User

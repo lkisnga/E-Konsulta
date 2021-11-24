@@ -10,7 +10,7 @@ export class AdminProblemsComponent implements OnInit {
 
   list : any = [];
   constructor(public userserivce : UserService) { }
-
+  imgUrl: any;
   ngOnInit(): void {
 
     var data;
@@ -19,6 +19,7 @@ export class AdminProblemsComponent implements OnInit {
       e.forEach(res => {
         data = res.data();
         data.uid = res.id;
+        data.image = res.data().image;
         tempArray.push(data);
       })
       this.list = tempArray;
