@@ -14,6 +14,8 @@ export class HeaderInsuranceComponent implements OnInit {
   notifList : any = [];
   nof_flag: boolean = false;
   flag : boolean = false;
+  
+  badge : string = sessionStorage.getItem('Notification');
   constructor(
     public afu: AuthService,
     public notif : NotificationService
@@ -22,12 +24,21 @@ export class HeaderInsuranceComponent implements OnInit {
   notification = false;
   notifFunction(){
     this.notification = true;
+
+    sessionStorage.setItem('Notification','false');
+    this.badge = sessionStorage.getItem('Notification');
   }
 
   doubleClick(e: Event) {
     this.notification = false;
   }
   ngOnInit(): void {
+    
+    //notification
+    if(sessionStorage.getItem('Notification')==null)
+      sessionStorage.setItem('Notification','false');
+    console.log(this.badge);
+
     this.userId = this.afu.get_UID();
     this.notif.notif_sound(this.userId,this.nof_flag);
     this.get_notification();
@@ -47,6 +58,9 @@ export class HeaderInsuranceComponent implements OnInit {
         }
         if(e.type == 'added' && this.flag == true)
         {
+          sessionStorage.setItem('Notification','true');
+          this.badge = sessionStorage.getItem('Notification');
+          console.log(this.badge);
           tempArray.unshift(data);
         }
       })

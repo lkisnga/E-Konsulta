@@ -18,7 +18,7 @@
       <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
         <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)">
           <span><i class="bi bi-bell-fill"></i></span>
-          <span class="badge">!</span>
+          <span *ngIf="badge=='true' " class="badge">!</span>
         </div>
         <div class="dropdown" *ngIf="notification" >
           <div *ngFor="let list of notifList" class="notify_item">

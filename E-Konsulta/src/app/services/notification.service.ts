@@ -25,7 +25,7 @@ export class NotificationService {
     .orderBy('createdAt','desc');
   }
 
-  notif_sound(id,flag)
+  notif_sound(id,flag) // insurance
   {
     this.db.firestore.collection('Health_Insurance').doc(id).collection('Notification')
     .onSnapshot(snapshot=>{
