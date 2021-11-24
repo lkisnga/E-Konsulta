@@ -66,7 +66,6 @@ a{
 
 /*notification*/
 .dropdown{
-  color: rgb(43, 42, 42);
   position: absolute;
   top: 48px;
   right: 35px;
@@ -76,11 +75,11 @@ a{
   z-index: 99;
   cursor: pointer;
   border-radius: 5px;
-  height: 400px !important;
+  height: 450px !important;
   overflow-y: scroll;
 }
 
-.dropdown .notify_item{
+.notify_info{
   padding: 4px 8px;
 }
 .dropdown .notify_item:last-child{
@@ -92,9 +91,15 @@ a{
 }
 
 .main{
-  font-size: 11px;
+  color: rgb(32, 32, 32);
+  font-size: 12px;
+  margin-top: 8px;
 }
 .small{
+  color: gray;
+  font-size: 10px;
+}
+.small-1{
   color: gray;
   font-size: 9px;
 }
