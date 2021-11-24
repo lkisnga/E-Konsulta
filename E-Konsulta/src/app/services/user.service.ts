@@ -405,6 +405,10 @@ export class UserService {
   create_consultation(record){
     return this.db.firestore.collection('Consultation').add(record);
   }
+  get_consultation_admin()
+  {
+    return this.db.firestore.collection('Consultation').get();
+  }
   get_consultation(doctor_id)
   {
     return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id).get();
@@ -416,6 +420,11 @@ export class UserService {
   update_transaction_admin(id,record)
   {
     return this.db.firestore.collection('Transaction').doc(id).update(record);
+  }
+  get_transaction_doctor(doctor_id)
+  {
+    return this.db.firestore.collection('Transaction').where('doctor_id','==',doctor_id)
+    .where('status','==','sent').get();
   }
   get_today_consultation(doctor_id)
   {
