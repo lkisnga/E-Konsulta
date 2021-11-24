@@ -41,6 +41,8 @@ export class VideoCallComponent implements AfterViewInit {
   timeLeft: number = 13;
   interval;
 
+  mediaRecorder;
+
   @ViewChild('local_video') localVideo: ElementRef;
   @ViewChild('received_video') receivedVideo: ElementRef;
   constructor(
@@ -70,6 +72,98 @@ export class VideoCallComponent implements AfterViewInit {
       })
     })
   }
+
+  //SCREEN RECORD
+  stream;
+  reaudio;
+
+  async setupStream()
+  {
+    try{
+      this.stream = await (navigator.mediaDevices as any).getDisplayMedia({
+        video: true
+      })
+      this.reaudio = await navigator.mediaDevices.getUserMedia({
+        audio: {
+          echoCancellation: true,
+          sampleRate:44100,
+        }
+      });
+    }catch (err)
+    {
+      console.error(err);
+    }
+  }
+
+  async start_record()
+  {
+    await this.setupStream();
+    var mixedStream;
+    //let stream = await this.recordScreen();
+    //let audio = await this.recordAudio();
+    if(this.stream && this.reaudio)
+    {
+      mixedStream = new MediaStream([
+      ...this.stream.getTracks(),
+      ...this.reaudio.getTracks()
+    ]);
+    }
+    let mimeType = 'video/webm';
+    this.mediaRecorder = this.createRecorder(mixedStream, mimeType);
+    let node = document.createElement("p");
+    this.record_sound();
+    //node.textContent = "Started recording";
+    document.body.appendChild(node);
+  }
+  stop_record()
+  {
+    this.record_end();
+    this.mediaRecorder.stop();
+    let node = document.createElement("p");
+    //node.textContent = "Stopped recording";
+    document.body.appendChild(node);
+  }
+
+  createRecorder (stream, mimeType) {
+    // the stream data is stored in this array
+    let recordedChunks = []; 
+  
+    const mediaRecorder = new (window as any).MediaRecorder(stream);
+    
+    mediaRecorder.ondataavailable =(e)=>{
+      if (e.data.size > 0) {
+        recordedChunks.push(e.data);
+      }  
+    };
+    mediaRecorder.onstop = ()=>{
+       this.saveFile(recordedChunks);
+       recordedChunks = [];
+    };
+    mediaRecorder.start(200); // For every 200ms the stream data will be stored in a separate chunk.
+    return mediaRecorder;
+  }
+  saveFile(recordedChunks){
+
+    const blob = new Blob(recordedChunks, {
+       type: 'video/webm'
+     });
+     let filename = window.prompt('Enter file name'),
+     downloadLink = document.createElement('a');
+     downloadLink.href = URL.createObjectURL(blob);
+     downloadLink.download = `${filename}.webm`;
+    
+     var blb = URL.createObjectURL(blob);
+
+     document.body.appendChild(downloadLink);
+     downloadLink.click();
+     URL.revokeObjectURL(blb); // clear from memory
+     document.body.removeChild(downloadLink);
+ }
+
+
+  //END OF SCREEN RECORD
+
+
   private async requestMediaDevices():Promise<void> {
     this.localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
     //this.localVideo.nativeElement.srcObject = this.localStream;
@@ -201,5 +295,15 @@ export class VideoCallComponent implements AfterViewInit {
       this.db.firestore.collection('calls').doc(this.callInput).delete().then(()=>{
         console.log('call deleted');
       });
+    }
+    record_sound()
+    {
+      var audio = new Audio('assets/sounds/video-button.mp3');
+      audio.play();
+    }
+    record_end()
+    {
+      var audio = new Audio('assets/sounds/video-button.mp3');
+      audio.play();
     }
 }

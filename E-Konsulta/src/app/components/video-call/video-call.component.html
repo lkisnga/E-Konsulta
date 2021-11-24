@@ -15,6 +15,7 @@
     <button (click)="startLocalVideo()" class="video-on"><i class="bi bi-camera-video"></i></button>
     <button [disabled]="call_interval" (click)="Call()" class="call"><span><i class="bi bi-telephone"></i></span></button>
     <button (click)="end_call()" class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
-    <button class="stop-local"><span><i class="bi bi-stop"></i></span>Record</button>
+    <button (click)="start_record()" class="stop-local"><span><i class="bi bi-stop"></i></span>Record</button>
+    <button (click)="stop_record()" class="stop-local"><span><i class="bi bi-stop"></i></span>Stop Record</button>
   </div>
 </div>
