@@ -40,9 +40,12 @@
               <td>{{item.role}}</td>
               <td>{{item.license_number}}</td>
               <td>{{item.sp_name}}</td>
-              <td>
+              <td *ngIf="item.isVerified == 'verified'">
                 <button type="button" (click)="editInfo(item)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
                 <span><button (click)="editDelete(item.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
+              </td>
+              <td *ngIf="item.isVerified == 'pending'">
+                <button type="button" (click)="verify_doctor(item.uid)" class="btn btn-warning">Verify</button>
               </td>
             </tr>
           </tbody>
