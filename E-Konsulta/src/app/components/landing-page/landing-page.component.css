@@ -95,7 +95,7 @@ ul.slides input{
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: rgb(145, 145, 145);
   opacity: 0.5;
   margin: 10px;
 }
