@@ -29,6 +29,7 @@ body{
   width: 500px;
   border-radius: 5px;
   padding: 40px;
+  background-color: rgb(253, 252, 252);
 }
 
 .patient{
@@ -57,7 +58,7 @@ body{
 /* upload image*/
 .main-profile .imagee{
   display: inline-flex;
-  width: 180px;
+  width: 200px;
   margin: 8px 0;
 }
 
@@ -77,7 +78,7 @@ body{
   background-color: rgb(245, 244, 244);
   color: rgb(0, 129, 138);
   border-radius: 5px;
-  padding: 12px 22px;
+  padding: 12px 20px;
   outline: none;
   white-space: nowrap;
   cursor: pointer;
@@ -93,6 +94,13 @@ body{
 }
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.selection-done{
+  color: green;
+  font-size: 22px;
+  margin-top: 6px;
+  margin-left: 2px;
 }
 
 .upload{
