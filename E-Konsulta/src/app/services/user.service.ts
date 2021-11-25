@@ -409,6 +409,11 @@ export class UserService {
   {
     return this.db.firestore.collection('Consultation').get();
   }
+  get_consultation_today_admin()
+  {
+    return this.db.firestore.collection('Consultation').where('createdAt','==',formatDate(new Date(),'MM/dd/yyyy','en'))
+    .get();
+  }
   get_consultation(doctor_id)
   {
     return this.db.firestore.collection('Consultation').where('doctor_id','==',doctor_id).get();
@@ -638,8 +643,7 @@ export class UserService {
 
   update_doctorInfo(user_id,record)
   {
-    this.db.collection('Users').doc(user_id).update(record);
-    console.log("Updated Doctor Info!");
+    return this.db.collection('Users').doc(user_id).update(record);
   }
   update_patientInfo(id,record)
   {

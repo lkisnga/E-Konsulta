@@ -14,6 +14,9 @@ export class AdminUserAnalyticsComponent implements OnInit {
   labsize : number = 0;
   adminsize : number = 0;
 
+  consSize: number = 0;
+  todayCons: number = 0;
+
   constructor(public userservice : UserService) { }
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
   daily = false;
@@ -63,6 +66,14 @@ export class AdminUserAnalyticsComponent implements OnInit {
       this.adminsize = e.size;
     })
 
+    this.userservice.get_consultation_admin().then(e=>{
+      this.consSize = e.size;
+    })
+
+    this.userservice.get_consultation_today_admin().then
+    (e=>{
+      this.todayCons=e.size;
+    })
 
 
   }

@@ -169,4 +169,15 @@ export class AdminDoctorsComponent implements OnInit {
     this.listOfSpecialization();
   }
 
+  verify_doctor(id)
+  {
+    let record = {};
+    record['isVerified'] = 'verified';
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    this.userservice.update_doctorInfo(id,record).then(()=>{
+      console.log('Verified!');
+      this.ngOnInit();
+    })
+  }
+
 }
