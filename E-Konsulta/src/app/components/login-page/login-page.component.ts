@@ -16,6 +16,12 @@ export class LoginPageComponent implements OnInit {
   errorMessage : string = "";
   error: {name : string, message : string} = {name: '',message: ''};
 
+
+  pending_message : boolean = false;
+
+  timeLeft: number = 10;
+  interval;
+
   constructor(private authservice : AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,41 +34,58 @@ export class LoginPageComponent implements OnInit {
   }
   login()
   {
-    this.authservice.get_userData().then(e => {
-      e.forEach(res => {
-        if(res.data().email == this.email)
-          {
-            this.clearErrorMessage();
-            if (this.validateForm(this.email, this.password)) {
-              this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+    if(this.validateForm(this.email,this.password))
+    {
+      this.authservice.get_userData().then(e => {
+        e.forEach(res => {
+          if(res.data().email == this.email)
+            {
+              if(res.data().role != 'doctor')
+              {
+                this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
                   this.error = _error
                   this.router.navigate(['/login'])
                 })
+              }
+              else if (res.data().isVerified == 'verified')//Doctor Verified
+              {
+                this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+                  this.error = _error
+                  this.router.navigate(['/login'])
+                })
+              }
+              else //Doctor Pending
+              {
+                console.log('pending!');
+                this.pending_message = true;
+                setTimeout(() => {
+                  this.pending_message = false;
+                }, 10000);
+                this.interval = setInterval(() => {
+                  if(this.timeLeft > 0) {
+                    this.timeLeft--;
+                  } else {
+                    clearInterval(this.interval);
+                    this.timeLeft = 10;
+                  }
+                },1000)
+              }
             }
-          }
-      })
-    })
-    /*
-   this.clearErrorMessage();
-    if (this.validateForm(this.email, this.password)) {
-
-      this.authservice.loginWithEmail(this.email, this.password).catch(_error => {
-          this.error = _error
-          this.router.navigate(['/login'])
         })
-    }*/
+      })
+    }
   }
 
   validateForm(email, password)
   {
     if(email.length === 0)
     {
-      this.errorMessage = "please enter email id";
+      this.errorMessage = "Please enter email id";
       return false;
     }
 
     if (password.length === 0) {
-      this.errorMessage = "please enter password";
+      this.errorMessage = "Please enter password";
       return false;
     }
 
