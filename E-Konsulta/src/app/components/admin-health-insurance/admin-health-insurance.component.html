@@ -25,6 +25,7 @@
               <th scope="col">Name</th>
               <th scope="col">Branch Name</th>
               <th scope="col">Address</th>
+              <th scope="col">isDisabled</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -33,6 +34,7 @@
               <th scope="row">{{list.name}}</th>
               <td>{{list.branchname}}</td>
               <td>{{list.address}}</td>
+              <td>{{list.disabled}}</td>
               <td>
                 <button (click)="edit_info(list)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editHealth">EDIT</button> &nbsp;
                 <span><button (click)="getID(list.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteHealth">DISABLE</button></span>
@@ -42,34 +44,6 @@
         </table>
       </div>
     </div>
-
-  <!--Add Health Insurance
-  <div class="addHealth">
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addHealth">Add Health Insurance</button>
-  </div> -->
-  <!--Modal Health Insurance
-  <div class="modal fade" id="addHealth" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addHealthLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addHealthLabel">Add Health Insurance</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-        </div>
-        <form #userInfo="ngForm" (ngSubmit)="addHealthInsurance(userInfo.value)">
-          <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="45"> <br><br>
-            Branch Name: &nbsp; <input [(ngModel)]="model.branchname" name="branchname" type="text" size="45"> <br><br>
-            Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="45"> <br><br>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>-->
-  <!--end of modal Health Insurance-->
 
   <!--Edit Health Insurance Modal-->
   <div class="modal fade" id="editHealth" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editHealthLabel" aria-hidden="true">

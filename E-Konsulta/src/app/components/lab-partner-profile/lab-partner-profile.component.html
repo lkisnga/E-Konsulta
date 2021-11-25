@@ -11,7 +11,7 @@
           <div class="imagee">
             <span title="Click to Upload"><button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up-fill"></i></button></span>
             <input type="file" (change)="choosefile($event)" class="custom-file-input">
-            <span class="selection-done"><i class="bi bi-check-circle-fill"></i></span>
+            <span *ngIf="file" class="selection-done"><i class="bi bi-check-circle-fill"></i></span>
           </div>
           <h3 class="lab">{{info.name}}</h3>
         </div>

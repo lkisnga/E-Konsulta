@@ -69,7 +69,6 @@ export class AdminProfileComponent implements OnInit{
   choosefile(e)
   {
     this.file = e.target.files[0];
-    console.log(this.file);
   }
 
   uploadImage()
