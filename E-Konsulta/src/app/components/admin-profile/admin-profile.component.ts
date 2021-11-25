@@ -33,6 +33,8 @@ export class AdminProfileComponent implements OnInit{
   file: any;
   imgUrl: any = "";
 
+  profile_changed : boolean = false;
+
   constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
     public userService: UserService, public afau: AngularFireAuth,public store: AngularFireStorage) {
       
@@ -70,7 +72,14 @@ export class AdminProfileComponent implements OnInit{
 
   uploadImage()
   {
-    this.userService.upload_avatar(this.file,this.userID);
+    this.userService.upload_avatar(this.file,this.userID)
+    .then(()=>{
+      this.ngOnInit();
+      this.profile_changed = true;
+      setTimeout(() => {
+        this.profile_changed = false;
+      }, 5000);
+    });
   }
 
   editUser()

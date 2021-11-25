@@ -26,6 +26,8 @@ export class HealthInsuranceProfileComponent implements OnInit {
   info : any = [];
   imgUrl : any;
   file : any;
+
+  profile_changed : boolean = false;
   constructor(
     public userservice : UserService, 
     public afu : AuthService,
@@ -44,7 +46,14 @@ export class HealthInsuranceProfileComponent implements OnInit {
   } 
   uploadImage()
   {
-    this.userservice.upload_avatar(this.file,this.userId);
+    this.userservice.upload_avatar(this.file,this.userId)
+    .then(()=>{
+      this.ngOnInit();
+      this.profile_changed = true;
+      setTimeout(() => {
+        this.profile_changed = false;
+      }, 5000);
+    });
   }
   choosefile(e)
   {

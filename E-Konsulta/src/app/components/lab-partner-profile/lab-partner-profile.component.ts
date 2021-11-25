@@ -24,6 +24,9 @@ export class LabPartnerProfileComponent implements OnInit {
   imgUrl : any = "";
   model = new EditInfo();
   file : any;
+
+  profile_changed: boolean = false;
+
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -42,7 +45,14 @@ export class LabPartnerProfileComponent implements OnInit {
   }
   uploadImage()
   {
-    this.userservice.upload_avatar(this.file,this.userID);
+    this.userservice.upload_avatar(this.file,this.userID)
+    .then(()=>{
+      this.ngOnInit();
+      this.profile_changed = true;
+      setTimeout(() => {
+        this.profile_changed = false;
+      }, 5000);
+    });
   }
   choosefile(e)
   {

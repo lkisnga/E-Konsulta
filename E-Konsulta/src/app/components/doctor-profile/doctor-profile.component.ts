@@ -32,6 +32,8 @@ export class DoctorProfileComponent implements OnInit {
 
   fee : number = 0;
 
+  profile_changed : boolean = false;
+
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
@@ -65,7 +67,14 @@ export class DoctorProfileComponent implements OnInit {
   }
   uploadImage()
   {
-    this.userservice.upload_avatar(this.file,this.userId);
+    this.userservice.upload_avatar(this.file,this.userId)
+    .then(()=>{
+      this.ngOnInit();
+      this.profile_changed = true;
+      setTimeout(() => {
+        this.profile_changed = false;
+      }, 5000);
+    });
   }
   choosefile(e)
   {

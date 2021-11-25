@@ -35,6 +35,8 @@ export class PatientProfileComponent implements OnInit {
   health_insurance: string = "";
   member_ID: string = "";
 
+  profile_changed : boolean = false;
+
   constructor(
     public userservice : UserService, 
     public afu : AuthService,
@@ -80,7 +82,14 @@ export class PatientProfileComponent implements OnInit {
   }
   uploadImage()
   {
-    this.userservice.upload_avatar(this.file,this.userID);
+    this.userservice.upload_avatar(this.file,this.userID)
+    .then(()=>{
+      this.ngOnInit();
+      this.profile_changed = true;
+      setTimeout(() => {
+        this.profile_changed = false;
+      }, 5000);
+    });
   }
   insurance_list()
   {
