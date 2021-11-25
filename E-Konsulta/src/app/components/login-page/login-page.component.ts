@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -22,7 +23,10 @@ export class LoginPageComponent implements OnInit {
   timeLeft: number = 10;
   interval;
 
-  constructor(private authservice : AuthService, private router: Router) { }
+  constructor(private authservice : AuthService, 
+    private router: Router,
+    public userservice : UserService  
+  ) { }
 
   ngOnInit(): void {
   }
@@ -38,44 +42,96 @@ export class LoginPageComponent implements OnInit {
     {
       this.authservice.get_userData().then(e => {
         e.forEach(res => {
-          if(res.data().email == this.email)
+          if(res.data().email == this.email) // finding equal email from the firestore
             {
-              if(res.data().role != 'doctor')
+              if(res.data().role == 'doctor') //finding user Role
               {
-                if(res.data().disabled != "true")
+                if(res.data().isVerified == 'verified')//checks if the doctor is verified or not
+                {
+                  if(res.data().disabled != 'true')// checks if the account is disabled or not
+                  {
+                    this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+                      this.error = _error
+                      this.router.navigate(['/login'])
+                    })
+                  }
+                  else //if the account is disabled
+                  {
+                    this.errorMessage = "Account is disabled!";
+                    console.log('Account Disabled!');
+                  }
+                }else //Doctor Pending
+                {
+                  console.log('pending!');
+                  this.pending_message = true;
+                  setTimeout(() => {
+                    this.pending_message = false;
+                  }, 10000);
+                  this.interval = setInterval(() => {
+                    if(this.timeLeft > 0) {
+                      this.timeLeft--;
+                    } else {
+                      clearInterval(this.interval);
+                      this.timeLeft = 10;
+                    }
+                  },1000)
+                }
+              }
+              else if(res.data().role == "patient")
+              {
+                if(res.data().disabled!='true')// checks if the account is disabled or not
                 {
                   this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
                     this.error = _error
                     this.router.navigate(['/login'])
                   })
                 }
-                else
+                else //if the account is disabled
                 {
-                  console.log('Account Deactivated!');
+                  this.errorMessage = "Account is disabled!";
+                  console.log('Account Disabled!');
                 }
               }
-              else if (res.data().isVerified == 'verified')//Doctor Verified
+              else if(res.data().role == "Health_Insurance")
+              {
+                this.userservice.get_HealthInsurance_Info(res.id).then(e=>{
+                  if(e.data().disabled != 'true')
+                  {
+                    this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+                      this.error = _error
+                      this.router.navigate(['/login'])
+                    })
+                  }
+                  else
+                  {
+                    this.errorMessage = "Account is disabled!";
+                    console.log('Account Disabled!');
+                  }
+                })
+              }
+              else if(res.data().role == "laboratory_partner")
+              {
+                this.userservice.get_labInfo(res.id).forEach(e=>{
+                  if(e.data().disabled != 'true')
+                  {
+                    this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+                      this.error = _error
+                      this.router.navigate(['/login'])
+                    })
+                  }
+                  else
+                  {
+                    this.errorMessage = "Account is disabled!";
+                    console.log('Account Disabled!');
+                  }
+                })
+              }
+              else //admin
               {
                 this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
                   this.error = _error
                   this.router.navigate(['/login'])
                 })
-              }
-              else //Doctor Pending
-              {
-                console.log('pending!');
-                this.pending_message = true;
-                setTimeout(() => {
-                  this.pending_message = false;
-                }, 10000);
-                this.interval = setInterval(() => {
-                  if(this.timeLeft > 0) {
-                    this.timeLeft--;
-                  } else {
-                    clearInterval(this.interval);
-                    this.timeLeft = 10;
-                  }
-                },1000)
               }
             }
         })
