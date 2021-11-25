@@ -85,8 +85,8 @@ i{
 }
 .bi-telephone:hover{
   border-radius: 50%;
-  background-color: white;
-  color: green;
+  background-color: green;
+  color: white;
 }
 .bi-telephone-fill:hover{
   border-radius: 50%;
@@ -102,7 +102,7 @@ i{
 .record:hover{
   border-radius: 50%;
   background-color: white;
-  color: red;
+  color: green;
 }
 
 .stop-record:hover{
