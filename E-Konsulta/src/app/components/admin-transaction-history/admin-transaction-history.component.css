@@ -12,12 +12,13 @@ h5{
 
 .list-group-item{
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  color: gray !important;
-  font-size: 12px;
+  color: #333;
+  font-size: 13px;
+  padding: 12px;
 }
 
 .mb-1{
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .whole-trans{
@@ -29,3 +30,23 @@ h5{
   margin-top: 20px;
 }
 
+.paid{
+  border: 1px solid rgb(0, 153, 51);
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: rgb(0, 153, 51);
+  padding: 2px 14px;
+  cursor: pointer;
+  text-align: center !important;
+  font-size: 14px;
+}
+
+small{
+  color: gray;
+}
+
+.paid:hover{
+  background-color: rgb(1, 141, 48);
+}
