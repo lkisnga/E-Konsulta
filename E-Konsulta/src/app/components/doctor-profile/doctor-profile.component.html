@@ -6,11 +6,12 @@
       <!--2nd column-->
       <div class="col-3 mt-4 first">
         <div class="main-profile">
-          <button *ngIf="profile_changed" class="successful"><span>Profile Changed<i class="bi bi-check2-circle"></i></span></button>
+          <button *ngIf="profile_changed" class="successful"><span>Profile Changed!</span></button>
           <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
           <div class="imagee">
-            <input type="file" (change)="choosefile($event)" class="custom-file-input">
             <span title="Upload"><button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up-fill"></i></button></span>
+            <input type="file" (change)="choosefile($event)" class="custom-file-input">
+            <span class="selection-done"><i class="bi bi-check-circle-fill"></i></span>
           </div>
           <h3 class="doctor">{{info.fullname}}</h3>
         </div>
