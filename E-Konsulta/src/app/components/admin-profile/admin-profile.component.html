@@ -11,9 +11,12 @@
     <div class="col-2 px-md-2 col-xl-2 px-sm-1">
       <app-admin-sidenav></app-admin-sidenav>
     </div>
-
     <!--2nd column-->
     <div class="col-3 mt-4 first">
+       <!--<div class="loading"></div>
+      <div class="spinner">
+        <img src="./assets/images/ekIcon1.ico" alt="loading" />
+      </div>-->
       <div class="main-profile">
         <button *ngIf="profile_changed" class="successful"><span>Profile Changed!</span></button>
         <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
@@ -67,28 +70,8 @@
 </div>
 <!--end of edit modal-->
 
-<!--Logout Modal-->
-<div class="modal fade" id="logOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Log out</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to logout?</p>
-      </div>
-      <div class="modal-footer">
-        <button [routerLink]="['/admin-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
-        <button (click)="authservice.signout()" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--end of logout modal-->
-
 <!--start of deletion modal-->
-<div class="modal fade" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">
+<div class="modal" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -109,6 +92,26 @@
 </div>
 
 <!--end of deletion modal-->
+
+<!--Logout Modal-->
+<div class="modal fade" id="logOut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Log out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to logout?</p>
+      </div>
+      <div class="modal-footer">
+        <button [routerLink]="['/admin-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
+        <button (click)="authservice.signout()" type="button" class="yes" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of logout modal-->
 
 </body>
 </html>

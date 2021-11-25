@@ -61,7 +61,7 @@
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#spclList">Specialization List</button>
   </div>
   <!--Modal Add Specialization-->
-  <div class="modal fade" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal" id="addSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -84,7 +84,7 @@
   <!--end of modal add specialization-->
 
   <!--Modal Specialization List-->
-  <div class="modal fade" id="spclList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal" id="spclList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -124,7 +124,7 @@
   <!--end of modal specialization list-->
 
   <!--Edit Doctor Modal-->
-  <div class="modal fade" id="editDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
+  <div class="modal " id="editDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -155,8 +155,8 @@
   </div>
   <!--end of edit doctor modal-->
 
-  <!--Disable Doctor Modal-->
-  <div class="modal fade" id="deleteDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <!--Delete Doctor Modal-->
+  <div class="modal" id="deleteDoctor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -176,7 +176,7 @@
   <!--end of delete doctor modal-->
 
   <!--Edit Doctor Specialization-->
-  <div class="modal fade" id="editSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
+  <div class="modal" id="editSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDoctorLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -185,8 +185,8 @@
         </div>
         <form (ngSubmit)="update_Specialization()">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp2.name" name="name" type="text" size="42"><br><br>
-            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="55" rows="6"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp2.name" name="name" type="text" size="45"><br><br>
+            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="62" rows="6"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -199,7 +199,7 @@
   <!--end of edit doctor Specialization-->
 
   <!--Delete Doctor Specialization-->
-  <div class="modal fade" id="deleteSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal" id="deleteSpcl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">

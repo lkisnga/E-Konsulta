@@ -52,7 +52,7 @@ input{
   margin-bottom: 20px;
 }
 
-select{
+select, textarea{
   padding: 3px 6px;
 }
 
