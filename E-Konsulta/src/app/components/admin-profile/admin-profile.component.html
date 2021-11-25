@@ -55,7 +55,7 @@
         <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" class="info-modal" type="text" size="47" name="fullname"></p>
         <p>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" class="info-modal" type="text" size="47" name="email"></p>
         <p>Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" class="info-modal" type="text" size="47" name="password"></p>
-        <button class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION <span><i class="bi bi-exclamation-circle"></i></span></button>
+        <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION <span><i class="bi bi-exclamation-circle"></i></span></button>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -88,7 +88,7 @@
 <!--end of logout modal-->
 
 <!--start of deletion modal-->
-<div class="modal" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">
+<div class="modal fade" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">

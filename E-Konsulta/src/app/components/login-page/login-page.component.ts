@@ -42,10 +42,17 @@ export class LoginPageComponent implements OnInit {
             {
               if(res.data().role != 'doctor')
               {
-                this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
-                  this.error = _error
-                  this.router.navigate(['/login'])
-                })
+                if(res.data().disabled != "true")
+                {
+                  this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
+                    this.error = _error
+                    this.router.navigate(['/login'])
+                  })
+                }
+                else
+                {
+                  console.log('Account Deactivated!');
+                }
               }
               else if (res.data().isVerified == 'verified')//Doctor Verified
               {

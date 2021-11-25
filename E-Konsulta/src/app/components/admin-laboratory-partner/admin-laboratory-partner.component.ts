@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { stringify } from 'querystring';
 import { UserService } from 'src/app/services/user.service';
@@ -44,9 +45,20 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
       this.ngOnInit()
     })
   }
-  deleteInfo()
+  disableInfo(e)
   {
-    this.userservice.delete_lab(this.UID);
+    this.UID = e;
+    console.log(this.UID);
+  }
+  disable()
+  {
+    let record ={}
+    record['disabled'] = "true";
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    this.userservice.update_lab(this.UID,record).then(()=>{
+      this.ngOnInit();
+      console.log("successfully disabled!");
+    })
   }
 
   listOfPartners()

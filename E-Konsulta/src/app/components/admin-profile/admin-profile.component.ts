@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -35,8 +35,10 @@ export class AdminProfileComponent implements OnInit{
 
   profile_changed : boolean = false;
 
-  constructor(public authservice : AuthService, private db: AngularFirestore, public router:Router,
-    public userService: UserService, public afau: AngularFireAuth,public store: AngularFireStorage) {
+  delete_modal: boolean = false;
+
+  constructor(public authservice : AuthService, public router:Router,
+    public userService: UserService) {
       
   }
   ngOnInit()
@@ -100,5 +102,17 @@ export class AdminProfileComponent implements OnInit{
     this.userService.update_user(this.userID,record).then(()=>{
       this.ngOnInit()
     });
+  }
+  back_delete()
+  {
+    this.router.navigate(['admin-profile']);
+  }
+  delete_account()
+  {
+    this.router.navigate(['admin-profile']);
+    /*
+    this.authservice.delete_user().then(()=>{
+      console.log('Successfully Deleted!');
+    })*/
   }
 }

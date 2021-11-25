@@ -585,7 +585,6 @@ export class UserService {
   {
     return this.db.firestore.collection('reviews').where('type','==','problem').get()
   }
-
   //Delete User
   delete_user(id)
   {
@@ -652,8 +651,7 @@ export class UserService {
   // Admin Update User Insurance
   update_insurance(id,record)
   {
-    this.db.collection('Health_Insurance').doc(id).update(record);
-    console.log("Updated!");
+    return this.db.collection('Health_Insurance').doc(id).update(record);
   }
 
   update_labInfo(id,record)

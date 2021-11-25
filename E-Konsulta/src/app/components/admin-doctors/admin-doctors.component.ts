@@ -46,6 +46,8 @@ export class AdminDoctorsComponent implements OnInit {
 
   isVerified : string = "pending";
 
+  doctor_id : string = "";
+
   constructor(public authservice : AuthService, public userservice : UserService
     ,public router : Router) { }
 
@@ -150,13 +152,19 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.update_doctorInfo(a.id,record);
     this.ngOnInit();
   }
-  editDelete(id)
+  editDisable(id)
   {
-    this.spID = id;
+    this.doctor_id = id;
   }
-  deleteDoctor()
+  disableDoctor()
   {
-    this.userservice.delete_user(this.spID);
+    let record = {};
+    record['disabled'] = "true";
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    this.userservice.update_doctorInfo(this.doctor_id,record)
+    .then(()=>{
+      console.log('Successfully disabled!');
+    })
   }
   addSpecialization(a)
   {

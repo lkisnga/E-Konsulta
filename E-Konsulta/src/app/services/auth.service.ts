@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -13,7 +14,7 @@ export class AuthService {
   newUser: any;
 
   authState: any = null;
-  constructor(private afu : AngularFireAuth, private router: Router, private db: AngularFirestore, public store: AngularFireStorage) { 
+  constructor(public fireb : FirebaseApp, private afu : AngularFireAuth, private router: Router, private db: AngularFirestore, public store: AngularFireStorage) { 
     this.afu.authState.subscribe((auth =>{
       this.authState = auth;
     }))
@@ -291,6 +292,13 @@ export class AuthService {
       return data.uid
     else
       this.router.navigate(['/login']);
+  }
+
+  delete_user()
+  {
+    return this.fireb.auth().currentUser.delete().catch(error=>{
+      throw error;
+    })
   }
 
   reset_password(email)

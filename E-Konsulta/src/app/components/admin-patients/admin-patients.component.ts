@@ -29,6 +29,8 @@ export class AdminPatientsComponent implements OnInit {
 
   tempName : string ="";
 
+  disable_id : string = "";
+
   constructor(public userService : UserService, public auts: AuthService) { }
 
   ngOnInit(): void {
@@ -96,4 +98,17 @@ export class AdminPatientsComponent implements OnInit {
       })
     })
   }
+
+  //Disable account
+  disable()
+  {
+    let record = {};
+    record['disabled'] = "true";
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    this.userService.update_patientInfo(this.disable_id,record).then(()=>{
+      this.ngOnInit();
+      console.log('Successfully Disabled!');
+    })
+  }
+
 }

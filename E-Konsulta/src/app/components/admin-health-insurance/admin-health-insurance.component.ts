@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
@@ -59,11 +60,15 @@ export class AdminHealthInsuranceComponent implements OnInit {
     this.userservice.update_insurance(this.UID,e);
     this.ngOnInit();
   }
-  delete_insurance()
+  disable_insurance()
   {
-    this.userservice.delete_Insurance(this.UID);
-
-    this.ngOnInit();
+    let record = {};
+    record['disabled'] = true;
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    this.userservice.update_insurance(this.UID,record).then(()=>{
+      this.ngOnInit();
+      console.log('Successfully disabled!');
+    })
   }
   getID(id)
   {
