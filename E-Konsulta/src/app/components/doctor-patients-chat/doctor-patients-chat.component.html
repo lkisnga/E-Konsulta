@@ -71,6 +71,72 @@
             <button type="button" class="lab" (click)="labResult()">Laboratory Result</button>
             <button type="button" class="prescription" (click)="prescription()">Prescription</button>
           </div>
+          <!--medical records-->
+          <div *ngIf="medicalrecords">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>File Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+          <!--Laboratory result-->
+          <div *ngIf="labresult">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Date</th>
+                  <th>From</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+          <!--prescription-->
+          <div *ngIf="presc">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>File Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+
         </div>
         <div *ngIf="error_message.length > 0" class="alert alert-danger">
           {{error_message}}

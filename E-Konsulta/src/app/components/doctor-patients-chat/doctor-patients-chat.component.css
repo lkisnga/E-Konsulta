@@ -194,3 +194,14 @@ a:hover{
   color: rgb(0, 129, 138);
   background-color: rgb(235, 233, 233);
 }
+
+
+.view{
+  border: none;
+  background-color: transparent;
+  color: rgb(0, 129, 138);
+}
+
+.view:hover{
+  color: rgb(1, 146, 156);
+}
