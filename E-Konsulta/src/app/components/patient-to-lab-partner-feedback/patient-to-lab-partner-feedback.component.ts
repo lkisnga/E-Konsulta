@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -18,7 +20,11 @@ export class PatientToLabPartnerFeedbackComponent implements OnInit {
   feedback : string = "";
 
   replyList : any = [];
-  constructor(public userservice : UserService, public afu: AuthService, public share: SharedDataService) { }
+  constructor(public userservice : UserService, 
+    public afu: AuthService, 
+    public share: SharedDataService,
+    public notif: NotificationService
+  ) { }
 
   ngOnInit(): void {
     //getting information from list of laboratory 
@@ -53,6 +59,13 @@ export class PatientToLabPartnerFeedbackComponent implements OnInit {
             this.userservice.create_labPartner_feedback(this.info2.uid,this.userId,this.feedback,this.userInfo.fullname)
             .then(()=>{
               console.log("Added!");
+
+              let record = {};
+              record['createdAt'] = formatDate(new Date(),'short','en');
+              record['title'] = "Feedback"
+              record['description'] = this.userInfo.fullname+" sent you a feedback! Go to Reviews and Check it!";
+              this.notif.send_lab(this.info2.uid,record)
+
               this.ngOnInit();
               this.feedback = "";
             })
