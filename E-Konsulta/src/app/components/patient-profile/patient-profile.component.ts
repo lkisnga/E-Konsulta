@@ -84,8 +84,8 @@ export class PatientProfileComponent implements OnInit {
   {
     this.userservice.upload_avatar(this.file,this.userID)
     .then(()=>{
-      this.profile_changed = true;
       this.ngOnInit();
+      this.profile_changed = true;
       setTimeout(() => {
         this.profile_changed = false;
       }, 5000);
