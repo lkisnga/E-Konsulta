@@ -101,6 +101,9 @@ label{
   margin-bottom: 10px;
 }
 
+.terms:hover{
+  text-decoration: underline;
+}
 
 @media screen and (max-width: 600px)
 {
