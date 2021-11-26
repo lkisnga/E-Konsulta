@@ -54,6 +54,7 @@ import { PatientDoctorsListViewComponent } from './components/patient-doctors-li
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { PatientVideoCallComponent } from './components/patient-video-call/patient-video-call.component';
 import { PatientPaymentComponent } from './components/patient-payment/patient-payment.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -109,7 +110,8 @@ const routes: Routes = [
   { path: 'patient-doctors-lists-view', component: PatientDoctorsListViewComponent},
   { path: 'video-call', component: VideoCallComponent},
   { path: 'patient-video-call', component: PatientVideoCallComponent },
-  { path: 'patient-payment', component: PatientPaymentComponent}
+  { path: 'patient-payment', component: PatientPaymentComponent},
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent}
 ];
 
 
@@ -176,5 +178,6 @@ export const routingComponents = [
   PatientDoctorsListViewComponent,
   VideoCallComponent,
   PatientVideoCallComponent,
-  PatientPaymentComponent
+  PatientPaymentComponent,
+  TermsAndConditionsComponent
 ];
