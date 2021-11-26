@@ -207,7 +207,10 @@ export class UserService {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').
     where('time','==',info.start + '-' + info.end).get();
   }
-
+  remove_schedule(id)
+  {
+    return this.db.firestore.collection('Schedule').doc(id).delete();
+  }
   get_schedule(doc_id)
   {
     return this.db.firestore.collection('Schedule').where('doctor_id','==',doc_id).get();

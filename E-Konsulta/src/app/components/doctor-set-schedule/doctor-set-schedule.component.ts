@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DoctorSetScheduleComponent implements OnInit {
   
+  sched_id: string = "";
+
   userId : string = "";
 
   min : string = formatDate(new Date(),'yyyy-MM-dd','en');
@@ -22,6 +24,8 @@ export class DoctorSetScheduleComponent implements OnInit {
 
   schedule: any = [] ;
   sched_time : any = [];
+
+  clear_message: string= "";
 
   constructor(
     public userservice: UserService,
@@ -94,6 +98,31 @@ export class DoctorSetScheduleComponent implements OnInit {
     })
     this.sched_time = tempArray2;
     this.schedule = tempArray;
+  }
+
+  remove_schedule()
+  {
+    if(this.sched_id)
+    {
+      this.userservice.remove_schedule(this.sched_id)
+      .then(()=>{
+         this.ngOnInit();
+         this.clear_message = "Successfully removed!"
+         this.sched_id = "";
+         setTimeout(() => {
+          this.clear_message = ""
+         }, 5000);
+       })
+    }
+    else
+    {
+      this.clear_message = "Choose a Schedule!"
+         setTimeout(() => {
+          this.clear_message = ""
+         }, 5000);
+    }
+    
+    
   }
 
 }
