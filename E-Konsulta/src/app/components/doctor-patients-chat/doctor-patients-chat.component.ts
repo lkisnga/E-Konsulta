@@ -62,7 +62,7 @@ export class DoctorPatientsChatComponent implements OnInit {
      console.log(this.chat_id);
      this.chat$=this.chats.get(this.chat_id).pipe(
       map(doc => {
-        return { 
+        return {
           id: doc.payload.id,
           ...
           Object.assign({}, doc.payload.data() )
@@ -83,7 +83,7 @@ export class DoctorPatientsChatComponent implements OnInit {
       console.log("Empty!");
     }
   }
-  
+
   choosefile(e,type)
   {
     if(type=="cs")
@@ -157,5 +157,32 @@ export class DoctorPatientsChatComponent implements OnInit {
       })
     });
   }
+
+    /** set to false so that when loading the user analytics page, content of that function is not displayed */
+    medicalrecords = false;
+    labresult = false;
+    presc =  false;
+    insurance_loa = false;
+
+    medicalRecords(){
+      this.medicalrecords = true;
+      this.labresult = false;
+      this.presc = false;
+      this.insurance_loa = false;
+    }
+
+    labResult(){
+      this.medicalrecords = false;
+      this.labresult = true;
+      this.presc = false;
+      this.insurance_loa = false;
+    }
+
+    prescription(){
+      this.medicalrecords = false;
+      this.labresult = false;
+      this.presc = true;
+      this.insurance_loa = false;
+    }
 
 }

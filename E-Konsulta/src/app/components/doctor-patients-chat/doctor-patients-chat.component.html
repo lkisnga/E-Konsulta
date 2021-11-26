@@ -40,6 +40,7 @@
         <h4 class="user left-name">{{patientInfo.fullname}}</h4>
         <div class="doctor-files">
           <a href="#prescription" data-bs-toggle="modal" data-bs-target="#pres">Prescription</a>
+          <a href="#viewFiles" data-bs-toggle="modal" data-bs-target="#view">View</a>
           <a href="#action" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
           <span>Actions<i class="bi bi-caret-down"></i> </span> </a>
           <ul class="collapse nav flex-column ms-2" id="action" data-bs-parent="#menu">
@@ -55,9 +56,102 @@
       </div>
     </div>
   </div>
-  <!--prescription-->
-  <div class="modal fade" id="pres" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+
+  <!--start modal view-->
+  <div class="modal fade" id="view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="send-files">View files</h5>
+          <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="btn-group">
+            <button type="button" class="medical" (click)="medicalRecords()">Medical Records</button>
+            <button type="button" class="lab" (click)="labResult()">Laboratory Result</button>
+            <button type="button" class="prescription" (click)="prescription()">Prescription</button>
+          </div>
+          <!--medical records-->
+          <div *ngIf="medicalrecords">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>File Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+          <!--Laboratory result-->
+          <div *ngIf="labresult">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Date</th>
+                  <th>From</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+          <!--prescription-->
+          <div *ngIf="presc">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>File Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+
+        </div>
+        <div *ngIf="error_message.length > 0" class="alert alert-danger">
+          {{error_message}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="send" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end modal view-->
+
+  <!--start modal prescription-->
+  <div class="modal fade" id="pres" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="send-files">Send files</h5>
@@ -88,4 +182,5 @@
       </div>
     </div>
   </div>
+  <!--end modal prescription-->
 </div>

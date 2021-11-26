@@ -19,7 +19,7 @@ body{
   text-align: center;
 }
 .second{
-  margin-top: 110px !important;
+  margin-top: 90px !important;
   font-size: 14px;
 }
 
@@ -28,7 +28,7 @@ body{
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   width: 500px;
   border-radius: 5px;
-  padding: 40px;
+  padding: 30px 40px;
   background-color: rgb(253, 252, 252);
 }
 
@@ -138,16 +138,7 @@ body{
   margin-top: 550px;
   font-weight: 700;
 }
-.deletion{
-  color: red;
-  border:none;
-  border-radius: 3px;
-  padding: 7px 20px;
-  background-color: rgb(245, 244, 244);
-  font-size: 10pt;
-  margin-top: 15px;
-  font-weight: 700;
-}
+
 .edit:hover,
 .logout:hover,
 .deletion:hover{
@@ -290,4 +281,26 @@ select{
 .modal--active .row {
   filter: blur(8px) !important;
   opacity: 1 !important;
+}
+
+/*account deletion*/
+.deletion{
+  color: red;
+  border:none;
+  border-radius: 3px;
+  padding: 7px 20px;
+  background-color: rgb(245, 244, 244);
+  font-size: 10pt;
+  font-weight: 700;
+}
+.delete-collapse{
+  border: none;
+  background-color: transparent;
+  color: rgb(206, 206, 206); /*rgb(221, 221, 221);*/
+  font-size: 30px;
+  margin-top: -14px !important;
+  margin-left: -8px !important;
+}
+.delete-collapse:hover{
+  color: red;
 }

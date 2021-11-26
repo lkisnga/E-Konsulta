@@ -76,3 +76,7 @@
   color: rgb(0, 192, 206);
   overflow: hidden;
 }
+
+.list-group-item{
+  cursor: pointer;
+}
