@@ -106,7 +106,7 @@ input[type=file]::file-selector-button{
 */
 .chat-type{
   font-size: 12px;
-  padding: 5px 10px;
+  padding: 5px 14px;
   width: 730px;
   height: 35px;
   display: inline-block;
