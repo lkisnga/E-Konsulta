@@ -25,12 +25,6 @@
         </div>
       </div>
       <div class="below">
-        <div class="image-upload">
-          <label for="file-input" class="mt-1">
-            <i class="bi bi-plus-circle-fill"></i>
-          </label>
-          <input id="file-input" type="file"/>
-        </div>
         <div class="right">
           <input [(ngModel)]="content" type="text" class="chat-type">
           <button (click)="send_message()" class="chat-send"><i class="bi bi-send-fill"></i></button>
@@ -46,10 +40,19 @@
         <h4 class="user left-name">{{docInfo.fullname}}</h4>
         <div class="patient-files">
           <a href="#payment">Payment</a>
-          <a href="#sharedFiles">Shared Files</a>
+          <a href="#sharedFiles" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+            <span>Files<i class="bi bi-caret-down"></i> </span>
+          </a>
+          <ul class="collapse nav flex-column ms-2" id="sharedFiles">
+            <li>
+                <a href="" class="nav-link px-1"> <span class="d-none d-sm-inline">Share View</span> </a>
+            </li>
+        </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!--Files-->
 

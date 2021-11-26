@@ -93,27 +93,14 @@ input[type=file]::file-selector-button{
   display: none;
 }
 
-.image-upload i
-{
-  width: 80px;
-  cursor: pointer;
-  margin-left: 30px;
-  margin-right: 5px;
-  font-size: 25px;
-}
-.image-upload,
-.right{
-  float: left;
-}
-
 .chat-type{
   font-size: 12px;
-  padding: 5px 10px;
-  width: 400px;
-  margin-left: 5px;
-  margin-top: 10px;
+  padding: 5px 14px;
+  width: 730px;
+  height: 35px;
   display: inline-block;
   border: 0;
+  border-radius: 40px;
   background-color: rgb(235, 235, 235);
 }
 
@@ -125,19 +112,11 @@ input[type=file]::file-selector-button{
   font-size: 25px;
   background-color: transparent;
   color: white;
-  /*border: 1px solid rgb(0, 129, 138);
-  border-radius: 3px;*/
   border: 0;
   padding: 4px 10px;
   margin-left: 5px;
   transform: rotate(45deg);
 }
-/*
-.chat-send:hover{
-  transform: rotate(-45deg);
-  transform: scale(0.8);
-  transition: ease .25s;
-} */
 
 .bi-send-fill:hover{
   color: rgb(3, 175, 187);
