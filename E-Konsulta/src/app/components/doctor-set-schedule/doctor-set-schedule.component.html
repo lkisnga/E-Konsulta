@@ -134,8 +134,17 @@
               </div>
               <div class="row mt-4">
                 <div class="col-md-4">
-                  <button  routerLink="/" id="set">Clear</button>
+                  <button (click)="remove_schedule()" id="set">Remove</button>
                 </div>
+                <div class="col-md-4">
+                  <select [(ngModel)]="sched_id" class="form-select" name="schedule" id="">
+                    <option value="" selected>Choose Date</option>
+                    <option *ngFor="let list of schedule" value="{{list.uid}}">{{list.date}}</option>
+                  </select>
+                </div>
+              </div>
+              <div *ngIf="clear_message.length>0" class="alert alert-info row">
+                  {{clear_message}}
               </div>
             </div>
           </div>
