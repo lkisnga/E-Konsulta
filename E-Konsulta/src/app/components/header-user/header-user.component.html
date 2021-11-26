@@ -29,14 +29,14 @@
       <div class="notification-wrap navbar-nav mx-3 ms-auto text-left">
         <div class="notif-icon" (click)="notifFunction()" (dblclick)="doubleClick($event)" title="Notifications">
           <span><i class="bi bi-bell-fill"></i></span>
-          <span class="badge">.</span>
+          <span *ngIf="badge=='true' " class="badge">.</span>
         </div>
         <div class="dropdown" *ngIf="notification" >
-          <div class="notify_item">
+          <div *ngFor="let list of notifList" class="notify_item">
             <div class="notify_info">
-              <p class="main">User pays a consultation fee.</p>
-						  <p class="small">1 minute ago</p>
-              <p class="small small-1"></p>
+              <p class="main">{{list.title}}</p>
+						  <p class="small">{{list.description}}</p>
+              <p class="small small-1">{{list.createdAt}}</p>
             </div>
           </div>
         </div>
