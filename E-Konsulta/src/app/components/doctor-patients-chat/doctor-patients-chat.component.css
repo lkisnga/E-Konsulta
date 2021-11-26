@@ -81,29 +81,6 @@ input:focus{
   outline: 0;
 }
 
-/*hide choose file*/
-/*
-input[type=file]::file-selector-button{
-  display: none;
-}
-
-.image-upload > input
-{
-  display: none;
-} */
-/*
-.image-upload i
-{
-  width: 80px;
-  cursor: pointer;
-  margin-right: 5px;
-  font-size: 25px;
-}
-.image-upload,
-.right{
-  float: left;
-}
-*/
 .chat-type{
   font-size: 12px;
   padding: 5px 14px;
@@ -130,12 +107,6 @@ input[type=file]::file-selector-button{
   margin-left: 5px;
   transform: rotate(45deg);
 }
-/*
-.chat-send:hover{
-  transform: rotate(-45deg);
-  transform: scale(0.8);
-  transition: ease .25s;
-} */
 
 .bi-send-fill:hover{
   color: rgb(3, 175, 187);
@@ -205,4 +176,21 @@ a:hover{
   color: white;
   background-color: red;
   padding: 4px 8px;
+}
+
+/*View Files inside the modal*/
+.medical,
+.lab,
+.prescription{
+  border: 1px solid white;
+  background-color: rgb(0, 129, 138);
+  color: white;
+  padding: 4px 12px;
+}
+.medical:hover,
+.lab:hover,
+.prescription:hover
+{
+  color: rgb(0, 129, 138);
+  background-color: rgb(235, 233, 233);
 }
