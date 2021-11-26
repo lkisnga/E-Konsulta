@@ -44,12 +44,16 @@ a{
 
 .notif-icon .badge{
   position: absolute;
-  top: -22px;
-  right: 2px;
+  top: -43px;
+  right: -4px;
   color: red;
   padding: 2px;
-  font-size: 37px;
+  font-size: 62px;
 }
+.notif-icon .badge:hover{
+  cursor: pointer;
+}
+
 .bi-person-circle:hover,
 .notif-icon:hover{
   transform: scale(1.1);
