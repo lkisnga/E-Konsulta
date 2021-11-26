@@ -19,7 +19,7 @@ body{
   text-align: center;
 }
 .second{
-  margin-top: 110px !important;
+  margin-top: 100px !important;
   font-size: 14px;
 }
 
@@ -137,16 +137,7 @@ body{
   margin-top: 500px;
   font-weight: 700;
 }
-.deletion{
-  color: red;
-  border:none;
-  border-radius: 3px;
-  padding: 7px 20px;
-  background-color: rgb(245, 244, 244);
-  font-size: 10pt;
-  margin-top: 15px;
-  font-weight: 700;
-}
+
 .edit:hover,
 .logout:hover,
 .deletion:hover{
@@ -226,4 +217,26 @@ input:focus{
 
 select{
   padding: 3px 6px;
+}
+
+/*account deletion*/
+.deletion{
+  color: red;
+  border:none;
+  border-radius: 3px;
+  padding: 7px 20px;
+  background-color: rgb(245, 244, 244);
+  font-size: 10pt;
+  font-weight: 700;
+}
+.delete-collapse{
+  border: none;
+  background-color: transparent;
+  color: rgb(206, 206, 206); /*rgb(221, 221, 221);*/
+  font-size: 30px;
+  margin-top: -14px !important;
+  margin-left: -8px !important;
+}
+.delete-collapse:hover{
+  color: red;
 }
