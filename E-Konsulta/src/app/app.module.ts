@@ -81,6 +81,7 @@ import { PatientDoctorsListViewComponent } from './components/patient-doctors-li
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { PatientVideoCallComponent } from './components/patient-video-call/patient-video-call.component';
 import { PatientPaymentComponent } from './components/patient-payment/patient-payment.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 
 @NgModule({
@@ -153,7 +154,8 @@ import { PatientPaymentComponent } from './components/patient-payment/patient-pa
     PatientDoctorsListViewComponent,
     VideoCallComponent,
     PatientVideoCallComponent,
-    PatientPaymentComponent
+    PatientPaymentComponent,
+    TermsAndConditionsComponent
   ],
   imports: [
     FormsModule,
