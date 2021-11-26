@@ -19,7 +19,7 @@
       <input [(ngModel)]="model.license_number" name="license_number" type="text" placeholder="License Number" required/>
       <select [(ngModel)]="model.specialization" name="specialization" id="">
         <option value="default" selected>--SELECT SPECIALIZATION--</option>
-        <option *ngFor="let list of spList" value="list.id">{{list.name}}</option>
+        <option *ngFor="let list of spList" value="{{list.id}}">{{list.name}}</option>
       </select>
       <input [(ngModel)]="model.address" name="address" type="text" placeholder="Address" required/>
       <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
