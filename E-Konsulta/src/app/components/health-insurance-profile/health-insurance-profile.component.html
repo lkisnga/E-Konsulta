@@ -25,6 +25,19 @@
         <p>Contact Number: <span class="info info-5">{{info.contact_number}}</span></p>
         <button (click)="editInfo()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
       </div>
+      <!-- Account Deletion -->
+      <button class="delete-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        <span><i class="bi bi-exclamation-octagon-fill"></i></span>
+      </button>
+      <div style="min-height: 120px;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div class="card card-body" style="width: 300px;">
+            <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
+              <span><i class="bi bi-exclamation-circle"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-2 third">
       <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT<span><i class="bi bi-box-arrow-right"></i></span> </button>
@@ -65,7 +78,6 @@
             Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input [(ngModel)]="model.address" name="address" type="text" size="41">
           </p>
-          <button class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION <span><i class="bi bi-exclamation-circle"></i></span></button>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -107,7 +119,7 @@
       <div class="modal-body">
         <p class="deletion-content">This is permanent. When you delete this account, you won't be able to retrieve the content or information.
           Your chat,  transactions and medical records will also be deleted.</p>
-        <p>Are you sure you want to delete your account?</p>
+        <p>Are you absolutely sure?</p>
       </div>
       <div class="modal-footer">
         <button [routerLink]="['/health-insurance-profile']" type="button" class="no" data-bs-dismiss="modal">No</button>
