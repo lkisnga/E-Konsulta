@@ -82,15 +82,16 @@ input:focus{
 }
 
 /*hide choose file*/
+/*
 input[type=file]::file-selector-button{
   display: none;
 }
-/*
+
 .image-upload > input
 {
   display: none;
 } */
-
+/*
 .image-upload i
 {
   width: 80px;
@@ -102,15 +103,16 @@ input[type=file]::file-selector-button{
 .right{
   float: left;
 }
-
+*/
 .chat-type{
   font-size: 12px;
   padding: 5px 10px;
-  width: 420px;
+  width: 730px;
+  height: 35px;
   display: inline-block;
   border: 0;
+  border-radius: 40px;
   background-color: rgb(235, 235, 235);
-  margin-top: -5px;
 }
 
 .chat-type:focus{
