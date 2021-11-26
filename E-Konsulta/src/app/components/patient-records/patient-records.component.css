@@ -29,3 +29,7 @@
   background-color: transparent;
   color: rgb(0, 129, 138);
 }
+
+.view:hover{
+  color: rgb(1, 146, 156);
+}

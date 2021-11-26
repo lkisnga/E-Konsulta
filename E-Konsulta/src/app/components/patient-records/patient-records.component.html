@@ -23,7 +23,7 @@
           <button type="button" class="loa" (click)="insuranceLOA()">Insurance LOA</button>
         </div>
         <div *ngIf="medicalrecords">
-          <table class="table table-striped mt-3">
+          <table class="table mt-3">
             <thead>
               <tr>
                 <th>Date</th>
@@ -43,7 +43,7 @@
         </table>
         </div>
         <div *ngIf="labresult">
-          <table class="table table-striped mt-3">
+          <table class="table mt-3">
             <thead>
               <tr>
                 <th>File Name</th>
@@ -58,14 +58,14 @@
                   <td>{{list.createdAt}}</td>
                   <td>{{list.from}}</td>
                   <td>
-                    <button (click)="viewFile(list.file)" class="btn btn-success">View</button>
+                    <button (click)="viewFile(list.file)" class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
                   </td>
                 </tr>
             </tbody>
         </table>
         </div>
         <div *ngIf="presc">
-          <table class="table table-striped mt-3">
+          <table class="table mt-3">
             <thead>
               <tr>
                 <th>Date</th>
@@ -85,7 +85,7 @@
         </table>
         </div>
         <div *ngIf="insurance_loa">
-          <table class="table table-striped mt-3">
+          <table class="table mt-3">
             <thead>
               <tr>
                 <th>Date</th>
