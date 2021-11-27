@@ -81,6 +81,8 @@ import { VideoCallComponent } from './components/video-call/video-call.component
 import { PatientVideoCallComponent } from './components/patient-video-call/patient-video-call.component';
 import { PatientPaymentComponent } from './components/patient-payment/patient-payment.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { HealthInsuranceVerificationDoctorComponent } from './components/health-insurance-verification-doctor/health-insurance-verification-doctor.component';
+import { HealthInsuranceVerificationPatientComponent } from './components/health-insurance-verification-patient/health-insurance-verification-patient.component';
 
 
 @NgModule({
@@ -153,7 +155,9 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
     VideoCallComponent,
     PatientVideoCallComponent,
     PatientPaymentComponent,
-    TermsAndConditionsComponent
+    TermsAndConditionsComponent,
+    HealthInsuranceVerificationDoctorComponent,
+    HealthInsuranceVerificationPatientComponent
   ],
   imports: [
     FormsModule,

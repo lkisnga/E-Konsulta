@@ -10,22 +10,30 @@
   <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 min-vh-100" id="sidenav">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
       <ul class="nav fixed nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li>
+          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+            <i class="bi bi-journal-plus"></i> <span class="ms-2 d-none d-sm-inline">Requests<i class="bi bi-caret-down"></i> </span> </a>
+          <ul class="collapse nav flex-column ms-2" id="submenu2" data-bs-parent="#menu">
+            <li>
+              <a routerLink="/health-insurance-loa" class="nav-link px-1"> <span class="d-none d-sm-inline">LOA</span> </a>
+          </li>
+          <!--<li>
+              <a routerLink="/health-insurance-verification" class="nav-link px-1"> <span class="d-none d-sm-inline">Verification</span> </a>
+          </li> -->
+          </ul>
+      </li>
+      <li>
+        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+          <i class="bi bi-check-circle"></i><span class="ms-2 d-none d-sm-inline">Verification<i class="bi bi-caret-down"></i> </span> </a>
+        <ul class="collapse nav flex-column ms-2" id="submenu3" data-bs-parent="#menu">
           <li>
-            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-              <i class="bi bi-journal-plus"></i> <span class="ms-2 d-none d-sm-inline">Requests<i class="bi bi-caret-down"></i> </span> </a>
-            <ul class="collapse nav flex-column ms-2" id="submenu2" data-bs-parent="#menu">
-                <li>
-                    <a routerLink="/health-insurance-loa" class="nav-link px-1"> <span class="d-none d-sm-inline">LOA</span> </a>
-                </li>
-                <li>
-                    <a routerLink="/health-insurance-verification" class="nav-link px-1"> <span class="d-none d-sm-inline">Verification</span> </a>
-                </li>
-            </ul>
+            <a routerLink="/health-insurance-verification-doctor" class="nav-link px-1"> <span class="d-none d-sm-inline">Doctor</span> </a>
         </li>
         <li>
-            <a routerLink="/health-insurance-reviews" class="nav-link px-0 align-middle ">
-              <i class="bi bi-chat-dots"></i><span class="ms-2 d-none d-sm-inline">Reviews </span></a>
+            <a routerLink="/health-insurance-verification-patient" class="nav-link px-1"> <span class="d-none d-sm-inline">Patient</span> </a>
         </li>
+        </ul>
+      </li>
       </ul>
   </div>
 </div>
