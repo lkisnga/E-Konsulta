@@ -1,8 +1,14 @@
 .top{
-  margin-top: 30px;
+  margin-top: 70px;
 }
 .main{
-  width: 400px;
+  width: 500px;
+  margin: auto;
+}
+
+.last-update{
+  font-size: 11px;
+  color: gray;
 }
 
 .content{
