@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -30,6 +31,14 @@ export class DoctorProfileComponent implements OnInit {
   imgUrl : any;
   file : any;
 
+  insuranceList : any = [];
+  insurance_id : string = "";
+  request_sent : boolean = false;
+
+  request_status : string = "";
+
+  insurance_af : any = [];
+
   fee : number = 0;
 
   profile_changed : boolean = false;
@@ -53,6 +62,13 @@ export class DoctorProfileComponent implements OnInit {
       this.imgUrl = e.data().image;
     })
 
+    this.get_specialization();
+    this.insurance_list();
+    this.get_insurance();
+  }
+
+  get_specialization()
+  {
     var data;
     var tempArray = [];
     this.userservice.get_Speciaalization().then(e=>{
@@ -63,7 +79,6 @@ export class DoctorProfileComponent implements OnInit {
       })
     })
     this.spList = tempArray;
-
   }
   uploadImage()
   {
@@ -109,6 +124,95 @@ export class DoctorProfileComponent implements OnInit {
     })
   }
 
+  insurance_list()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_HealthInsurance().then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.insuranceList = tempArray;
+    console.log(this.insuranceList);
+  }
+  insurance_request()
+  {
+    let record = {};
+    record['doctor_id'] = this.userId;
+    record['insurance_id'] = this.insurance_id;
+    record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    record['status'] = "pending";
+    console.log(this.insurance_id);
+
+    if(this.insurance_id != "")
+    this.userservice.check_affiliation(this.userId,this.insurance_id)
+    .then(e=>{
+      if(e.empty)
+      {
+        this.userservice.insurance_affiliation(record)
+        .then(()=>{
+          console.log('request sent!');
+          this.request_sent = true;
+          setTimeout(() => {
+            this.request_sent = false;
+          }, 5000);
+        })
+      }
+      else
+      {
+        console.log('exist!');
+        e.forEach(item=>{
+          if(item.data().status != 'pending')
+          {
+            console.log('true');
+            this.request_status = "Already Exist!";
+            setTimeout(() => {
+              this.request_status = "";
+            }, 5000);
+          }
+          else
+          {
+            console.log('Pending!');
+            this.request_status = "Request still pending!";
+            setTimeout(() => {
+              this.request_status = "";
+            }, 5000);
+          }
+        })
+      }
+    })
+    else
+    {
+      this.request_status = "Choose Insurance!";
+      setTimeout(() => {
+        this.request_status = "";
+      }, 5000);
+    }
+  }
+  get_insurance()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_insurance_affiliation(this.userId)
+    .then(e=>{
+      e.forEach(item=>{
+        if(item.data().status == "verified")
+        {
+          this.userservice.get_HealthInsurance_Info(item.data().insurance_id).then(res=>{
+            data = item.data();
+            data.insurance_name = res.data().name;
+            data.uid = item.id;
+            tempArray.push(data);
+          })
+        }
+      })
+    })
+    this.insurance_af = tempArray;
+    console.log(this.insurance_af);
+  }
   logout()
   {
     this.afu.signout();
