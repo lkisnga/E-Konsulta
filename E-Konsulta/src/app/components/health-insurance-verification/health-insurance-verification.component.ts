@@ -72,7 +72,7 @@ export class HealthInsuranceVerificationComponent implements OnInit {
 
   get_patient_insuranceInfo()
   {
-    
+
   }
 
   verify(e,stats)
@@ -97,7 +97,7 @@ export class HealthInsuranceVerificationComponent implements OnInit {
     }).then(()=>{
       this.balance = this.userIns.limit - this.userIns.spent;
     })
-  } 
+  }
   update_info(info)
   {
     let record = {};

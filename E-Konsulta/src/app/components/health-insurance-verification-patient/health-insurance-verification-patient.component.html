@@ -1,1 +1,102 @@
-<p>health-insurance-verification-patient works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Insurance Verification</title>
+</head>
+<body>
+
+  <app-header-insurance></app-header-insurance>
+
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-health-insurance-sidenav></app-health-insurance-sidenav>
+      </div>
+      <div class="col mx-3 mt-4">
+        <h5 class="usr py-1">Verification</h5>
+        <div class="btn-group">
+          <button (click)="pending()" type="button" class="pending">Pending</button>
+          <button (click)="verified()" type="button" class="verified">Verified</button>
+        </div>
+        <table *ngIf="pending1" class="table mt-2">
+          <thead>
+            <tr>
+              <th scope="col">User Email</th>
+              <th scope="col">Name</th>
+              <th scope="col">Insurance Account ID</th>
+              <th scope="col">Verification Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button (click)="('verified')" class="btn btn-success" id="verify">Verify</button>
+                <button (click)="('declined')" class="btn btn-danger">Decline</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table *ngIf="verified1" class="table mt-2">
+          <thead>
+            <tr>
+              <th scope="col">User Email</th>
+              <th scope="col">Name</th>
+              <th scope="col">Insurance Account ID</th>
+              <th scope="col">Verification Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!--start update info modal-->
+    <div class="modal fade" id="updateInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update Info</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <form #form="ngForm">
+            <div class="modal-body">
+              <p>Insurance Package: <input name="Package" type="text" size="35" required></p>
+              <p>Currently Spent:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="spent" type="text" size="35"></p>
+              <p>Limit: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="limit" type="text" size="35"></p>
+              <p>Balance:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="balance" type="text" size="35">
+              </p>
+              <p>Last Update:</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="update" data-bs-dismiss="modal">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <!--end update info modal-->
+</body>
+</html>
