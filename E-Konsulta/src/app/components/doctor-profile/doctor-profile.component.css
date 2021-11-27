@@ -285,7 +285,7 @@ input:focus{
   color: white;
 }
 .request:hover{
-  opacity: 0.8;
+  background-color: rgb(0, 94, 100);
 }
 .cancel:hover,
 .no:hover,

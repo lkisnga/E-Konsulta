@@ -166,7 +166,7 @@
           </div>
         </div>
         <div class="row mt-4 mx-2">
-          <div *ngFor="let list of insurance_af" class="col-4">
+          <div *ngFor="let list of insurance_af" class="col-3">
             <div class="chips">
               <div class="chip-contentx">{{list.insurance_name}}</div>
             </div>
@@ -175,10 +175,10 @@
       </div>
       <div *ngIf="request_sent" class="alert alert-success">
           Request Sent!
-      </div>  
+      </div>
       <div *ngIf="request_status.length>0" class="alert alert-danger">
         {{request_status}}
-    </div> 
+    </div>
       <div class="modal-footer">
         <button type="button" class="close" data-bs-dismiss="modal">Close</button>
       </div>
