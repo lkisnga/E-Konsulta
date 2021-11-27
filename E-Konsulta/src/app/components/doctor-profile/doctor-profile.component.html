@@ -5,10 +5,10 @@
     </div>
       <!--2nd column-->
       <div class="col-3 mt-4 first">
-        <div class="chip">
+        <div *ngIf="info.isVerified == 'verified'" class="chip">
           <div class="chip-content">Verified <span class="checked"><i class="bi bi-check-circle"></i></span></div>
         </div>
-        <div class="chip">
+        <div *ngIf="info.isVerified== 'pending' " class="chip">
           <div class="chip-content1">Pending <span class="checked"><i class="bi bi-clock-history"></i></span></div>
         </div>
         <div class="main-profile">
@@ -156,22 +156,29 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-7">
-            <select class="form-select">
-              <option selected>Choose...</option>
+            <select [(ngModel)]="insurance_id" name="insurance_id" class="form-select">
+              <option value="" selected>Choose Insurance</option>
+              <option *ngFor="let list of insuranceList" value="{{list.uid}}">{{list.name}}</option>
             </select>
           </div>
           <div class="col">
-            <button class="request">Request</button>
+            <button (click)="insurance_request()" class="request">Request</button>
           </div>
         </div>
         <div class="row mt-4 mx-2">
-          <div class="col-4">
+          <div *ngFor="let list of insurance_af" class="col-4">
             <div class="chips">
-              <div class="chip-contentx">Insurance Name Chuchu</div>
+              <div class="chip-contentx">{{list.insurance_name}}</div>
             </div>
           </div>
         </div>
       </div>
+      <div *ngIf="request_sent" class="alert alert-success">
+          Request Sent!
+      </div>  
+      <div *ngIf="request_status.length>0" class="alert alert-danger">
+        {{request_status}}
+    </div> 
       <div class="modal-footer">
         <button type="button" class="close" data-bs-dismiss="modal">Close</button>
       </div>
@@ -201,4 +208,21 @@
   </div>
 </div>
 <!--end of deletion modal-->
+
+<!--Not Verified-->
+<div *ngIf="pending_message" id="myModal" class="modal d-block" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Account is still Pending</h5>
+          </div>
+          <div class="modal-body">
+              <p>Your account is still pending please wait for a few days to be verified! Thanks!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">{{timeLeft}}</button>
+          </div>
+      </div>
+  </div>
+</div>
 
