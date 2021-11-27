@@ -187,7 +187,9 @@ export class UserService {
   {
     return this.db.firestore.collection('Schedule').add({
       date: info.date,
-      doctor_id: doc_id
+      doctor_id: doc_id,
+      status: "enable",
+      priority: info.priority
     })
   }
   check_schedule(doc_id,date)
@@ -213,7 +215,8 @@ export class UserService {
   }
   get_schedule(doc_id)
   {
-    return this.db.firestore.collection('Schedule').where('doctor_id','==',doc_id).get();
+    return this.db.firestore.collection('Schedule').where('doctor_id','==',doc_id)
+    .orderBy('priority','asc').get();
   }
   get_schedule_time(sched_id)
   {
