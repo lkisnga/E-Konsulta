@@ -18,7 +18,6 @@ import { PatientProfileComponent } from './components/patient-profile/patient-pr
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
 import { LabPartnerProfileComponent } from './components/lab-partner-profile/lab-partner-profile.component';
 import { DoctorPatientsComponent } from './components/doctor-patients/doctor-patients.component';
-import { DoctorPaymentsComponent } from './components/doctor-payments/doctor-payments.component';
 import { DoctorUserAnalyticsComponent } from './components/doctor-user-analytics/doctor-user-analytics.component';
 import { DoctorTransactionHistoryComponent } from './components/doctor-transaction-history/doctor-transaction-history.component';
 import { DoctorSetScheduleComponent } from './components/doctor-set-schedule/doctor-set-schedule.component';
@@ -75,7 +74,6 @@ const routes: Routes = [
   { path: 'doctor-profile', component: DoctorProfileComponent},
   { path: 'lab-partner-profile', component: LabPartnerProfileComponent},
   { path: 'doctor-patients', component: DoctorPatientsComponent},
-  { path: 'doctor-payments', component: DoctorPaymentsComponent},
   { path: 'doctor-user-analytics', component: DoctorUserAnalyticsComponent},
   { path: 'doctor-transaction-history', component: DoctorTransactionHistoryComponent},
   { path: 'doctor-set-schedule', component: DoctorSetScheduleComponent},
@@ -143,7 +141,6 @@ export const routingComponents = [
   DoctorProfileComponent,
   LabPartnerProfileComponent,
   DoctorPatientsComponent,
-  DoctorPaymentsComponent,
   DoctorUserAnalyticsComponent,
   DoctorTransactionHistoryComponent,
   DoctorSetScheduleComponent,
