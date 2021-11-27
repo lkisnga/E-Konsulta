@@ -39,16 +39,17 @@
         <h1 class="left-profile"><img src="{{patientInfo.image}}" width="40" height="40"></h1>
         <h4 class="user left-name">{{patientInfo.fullname}}</h4>
         <div class="doctor-files">
-          <a href="#prescription" data-bs-toggle="modal" data-bs-target="#pres">Prescription</a>
-          <a href="#viewFiles" data-bs-toggle="modal" data-bs-target="#view">View</a>
+          <a href="#prescription" data-bs-toggle="modal" data-bs-target="#pres" class="prescription1">Prescription</a>
+          <a href="#medicalCert" data-bs-toggle="modal" data-bs-target="#medical" class="medical1">Medical Certificate</a>
+          <a href="#viewFiles" data-bs-toggle="modal" data-bs-target="#view" class="view-share1">View Shared Files</a>
           <a href="#action" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-          <span>Actions<i class="bi bi-caret-down"></i> </span> </a>
+          <span class="actions">Actions<i class="bi bi-caret-down"></i> </span> </a>
           <ul class="collapse nav flex-column ms-2" id="action" data-bs-parent="#menu">
               <li>
-                  <a href="javascript:void(0)" (click)="finish_consultation()" class="nav-link px-1"> <span class="d-none d-sm-inline">Finished Consultation</span> </a>
+                  <a href="javascript:void(0)" (click)="finish_consultation()" class="nav-link px-1"> <span class="finish">Finish Consultation</span> </a>
               </li>
               <li>
-                  <a href="javascript:void(0)" class="nav-link px-1"> <span class="d-none d-sm-inline">Cancel Consultation</span> </a>
+                  <a href="javascript:void(0)" class="nav-link px-1"> <span class="cancel">Cancel Consultation</span> </a>
               </li>
           </ul>
           <!--<button class="end">End Consultation <span><i class="bi bi-slash-circle"></i></span></button>-->
@@ -62,7 +63,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="send-files">View files</h5>
+          <h5 class="modal-title" id="send-files">View Shared Files</h5>
           <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
@@ -183,4 +184,30 @@
     </div>
   </div>
   <!--end modal prescription-->
+
+  <!--start modal medical certificate-->
+  <div class="modal fade" id="medical" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="send-files">Send Medical Certificate</h5>
+          <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row mx-2">
+              <input type="text" placeholder="File name">
+          </div>
+          <div class="row mx-0 mt-2 mb-3">
+            <input #file2 type="file">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="send">Send</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!--end modal medical certificate-->
+
+
+
 </div>

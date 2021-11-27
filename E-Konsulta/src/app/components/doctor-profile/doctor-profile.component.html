@@ -5,6 +5,12 @@
     </div>
       <!--2nd column-->
       <div class="col-3 mt-4 first">
+        <div class="chip">
+          <div class="chip-content">Verified <span class="checked"><i class="bi bi-check-circle"></i></span></div>
+        </div>
+        <div class="chip">
+          <div class="chip-content1">Pending <span class="checked"><i class="bi bi-clock-history"></i></span></div>
+        </div>
         <div class="main-profile">
           <button *ngIf="profile_changed" class="successful"><span>Profile Changed!</span></button>
           <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
@@ -27,6 +33,7 @@
           <p>Specialization: <span class="info info-7">{{spInfo.name}}</span></p>
           <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
           <button class="cfee" data-bs-toggle="modal" data-bs-target="#cfeeBt">CONSULTATION FEE</button>
+          <button class="insurance" data-bs-toggle="modal" data-bs-target="#insurance">INSURANCE</button>
         </div>
         <!-- Account Deletion -->
         <button class="delete-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
@@ -137,6 +144,41 @@
   </div>
 </div>
 <!--end Fee Modal-->
+
+<!-- start insurance Modal-->
+<div class="modal fade" id="insurance" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Insurance Affiliations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-7">
+            <select class="form-select">
+              <option selected>Choose...</option>
+            </select>
+          </div>
+          <div class="col">
+            <button class="request">Request</button>
+          </div>
+        </div>
+        <div class="row mt-4 mx-2">
+          <div class="col-4">
+            <div class="chips">
+              <div class="chip-contentx">Insurance Name Chuchu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end insurance Modal-->
 
 <!--start of deletion modal-->
 <div class="modal fade" id="accDeletion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletionLabel" aria-hidden="true">

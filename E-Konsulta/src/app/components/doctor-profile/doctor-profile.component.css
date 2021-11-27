@@ -8,10 +8,10 @@ body{
 
 /*col*/
 .first{
-  margin: 80px 0 200px 20px !important;
+  margin: 40px 0 200px 20px !important;
 }
 .main-profile{
-  /*box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
+  margin-top: 40px;
   width: 320px;
   padding: 20px 15px;
   border-radius: 30px;
@@ -42,6 +42,50 @@ body{
   color: green;
   font-size: 20px;
 }
+
+/*verified|pending*/
+.chip{
+  display: inline-flex;
+  flex-direction: row;
+  background-color: #e5e5e5;
+  border: none;
+  cursor: default;
+  height: 36px;
+  outline: none;
+  padding: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  align-items: center;
+  border-radius: 16px;
+  vertical-align: middle;
+  text-decoration: none;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.chip-content{
+  color: rgb(0, 129, 138);
+  cursor: inherit;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  white-space: nowrap;
+  padding: 0 20px 0 20px;
+}
+.chip-content1{
+  color: red;
+  cursor: inherit;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  white-space: nowrap;
+  padding: 0 20px 0 20px;
+}
+
+.checked{
+  padding-left: 5px;
+}
+
 .profile-pic{
   cursor: pointer;
   border-radius: 5px;
@@ -131,12 +175,24 @@ body{
   border:none;
   border-radius: 3px;
   margin: 10px 0;
-  width: 420px;
+  width: 205px;
   padding: 4px 8px;
   border-radius: 3px;
   background-color: rgb(0, 129, 138);
 }
-.cfee:hover{
+.insurance{
+  color: white;
+  border:none;
+  border-radius: 3px;
+  margin: 10px 0 10px 10px;
+  width: 205px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background-color: rgb(0, 129, 138);
+}
+
+.cfee:hover,
+.insurance:hover{
   background-color: rgb(0, 113, 121);
 }
 
@@ -197,14 +253,21 @@ input:focus{
 .update,
 .yes,
 .no,
-.set
+.set,
+.close
 {
   padding: 5px 20px;
   font-size: 10pt;
   border-radius: 3px;
 }
+.request{
+  padding: 5px 100px;
+  font-size: 10pt;
+  border-radius: 3px;
+}
 .cancel,
-.no{
+.no,
+.close{
   border: 1px solid maroon;
   background-color:white;
   color: maroon;
@@ -216,9 +279,17 @@ input:focus{
   background-color:white;
   color: rgb(0, 129, 138);
 }
-
+.request{
+  border: 1px solid rgb(0, 129, 138);
+  background-color:rgb(0, 129, 138);
+  color: white;
+}
+.request:hover{
+  opacity: 0.8;
+}
 .cancel:hover,
-.no:hover{
+.no:hover,
+.close:hover{
   background-color: maroon;
   color: white;
 }
@@ -257,4 +328,36 @@ select{
 }
 .delete-collapse:hover{
   color: red;
+}
+
+
+/*list of insurance affiliations*/
+.chips{
+  display: inline-flex;
+  flex-direction: row;
+  background-color: #e5e5e5;
+  border: none;
+  cursor: default;
+  height: 36px;
+  outline: none;
+  padding: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  align-items: center;
+  border-radius: 16px;
+  vertical-align: middle;
+  text-decoration: none;
+  justify-content: center;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.chip-contentx{
+  color: rgb(0, 129, 138);
+  cursor: inherit;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  white-space: nowrap;
+  padding: 0 20px 0 20px;
 }

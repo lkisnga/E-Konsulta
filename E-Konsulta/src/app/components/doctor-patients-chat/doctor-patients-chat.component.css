@@ -131,7 +131,10 @@ input:focus{
   right: 0px;
   width: 285px;
 }
-a{
+.prescription1,
+.medical1,
+.view-share1,
+.actions{
   display: flex;
   text-decoration: none;
   text-align: center;
@@ -139,9 +142,31 @@ a{
   height: 30px;
 }
 
-a:hover{
+.prescription1:hover,
+.prescription1:active,
+.medical1:hover,
+.view-share1:hover,
+.actions:hover{
   color: darkcyan;
   background-color: rgb(241, 254, 255);
+}
+
+.finish{
+  background-color: rgb(0, 153, 51);
+  color: white !important;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.cancel{
+  background-color: red;
+  color: white !important;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+.finish:hover,
+.cancel:hover{
+  opacity: 0.8;
 }
 
 .second{
