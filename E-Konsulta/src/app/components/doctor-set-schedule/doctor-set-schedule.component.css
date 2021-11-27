@@ -24,3 +24,62 @@
   height: 200px;
   overflow-y: scroll;
 }
+
+/*days*/
+.btn-group .day
+{
+  border: 1px solid rgb(0, 111, 119);
+  background-color: rgb(0, 129, 138);
+  padding: 6px 14px;
+  color: white;
+}
+
+.btn-group .day:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .day:hover{
+  background-color: rgb(0, 94, 100);
+}
+
+/*edit*/
+.remove{
+  border: 0;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  padding: 4px 12px;
+  font-size: 12px;
+  margin-left: 15px;
+  float: right !important;
+}
+.remove:hover{
+  background-color: rgb(214, 0, 0);
+}
+
+/*add*/
+.add{
+  border: 1px solid rgb(0, 129, 138);
+  background-color:rgb(0, 129, 138);
+  color: white;
+  border-radius: 3px;
+  padding: 4px 40px;
+}
+.add:hover{
+  background-color: rgb(0, 94, 100);
+}
+
+/*close*/
+.close{
+  background-color:white;
+  color: maroon;
+  padding: 5px 20px;
+  font-size: 10pt;
+  border: 1px solid maroon;
+  border-radius: 3px;
+}
+
+.close:hover{
+  background-color: maroon;
+  color: white;
+}

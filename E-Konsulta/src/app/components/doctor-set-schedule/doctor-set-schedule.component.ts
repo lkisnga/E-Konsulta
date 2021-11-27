@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./doctor-set-schedule.component.css']
 })
 export class DoctorSetScheduleComponent implements OnInit {
-  
+
   sched_id: string = "";
 
   userId : string = "";
@@ -24,6 +24,77 @@ export class DoctorSetScheduleComponent implements OnInit {
   sched_time : any = [];
 
   clear_message: string= "";
+
+  /** set to false so that when loading the user analytics page, content of that function is not displayed */
+  monday1 = false;
+  tuesday1 = false;
+  wednesday1 = false;
+  thursday1 = false;
+  friday1 = false;
+  saturday1 = false;
+  sunday1 = false;
+
+  monday(){
+    this.monday1 = true;
+    this.tuesday1 = false;
+    this.wednesday1 = false;
+    this.thursday1 = false;
+    this.friday1 = false;
+    this.saturday1 = false;
+    this.sunday1 = false;
+  }
+  tuesday(){
+    this.tuesday1 = true;
+    this.monday1 = false;
+    this.wednesday1 = false;
+    this.thursday1 = false;
+    this.friday1 = false;
+    this.saturday1 = false;
+    this.sunday1 = false;
+  }
+  wednesday(){
+    this.wednesday1 = true;
+    this.monday1 = false;
+    this.tuesday1 = false;
+    this.thursday1 = false;
+    this.friday1 = false;
+    this.saturday1 = false;
+    this.sunday1 = false;
+  }
+  thursday(){
+    this.thursday1 = true;
+    this.monday1 = false;
+    this.tuesday1 = false;
+    this.wednesday1 = false;
+    this.friday1 = false;
+    this.saturday1 = false;
+    this.sunday1 = false;
+  }
+  friday(){
+    this.friday1 = true;
+    this.tuesday1 = false;
+    this.thursday1 = false;
+    this.monday1 = false;
+    this.saturday1 = false;
+    this.sunday1 = false;
+  }
+  saturday(){
+    this.tuesday1 = false;
+    this.thursday1 = false;
+    this.friday1 = false;
+    this.monday1 = false;
+    this.sunday1 = false;
+    this.saturday1 = true;
+  }
+  sunday(){
+    this.sunday1 = true;
+    this.tuesday1 = false;
+    this.thursday1 = false;
+    this.friday1 = false;
+    this.saturday1 = false;
+    this.monday1 = false;
+  }
+
 
   constructor(
     public userservice: UserService,
@@ -158,8 +229,8 @@ export class DoctorSetScheduleComponent implements OnInit {
           this.clear_message = ""
          }, 5000);
     }
-    
-    
+
+
   }
 
 }

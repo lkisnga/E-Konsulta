@@ -16,7 +16,7 @@
       <div class="card-body card-min-size ">
         <form #form="ngForm" (ngSubmit)="setSchedule(form.value)" ngNativeValidate>
           <div class="card">
-            <div class="card-body px-4">
+            <div class="card-body px-3">
               <div id="schedule-container">
                 <div class="wizard-title">Set Schedule</div>
                 <div class="row mt-4">
@@ -123,33 +123,137 @@
         </form>
         <!--THIS IS FOR THE LIST-->
         <div class="card mt-2">
-          <div class="card-body px-4">
+          <div class="card-body px-3">
             <div id="schedule-container">
               <div class="wizard-title">Schedule</div>
-              <div class="row mt-4">
-                <ul class="list-group" id="schedule">
-                  <div *ngFor="let list of schedule">
-                    <li class="list-group-item d-flex justify-content-between align-items-center active">
-                      {{list.name}}
-                    </li>
-                    <div *ngFor="let list2 of sched_time">
-                      <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                        {{list2.time}}
-                        <span class="badge bg-success badge-pill">{{list2.limit}}</span>
-                      </li>
-                    </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <div class="btn-group">
+                    <button class="day monday" (click)="monday()">Monday</button>
+                    <button class="day tuesday" (click)="tuesday()">Tuesday</button>
+                    <button class="day wednesday" (click)="wednesday()">Wednesday</button>
+                    <button class="day thursday" (click)="thursday()">Thursday</button>
+                    <button class="day friday" (click)="friday()">Friday</button>
+                    <button class="day saturday" (click)="saturday()">Saturday</button>
+                    <button class="day sunday" (click)="sunday()">Sunday</button>
                   </div>
-                </ul>
+                </div>
+
+                <div *ngIf="monday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                <div *ngIf="tuesday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                <div *ngIf="wednesday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                <div *ngIf="thursday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                <div *ngIf="friday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                <div *ngIf="saturday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                <div *ngIf="sunday1" class="mt-2">
+                  <ul class="list-group" id="schedule">
+                    <div *ngFor="let list of schedule">
+                      <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        {{list.name}}
+                      </li>
+                      <div *ngFor="let list2 of sched_time">
+                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                          {{list2.time}}
+                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
               </div>
               <div class="row mt-4">
-                <div class="col-md-4">
-                  <button (click)="remove_schedule()" id="set">Remove</button>
-                </div>
                 <div class="col-md-4">
                   <select [(ngModel)]="sched_id" class="form-select" name="schedule" id="">
                     <option value="" selected>Choose Date</option>
                     <option *ngFor="let list of schedule" value="{{list.uid}}">{{list.name}}</option>
                   </select>
+                </div>
+                <div class="col-md-4">
+                  <button id="set" data-bs-toggle="modal" data-bs-target="#edit">Edit</button>
                 </div>
               </div>
               <div *ngIf="clear_message.length>0" class="alert alert-info row">
@@ -161,6 +265,117 @@
       </div>
     </div>
   </div>
+
+  <!-- start edit Modal-->
+<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLabel">Edit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-7">
+            <select class="form-select center">
+              <option selected>Select day...</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-4 mx-2">
+          <div class="col">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item
+                <button class="remove">Remove</button>
+              </li>
+              <li class="list-group-item">A second item
+                <button class="remove">Remove</button>
+              </li>
+              <li class="list-group-item">A third item
+                <button class="remove">Remove</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-4">
+            <div class="form-group">
+              <label>Start Time</label>
+              <small class="text-danger font-weight-bold">*</small>
+              <select [(ngModel)]="start" name="start" class="form-select required bg-white" id="scheduled_time" required>
+                <option value="" selected>Select Start Time</option>
+                <option value="1:00 AM">1:00 AM</option>
+                <option value="2:00 AM">2:00 AM</option>
+                <option value="3:00 AM">3:00 AM</option>
+                <option value="4:00 AM">4:00 AM</option>
+                <option value="5:00 AM">5:00 AM</option>
+                <option value="6:00 AM">6:00 AM</option>
+                <option value="7:00 AM">7:00 AM</option>
+                <option value="8:00 AM">8:00 AM</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+                <option value="9:00 PM">9:00 PM</option>
+                <option value="10:00 PM">10:00 PM</option>
+                <option value="11:00 PM">11:00 PM</option>
+                <option value="12:00 AM">12:00 AM</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-group">
+              <label>End Time</label>
+              <small class="text-danger font-weight-bold">*</small>
+              <select [(ngModel)]="end" name="end" class="form-select required bg-white" id="scheduled_time" required>
+                <option value="" selected>Select End Time</option>
+                <option value="1:00 AM">1:00 AM</option>
+                <option value="2:00 AM">2:00 AM</option>
+                <option value="3:00 AM">3:00 AM</option>
+                <option value="4:00 AM">4:00 AM</option>
+                <option value="5:00 AM">5:00 AM</option>
+                <option value="6:00 AM">6:00 AM</option>
+                <option value="7:00 AM">7:00 AM</option>
+                <option value="8:00 AM">8:00 AM</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+                <option value="9:00 PM">9:00 PM</option>
+                <option value="10:00 PM">10:00 PM</option>
+                <option value="11:00 PM">11:00 PM</option>
+                <option value="12:00 AM">12:00 AM</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4 mt-4">
+            <button class="add">Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end edit Modal-->
 
 </body>
 </html>
