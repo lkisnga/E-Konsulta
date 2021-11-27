@@ -17,12 +17,6 @@ export class LoginPageComponent implements OnInit {
   errorMessage : string = "";
   error: {name : string, message : string} = {name: '',message: ''};
 
-
-  pending_message : boolean = false;
-
-  timeLeft: number = 10;
-  interval;
-
   constructor(private authservice : AuthService, 
     private router: Router,
     public userservice : UserService  
@@ -46,9 +40,7 @@ export class LoginPageComponent implements OnInit {
             {
               if(res.data().role == 'doctor') //finding user Role
               {
-                if(res.data().isVerified == 'verified')//checks if the doctor is verified or not
-                {
-                  if(res.data().disabled != 'true')// checks if the account is disabled or not
+                if(res.data().disabled != 'true')// checks if the account is disabled or not
                   {
                     this.authservice.loginWithEmail(this.email, this.password,res.data().role).catch(_error => {
                       this.error = _error
@@ -60,22 +52,6 @@ export class LoginPageComponent implements OnInit {
                     this.errorMessage = "Account is disabled!";
                     console.log('Account Disabled!');
                   }
-                }else //Doctor Pending
-                {
-                  console.log('pending!');
-                  this.pending_message = true;
-                  setTimeout(() => {
-                    this.pending_message = false;
-                  }, 10000);
-                  this.interval = setInterval(() => {
-                    if(this.timeLeft > 0) {
-                      this.timeLeft--;
-                    } else {
-                      clearInterval(this.interval);
-                      this.timeLeft = 10;
-                    }
-                  },1000)
-                }
               }
               else if(res.data().role == "patient")
               {

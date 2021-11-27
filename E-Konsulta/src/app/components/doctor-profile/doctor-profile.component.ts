@@ -43,15 +43,29 @@ export class DoctorProfileComponent implements OnInit {
 
   profile_changed : boolean = false;
 
+  pending_message : boolean = false;
+
+
+  timeLeft: number = 10;
+  interval;
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   ngOnInit(): void {
     
+    this.get_doctorInfo();
+    this.get_specialization();
+    this.insurance_list();
+    this.get_insurance();
+  }
+
+  get_doctorInfo()
+  {
     this.userId = this.afu.get_UID();
     this.userservice.get_patientInfo(this.userId).then(e=>{
       console.log(e.data());
      this.fee = e.data().consultation_fee;
       this.info = e.data();
+      this.check_verification(this.info.isVerified);
     }).then(()=>{
       this.userservice.get_specializationInfo(this.info.specialization).then(e=>{
         this.spInfo = e.data();
@@ -62,11 +76,26 @@ export class DoctorProfileComponent implements OnInit {
       this.imgUrl = e.data().image;
     })
 
-    this.get_specialization();
-    this.insurance_list();
-    this.get_insurance();
   }
-
+  check_verification(verify)
+  {
+    if(verify == "pending")
+    {
+      console.log('pending!');
+      this.pending_message = true;
+      setTimeout(() => {
+        this.pending_message = false;
+      }, 10000);
+      this.interval = setInterval(() => {
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          clearInterval(this.interval);
+          this.timeLeft = 10;
+        }
+      },1000)
+    }
+  }
   get_specialization()
   {
     var data;
