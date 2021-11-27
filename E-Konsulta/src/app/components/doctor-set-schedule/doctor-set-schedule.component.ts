@@ -15,8 +15,6 @@ export class DoctorSetScheduleComponent implements OnInit {
 
   userId : string = "";
 
-  min : string = formatDate(new Date(),'yyyy-MM-dd','en');
-
   date : string = "";
   start: string = "";
   end : string = "";
@@ -44,6 +42,10 @@ export class DoctorSetScheduleComponent implements OnInit {
     .then(e=>{
       if(e.empty)
       {
+        let record ={};
+        record = info;
+        record['priority'] = this.day_num(info.date);
+        console.log(record);
         this.userservice.create_schedule(this.userId,info).then(()=>{
           console.log('added schedule!');
           this.userservice.check_schedule(this.userId,info.date).then(a=>{
@@ -85,6 +87,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.userservice.get_schedule(this.userId).then(e=>{
       e.forEach(item=>{
         data = item.data();
+        data.name = this.find_day(item.data().date);
         data.uid = item.id;
         tempArray.push(data);
         this.userservice.get_schedule_time(item.id).then(as=>{
@@ -98,6 +101,40 @@ export class DoctorSetScheduleComponent implements OnInit {
     })
     this.sched_time = tempArray2;
     this.schedule = tempArray;
+  }
+  find_day(date)
+  {
+    if(date == "Mon")
+      return "Monday";
+    if(date == "Tue")
+      return "Tuesday";
+    if(date == "Wed")
+      return "Wednesday";
+    if(date == "Thu")
+      return "Thursday"
+    if(date == "Fri")
+      return "Friday";
+    if(date == "Sat")
+      return "Saturday";
+    if(date == "Sun")
+      return "Sunday";
+  }
+  day_num(date)
+  {
+    if(date == "Mon")
+      return 1;
+    if(date == "Tue")
+      return 2;
+    if(date == "Wed")
+      return 3;
+    if(date == "Thu")
+      return 4
+    if(date == "Fri")
+      return 5
+    if(date == "Sat")
+      return 6
+    if(date == "Sun")
+      return 7
   }
 
   remove_schedule()

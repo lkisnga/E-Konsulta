@@ -39,6 +39,7 @@ export class PatientDoctorsListComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_doctorList().then(e=>{
       e.forEach(item=>{
+        if(item.data().isVerified == "verified") //only verified will show
         this.userservice.get_avatar(item.id).then(res=>{
           this.userservice.get_specializationInfo(item.data().specialization).then(a=>{
             data = item.data();
