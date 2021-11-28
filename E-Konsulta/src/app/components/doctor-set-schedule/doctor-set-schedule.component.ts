@@ -23,7 +23,13 @@ export class DoctorSetScheduleComponent implements OnInit {
   schedule: any = [] ;
   sched_time : any = [];
 
+  editSched_time : any = [];
+
   clear_message: string= "";
+
+  empty_message: string = "Empty List! Choose a date!";
+
+  added_message: string = "";
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
   monday1 = false;
@@ -42,6 +48,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.friday1 = false;
     this.saturday1 = false;
     this.sunday1 = false;
+    
   }
   tuesday(){
     this.tuesday1 = true;
@@ -51,6 +58,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.friday1 = false;
     this.saturday1 = false;
     this.sunday1 = false;
+
   }
   wednesday(){
     this.wednesday1 = true;
@@ -60,6 +68,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.friday1 = false;
     this.saturday1 = false;
     this.sunday1 = false;
+
   }
   thursday(){
     this.thursday1 = true;
@@ -69,6 +78,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.friday1 = false;
     this.saturday1 = false;
     this.sunday1 = false;
+
   }
   friday(){
     this.friday1 = true;
@@ -77,6 +87,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.monday1 = false;
     this.saturday1 = false;
     this.sunday1 = false;
+
   }
   saturday(){
     this.tuesday1 = false;
@@ -85,6 +96,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.monday1 = false;
     this.sunday1 = false;
     this.saturday1 = true;
+
   }
   sunday(){
     this.sunday1 = true;
@@ -93,6 +105,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     this.friday1 = false;
     this.saturday1 = false;
     this.monday1 = false;
+
   }
 
 
@@ -103,6 +116,7 @@ export class DoctorSetScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.afu.get_UID();
+    
     this.get_schedule();
   }
 
@@ -125,6 +139,10 @@ export class DoctorSetScheduleComponent implements OnInit {
               .then(()=>{
                 this.ngOnInit();
                 console.log('added time!');
+                this.added_message = "Added Schedule!";
+                setTimeout(() => {
+                  this.added_message = "";
+                }, 5000);
               })
             })
           })
@@ -138,7 +156,10 @@ export class DoctorSetScheduleComponent implements OnInit {
             {
               this.userservice.create_schedule_time(sched.id,info).then(()=>{
                 this.ngOnInit();
-                console.log('added time!');
+                this.added_message = "Added time to Schedule!";
+                setTimeout(() => {
+                  this.added_message = "";
+                }, 5000);
               })
             }
             else
@@ -229,8 +250,31 @@ export class DoctorSetScheduleComponent implements OnInit {
           this.clear_message = ""
          }, 5000);
     }
+  }
 
+  edit_schedule()
+  {
+    var data;
+    var tempArray = [];
+    console.log(this.sched_id);
 
+    if(this.sched_id!="")
+    {
+      this.empty_message = "";
+      this.userservice.get_schedule_time(this.sched_id).then(as=>{
+        as.forEach(a=>{
+          console.log(a.data());
+          data = a.data();
+          data.id = a.id;
+          tempArray.push(data);
+        })
+      })
+    }
+    else
+    {
+      this.empty_message = "Empty List! Choose a date!";
+    }
+    this.editSched_time = tempArray;
   }
 
 }
