@@ -15,6 +15,11 @@
     <div class="col m-3 p-2" action="">
       <div class="card-body card-min-size ">
         <form #form="ngForm" (ngSubmit)="setSchedule(form.value)" ngNativeValidate>
+
+          <div *ngIf="added_message.length > 0" class="alert alert-success">
+            {{added_message}}
+          </div>
+
           <div class="card">
             <div class="card-body px-3">
               <div id="schedule-container">
@@ -142,14 +147,16 @@
                 <div *ngIf="monday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Mon'">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                        </div>
                       </div>
                     </div>
                   </ul>
@@ -157,14 +164,16 @@
                 <div *ngIf="tuesday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Tue'">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                      </div>
                       </div>
                     </div>
                   </ul>
@@ -172,14 +181,16 @@
                 <div *ngIf="wednesday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Wed'">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                        </div>
                       </div>
                     </div>
                   </ul>
@@ -187,14 +198,16 @@
                 <div *ngIf="thursday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Thu' ">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                        </div>
                       </div>
                     </div>
                   </ul>
@@ -202,14 +215,16 @@
                 <div *ngIf="friday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Fri'">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                        </div>
                       </div>
                     </div>
                   </ul>
@@ -217,14 +232,16 @@
                 <div *ngIf="saturday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Sat' ">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                        </div>
                       </div>
                     </div>
                   </ul>
@@ -232,26 +249,22 @@
                 <div *ngIf="sunday1" class="mt-2">
                   <ul class="list-group" id="schedule">
                     <div *ngFor="let list of schedule">
-                      <li class="list-group-item d-flex justify-content-between align-items-center active">
-                        {{list.name}}
-                      </li>
-                      <div *ngFor="let list2 of sched_time">
-                        <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
-                          {{list2.time}}
-                          <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                      <div *ngIf="list.date == 'Sun'">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                          {{list.name}}
                         </li>
+                        <div *ngFor="let list2 of sched_time">
+                          <li *ngIf="list.uid == list2.uid" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{list2.time}}
+                            <span class="badge bg-success badge-pill">{{list2.limit}}</span>
+                          </li>
+                        </div>
                       </div>
                     </div>
                   </ul>
                 </div>
               </div>
               <div class="row mt-4">
-                <div class="col-md-4">
-                  <select [(ngModel)]="sched_id" class="form-select" name="schedule" id="">
-                    <option value="" selected>Choose Date</option>
-                    <option *ngFor="let list of schedule" value="{{list.uid}}">{{list.name}}</option>
-                  </select>
-                </div>
                 <div class="col-md-4">
                   <button id="set" data-bs-toggle="modal" data-bs-target="#edit">Edit</button>
                 </div>
@@ -277,21 +290,19 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-7">
-            <select class="form-select center">
-              <option selected>Select day...</option>
+            <select [(ngModel)]="sched_id" (change)="edit_schedule()" class="form-select" name="schedule" id="">
+              <option value="" selected>Choose Date</option>
+              <option *ngFor="let list of schedule" value="{{list.uid}}">{{list.name}}</option>
             </select>
           </div>
         </div>
         <div class="row mt-4 mx-2">
           <div class="col">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item
-                <button class="remove">Remove</button>
-              </li>
-              <li class="list-group-item">A second item
-                <button class="remove">Remove</button>
-              </li>
-              <li class="list-group-item">A third item
+              <div *ngIf="empty_message.length>0" class="alert alert-warning">
+                {{empty_message}}
+              </div>
+              <li *ngFor="let list of editSched_time" class="list-group-item">{{list.time}}
                 <button class="remove">Remove</button>
               </li>
             </ul>
