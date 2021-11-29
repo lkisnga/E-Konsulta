@@ -24,21 +24,18 @@ export class PatientRecordsComponent implements OnInit {
   medicalrecords = true;
   labresult = false;
   presc =  false;
-  medcertificate1 = false;
   insurance_loa = false;
 
   medicalRecords(){
     this.medicalrecords = true;
     this.labresult = false;
     this.presc = false;
-    this.medcertificate1 = false;
     this.insurance_loa = false;
   }
 
   labResult(){
     this.medicalrecords = false;
     this.labresult = true;
-    this.medcertificate1 = false;
     this.presc = false;
     this.insurance_loa = false;
   }
@@ -47,22 +44,14 @@ export class PatientRecordsComponent implements OnInit {
     this.medicalrecords = false;
     this.labresult = false;
     this.presc = true;
-    this.medcertificate1 = false;
     this.insurance_loa = false;
   }
-  medCertificate(){
-    this.medicalrecords = false;
-    this.labresult = false;
-    this.presc = false;
-    this.medcertificate1 = true;
-    this.insurance_loa = false;
-  }
+
   insuranceLOA()
   {
     this.medicalrecords = false;
     this.labresult = false;
     this.presc = false;
-    this.medcertificate1 = false;
     this.insurance_loa = true;
   }
 

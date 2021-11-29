@@ -31,11 +31,6 @@ body{
   color: rgb(0, 129, 138);
 }
 
-/*choosing a schedule*/
-select option span{
-  color: green;
-}
-
-.full{
-  color: red;
+span.notfull{
+  color: green !important;
 }
