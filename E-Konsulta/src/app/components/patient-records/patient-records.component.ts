@@ -21,7 +21,7 @@ export class PatientRecordsComponent implements OnInit {
   constructor(public userservice : UserService, public afu : AuthService) { }
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
-  medicalrecords = false;
+  medicalrecords = true;
   labresult = false;
   presc =  false;
   medcertificate1 = false;

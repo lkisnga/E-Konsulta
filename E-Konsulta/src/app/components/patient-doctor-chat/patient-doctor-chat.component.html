@@ -45,7 +45,7 @@
           </a>
           <ul class="collapse nav flex-column ms-2" id="sharedFiles">
             <li>
-                <a href="" class="nav-link px-1"> <span class="d-none d-sm-inline">Share View</span> </a>
+                <a href="#sharedFiles" class="nav-link px-1" data-bs-toggle="modal" data-bs-target="#share" > <span class="d-none d-sm-inline">Share Files</span> </a>
             </li>
         </ul>
         </div>
@@ -54,5 +54,130 @@
   </div>
 </div>
 
-<!--Files-->
+<!--start shared files modal-->
+<div class="modal fade" id="share" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="send-files">View Shared Files</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="btn-group">
+          <button type="button" class="medical" (click)="medicalRecords()">Medical Records</button>
+          <button type="button" class="lab" (click)="labResult()">Laboratory Result</button>
+          <button type="button" class="medicalCertificate" (click)="medCertificate()">Medical Certificate</button>
+          <button type="button" class="prescription" (click)="prescription()">Prescription</button>
+        </div>
+        <!--medical records-->
+        <div *ngIf="medicalrecords">
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>File Name</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    <label>Select
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <!--Laboratory result-->
+        <div *ngIf="labresult">
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th>File Name</th>
+                <th>Date</th>
+                <th>From</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
+                    <label>Select
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div *ngIf="medcertificate1">
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>File Name</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    <label>Select
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <!--prescription-->
+        <div *ngIf="presc">
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>File Name</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    <label>Select
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="share">Share</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end shared files modal-->
 
