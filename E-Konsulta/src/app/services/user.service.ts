@@ -754,6 +754,23 @@ export class UserService {
   {
     return this.db.firestore.collection('Shared_Files').add(record);
   }
+  get_sharedFile(doctor_id,patient_id)
+  {
+    return this.db.firestore.collection('Shared_Files').where('doctor_id','==',doctor_id)
+    .where('patient_id','==',patient_id);
+  }
+  get_medical_shared(id)
+  {
+    return this.db.firestore.collection('Medical_Records').doc(id).get();
+  }
+  get_lab_shared(id)
+  {
+    return this.db.firestore.collection('Laboratory_Results').doc(id).get();
+  }
+  get_prescription_shared(id)
+  {
+    return this.db.firestore.collection('Prescription').doc(id).get();
+  }
 
 
 }
