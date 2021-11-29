@@ -22,10 +22,17 @@ export class PatientDoctorChatComponent implements OnInit {
   chat_id : string = "";
 
   content : string = "";
+
+
+  shareFile: any = [];
+  tempArray = [];
+
   chat$ : Observable<any>;
 
   info : any =[];
   imgUrl : any;
+
+  flag : number = 0;
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
   medicalrecords = true;
@@ -177,6 +184,38 @@ export class PatientDoctorChatComponent implements OnInit {
   {
     console.log(e);
     window.open(e);
+  }
+
+  chooseShare(file,isChecked: boolean)
+  {
+    if(isChecked)
+    {
+      this.tempArray.push(file);
+      this.flag++;
+    }
+    else
+    {
+      var index = this.tempArray.findIndex(x => x.value ===file);
+      this.tempArray.splice(index);
+    }
+    console.log(this.tempArray);
+  }
+  share()
+  {
+    this.shareFile = this.tempArray;
+    let record = {};
+    record['doctor_id'] = this.docInfo.uid;
+    record['patient_id'] = this.userid;
+    for(var i=0;i<this.flag;i++)
+    {
+      console.log(this.shareFile[i]);
+      record['file_id'] = this.shareFile[i];
+      this.userservice.create_sharedFile(record)
+      .then(()=>{
+        console.log('File['+i+'] Shared!');
+      })
+    }
+    this.flag = 0;
   }
 
 }

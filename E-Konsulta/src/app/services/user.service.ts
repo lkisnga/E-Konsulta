@@ -750,4 +750,10 @@ export class UserService {
 
 
 
+  create_sharedFile(record)
+  {
+    return this.db.firestore.collection('Shared_Files').add(record);
+  }
+
+
 }
