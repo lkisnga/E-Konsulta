@@ -177,6 +177,9 @@
         <div *ngIf="error_message.length > 0" class="alert alert-danger">
           {{error_message}}
         </div>
+        <div *ngIf="success_message.length > 0" class="alert alert-success">
+          {{success_message}}
+        </div>
         <div class="modal-footer">
           <button type="button" class="send" (click)="uploadFile()">Send</button>
         </div>
@@ -195,13 +198,19 @@
         </div>
         <div class="modal-body">
           <div class="row mx-2">
-              <input type="text" placeholder="File name">
+              <input [(ngModel)]="filename" type="text" placeholder="File name">
           </div>
           <div class="row mx-0 mt-2 mb-3">
-            <input #file2 type="file">
+            <input #file type="file" (change)="choosefile2($event)">
+          </div>
+          <div *ngIf="error_message.length > 0" class="alert alert-danger">
+            {{error_message}}
+          </div>
+          <div *ngIf="success_message.length > 0" class="alert alert-success">
+            {{success_message}}
           </div>
           <div class="modal-footer">
-            <button type="button" class="send">Send</button>
+            <button (click)="uploadMedical()" type="button" class="send">Send</button>
           </div>
       </div>
     </div>
