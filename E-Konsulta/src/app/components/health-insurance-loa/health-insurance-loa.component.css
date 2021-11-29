@@ -24,10 +24,7 @@
   color: red;
   background-color: rgb(235, 233, 233);
 }
-.pending:active,
-.done:active{
-  background-color: rgb(194, 251, 255);
-}
+
 
 .bi-eye-fill{
   font-size: 20px;

@@ -25,6 +25,19 @@ export class LabPartnerResultComponent implements OnInit {
   userId : string="";
   constructor(public userservice : UserService, public afu : AuthService) { }
 
+  pending = true;
+  done = false;
+
+  pendingFunction(){
+    this.pending = true;
+    this.done = false;
+  }
+
+  doneFunction(){
+    this.pending = false;
+    this.done = true;
+  }
+
   ngOnInit(): void {
     this.userId = this.afu.get_UID();
 
@@ -47,7 +60,7 @@ export class LabPartnerResultComponent implements OnInit {
      this.model.filename = "";
     else
     {
-     this.model.filename = e.filename.replace('.pdf',''); 
+     this.model.filename = e.filename.replace('.pdf','');
     }
   }
   choosefile(e)
