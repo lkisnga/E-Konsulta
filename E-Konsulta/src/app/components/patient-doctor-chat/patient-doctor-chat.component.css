@@ -163,7 +163,7 @@ a:hover{
   border-left: 1px solid rgb(0, 129, 138);
 }
 
-.send{
+.share{
   border: none;
   background-color: rgb(0, 129, 138);
   padding: 5px 20px;
@@ -171,7 +171,7 @@ a:hover{
   border-radius: 3px;
   color: white;
 }
-.send:hover{
+.share:hover{
   background-color: rgb(2, 148, 158);
 }
 
@@ -185,5 +185,45 @@ a:hover{
   top: 200px;
   right: 0px;
   width: 285px;
+}
+
+/*inside the share files modal*/
+.medical,
+.lab,
+.prescription,
+.loa,
+.medicalCertificate{
+  border: 1px solid white;
+  background-color: rgb(0, 129, 138);
+  color: white;
+  padding: 4px 12px;
+}
+.medical:hover,
+.lab:hover,
+.prescription:hover,
+.loa:hover,
+.medicalCertificate:hover{
+  color: rgb(0, 129, 138);
+  background-color: rgb(235, 233, 233);
+}
+
+.bi-eye-fill{
+  font-size: 20px;
+  margin-left: 10px;
+}
+.view{
+  border: none;
+  background-color: transparent;
+  color: rgb(0, 129, 138);
+  margin-right: 15px;
+}
+
+.view:hover{
+  color: rgb(1, 146, 156);
+}
+
+label,
+input[type=checkbox]{
+  color: rgb(1, 146, 156);
 }
 
