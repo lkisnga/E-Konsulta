@@ -25,6 +25,18 @@ button{
 i{
   padding: 8px 10px;
 }
+.video-on{
+  border: 0;
+  color: white;
+  background-color: transparent;
+}
+
+.bi-camera-video:hover{
+  border-radius: 50%;
+  background-color: white;
+  color: rgb(15, 15, 15);
+  opacity: 0.9;
+}
 
 .stop-local{
   border: 0;
@@ -51,5 +63,5 @@ i{
 
 .options{
   margin:auto;
-  width: 230px;
+  width: 280px;
 }
