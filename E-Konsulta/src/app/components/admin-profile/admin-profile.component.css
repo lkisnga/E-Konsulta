@@ -34,7 +34,7 @@ body{
 .admin{
   color: rgb(0, 129, 138);
   padding: 10px 0;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .successful{
   border: none;
@@ -136,16 +136,21 @@ body{
   font-weight: 700;
 }
 
-.add-admin{
+.add-admin,
+.insurance,
+.lab{
   color: rgb(0, 129, 138);
   background-color: rgb(245, 244, 244);
   border: none;
   border-radius: 3px;
-  padding: 10px 20px;
+  padding: 7px 20px;
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .add-admin:hover,
+.insurance:hover,
+.lab:hover,
 .edit:hover,
 .logout:hover,
 .deletion:hover{
@@ -236,6 +241,18 @@ input:focus{
 }
 .delete-collapse:hover{
   color: red;
+}
+.register{
+  color: rgb(0, 129, 138);
+  border:none;
+  border-radius: 3px;
+  padding: 7px 40px;
+  background-color: rgb(245, 244, 244);
+  font-weight: 700;
+}
+
+.register:hover{
+  background-color: rgb(219, 218, 218);
 }
 
 @media only screen and (max-width: 600px) {

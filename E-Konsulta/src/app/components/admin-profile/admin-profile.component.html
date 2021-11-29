@@ -26,7 +26,19 @@
           <span *ngIf="file" class="selection-done"><i class="bi bi-check-circle-fill"></i></span>
         </div>
         <h3 class="admin">{{userData.fullname}}</h3>
-        <button type="button" class="add-admin" [routerLink]="['/registration']">ADD ANOTHER ADMIN</button>
+        <!--Registration-->
+        <div>
+          <button class="register" type="button" data-bs-toggle="collapse" data-bs-target="#registration" aria-expanded="false" aria-controls="collapseWidthExample">
+            Registration<span><i class="bi bi-pencil-fill"></i></span>
+          </button>
+          <div class="mt-2">
+            <div class="collapse collapse-horizontal" id="registration">
+              <button type="button" class="add-admin" [routerLink]="['/registration']">NEW ADMIN</button>
+              <button type="button" class="insurance" [routerLink]="['/health-insurance-registration']">HEALTH INSURANCE</button>
+              <button type="button" class="lab" [routerLink]="['/lab-partner-registration']">LABORATORY PARTNER</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-5 mt-4 second" *ngIf="authservice.currentUser">
