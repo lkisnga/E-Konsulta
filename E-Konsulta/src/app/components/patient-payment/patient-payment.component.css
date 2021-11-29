@@ -66,13 +66,13 @@ p, #terms{
 .insurance{
   border: none;
   border-radius: 3px;
-  padding: 6px 120px;
+  padding: 30px 150px;
   font-weight: 300;
-  font-size: 1.3rem;
-  background-color: green;
+  font-size: 1.7rem;
+  background-color: rgb(0, 129, 138);
   color: white;
 }
 
 .insurance:hover{
-  background-color: rgb(1, 114, 1);
+  background-color: rgb(0, 121, 129);
 }
