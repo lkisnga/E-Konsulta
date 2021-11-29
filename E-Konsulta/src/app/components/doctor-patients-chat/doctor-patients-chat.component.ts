@@ -33,6 +33,7 @@ export class DoctorPatientsChatComponent implements OnInit {
   filename2 : string = "";
 
   error_message = "";
+  success_message = "";
 
   constructor(
     public afu : AuthService,
@@ -115,6 +116,10 @@ export class DoctorPatientsChatComponent implements OnInit {
       }).then(()=>{
         console.log("Stored successfully2!");
       })
+      this.success_message = "Files sent successfully!";
+      setTimeout(() => {
+        this.success_message = "";
+      }, 5000);
     }
     else
     {
@@ -124,6 +129,35 @@ export class DoctorPatientsChatComponent implements OnInit {
       }, 5000);
     }
   }
+  uploadMedical()
+  {
+    if(this.filename != "" && this.file1 != "")
+    {
+      console.log(this.file1);
+      this.userservice.send_medicalRecord(this.patientInfo.uid,this.userid,this.filename+".pdf",this.file1)
+      .catch(error=>{
+        console.log(error)
+      }).then(()=>{
+        console.log("Stored successfully!");
+        this.success_message = "File sent successfully!";
+        setTimeout(() => {
+          this.success_message = "";
+        }, 5000);
+      })
+    }
+    else{
+      console.log('Empty Fields');
+      this.error_message = "Empty Fields!";
+      setTimeout(() => {
+        this.error_message = "";
+      }, 5000);
+    }
+  }
+  choosefile2(e)
+  {
+    this.file1 = e.target.files[0];
+    console.log(this.file1);
+  } 
   close()
   {
     this.filename = "";
