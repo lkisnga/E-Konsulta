@@ -65,7 +65,6 @@
         <div class="btn-group">
           <button type="button" class="medical" (click)="medicalRecords()">Medical Records</button>
           <button type="button" class="lab" (click)="labResult()">Laboratory Result</button>
-          <button type="button" class="medicalCertificate" (click)="medCertificate()">Medical Certificate</button>
           <button type="button" class="prescription" (click)="prescription()">Prescription</button>
         </div>
         <!--medical records-->
@@ -111,30 +110,6 @@
                   <td></td>
                   <td>
                     <button class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
-                    <label>Select
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-        <div *ngIf="medcertificate1">
-          <table class="table mt-3">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>File Name</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
                       <input type="checkbox">
                       <span class="checkmark"></span>
