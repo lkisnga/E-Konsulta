@@ -46,7 +46,6 @@ import { HealthInsuranceSidenavComponent } from './components/health-insurance-s
 import { HealthInsuranceProfileComponent } from './components/health-insurance-profile/health-insurance-profile.component';
 import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
 import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
-import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
@@ -123,7 +122,6 @@ import { HealthInsuranceVerificationPatientComponent } from './components/health
     HealthInsuranceProfileComponent,
     HealthInsuranceRequestsComponent,
     HealthInsuranceLoaComponent,
-    HealthInsuranceVerificationComponent,
     DoctorPatientsChatComponent,
     DoctorRegistrationComponent,
     PatientRegistrationComponent,
