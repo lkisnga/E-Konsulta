@@ -35,6 +35,11 @@ export class DoctorPatientsChatComponent implements OnInit {
   error_message = "";
   success_message = "";
 
+
+  medList: any = [];
+  labList: any = [];
+  presList: any = [];
+
   constructor(
     public afu : AuthService,
     public chats : ChatService,
@@ -56,6 +61,11 @@ export class DoctorPatientsChatComponent implements OnInit {
     }).then(()=>{
       this.chat_source();
     })
+
+
+    this.get_medical();
+    this.get_lab();
+    this.get_prescription();
   }
 
   chat_source()
@@ -191,7 +201,79 @@ export class DoctorPatientsChatComponent implements OnInit {
       })
     });
   }
+  open(file)
+  {
+    window.open(file);
+  }
+  get_medical()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_sharedFile(this.userid,this.patientInfo.uid)
+    .onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(item=>{
+        this.userservice.get_medical_shared(item.doc.data().file_id)
+        .then(e=>{
+          if(e.exists)
+          {
+            data = e.data();
+            data.uid = e.id;
+            tempArray.push(data);
+          }
+        })
+      })
+    })
+    this.medList = tempArray;
+    console.log(this.medList);
+  }
+  get_lab()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_sharedFile(this.userid,this.patientInfo.uid)
+    .onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(item=>{
+        this.userservice.get_lab_shared(item.doc.data().file_id)
+        .then(e=>{
+          if(e.exists)
+          {
+            console.log(e.data());
+            data = e.data();
+            data.uid = e.id;
+            tempArray.push(data);
+          }
+        })
+      })
+    })
+    this.labList = tempArray;
+    console.log(this.labList);
+  }
 
+  get_prescription()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_sharedFile(this.userid,this.patientInfo.uid)
+    .onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(item=>{
+        this.userservice.get_prescription_shared(item.doc.data().file_id)
+        .then(e=>{
+          if(e.exists)
+          {
+            console.log(e.data());
+            data = e.data();
+            data.uid = e.id;
+            tempArray.push(data);
+          }
+        })
+      })
+    })
+    this.presList = tempArray;
+    console.log(this.presList);
+  }
     /** set to false so that when loading the user analytics page, content of that function is not displayed */
     medicalrecords = false;
     labresult = false;

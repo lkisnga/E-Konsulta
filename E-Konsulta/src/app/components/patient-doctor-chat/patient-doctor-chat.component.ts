@@ -155,6 +155,7 @@ export class PatientDoctorChatComponent implements OnInit {
             this.userservice.get_labInfo(item.data().diagnostic_center)
             .forEach(res=>{
               data = item.data();
+              data.uid = item.id;
               data.from = res.data().name;
               tempArray.push(data);
             })
@@ -174,7 +175,7 @@ export class PatientDoctorChatComponent implements OnInit {
       e.forEach(item=>{
         console.log(item.data());
         data = item.data();
-        data.id = item.id;
+        data.uid = item.id;
         tempArray.push(data);
       })
     })
