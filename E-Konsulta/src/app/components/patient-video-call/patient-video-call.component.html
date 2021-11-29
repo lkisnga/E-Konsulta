@@ -11,12 +11,12 @@
 
 <div class="bg-dark row mb-2">
   <div class="options">
-    <button class="start-local"><span><i class="bi bi-arrow-right-circle"></i></span> Start Local</button>
-    <button class="stop-local"><span><i class="bi bi-stop"></i></span>Stop Local</button>
-    <button class="mic-on"><i class="bi bi-mic"></i></button>
-    <button class="video-on"><i class="bi bi-camera-video"></i></button>
-    <button class="hangup"><span class="hang"><i class="bi bi-telephone"></i></span></button>
-    <button (click)="answerCall()" class="answer"><i class="bi bi-telephone-inbound"></i></button>
+    <button class="video-on" title="Camera on"><i class="bi bi-camera-video"></i></button>
+    <button class="stop-local" title="Camera/Mic off">
+      <span><i class="bi bi-camera-video-off"></i></span>
+      <span><i class="bi bi-mic-mute"></i></span>
+    </button>
+    <button (click)="answerCall()" class="answer" title="Accept Call"><i class="bi bi-telephone-inbound-fill"></i></button>
   </div>
 </div>
 

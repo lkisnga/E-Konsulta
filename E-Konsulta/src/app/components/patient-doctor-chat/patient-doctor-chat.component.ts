@@ -119,7 +119,7 @@ export class PatientDoctorChatComponent implements OnInit {
   }
   video_call()
   {
-    window.open('/patient-video-call','_blank','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
+    window.open('/patient-video-call','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
   }
 
 }

@@ -13,70 +13,55 @@ video{
 }
 
 .video-description{
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 /*buttons*/
 button{
-  margin: 20px 0 30px 0;
-  font-size: 1.3rem;
+  margin: 50px 0 50px 0;
+  font-size: 1.8rem;
 }
 
 i{
   padding: 8px 10px;
 }
-
-.bi-mic:hover,
-.bi-camera-video:hover,
-.bi-telephone:hover,
-.bi-telephone-inbound:hover{
-  border-radius: 100%;
-  background-color: rgb(235, 235, 235);
-  opacity: 0.8;
-  color: rgb(15, 15, 15);
-}
-
-.start-local{
-  border: 0;
-  color: white;
-  background-color: transparent;
-  font-size: 12px !important;
-}
-.stop-local{
-  border: 0;
-  color: white;
-  background-color: transparent;
-  font-size: 12px !important;
-}
-.mic-on{
-  border: 0;
-  color: white;
-  background-color: transparent;
-}
-
 .video-on{
   border: 0;
   color: white;
   background-color: transparent;
 }
 
-.hangup{
+.bi-camera-video:hover{
+  border-radius: 50%;
+  background-color: white;
+  color: rgb(15, 15, 15);
+  opacity: 0.9;
+}
+
+.stop-local{
   border: 0;
   color: white;
   background-color: transparent;
-  transform: rotate(135deg);
+  display: inline-flex;
 }
-.hang > span i:hover{
+.stop-local:hover{
+  border-radius: 3px;
   background-color: red;
   color: white;
 }
+
 .answer{
   border: 0;
   color: white;
   background-color: transparent;
 }
+.bi-telephone-inbound-fill:hover{
+  border-radius: 100%;
+  background-color: rgb(235, 235, 235);
+  color: green;
+}
 
 .options{
   margin:auto;
-  width: 500px;
+  width: 280px;
 }
