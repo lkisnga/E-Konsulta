@@ -113,7 +113,7 @@
                     <div class="form-group">
                       <label>Patient Limit</label>
                       <small class="text-danger font-weight-bold">*</small>
-                      <input [(ngModel)]="limit" name="limit" type="number" class="form-control bg-white" required>
+                      <input [(ngModel)]="limit" name="limit" type="number" class="form-control bg-white" placeholder="Limit" required>
                     </div>
                   </div>
                 </div>
@@ -266,7 +266,7 @@
               </div>
               <div class="row mt-4">
                 <div class="col-md-4">
-                  <button id="set" data-bs-toggle="modal" data-bs-target="#edit">Edit</button>
+                  <button (click)="clear_field()" id="set" data-bs-toggle="modal" data-bs-target="#edit">Edit</button>
                 </div>
               </div>
               <div *ngIf="clear_message.length>0" class="alert alert-info row">
@@ -287,6 +287,9 @@
         <h5 class="modal-title" id="editLabel">Edit</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
+      <div *ngIf="error_message.length>0" class="alert alert-danger">
+        {{error_message}}
+      </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-7">
@@ -303,13 +306,13 @@
                 {{empty_message}}
               </div>
               <li *ngFor="let list of editSched_time" class="list-group-item">{{list.time}}
-                <button class="remove">Remove</button>
+                <button (click)="remove_time(list.id)" class="remove">Remove</button>
               </li>
             </ul>
           </div>
         </div>
         <div class="row mt-4">
-          <div class="col-4">
+          <div class="col-3">
             <div class="form-group">
               <label>Start Time</label>
               <small class="text-danger font-weight-bold">*</small>
@@ -342,7 +345,7 @@
               </select>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <div class="form-group">
               <label>End Time</label>
               <small class="text-danger font-weight-bold">*</small>
@@ -375,8 +378,11 @@
               </select>
             </div>
           </div>
-          <div class="col-4 mt-4">
-            <button class="add">Add</button>
+          <div class="col-3  mt-4">
+            <input [(ngModel)]="limit" name="limit" class="form-control" type="text" placeholder="Limit">
+          </div>
+          <div class="col-3 mt-4">
+            <button (click)="edit_add_time()" class="add">Add</button>
           </div>
         </div>
       </div>

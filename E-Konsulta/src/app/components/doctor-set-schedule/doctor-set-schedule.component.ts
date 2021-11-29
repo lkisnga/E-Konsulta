@@ -28,6 +28,7 @@ export class DoctorSetScheduleComponent implements OnInit {
   clear_message: string= "";
 
   empty_message: string = "Empty List! Choose a date!";
+  error_message: string ="";
 
   added_message: string = "";
 
@@ -275,6 +276,68 @@ export class DoctorSetScheduleComponent implements OnInit {
       this.empty_message = "Empty List! Choose a date!";
     }
     this.editSched_time = tempArray;
+  }
+
+  remove_time(id)
+  {
+    this.userservice.remove_schedule_time(this.sched_id,id)
+    .then(()=>{
+      this.edit_schedule();
+      this.ngOnInit();
+      console.log('Successfully Deleted!');
+    })
+  }
+  edit_add_time()
+  {
+    if(this.sched_id != "")
+    {
+      if(this.start != "" && this.end != "" && this.limit != "")
+      {
+        let record = {};
+        record['start'] = this.start;
+        record['end'] = this.end;
+        record['limit'] = this.limit;
+        this.userservice.check_schedule_time(this.sched_id,record)
+        .then(e=>{
+          if(e.empty)
+          this.userservice.create_schedule_time(this.sched_id,record)
+          .then(()=>{
+            this.edit_schedule();
+            this.ngOnInit();
+            console.log('added time!');
+          })
+          else
+          {
+            console.log('Time Already exist!');
+            this.error_message = "Time Already exist!";
+            setTimeout(() => {
+              this.error_message = "";
+            }, 4000);
+          }
+        })
+      }
+      else
+      {
+        this.error_message = "Select a time(start and end) and limit";
+        setTimeout(() => {
+          this.error_message = "";
+        }, 4000);
+      }
+    }
+    else
+    {
+      this.error_message= "Select a Schedule!";
+      setTimeout(() => {
+        this.error_message = "";
+      }, 3000);
+    }
+  }
+  clear_field()
+  {
+    this.start = "";
+    this.end = "";
+    this.date = "";
+    this.limit = "";
   }
 
 }
