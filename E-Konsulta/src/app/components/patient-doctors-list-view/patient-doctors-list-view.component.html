@@ -41,10 +41,10 @@
                           <option value="" selected>Select Time</option>
                           <option *ngFor="let list of timeList" value="{{list.uid}}">
                             {{list.time}}
-                            <span class="text-success" *ngIf="list.status!='full'">
+                            <span class="notfull" *ngIf="list.status!='full'">
                                 notfull
                             </span>
-                            <span class="text-danger" *ngIf="list.status=='full'">
+                            <span class="full" *ngIf="list.status=='full'">
                                 full
                           </span>
                           </option>
