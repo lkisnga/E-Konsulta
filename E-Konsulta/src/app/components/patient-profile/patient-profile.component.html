@@ -28,7 +28,7 @@
           <p>Health Insurance: <span class="info info-6">{{info.insurance_name}}</span></p>
           <p>Member ID : <span class="info info-7">{{info.member_ID}}</span></p>
           <button (click)="edit()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
-          <button id="insuranceBtn" class="insurance" data-bs-toggle="modal" data-bs-target="#insuranceBt">INSURANCE</button>
+          <button id="insuranceBtn" class="insurance" data-bs-toggle="modal" data-bs-target="#insuranceBt">LOA</button>
         </div>
         <div *ngIf="info.isVerified == 'declined'" class="alert alert-warning">
             Your member ID was declined by your insurance provider. Please check if the ID provided
@@ -114,14 +114,13 @@
 <!--end of logout modal-->
 <!--Insurance Modal-->
 <div class="modal fade" id="insuranceBt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="editLabel">{{info.insurance_name}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <h5 id="editLabel">Edit</h5>
         <p>Status: {{info.isVerified}}</p>
         <p>
           Health Insurance: &nbsp; <select [(ngModel)]="health_insurance" name="health_insurance" type="text">
@@ -142,6 +141,12 @@
         </div>
         <div *ngIf="request_sent.length > 0" style="margin-top: 2%;" class="alert alert-warning">
           {{request_sent}}
+        </div>
+        <h5 id="editLabel" class="mt-1">Laboratory</h5>
+        <p>Filename: <input type="text" size="30"></p>
+        <div>
+          <input type="file">
+          <span><button class="send">Send LOA</button></span>
         </div>
       </div>
       <div class="modal-footer">
