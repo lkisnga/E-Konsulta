@@ -18,10 +18,10 @@
       <div class="col mx-3 mt-4">
         <h5 class="usr py-1">Verification</h5>
         <div class="btn-group">
-          <button (click)="pending()" type="button" class="pending">Pending</button>
-          <button (click)="verified()" type="button" class="verified">Verified</button>
+          <button (click)="isVerified_Doc('pending')" type="button" class="pending">Pending</button>
+          <button (click)="isVerified_Doc('verified')" type="button" class="verified">Verified</button>
         </div>
-        <table *ngIf="pending1" class="table mt-2">
+        <table *ngIf="pending" class="table striped mt-2">
           <thead>
             <tr>
               <th scope="col">User Email</th>
@@ -32,19 +32,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let list of list">
+              <th scope="row">{{list.email}}</th>
+              <td>{{list.fullname}}</td>
+              <td>{{list.member_ID}}</td>
+              <td>{{list.isVerified}}</td>
               <td>
-                <button (click)="('verified')" class="btn btn-success" id="verify">Verify</button>
-                <button (click)="('declined')" class="btn btn-danger">Decline</button>
+                <button (click)="verify(list,'verified')" class="btn btn-success" id="verify">Verify</button>
+                <button (click)="verify(list,'declined')" class="btn btn-danger">Decline</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <table *ngIf="verified1" class="table mt-2">
+        <table *ngIf="verified" class="table striped mt-2">
           <thead>
             <tr>
               <th scope="col">User Email</th>
@@ -55,13 +55,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let list of list2">
+              <th scope="row">{{list.email}}</th>
+              <td>{{list.fullname}}</td>
+              <td>{{list.member_ID}}</td>
+              <td>{{list.isVerified}}</td>
               <td>
-                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
+                <button (click)="edit_info(list)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
               </td>
             </tr>
           </tbody>
@@ -77,16 +77,16 @@
             <h5 class="modal-title">Update Info</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
-          <form #form="ngForm">
+          <form #form="ngForm" (ngSubmit)="update_info(form.value)">
             <div class="modal-body">
-              <p>Insurance Package: <input name="Package" type="text" size="35" required></p>
-              <p>Currently Spent:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="spent" type="text" size="35"></p>
+              <p>Insurance Package: <input [(ngModel)]="userIns.Package" name="Package" type="text" size="35" required></p>
+              <p>Currently Spent:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="userIns.spent" name="spent" type="text" size="35"></p>
               <p>Limit: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input name="limit" type="text" size="35"></p>
+                <input [(ngModel)]="userIns.limit" name="limit" type="text" size="35"></p>
               <p>Balance:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input name="balance" type="text" size="35">
+                <input [(ngModel)]="balance" name="balance" type="text" size="35">
               </p>
-              <p>Last Update:</p>
+              <p>Last Update: {{userIns.updatedAt}}</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -100,3 +100,4 @@
     <!--end update info modal-->
 </body>
 </html>
+
