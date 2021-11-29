@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 import { map } from 'rxjs/operators';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-patient-doctor-chat',
@@ -11,7 +12,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./patient-doctor-chat.component.css']
 })
 export class PatientDoctorChatComponent implements OnInit {
+
+  medList: any = [];
+  labList: any = [];
   docInfo : any = [];
+  presList: any = [];
 
   userid : string = "";
   chat_id : string = "";
@@ -19,6 +24,7 @@ export class PatientDoctorChatComponent implements OnInit {
   content : string = "";
   chat$ : Observable<any>;
 
+  info : any =[];
   imgUrl : any;
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
@@ -88,6 +94,10 @@ export class PatientDoctorChatComponent implements OnInit {
     }).then(()=>{
       this.chat_source();
     })
+
+    this.get_medicalRecord();
+    this.get_labRecord();
+    this.prescription_record();
   }
 
   chat_source()
@@ -120,6 +130,65 @@ export class PatientDoctorChatComponent implements OnInit {
   video_call()
   {
     window.open('/patient-video-call','location=yes,height=570,width=2000,scrollbars=yes,status=yes');
+  }
+  get_medicalRecord()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_patient_medical(this.userid)
+    .then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.medList = tempArray;
+    console.log(this.medList);
+  }
+  get_labRecord()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_UserInfo(this.userid).then(e=>{
+      this.info = e.data();
+    }).then(()=>{
+      this.userservice.get_Lab_Results_Patient(this.info.email).then(e => {
+        e.forEach(item => {
+          if(item.data().status != 'pending')
+          {
+            this.userservice.get_labInfo(item.data().diagnostic_center)
+            .forEach(res=>{
+              data = item.data();
+              data.from = res.data().name;
+              tempArray.push(data);
+            })
+          }
+        })
+      })
+    })
+    this.labList = tempArray;
+    console.log(this.labList);
+  }
+
+  prescription_record()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_patient_prescription(this.userid).then(e=>{
+      e.forEach(item=>{
+        console.log(item.data());
+        data = item.data();
+        data.id = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.presList = tempArray;
+  }
+  open(e)
+  {
+    console.log(e);
+    window.open(e);
   }
 
 }

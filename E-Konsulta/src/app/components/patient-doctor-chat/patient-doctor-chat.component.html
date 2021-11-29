@@ -79,11 +79,11 @@
               </tr>
             </thead>
             <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
+                <tr *ngFor="let list of medList">
+                  <td>{{list.createdAt}}</td>
+                  <td>{{list.filename}}</td>
                   <td>
-                    <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    <button (click)="open(list.file)" class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
                       <input type="checkbox">
                       <span class="checkmark"></span>
@@ -100,17 +100,15 @@
               <tr>
                 <th>File Name</th>
                 <th>Date</th>
-                <th>From</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr *ngFor="let list of labList">
+                  <td>{{list.filename}}</td>
+                  <td>{{list.createdAt}}</td>
                   <td>
-                    <button class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
+                    <button (click)="open(list.file)" class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
                       <input type="checkbox">
                       <span class="checkmark"></span>
@@ -155,11 +153,11 @@
               </tr>
             </thead>
             <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
+                <tr *ngFor="let list of presList">
+                  <td>{{list.createdAt}}</td>
+                  <td>{{list.filename}}</td>
                   <td>
-                    <button class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+                    <button (click)="open(list.file)" class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
                       <input type="checkbox">
                       <span class="checkmark"></span>
