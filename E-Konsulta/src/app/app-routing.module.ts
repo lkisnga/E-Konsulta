@@ -28,7 +28,6 @@ import { LabPartnerResultComponent } from './components/lab-partner-result/lab-p
 import { HealthInsuranceProfileComponent } from './components/health-insurance-profile/health-insurance-profile.component';
 import { HealthInsuranceRequestsComponent } from './components/health-insurance-requests/health-insurance-requests.component';
 import { HealthInsuranceLoaComponent } from './components/health-insurance-loa/health-insurance-loa.component';
-import { HealthInsuranceVerificationComponent } from './components/health-insurance-verification/health-insurance-verification.component';
 import { DoctorPatientsChatComponent } from './components/doctor-patients-chat/doctor-patients-chat.component';
 import { DoctorRegistrationComponent } from './components/doctor-registration/doctor-registration.component';
 import { PatientRegistrationComponent } from './components/patient-registration/patient-registration.component';
@@ -86,7 +85,6 @@ const routes: Routes = [
   { path: 'health-insurance-profile', component: HealthInsuranceProfileComponent},
   { path: 'health-insurance-requets', component: HealthInsuranceRequestsComponent},
   { path: 'health-insurance-loa', component: HealthInsuranceLoaComponent},
-  { path: 'health-insurance-verification', component: HealthInsuranceVerificationComponent},
   { path: 'doctor-patient-chat', component: DoctorPatientsChatComponent},
   { path: 'doctor-registration', component: DoctorRegistrationComponent},
   { path: 'patient-registration', component: PatientRegistrationComponent},
@@ -155,7 +153,6 @@ export const routingComponents = [
   HealthInsuranceProfileComponent,
   HealthInsuranceRequestsComponent,
   HealthInsuranceLoaComponent,
-  HealthInsuranceVerificationComponent,
   DoctorPatientsChatComponent,
   DoctorRegistrationComponent,
   PatientRegistrationComponent,
