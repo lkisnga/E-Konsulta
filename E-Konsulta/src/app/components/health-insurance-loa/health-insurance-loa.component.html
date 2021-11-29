@@ -68,8 +68,8 @@
         <button (click)="clear()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <p>Insert File</p>
-        <input [(ngModel)]="filename" type="text" placeholder="Input filename">
+        <p>Add File</p>
+        <p><input [(ngModel)]="filename" type="text" size="40" placeholder="Input filename"></p>
         <input #loa_file type="file" (change)="choosefile($event)">
       </div>
       <div *ngIf="file_message.length > 0" class="alert alert-danger">
@@ -79,7 +79,7 @@
         {{file2_message}}
       </div>
       <div class="modal-footer">
-        <button (click)="send_LOA()" class="btn btn-primary" type="button" class="yes">Send</button>
+        <button (click)="send_LOA()" class="btn btn-primary" type="button" class="send">Send</button>
       </div>
     </div>
   </div>
