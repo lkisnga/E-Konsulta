@@ -302,8 +302,8 @@
         <div class="row mt-4 mx-4 inside-modal">
           <div class="col">
             <ul class="list-group list-group-flush">
-              <div *ngIf="empty_message.length>0" class="alert alert-warning">
-                {{empty_message}}
+              <div *ngIf="empty_message.length>0">
+                {{empty_message}}...
               </div>
               <li *ngFor="let list of editSched_time" class="list-group-item">{{list.time}}
                 <span class="badge bg-success badge-pill limit">{{list.limit}}</span>
