@@ -269,6 +269,17 @@ input:focus{
   background-color: rgb(0, 129, 138);
   color: white;
 }
+.send{
+  border:none;
+  padding: 5px 50px;
+  font-size: 10pt;
+  border-radius: 3px;
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
+.send:hover{
+  background-color: rgb(0, 113, 121);
+}
 
 select{
   padding: 3px 6px;
