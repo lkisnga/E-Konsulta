@@ -26,20 +26,18 @@
             <tr>
               <th scope="col">User Email</th>
               <th scope="col">Name</th>
-              <th scope="col">Insurance Account ID</th>
               <th scope="col">Verification Status</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let list of doctorList">
+              <th scope="row">{{list.email}}</th>
+              <td>{{list.fullname}}</td>
+              <td>{{list.status}}</td>
               <td>
-                <button (click)="('verified')" class="btn btn-success" id="verify">Verify</button>
-                <button (click)="('declined')" class="btn btn-danger">Decline</button>
+                <button (click)="verify('verified',list.uid)" class="btn btn-success" id="verify">Verify</button>
+                <button (click)="verify('declined',list.uid)" class="btn btn-danger">Decline</button>
               </td>
             </tr>
           </tbody>
@@ -49,20 +47,17 @@
             <tr>
               <th scope="col">User Email</th>
               <th scope="col">Name</th>
-              <th scope="col">Insurance Account ID</th>
               <th scope="col">Verification Status</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let list of doctorList2">
+              <th scope="row">{{list.email}}</th>
+              <td>{{list.fullname}}</td>
+              <td>{{list.status}}</td>
               <td>
-                <button class="btn btn-info update1" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
-                <button class="btn btn-danger">Remove</button>
+                <button (click)="verify('declined',list.uid)" class="btn btn-danger">Remove</button>
               </td>
             </tr>
           </tbody>
