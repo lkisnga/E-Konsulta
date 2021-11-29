@@ -173,6 +173,7 @@ export class DoctorProfileComponent implements OnInit {
     record['doctor_id'] = this.userId;
     record['insurance_id'] = this.insurance_id;
     record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+    record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
     record['status'] = "pending";
     console.log(this.insurance_id);
 

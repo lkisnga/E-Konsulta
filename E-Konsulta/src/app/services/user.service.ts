@@ -268,7 +268,22 @@ export class UserService {
   {
     return this.db.firestore.collection('Medical_Records').where('patient_id','==',patient_id).get();
   }
-
+  get_affiliation(insurance_id)
+  {
+    return this.db.firestore.collection('Insurance_Affiliation').where('insurance_id','==',insurance_id)
+    .get();
+  }
+  verify_affiliation(id)
+  {
+    return this.db.firestore.collection('Insurance_Affiliation').doc(id).update({
+      status: "verified",
+      updatedAt: formatDate(new Date(),'MM/dd/yyyy','en')
+    })
+  }
+  decline_affiliation(id)
+  {
+    return this.db.firestore.collection('Insurance_Affiliation').doc(id).delete();
+  }
   send_prescriptionRecord(patient_id,doc_id,filename,file)
   {
    return this.store.ref('Prescription-Records/' + patient_id + '/Records/' + filename).put(file)
