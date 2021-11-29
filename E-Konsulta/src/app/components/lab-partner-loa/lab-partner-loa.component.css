@@ -1,0 +1,48 @@
+body{
+  font-size: 14px;
+}
+.usr{
+  color: rgb(0, 129, 138);
+  margin-top: 30px;
+}
+
+.list-group-item{
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  color: gray !important;
+  font-size: 12px;
+}
+
+.mb-1{
+  font-size: 14px;
+}
+
+.whole-trans{
+  height: 490px;
+  overflow-y: scroll;
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-top: 20px;
+  width: 1000px;
+}
+
+.info{
+  float: left;
+}
+
+.bttn{
+  float: right;
+  margin-top: 15px;
+}
+
+.view{
+  border: none;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 1rem;
+  background-color: rgb(0, 129, 138);
+  color: white;
+}
+.view:hover{
+  background-color: rgb(0, 114, 122);
+}
