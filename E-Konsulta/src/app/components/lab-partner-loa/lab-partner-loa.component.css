@@ -78,7 +78,7 @@ small{
   background-color: rgb(0, 129, 138);
   color: white;
   margin-top: 15px;
-
+  margin-left: 160px;
 }
 .send:hover{
   background-color: rgb(0, 113, 121);
