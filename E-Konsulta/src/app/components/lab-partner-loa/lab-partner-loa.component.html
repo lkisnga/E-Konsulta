@@ -10,7 +10,7 @@
         <ul class="list-group py-2 whole-trans">
           <li class="list-group-item flex-column align-items-start mt-3">
             <div class="info">
-              <h5 mb-1>Patient Name</h5>
+              <h5>Patient Name</h5>
               <p class="mb-1">File Name: </p>
               <p class="mb-1">Insurance: </p>
               <small>dd-mm-yyyy</small>
@@ -25,17 +25,18 @@
 
     <!--view Modal-->
     <div class="modal fade" id="view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="editLabel">Insurance Name</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
           <div class="modal-body">
-            <button class="view1">View</button>
-            <p>Filename: <input type="text" size="30"></p>
-            <div>
-              <input type="file">
+            <button class="view1 mt-2">View File <span><i class="bi bi-eye"></i></span></button>
+            <div class="loa">
+              <h5 id="editLabel" class="mt-2">Send LOA</h5>
+              <p>Filename: &nbsp; <input type="text" size="40"></p>
+              <p>Choose File: <input type="file"></p>
               <span><button class="send">Send LOA</button></span>
             </div>
           </div>

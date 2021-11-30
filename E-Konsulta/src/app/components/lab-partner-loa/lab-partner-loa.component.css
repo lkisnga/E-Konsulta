@@ -12,10 +12,15 @@ h5{
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   color: gray !important;
   font-size: 12px;
+  padding: 10px 20px;
 }
 
 .mb-1{
   font-size: 14px;
+  margin-left: 10px;
+}
+small{
+  margin-left: 10px;
 }
 
 .whole-trans{
@@ -40,10 +45,12 @@ h5{
 .view{
   border: none;
   border-radius: 5px;
-  padding: 10px 40px;
+  padding: 15px 40px;
   font-size: 1rem;
   background-color: rgb(0, 129, 138);
   color: white;
+  margin-right: 30px;
+  margin-top: 7px;
 }
 .view:hover{
   background-color: rgb(0, 114, 122);
@@ -52,12 +59,12 @@ h5{
 .view1{
   border: none;
   border-radius: 5px;
-  padding: 8px 160px;
+  padding: 15px 140px;
   font-size: 1rem;
   background-color: rgb(0, 129, 138);
   color: white;
   margin-bottom: 30px;
-  margin-left: 60px;
+  margin-left: 50px;
 }
 .view1:hover{
   background-color: rgb(0, 114, 122);
@@ -65,15 +72,18 @@ h5{
 
 .send{
   border:none;
-  padding: 5px 50px;
+  padding: 10px 50px;
   font-size: 10pt;
   border-radius: 3px;
   background-color: rgb(0, 129, 138);
   color: white;
+  margin-top: 15px;
+
 }
 .send:hover{
   background-color: rgb(0, 113, 121);
 }
+
 
 .close{
   border: 1px solid maroon;
@@ -86,4 +96,15 @@ h5{
 .close:hover{
   background-color: maroon;
   color: white;
+}
+input{
+  padding: 3px 6px;
+}
+
+input:focus{
+  outline: 0;
+}
+
+.loa{
+  border-top: 1px solid rgb(243, 243, 243);
 }
