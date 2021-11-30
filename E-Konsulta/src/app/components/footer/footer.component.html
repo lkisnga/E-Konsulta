@@ -1,11 +1,10 @@
 <div class="footer">
-  <div class="d-flex w-100 justify-content-between">
-    <p>&copy; {{currentYear}} All rights reserved </p>
+  <div class="d-flex w-100 justify-content-center">
+    <p class="year">&copy; {{currentYear}} All rights reserved </p>
+    <a [routerLink]="['/terms-and-conditions']" class="terms">Terms and Conditions</a>
     <p><i class="bi bi-envelope-fill"></i><span class="ms-2 d-none d-sm-inline">lineuparray@gmail.com</span></p>
-    <div class="mt-2">
-      <a [routerLink]="['/user-feedbacks']">Send Feedback</a>
-      <a [routerLink]="['/user-complaints']">Complaints</a>
-    </div>
+    <a [routerLink]="['/user-feedbacks']">Send Feedback</a>
+    <a [routerLink]="['/user-complaints']">Complaints</a>
   </div>
 </div>
 
