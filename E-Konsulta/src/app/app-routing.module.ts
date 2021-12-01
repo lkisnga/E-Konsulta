@@ -56,6 +56,7 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
 import { HealthInsuranceVerificationDoctorComponent } from './components/health-insurance-verification-doctor/health-insurance-verification-doctor.component';
 import { HealthInsuranceVerificationPatientComponent } from './components/health-insurance-verification-patient/health-insurance-verification-patient.component';
 import { LabPartnerLoaComponent } from './components/lab-partner-loa/lab-partner-loa.component';
+import { HealthInsuranceReceivedLoaComponent } from './components/health-insurance-received-loa/health-insurance-received-loa.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -113,7 +114,8 @@ const routes: Routes = [
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
   { path: 'health-insurance-verification-doctor', component: HealthInsuranceVerificationDoctorComponent},
   { path: 'health-insurance-verification-patient', component: HealthInsuranceVerificationPatientComponent},
-  { path: 'lab-partner-loa', component: LabPartnerLoaComponent}
+  { path: 'lab-partner-loa', component: LabPartnerLoaComponent},
+  { path: 'health-insurance-received-loa', component: HealthInsuranceReceivedLoaComponent}
 ];
 
 
@@ -182,5 +184,6 @@ export const routingComponents = [
   TermsAndConditionsComponent,
   HealthInsuranceVerificationDoctorComponent,
   HealthInsuranceVerificationPatientComponent,
-  LabPartnerLoaComponent
+  LabPartnerLoaComponent,
+  HealthInsuranceReceivedLoaComponent
 ];

@@ -1,0 +1,58 @@
+<app-header-insurance></app-header-insurance>
+<div class="row flex-nowrap">
+  <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+    <!--sidenav -->
+    <app-health-insurance-sidenav></app-health-insurance-sidenav>
+  </div>
+
+  <div class="col mt-4 mx-3">
+    <h5 class="usr py-1">Received LOA</h5>
+    <div class="btn-group">
+      <button type="button" class="pending" (click)="pendingFunction()">Pending</button>
+      <button type="button" class="done" (click)="doneFunction()">Done</button>
+    </div>
+    <div *ngIf="pending">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
+              <button class="btn btn-danger">Decline</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="done">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Name</th>
+            <th scope="col">Filename</th>
+            <th scope="col">File</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <button  class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
