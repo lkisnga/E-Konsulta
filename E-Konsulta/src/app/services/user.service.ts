@@ -847,5 +847,10 @@ export class UserService {
     return this.db.firestore.collection('Prescription').doc(id).get();
   }
 
+  get_loa_receieved(id)
+  {
+    return this.db.firestore.collection('LOA_Received').where('insurance_id','==',id)
+    .get();
+  }
 
 }

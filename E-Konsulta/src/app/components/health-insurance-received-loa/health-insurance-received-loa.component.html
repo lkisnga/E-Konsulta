@@ -7,48 +7,23 @@
 
   <div class="col mt-4 mx-3">
     <h5 class="usr py-1">Received LOA</h5>
-    <div class="btn-group">
-      <button type="button" class="pending" (click)="pendingFunction()">Pending</button>
-      <button type="button" class="done" (click)="doneFunction()">Done</button>
-    </div>
-    <div *ngIf="pending">
+    <div>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">Date</th>
-            <th scope="col">Name</th>
-            <th scope="col">Action</th>
+            <th scope="col">Laboratory</th>
+            <th>Filename</th>
+            <th scope="col">View</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let list of list">
+            <td>{{list.createdAt}}</td>
+            <td>{{list.name}}</td>
+            <td>{{list.filename}}</td>
             <td>
-              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
-              <button class="btn btn-danger">Decline</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div *ngIf="done">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Name</th>
-            <th scope="col">Filename</th>
-            <th scope="col">File</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <button  class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
+              <button (click)="open(list.file)" type="button" class="btn btn-success">View</button>
             </td>
           </tr>
         </tbody>
