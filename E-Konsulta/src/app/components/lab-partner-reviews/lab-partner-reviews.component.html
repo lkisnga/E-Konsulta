@@ -28,7 +28,7 @@
                     <h5 class="mb-1">
                       <span> <img src="{{imgUrl}}" alt="" class="cute-pic" width="16px" height="16px"></span>
                       {{reply.name}}
-                      <span><button class="trash"><i class="bi bi-trash"></i></button></span>
+                      <span><button (click)="remove_reply(reply)" class="trash"><i class="bi bi-trash"></i></button></span>
                     </h5>
                     <p class="ureply">{{reply.feedback}}</p>
                 </div>

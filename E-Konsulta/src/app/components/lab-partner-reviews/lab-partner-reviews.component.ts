@@ -71,6 +71,7 @@ export class LabPartnerReviewsComponent implements OnInit {
           a.forEach(res=>{
             data2 = res.data();
             data2.uid = res.id;
+            data2.review_id = item.id;
             tempArray2.push(data2);
           })
           this.replyList = tempArray2;
@@ -95,6 +96,16 @@ export class LabPartnerReviewsComponent implements OnInit {
       console.log("Replied Successfully!");
       this.ngOnInit();
     });
+  }
+
+  remove_reply(info)
+  {
+    console.log(info);
+    this.userservice.remove_labReply(this.userID,info.review_id,info.uid)
+    .then(()=>{
+      console.log('Deleted!');
+      this.ngOnInit();
+    })
   }
 
 }
