@@ -682,11 +682,11 @@ export class UserService {
   }
   send_labLOA(lab_id,patient_id,record)
   {
-    this.store.ref('Lab-LOA/' + lab_id + '/' + 'patients/' + patient_id + '/' + record.filename).put(record.file)
+   return this.store.ref('Lab-LOA/' + lab_id + '/' + 'patients/' + patient_id + '/' + record.filename).put(record.file)
     .then(()=>{
-      this.store.storage.ref('Lab-LOA/' + lab_id + '/' + 'patients/' + patient_id + '/' + record.filename).getDownloadURL()
+    return  this.store.storage.ref('Lab-LOA/' + lab_id + '/' + 'patients/' + patient_id + '/' + record.filename).getDownloadURL()
       .then(e=>{
-        this.db.firestore.collection('Lab-LOA').add({
+     return   this.db.firestore.collection('Lab-LOA').add({
           patient_id: patient_id,
           lab_id: lab_id,
           file: e,

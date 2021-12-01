@@ -45,6 +45,8 @@ export class PatientProfileComponent implements OnInit {
 
   labList : any = [];
   lab_id : string = "";
+  empty_field: string = "";
+  lab_message: string = "";
   constructor(
     public userservice : UserService, 
     public afu : AuthService,
@@ -160,11 +162,26 @@ export class PatientProfileComponent implements OnInit {
   {
     if(this.file && this.filename && this.lab_id)
     {
-      
+      let record = {};
+      record['file'] = this.file;
+      record['filename'] = this.filename;
+      this.userservice.send_labLOA(this.lab_id,this.userID,record)
+      .then(()=>{
+        console.log('added!');
+        this.lab_message = "File sent!";
+        this.file = "";
+        setTimeout(() => {
+          this.lab_message = "";
+        }, 5000);
+      })
     } 
     else
     {
-      console.log('Empty!');
+      console.log('Empty fields!');
+      this.empty_field = "Empty Fields!";
+      setTimeout(() => {
+        this.empty_field = "";
+      }, 3000);
     }
   }
   get_lab()

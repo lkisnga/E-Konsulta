@@ -159,6 +159,12 @@
           <input (change)="choosefile($event)" type="file">
           <span><button (click)="send_labLOA()" class="send">Send LOA</button></span>
         </div>
+        <div *ngIf="lab_message" class="alert alert-success">
+          {{lab_message}}
+        </div>
+        <div *ngIf="empty_field" class="alert alert-danger">
+          {{empty_field}}
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="close" data-bs-dismiss="modal">Close</button>
