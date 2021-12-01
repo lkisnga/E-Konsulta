@@ -571,6 +571,14 @@ export class UserService {
     return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info')
     .where('health_insurance','==',ins_id).get();
   }
+
+  get_patient_insurance(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info')
+    .get();
+  }
+
+
   get_LOA_sent(ins_id)
   {
     return this.db.firestore.collection('Insurance_LOA').where('insurance_id','==',ins_id).get();
@@ -679,6 +687,11 @@ export class UserService {
         }
       })
     })
+  }
+  pay_insurance(id,record)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Insurance_Info').doc(record.id)
+    .update(record);
   }
   send_labLOA(lab_id,patient_id,record)
   {
