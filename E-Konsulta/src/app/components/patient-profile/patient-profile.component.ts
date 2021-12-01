@@ -27,16 +27,24 @@ export class PatientProfileComponent implements OnInit {
   insList : any = [];
   file : any;
 
+  filename: string = "";
+
   insurance_info: any = [];
 
   request_error: string="";
   request_sent: string = "";
+
+  verified_message: string = "";
+  verification_sent: string = "";
 
   health_insurance: string = "";
   member_ID: string = "";
 
   profile_changed : boolean = false;
 
+
+  labList : any = [];
+  lab_id : string = "";
   constructor(
     public userservice : UserService, 
     public afu : AuthService,
@@ -73,6 +81,8 @@ export class PatientProfileComponent implements OnInit {
       })
     })
     this.insurance_list();
+
+    this.get_lab();
   }
 
   choosefile(e)
@@ -126,20 +136,50 @@ export class PatientProfileComponent implements OnInit {
     let record = {}
     if(this.info.isVerified == 'verified' && this.info.health_insurance == this.health_insurance)
     {
-      record['isVerified'] = 'verified';
+      console.log('Already Verified!');
+      this.verified_message = "Already Verified!";
+      setTimeout(() => {
+        this.verified_message = "";
+      }, 5000);
     }
     else
     {
       record['isVerified'] = 'pending';
+      record['health_insurance'] = this.health_insurance;
+      record['member_ID'] = this.member_ID;
+      this.userservice.update_patient_insurance(this.userID,record).then(()=>{
+        this.verification_sent = "Verification Sent!";
+        setTimeout(() => {
+          this.verification_sent = "";
+        }, 5000);
+        this.ngOnInit();
+      })
     }
-    record['health_insurance'] = this.health_insurance;
-    record['member_ID'] = this.member_ID;
-    this.userservice.update_patient_insurance(this.userID,record).then(()=>{
-      console.log("Sent!");
-      this.ngOnInit();
-    })
   }
-
+  send_labLOA()
+  {
+    if(this.file && this.filename && this.lab_id)
+    {
+      
+    } 
+    else
+    {
+      console.log('Empty!');
+    }
+  }
+  get_lab()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_labPartner().forEach(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.labList = tempArray;
+  }
   request_LOA()
   {
     console.log(this.info.isVerified)
