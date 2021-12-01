@@ -83,6 +83,7 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
 import { HealthInsuranceVerificationDoctorComponent } from './components/health-insurance-verification-doctor/health-insurance-verification-doctor.component';
 import { HealthInsuranceVerificationPatientComponent } from './components/health-insurance-verification-patient/health-insurance-verification-patient.component';
 import { LabPartnerLoaComponent } from './components/lab-partner-loa/lab-partner-loa.component';
+import { HealthInsuranceReceivedLoaComponent } from './components/health-insurance-received-loa/health-insurance-received-loa.component';
 
 
 @NgModule({
@@ -157,7 +158,8 @@ import { LabPartnerLoaComponent } from './components/lab-partner-loa/lab-partner
     TermsAndConditionsComponent,
     HealthInsuranceVerificationDoctorComponent,
     HealthInsuranceVerificationPatientComponent,
-    LabPartnerLoaComponent
+    LabPartnerLoaComponent,
+    HealthInsuranceReceivedLoaComponent
   ],
   imports: [
     FormsModule,

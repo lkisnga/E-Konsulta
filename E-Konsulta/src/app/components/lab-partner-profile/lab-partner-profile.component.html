@@ -17,6 +17,10 @@
         </div>
       </div>
       <div class="col-5 mt-4 second">
+        <!-- Account Deletion -->
+        <button class="delete-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          <span><i class="bi bi-exclamation-octagon-fill"></i></span>
+        </button>
         <div class="information">
           <p>ID: <span class="info-1">{{userID}}</span></p>
           <p>Name: <span class="info info-2">{{info.name}}</span></p>
@@ -26,17 +30,11 @@
           <p>Contact Number: <span class="info info-6">{{info.contact_number}}</span></p>
           <button (click)="editInfo()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
         </div>
-        <!-- Account Deletion -->
-        <button class="delete-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-          <span><i class="bi bi-exclamation-octagon-fill"></i></span>
-        </button>
-        <div style="min-height: 120px;">
-          <div class="collapse collapse-horizontal" id="collapseWidthExample">
-            <div class="card card-body" style="width: 300px;">
-              <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
-                <span><i class="bi bi-exclamation-circle"></i></span>
-              </button>
-            </div>
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div class="card card-body">
+            <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
+              <span><i class="bi bi-exclamation-circle"></i></span>
+            </button>
           </div>
         </div>
       </div>
