@@ -28,6 +28,7 @@ export class PatientPaymentComponent implements OnInit {
   sched : string = "";
   schedTime: string = "";
 
+  spent:number = 0;
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -95,6 +96,52 @@ export class PatientPaymentComponent implements OnInit {
         }
     })
     .render(this.paypalElement.nativeElement);
+  }
+
+  insurance_pay()
+  {
+    var balance;
+    let record = {};
+    this.userservice.get_UserInfo(this.userId)
+    .then(res=>{
+      if(res.data().isVerified != 'pending')
+      {
+        this.userservice.get_patient_insurance(this.userId)
+        .then(e=>{
+          if(!e.empty)
+          {
+            e.forEach(item=>{
+              balance = item.data().limit - item.data().spent;
+              if(balance >= this.docInfo.consultation_fee)
+              {
+                console.log('Can Pay!');
+                this.spent = parseFloat(item.data().spent)+ parseFloat(this.docInfo.consultation_fee);
+                console.log(this.spent);
+                record['spent'] = this.spent;
+                record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+                record['id'] = item.id;
+                this.userservice.pay_insurance(this.userId,record).then(()=>{
+                  console.log('Paid!');
+                  this.paidFor = true;
+                })
+              }
+              else
+              {
+                console.log('Cant pay!');
+              }
+            })
+          }
+          else
+          {
+            console.log("Insurance has not Updated your Info");
+          }
+        })
+      }
+      else
+      {
+        console.log('Insurance is not yet Verified!');
+      }
+    })
   }
 
   book()
