@@ -597,8 +597,6 @@ export class UserService {
   {
    return this.store.ref('Insurance-LOA/' + insurance_id + '/patients/' + patient_id + '/' + data.filename).put(data.file)
     .then(()=>{
-      this.afau.onAuthStateChanged(user => {
-        if(user)
        this.store.storage.ref('Insurance-LOA/' + insurance_id + '/patients/' + patient_id + '/' + data.filename).getDownloadURL().then(e =>{
             this.db.collection('Insurance_LOA').doc(insurance_id).set({
               filename: data.filename,
@@ -608,7 +606,6 @@ export class UserService {
               createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
             })
           })
-        })
       }).catch(error => {
         console.log(error.message);
       })
@@ -666,7 +663,38 @@ export class UserService {
   }
   update_patient_insurance(user_id,record)
   {
-    return this.db.collection('Users').doc(user_id).update(record);
+    return this.db.collection('Users').doc(user_id).update(record)
+    .then(()=>{
+      this.db.collection('Users').doc(user_id).collection('Insurance_Info').get()
+      .forEach(e=>{
+        if(!e.empty)
+        {
+          e.forEach(item=>{
+            this.db.firestore.collection('Users').doc(user_id).collection('Insurance_Info').doc(item.id)
+            .delete()
+            .then(()=>{
+              console.log('Insurance Info Deleted!');
+            })
+          })
+        }
+      })
+    })
+  }
+  send_labLOA(lab_id,patient_id,record)
+  {
+    this.store.ref('Lab-LOA/' + lab_id + '/' + 'patients/' + patient_id + '/' + record.filename).put(record.file)
+    .then(()=>{
+      this.store.storage.ref('Lab-LOA/' + lab_id + '/' + 'patients/' + patient_id + '/' + record.filename).getDownloadURL()
+      .then(e=>{
+        this.db.firestore.collection('Lab-LOA').add({
+          patient_id: patient_id,
+          lab_id: lab_id,
+          file: e,
+          filename: record.filename,
+          createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+        })
+      })
+    })
   }
   //Update Current User Health Insurance Info
   update_userInsurance(id,record)

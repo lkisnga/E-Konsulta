@@ -130,6 +130,12 @@
         </p>
         <p>Insurance #: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="member_ID" name="member_ID" type="text" size="45"></p>
         <button (click)="update_insurance()" class="verification text-center">Send Verification</button>
+        <div *ngIf="verified_message" class="alert alert-danger">
+          {{verified_message}}
+        </div>
+        <div *ngIf="verification_sent" class="alert alert-success">
+          {{verification_sent}}
+        </div>
         <h5 id="editLabel">Info</h5>
         <p>Package: {{insurance_info.Package}}</p>
         <span id="insBal">Current Spent:</span><button class="php">{{insurance_info.spent}}php</button>
@@ -143,10 +149,15 @@
           {{request_sent}}
         </div>
         <h5 id="editLabel" class="mt-1">Laboratory</h5>
-        <p>Filename: <input type="text" size="30"></p>
+        <p>Filename: <input [(ngModel)]="filename" type="text" size="30">
+          <select [(ngModel)]="lab_id" name="lab_id" id="">
+            <option value="" selected>Select Laboratory</option>
+            <option *ngFor="let list of labList" value="{{list.uid}}">{{list.name}}</option>
+          </select>
+        </p>
         <div>
-          <input type="file">
-          <span><button class="send">Send LOA</button></span>
+          <input (change)="choosefile($event)" type="file">
+          <span><button (click)="send_labLOA()" class="send">Send LOA</button></span>
         </div>
       </div>
       <div class="modal-footer">
