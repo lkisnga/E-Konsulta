@@ -127,19 +127,31 @@ export class PatientPaymentComponent implements OnInit {
               }
               else
               {
-                console.log('Cant pay!');
+                console.log('Balance insufficient!');
+                this.error_book = "Insufficient balance!";
+                setTimeout(() => {
+                  this.error_book = "";
+                }, 5000);
               }
             })
           }
           else
           {
             console.log("Insurance has not Updated your Info");
+            this.error_book = "Insurance has not Updated your Info!";
+            setTimeout(() => {
+              this.error_book = "";
+            }, 5000);
           }
         })
       }
       else
       {
         console.log('Insurance is not yet Verified!');
+        this.error_book = "Insurance is not yet Verified!";
+        setTimeout(() => {
+          this.error_book = "";
+        }, 5000);
       }
     })
   }
