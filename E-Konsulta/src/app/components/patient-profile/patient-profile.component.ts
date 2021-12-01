@@ -151,6 +151,13 @@ export class PatientProfileComponent implements OnInit {
       record['member_ID'] = this.member_ID;
       this.userservice.update_patient_insurance(this.userID,record).then(()=>{
         this.verification_sent = "Verification Sent!";
+
+        let record2 = {};
+        record2['createdAt'] = formatDate(new Date(),'short','en');
+        record2['title'] = "Patient Verification";
+        record2['description'] = "Go to Verification and verify the Patient whether He/She is in your service";
+        this.notif.send_insurance(this.info.health_insurance,record2)
+
         setTimeout(() => {
           this.verification_sent = "";
         }, 5000);
@@ -168,6 +175,13 @@ export class PatientProfileComponent implements OnInit {
       this.userservice.send_labLOA(this.lab_id,this.userID,record)
       .then(()=>{
         console.log('added!');
+
+        let record2 = {};
+        record2['createdAt'] = formatDate(new Date(),'short','en');
+        record2['title'] = "LOA";
+        record2['description'] = "A patient sent an LOA. Check your LOA list";
+        this.notif.send_lab(this.info.health_insurance,record2)
+
         this.lab_message = "File sent!";
         this.file = "";
         setTimeout(() => {
@@ -217,9 +231,7 @@ export class PatientProfileComponent implements OnInit {
               record['createdAt'] = formatDate(new Date(),'short','en');
               record['title'] = "LOA request";
               record['description'] = "A patient requested for LOA";
-              this.notif.send_insurance(this.info.health_insurance,record).then(e=>{
-                console.log('notification sent!');
-              })
+              this.notif.send_insurance(this.info.health_insurance,record)
 
             })
         }

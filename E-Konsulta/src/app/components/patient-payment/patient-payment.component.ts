@@ -3,6 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 declare var paypal;
@@ -33,7 +34,8 @@ export class PatientPaymentComponent implements OnInit {
     public userservice : UserService,
     public afu : AuthService,
     public router : Router,
-    public chats : ChatService
+    public chats : ChatService,
+    public notif : NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -137,8 +139,8 @@ export class PatientPaymentComponent implements OnInit {
           }
           else
           {
-            console.log("Insurance has not Updated your Info");
-            this.error_book = "Insurance has not Updated your Info!";
+            console.log("Your Insurance Info has not been Updated yet");
+            this.error_book = "Your Insurance Info has not been Updated yet!";
             setTimeout(() => {
               this.error_book = "";
             }, 5000);
@@ -176,6 +178,14 @@ export class PatientPaymentComponent implements OnInit {
         record['schedtime'] = this.schedTime;
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');
+          
+          //Notification
+          let record2 = {};
+          record2['createdAt'] = formatDate(new Date(),'short','en');
+          record2['title'] = "Patient Booked";
+          record2['description'] = "A patient successfully booked! Check your Patients upcoming!";
+          this.notif.send_doctor(this.docInfo.uid,record2)
+
           this.router.navigate(['patient-consultation']);
           this.create_chat();
         })

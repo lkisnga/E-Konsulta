@@ -5,6 +5,8 @@ import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 import { map } from 'rxjs/operators';
 import { url } from 'inspector';
+import { formatDate } from '@angular/common';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-patient-doctor-chat',
@@ -71,7 +73,8 @@ export class PatientDoctorChatComponent implements OnInit {
   constructor(
     public chats : ChatService,
     public afu : AuthService,
-    public userservice: UserService
+    public userservice: UserService,
+    public notif: NotificationService
 
   ) { }
 
@@ -216,6 +219,13 @@ export class PatientDoctorChatComponent implements OnInit {
         console.log('File['+i+'] Shared!');
       })
     }
+
+    let record2 = {};
+    record2['createdAt'] = formatDate(new Date(),'short','en');
+    record2['title'] = "File Sharing";
+    record2['description'] = "A patient shared his files with you";
+    this.notif.send_doctor(this.docInfo.uid,record2)
+
     this.flag = 0;
   }
 

@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationService } from 'src/app/services/notification.service';
@@ -99,6 +100,12 @@ export class LabPartnerLoaComponent implements OnInit {
         record['lab_id'] = this.userid;
         this.userservice.send_labInsurance_LOA(record).then(e=>{
           console.log("added!");
+          let record2 = {};
+          record2['title'] = "A laboratory sent a LOA";
+          record2['description'] = "Check your received to view this LOA.";
+          record2['createdAt'] = formatDate(new Date(),'short','en');
+          this.notif.send_insurance(this.insurance_id,record2);
+
 
           this.userservice.update_labLOA(this.labLOA_id)
           .then(()=>{

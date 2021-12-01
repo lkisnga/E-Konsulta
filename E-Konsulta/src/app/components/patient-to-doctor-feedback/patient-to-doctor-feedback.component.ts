@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,7 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PatientToDoctorFeedbackComponent implements OnInit {
 
-  constructor(public share : SharedDataService,public userservice : UserService, public afu : AuthService) { }
+  constructor(public share : SharedDataService,
+    public userservice : UserService, 
+    public afu : AuthService,
+    public notif: NotificationService
+    ) { }
   info : any = [];
   info2: any = [];
 
@@ -59,6 +65,15 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
             this.userservice.create_Doctor_feedback(this.info2.uid,this.userId,this.feedback,this.userInfo.fullname)
             .then(()=>{
               console.log("Added!");
+
+              //add notification to receiver
+              let record = {};
+              record['createdAt'] = formatDate(new Date(),'short','en');
+              record['title'] = "Feedback"
+              record['description'] = this.userInfo.fullname+" sent you a feedback! Go to Reviews and Check it!";
+              this.notif.send_doctor(this.info2.uid,record)
+
+
               this.ngOnInit();
               this.feedback = "";
             })

@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,7 +21,10 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
   balance : number= 0;
 
   patient_id : string = "";
-  constructor(public afu : AuthService, public userservice : UserService) { }
+  constructor(public afu : AuthService,
+     public userservice : UserService,
+     public notif : NotificationService
+    ) { }
 
   isVerified_Doc(e)
   {
@@ -75,6 +79,11 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
   {
     this.userservice.verify_userInsurance(e.uid,stats).then(()=>{
       console.log("Successfully Verified!");
+      let record = {};
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      record['title'] = "Insurance Verified!";
+      record['description'] = "Your insurance credentials has been verified. Check your Insurance Info now!";
+      this.notif.send_patient(e.uid,record)
       this.ngOnInit();
     })
   }
@@ -105,6 +114,11 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
       this.userservice.create_patient_insuranceInfo(this.patient_id,record)
       .then(()=>{
         console.log("Created!");
+        let record2 = {};
+        record2['createdAt'] = formatDate(new Date(),'short','en');
+        record2['title'] = "Insurance Info Updated!";
+        record2['description'] = "Your Insurance Information has been updated. Check your Insurance Information in your profile.";
+        this.notif.send_patient(this.patient_id,record2)
       })
     }
     else
@@ -112,6 +126,11 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
       this.userservice.update_patient_insuranceInfo(this.patient_id,this.userIns.uid,record)
       .then(()=>{
         console.log('Updated!');
+        let record2 = {};
+        record2['createdAt'] = formatDate(new Date(),'short','en');
+        record2['title'] = "Insurance Info Updated!";
+        record2['description'] = "Your Insurance Information has been updated. Check your Insurance Information in your profile.";
+        this.notif.send_patient(this.patient_id,record2)
       })
     }
   }
