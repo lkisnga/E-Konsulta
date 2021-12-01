@@ -9,6 +9,9 @@ body{
 h5{
   color: rgb(0, 129, 138);
 }
+.doctor{
+  margin-top: 50px;
+}
 
 .pending{
   border: 1px solid white;
