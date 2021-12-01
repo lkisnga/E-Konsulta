@@ -691,9 +691,38 @@ export class UserService {
           lab_id: lab_id,
           file: e,
           filename: record.filename,
+          status: 'pending',
           createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
         })
       })
+    })
+  }
+  get_labLOA(lab_id)
+  {
+    return this.db.firestore.collection('Lab-LOA').where('lab_id','==',lab_id).where('status','==','pending')
+    .get();
+  }
+  send_labInsurance_LOA(record)
+  {
+   return this.store.ref('Insurance-LOA/' + record.insurance_id + '/Laboratory' + '/' + record.lab_id + '/' + record.filename)
+    .put(record.file)
+    .then(()=>{
+     return this.store.storage.ref('Insurance-LOA/' + record.insurance_id + '/Laboratory' + '/' + record.lab_id + '/' + record.filename)
+      .getDownloadURL().then(e=>{
+      return this.db.firestore.collection('LOA_Received').add({
+          file: e,
+          filename: record.filename,
+          lab_id: record.lab_id,
+          insurance_id: record.insurance_id,
+          createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+        })
+      })
+    })
+  }
+  update_labLOA(id)
+  {
+    return this.db.firestore.collection('Lab-LOA').doc(id).update({
+      status: 'sent'
     })
   }
   //Update Current User Health Insurance Info

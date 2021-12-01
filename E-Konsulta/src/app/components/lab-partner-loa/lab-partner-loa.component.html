@@ -8,15 +8,14 @@
       <div class="col mx-4">
         <h5 class="usr">Patient LOA</h5>
         <ul class="list-group py-2 whole-trans">
-          <li class="list-group-item flex-column align-items-start mt-3">
+          <li *ngFor="let list of labList"  class="list-group-item flex-column align-items-start mt-3">
             <div class="info">
-              <h5>Patient Name</h5>
-              <p class="mb-1">File Name: </p>
-              <p class="mb-1">Insurance: </p>
-              <small>dd-mm-yyyy</small>
+              <h5>{{list.fullname}}</h5>
+              <p class="mb-1">File Name: {{list.filename}}</p>
+              <small>{{list.createdAt}}</small>
             </div>
             <div class="bttn">
-              <button class="view" data-bs-toggle="modal" data-bs-target="#view">View</button>
+              <button (click)="edit_labLOA(list)" class="view" data-bs-toggle="modal" data-bs-target="#view">View</button>
             </div>
           </li>
         </ul>
@@ -32,12 +31,27 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
           <div class="modal-body">
-            <button class="view1 mt-2">View File <span><i class="bi bi-eye"></i></span></button>
+            <button (click)="open()" class="view1 mt-2">View File <span><i class="bi bi-eye"></i></span></button>
             <div class="loa">
               <h5 id="editLabel" class="mt-2">Send LOA</h5>
-              <p class="mt-4">Filename: &nbsp; <input type="text" size="40"></p>
-              <p>Choose File: <input type="file"></p>
-              <span><button class="send">Send LOA</button></span>
+              <select [(ngModel)]="insurance_id" class="form-select" name="insurance_idid=">
+                <option value="" selected>Select Insurance</option>
+                <option *ngFor="let list of insuranceList" value="{{list.uid}}">{{list.name}}</option>
+              </select>
+              <p class="mt-4">Filename: &nbsp; <input [(ngModel)]="filename" name="filename" type="text" size="40"></p>
+              <p>Choose File: <input (change)="choosefile($event)" type="file"></p>
+
+              <div *ngIf="empty_field" class="alert alert-danger">
+                {{empty_field}}
+              </div>
+              <div *ngIf="empty_ins" class="alert alert-danger">
+                {{empty_ins}}
+              </div>  
+              <div *ngIf="added_message" class="alert alert-success">
+                {{added_message}}
+              </div>
+
+              <span><button (click)="send()" class="send">Send LOA</button></span>
             </div>
           </div>
           <div class="modal-footer">
