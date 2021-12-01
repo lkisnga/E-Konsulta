@@ -2,9 +2,10 @@ body{
   font-size: 14px;
 }
 .addSpcl{
-  position:absolute;
-  right: 175px;
-  top: 105px;
+  float: right;
+}
+.spcl{
+  margin-left: 5px;
 }
 h5{
   color: rgb(0, 129, 138);
@@ -35,12 +36,6 @@ h5{
 .verified:hover{
   color: red;
   background-color: rgb(235, 233, 233);
-}
-
-.spclList{
-  position:absolute;
-  right: 23px;
-  top: 105px;
 }
 
 input{
