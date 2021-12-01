@@ -252,6 +252,7 @@ input:focus{
 select{
   padding: 3px 6px;
 }
+
 /*account deletion*/
 .deletion{
   color: red;

@@ -18,6 +18,10 @@
         </div>
       </div>
       <div class="col-5 mt-4 second">
+        <!-- Account Deletion -->
+        <button class="delete-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          <span><i class="bi bi-exclamation-octagon-fill"></i></span>
+        </button>
         <div class="information">
           <p>Patient ID: <span class="info-1">{{userID}}</span></p>
           <p>Name: <span class="info info-2">{{info.fullname}}</span></p>
@@ -34,19 +38,14 @@
             Your member ID was declined by your insurance provider. Please check if the ID provided
             is correct Or contact your insurance provider.
         </div>
-        <!-- Account Deletion -->
-        <button class="delete-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-          <span><i class="bi bi-exclamation-octagon-fill"></i></span>
-        </button>
-        <div style="min-height: 120px;">
-          <div class="collapse collapse-horizontal" id="collapseWidthExample">
-            <div class="card card-body" style="width: 300px;">
-              <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
-                <span><i class="bi bi-exclamation-circle"></i></span>
-              </button>
-            </div>
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div class="card card-body">
+            <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
+              <span><i class="bi bi-exclamation-circle"></i></span>
+            </button>
           </div>
         </div>
+
       </div>
       <div class="col-2 third">
         <button class="logout" id="logout"  data-bs-toggle="modal" data-bs-target="#logOut"> LOG OUT <span><i class="bi bi-box-arrow-right"></i></span></button>
