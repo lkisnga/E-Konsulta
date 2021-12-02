@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
@@ -43,7 +44,8 @@ export class DoctorPatientsChatComponent implements OnInit {
   constructor(
     public afu : AuthService,
     public chats : ChatService,
-    public userservice : UserService
+    public userservice : UserService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -197,6 +199,8 @@ export class DoctorPatientsChatComponent implements OnInit {
       }).then(()=>{
         this.userservice.create_consultation(record).then(()=>{
           console.log('Consultation Record Created!');
+          this.router.navigate(['doctor-patients']);
+        
         })
       })
     });

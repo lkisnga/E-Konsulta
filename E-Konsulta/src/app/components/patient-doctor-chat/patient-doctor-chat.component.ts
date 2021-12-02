@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { url } from 'inspector';
 import { formatDate } from '@angular/common';
 import { NotificationService } from 'src/app/services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-doctor-chat',
@@ -74,7 +75,8 @@ export class PatientDoctorChatComponent implements OnInit {
     public chats : ChatService,
     public afu : AuthService,
     public userservice: UserService,
-    public notif: NotificationService
+    public notif: NotificationService,
+    public router: Router
 
   ) { }
 
@@ -96,6 +98,22 @@ export class PatientDoctorChatComponent implements OnInit {
     this.get_medicalRecord();
     this.get_labRecord();
     this.prescription_record();
+
+    this.finish_consultation();
+  }
+
+
+  finish_consultation()
+  {
+    this.userservice.removed_upcoming_trigger(this.userid).onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(e=>{
+        if(e.type == 'removed')
+        {
+          this.router.navigate(['patient-consultation']);
+        }
+      })
+    })
   }
 
   chat_source()

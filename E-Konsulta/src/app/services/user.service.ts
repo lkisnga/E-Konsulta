@@ -448,6 +448,10 @@ export class UserService {
   {
     return this.db.firestore.collection('upcoming').doc(upcoming_id).delete();
   }
+  removed_upcoming_trigger(patient_id)
+  {
+    return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id);
+  }
   create_consultation(record){
     return this.db.firestore.collection('Consultation').add(record);
   }

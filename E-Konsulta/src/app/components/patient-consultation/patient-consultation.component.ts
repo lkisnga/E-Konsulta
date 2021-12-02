@@ -78,6 +78,7 @@ export class PatientConsultationComponent implements OnInit {
             data.upcoming_status = e.doc.data().status;
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
+            data.upcoming_id = e.doc.id;
             data.image = img.data().image;
             data.uid = a.id;
             if(e.type == 'added')
