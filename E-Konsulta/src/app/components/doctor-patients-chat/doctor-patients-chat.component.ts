@@ -209,6 +209,8 @@ export class DoctorPatientsChatComponent implements OnInit {
       record['doctor_id'] = e.data().doctor_id;
       record['patient_id'] = e.data().patient_id;
       record['schedule'] = e.data().schedule;
+      record['consultation_schedule'] = e.data().consultation_schedule;
+      record['time'] = e.data().time;
       record['status'] = "done";
     }).then(()=>{
       this.userservice.remove_upcoming(this.patientInfo.upcoming_id).then(()=>{
@@ -226,7 +228,6 @@ export class DoctorPatientsChatComponent implements OnInit {
           record2['description'] = "Congratulations! You have finished your Consultation!";
           record2['createdAt'] = formatDate(new Date(),'short','en');
           this.notif.send_patient(this.patientInfo.uid,record2);
-
         })
       })
     });

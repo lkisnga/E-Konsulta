@@ -500,7 +500,8 @@ export class UserService {
       doctor_id: data.doctor_id,
       status: "pending",
       schedule: data.schedule,
-      time : data.schedtime
+      time : data.schedtime,
+      consultation_schedule: data.consultation_schedule
     })
   }
   check_upcoming(doc_id,pat_id)

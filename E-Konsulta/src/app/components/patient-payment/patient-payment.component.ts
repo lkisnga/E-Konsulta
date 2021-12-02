@@ -182,6 +182,7 @@ export class PatientPaymentComponent implements OnInit {
         record['patient_id'] = this.userId;
         record['schedule'] = this.sched;
         record['schedtime'] = this.schedTime;
+        record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');
           
