@@ -1,8 +1,10 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -22,7 +24,8 @@ export class DoctorPatientsComponent implements OnInit {
     public userservice : UserService,
     public router : Router,
     public afu : AuthService,
-    public chats : ChatService
+    public chats : ChatService,
+    public notif : NotificationService
   ) { }
    /** set to false so that when loading the patient's page, content of that function is not displayed */
    upcoming = true;
@@ -51,6 +54,14 @@ export class DoctorPatientsComponent implements OnInit {
       e.forEach(res=>{
         this.userservice.update_upcoming(res.id).then(()=>{
           this.router.navigate(['/doctor-patient-chat']);
+
+          //notification
+          let record = {};
+          record['title'] = "Consultation accepted!";
+          record['description'] = "Your consultation has been accepted Join Now!";
+          record['createdAt'] = formatDate(new Date(),'short','en');
+          this.notif.send_patient(info.uid,record)
+
           if(localStorage.getItem('data')==null)
           {
             localStorage.setItem('data',JSON.stringify(info))

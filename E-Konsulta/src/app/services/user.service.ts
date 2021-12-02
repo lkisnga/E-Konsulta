@@ -850,6 +850,17 @@ export class UserService {
   {
     return this.db.firestore.collection('Prescription').doc(id).get();
   }
+  remove_share(doctor_id,patient_id)
+  {
+    return this.db.firestore.collection('Shared_Files').where('doctor_id','==',doctor_id)
+    .where('patient_id','==',patient_id).get().then(e=>{
+      e.forEach(item=>{
+        this.db.collection('Shared_Files').doc(item.id).delete();
+      })
+    }).then(()=>{
+      console.log('Deleted Shared Files!');
+    })
+  }
 
   get_loa_receieved(id)
   {

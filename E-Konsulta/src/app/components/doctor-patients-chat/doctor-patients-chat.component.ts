@@ -196,6 +196,9 @@ export class DoctorPatientsChatComponent implements OnInit {
     }).then(()=>{
       this.userservice.remove_upcoming(this.patientInfo.upcoming_id).then(()=>{
         console.log('Upcoming removed!')
+
+        this.userservice.remove_share(this.userid,this.patientInfo.uid);
+
       }).then(()=>{
         this.userservice.create_consultation(record).then(()=>{
           console.log('Consultation Record Created!');
