@@ -255,11 +255,12 @@ export class UserService {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id)
     .collection('Reservation').get();
   }
-  patient_book_schedule(sched_id,time_id,userId)
+  patient_book_schedule(record)
   {
-    return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id)
+    return this.db.firestore.collection('Schedule').doc(record.schedule_id).collection('Time').doc(record.time_id)
     .collection('Reservation').add({
-      patient_id : userId,
+      patient_id : record.patient_id,
+      consultation_schedule: record.consultation_schedule,
       createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
     })
   }

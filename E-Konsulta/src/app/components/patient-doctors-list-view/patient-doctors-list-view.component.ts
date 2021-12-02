@@ -104,8 +104,8 @@ export class PatientDoctorsListViewComponent implements OnInit {
   {
     if(this.time != "" && this.schedule != "")
     {
-      this.userservice.reservationChecker(info.schedule,info.time).then(e=>{
-        this.userservice.get_timeInfo(info.schedule,info.time).then(res=>{
+      this.userservice.reservationChecker(this.schedule,info.time).then(e=>{
+        this.userservice.get_timeInfo(this.schedule,info.time).then(res=>{
           console.log(e.size + ' ' + res.data().limit);
           if(e.size >= res.data().limit)
           {
@@ -119,7 +119,11 @@ export class PatientDoctorsListViewComponent implements OnInit {
             console.log('You can add!');
             if(localStorage.getItem('schedule')==null)
             {
-              localStorage.setItem('schedule',JSON.stringify(info));
+              let record={};
+              record = info;
+              record['consultation_schedule'] = this.day_schedule;
+              record['schedule'] = this.schedule;
+              localStorage.setItem('schedule',JSON.stringify(record));
             }
             this.router.navigate(['patient-payment']);
           }

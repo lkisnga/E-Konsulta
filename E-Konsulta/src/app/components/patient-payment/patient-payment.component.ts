@@ -169,7 +169,13 @@ export class PatientPaymentComponent implements OnInit {
     }
     else
     {
-      this.userservice.patient_book_schedule(this.schedInfo.schedule,this.schedInfo.time,this.userId)
+      let record = {};
+      record['patient_id'] = this.userId;
+      record['schedule_id'] = this.schedInfo.schedule;
+      record['time_id'] = this.schedInfo.time;
+      record['consultation_schedule'] = this.schedInfo.consultation_schedule;
+
+      this.userservice.patient_book_schedule(record)
       .then(()=>{
         let record = {}
         record['doctor_id'] = this.docInfo.uid;
