@@ -227,7 +227,7 @@ export class DoctorSetScheduleComponent implements OnInit {
     if(date == "Sat")
       return 6
     if(date == "Sun")
-      return 7
+      return 0
   }
 
   remove_schedule()

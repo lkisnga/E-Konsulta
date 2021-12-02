@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -45,7 +46,8 @@ export class DoctorPatientsChatComponent implements OnInit {
     public afu : AuthService,
     public chats : ChatService,
     public userservice : UserService,
-    public router: Router
+    public router: Router,
+    public notif: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -129,6 +131,14 @@ export class DoctorPatientsChatComponent implements OnInit {
         console.log("Stored successfully2!");
       })
       this.success_message = "Files sent successfully!";
+
+      let record2 ={};
+      record2['title'] = "Medical Summary and Prescription"
+      record2['description'] = "The doctor sent your Medical Summary and your Prescription. Check your Records now!";
+      record2['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_patient(this.patientInfo.uid,record2);
+
+
       setTimeout(() => {
         this.success_message = "";
       }, 5000);
@@ -152,6 +162,13 @@ export class DoctorPatientsChatComponent implements OnInit {
       }).then(()=>{
         console.log("Stored successfully!");
         this.success_message = "File sent successfully!";
+
+        let record2 ={};
+        record2['title'] = "Medical Certificate"
+        record2['description'] = "A doctor sent a medical Certificate. Check your Records now!";
+        record2['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_patient(this.patientInfo.uid,record2);
+
         setTimeout(() => {
           this.success_message = "";
         }, 5000);
@@ -203,7 +220,13 @@ export class DoctorPatientsChatComponent implements OnInit {
         this.userservice.create_consultation(record).then(()=>{
           console.log('Consultation Record Created!');
           this.router.navigate(['doctor-patients']);
-        
+
+          let record2 ={};
+          record2['title'] = "Consultation Finished"
+          record2['description'] = "Congratulations! You have finished your Consultation!";
+          record2['createdAt'] = formatDate(new Date(),'short','en');
+          this.notif.send_patient(this.patientInfo.uid,record2);
+
         })
       })
     });

@@ -26,12 +26,19 @@
                         <label>Scheduled Date</label>
                         <small class="text-danger font-weight-bold">*</small>
                         <div class="input-group date" id="datepicker">
+                          <!--
                           <select [(ngModel)]="schedule" name="schedule" #date (change)="get_time(date.value)" class="form-select">
                               <option value="" selected>Select Date</option>
                               <option *ngFor="let list of scheduleList" value="{{list.uid}}">{{list.date}}</option>
-                          </select>
+                          </select>-->
+                          <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" >
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                          </div>
                         </div>
                       </div>
+        
+
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">

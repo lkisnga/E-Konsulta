@@ -1,10 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DoCheck,OnChanges,Component, ElementRef, OnInit, ViewChild, KeyValueDiffers } from '@angular/core';
 import { Router } from '@angular/router';
 import { create } from 'domain';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 
+import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-patient-doctors-list-view',
@@ -21,38 +23,55 @@ export class PatientDoctorsListViewComponent implements OnInit {
 
   schedule : string = "";
   time : string = "";
+  day_schedule: string = "";
 
   error_schedule = "";
+
+  model: NgbDateStruct;
+  date: any = [];
   constructor(
     public userservice : UserService,
     public afu : AuthService,
     public chats : ChatService,
-    public router: Router
-  ) { }
+    public router: Router,
+    public calendar: NgbCalendar,
+  ) {}
+
+  ngDoCheck()
+  {
+    if(this.model != this.date && this.model)
+    {
+      console.log(this.model);
+      console.log('Changed2!');
+      this.date = this.model;
+
+      this.day_schedule = formatDate(new Date(),this.model.month+'/' + this.model.day+'/'+this.model.year,'en');
+      
+      const Day = new Date(this.model.month+'/' + this.model.day+'/'+this.model.year);
+      var priority = Day.getDay();
+
+      this.userservice.get_schedule(this.docInfo.uid).then(e=>{
+        e.forEach(item=>{
+          if(item.data().priority == priority)
+          {
+            this.get_time(item.id);
+            this.schedule = item.id;
+            console.log(priority)
+          }
+        })
+      })
+      
+
+    }
+  }
 
   ngOnInit(): void {
-    
+
     localStorage.removeItem('schedule');
 
     this.userid = this.afu.get_UID();
     this.docInfo = JSON.parse(localStorage.getItem('data'));
     console.log(this.docInfo);
-
-    this.get_schedule();
-  }
-
-  get_schedule()
-  {
-    var data;
-    var tempArray= [];
-    this.userservice.get_schedule(this.docInfo.uid).then(e=>{
-      e.forEach(item=>{
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
-      })
-    })
-    this.scheduleList = tempArray;
   }
   get_time(sched_id)
   {

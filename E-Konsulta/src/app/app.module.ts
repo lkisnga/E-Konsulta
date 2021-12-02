@@ -8,6 +8,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
@@ -84,6 +86,7 @@ import { HealthInsuranceVerificationDoctorComponent } from './components/health-
 import { HealthInsuranceVerificationPatientComponent } from './components/health-insurance-verification-patient/health-insurance-verification-patient.component';
 import { LabPartnerLoaComponent } from './components/lab-partner-loa/lab-partner-loa.component';
 import { HealthInsuranceReceivedLoaComponent } from './components/health-insurance-received-loa/health-insurance-received-loa.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -170,6 +173,8 @@ import { HealthInsuranceReceivedLoaComponent } from './components/health-insuran
     AngularFireStorageModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgbModule,
+    [NgbPaginationModule, NgbAlertModule]
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent]
