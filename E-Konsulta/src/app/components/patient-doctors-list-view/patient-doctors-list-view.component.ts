@@ -88,8 +88,16 @@ export class PatientDoctorsListViewComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_schedule_time(sched_id).then(e=>{
       e.forEach(item=>{
-        this.userservice.reservationChecker(sched_id,item.id).then(res=>{
-          if(res.size >= item.data().limit)
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.timeList = tempArray;
+    console.log(this.timeList);
+  }
+
+  /* if(res.size >= item.data().limit)
           {
             data = item.data();
             data.uid = item.id;
@@ -102,18 +110,12 @@ export class PatientDoctorsListViewComponent implements OnInit {
             data.uid = item.id;
             data.status = "notFull"
             tempArray.push(data);
-          }
-        })
-      })
-    })
-    this.timeList = tempArray;
-    console.log(this.timeList);
-  }
+          }*/
   submit(info)
   {
     if(this.time != "" && this.schedule != "")
     {
-      this.userservice.reservationChecker(this.schedule,info.time).then(e=>{
+      this.userservice.reservationChecker(this.schedule,info.time,this.day_schedule).then(e=>{
         this.userservice.get_timeInfo(this.schedule,info.time).then(res=>{
           console.log(e.size + ' ' + res.data().limit);
           if(e.size >= res.data().limit)

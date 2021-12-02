@@ -35,7 +35,6 @@
                         </div>
                       </div>
 
-
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
@@ -45,12 +44,6 @@
                           <option value="" selected>Select Time</option>
                           <option *ngFor="let list of timeList" value="{{list.uid}}">
                             {{list.time}}
-                            <span class="notfull" *ngIf="list.status!='full'">
-                                notfull
-                            </span>
-                            <span class="full" *ngIf="list.status=='full'">
-                                full
-                          </span>
                           </option>
                         </select>
                       </div>

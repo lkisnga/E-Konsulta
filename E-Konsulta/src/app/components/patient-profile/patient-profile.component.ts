@@ -252,7 +252,10 @@ export class PatientProfileComponent implements OnInit {
           }, 3000);
     }
   }
-
+  delete_account()
+  {
+    
+  }
   logout()
   {
     this.afu.signout();
