@@ -85,6 +85,7 @@ export class DoctorPatientsComponent implements OnInit {
             data.upcoming_id = e.doc.id;
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
+            data.consultation_schedule = e.doc.data().consultation_schedule;
             data.image = im.data().image;
             if(e.type == 'added')
              tempArray.push(data);
@@ -110,6 +111,7 @@ export class DoctorPatientsComponent implements OnInit {
         this.userservice.get_UserInfo(item.data().patient_id).then(a=>{
           data = a.data();
           data.schedule = item.data().schedule;
+          data.consultation_schedule = item.data().consultation_schedule;
           data.schedtime = item.data().time;
           tempArray.push(data);
         })
