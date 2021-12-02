@@ -1,4 +1,4 @@
-import { DoCheck,OnChanges,Component, ElementRef, OnInit, ViewChild, KeyValueDiffers } from '@angular/core';
+import { DoCheck,Component, ElementRef, OnInit, ViewChild, KeyValueDiffers } from '@angular/core';
 import { Router } from '@angular/router';
 import { create } from 'domain';
 import { AuthService } from 'src/app/services/auth.service';
@@ -27,6 +27,8 @@ export class PatientDoctorsListViewComponent implements OnInit {
 
   error_schedule = "";
 
+  minDate = undefined;
+
   model: NgbDateStruct;
   date: any = [];
   constructor(
@@ -35,7 +37,14 @@ export class PatientDoctorsListViewComponent implements OnInit {
     public chats : ChatService,
     public router: Router,
     public calendar: NgbCalendar,
-  ) {}
+  ) {
+    const current = new Date();
+    this.minDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate()
+   };
+  }
 
   ngDoCheck()
   {
