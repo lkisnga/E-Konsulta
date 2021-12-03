@@ -653,8 +653,14 @@ export class UserService {
   }
   delete_lab(id)
   {
-    this.db.collection("Laboratory_Partner").doc(id).delete();
-    console.log("deleted successfully!");
+    this.db.collection('Users').doc(id).delete().then(()=>{
+      console.log('Laboratory from Users Collections: Deleted!');
+     this.db.collection("Laboratory_Partner").doc(id).delete().then(()=>{
+        console.log('Laboratory from Laboratory_Partner Collections: Deleted!');
+        localStorage.removeItem('Users');
+        this.router.navigate(['/login']);
+      })
+    });
   }
   delete_Insurance(id)
   {

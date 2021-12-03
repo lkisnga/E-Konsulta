@@ -77,4 +77,12 @@ export class LabPartnerProfileComponent implements OnInit {
       this.ngOnInit();
     })
   }
+
+  delete_account()
+  {
+    this.afu.delete_user().then(()=>{
+      console.log('Authentication Account Deleted!');
+    });
+    this.userservice.delete_lab(this.userID);
+  }
 }
