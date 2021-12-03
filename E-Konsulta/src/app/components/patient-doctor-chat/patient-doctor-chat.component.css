@@ -168,6 +168,9 @@ a:hover{
   font-size: 10pt;
   border-radius: 3px;
   color: white;
+  width: 150px;
+  margin-bottom: 20px;
+  margin-left: 77%;
 }
 .share:hover{
   background-color: rgb(2, 148, 158);
@@ -176,7 +179,6 @@ a:hover{
 #send-files{
   color: rgb(0, 129, 138);
 }
-
 
 .patient-files{
   position:absolute;
@@ -214,6 +216,8 @@ a:hover{
   background-color: transparent;
   color: rgb(0, 129, 138);
   margin-right: 40px;
+  border-right: 1px solid rgb(207, 207, 207);
+  padding-right: 5px;
 }
 
 .view:hover{
