@@ -50,6 +50,7 @@ export class PatientDoctorsListViewComponent implements OnInit {
   {
     if(this.model != this.date && this.model)
     {
+      this.time="";
       console.log(this.model);
       console.log('Changed2!');
       this.date = this.model;
@@ -70,7 +71,6 @@ export class PatientDoctorsListViewComponent implements OnInit {
         })
       })
       
-
     }
   }
 
