@@ -250,10 +250,10 @@ export class UserService {
   {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id).get();
   }
-  reservationChecker(sched_id,time_id)
+  reservationChecker(sched_id,time_id,consultation_schedule)
   {
     return this.db.firestore.collection('Schedule').doc(sched_id).collection('Time').doc(time_id)
-    .collection('Reservation').get();
+    .collection('Reservation').where('consultation_schedule','==',consultation_schedule).get();
   }
   patient_book_schedule(record)
   {

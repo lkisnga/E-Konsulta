@@ -26,11 +26,6 @@
                         <label>Scheduled Date</label>
                         <small class="text-danger font-weight-bold">*</small>
                         <div class="input-group date" id="datepicker">
-                          <!--
-                          <select [(ngModel)]="schedule" name="schedule" #date (change)="get_time(date.value)" class="form-select">
-                              <option value="" selected>Select Date</option>
-                              <option *ngFor="let list of scheduleList" value="{{list.uid}}">{{list.date}}</option>
-                          </select>-->
                           <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" [minDate]="minDate" ngbDatepicker #d="ngbDatepicker" >
                           <div class="input-group-append">
                             <button class="btn btn-outline-success calendar" (click)="d.toggle()" type="button">
@@ -39,7 +34,6 @@
                           </div>
                         </div>
                       </div>
-
 
                     </div>
                     <div class="col-md-4">
@@ -50,12 +44,6 @@
                           <option value="" selected>Select Time</option>
                           <option *ngFor="let list of timeList" value="{{list.uid}}">
                             {{list.time}}
-                            <span class="notfull" *ngIf="list.status!='full'">
-                                notfull
-                            </span>
-                            <span class="full" *ngIf="list.status=='full'">
-                                full
-                          </span>
                           </option>
                         </select>
                       </div>
