@@ -122,3 +122,6 @@ opacity: 1;
 
 input:checked + .slide-container .nav label { display: block; }
 
+.first{
+  margin-top: 70px;
+}
