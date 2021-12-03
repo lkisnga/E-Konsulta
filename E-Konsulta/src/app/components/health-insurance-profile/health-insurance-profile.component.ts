@@ -82,5 +82,13 @@ export class HealthInsuranceProfileComponent implements OnInit {
     this.afu.signout();
   }
 
+  delete_account()
+  {
+    this.afu.delete_user().then(()=>{
+      console.log('Authentication Account Deleted!');
+    })
+    this.userservice.delete_Insurance(this.userId);
+  }
+
 
 }

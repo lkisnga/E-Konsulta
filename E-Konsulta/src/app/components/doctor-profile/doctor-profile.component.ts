@@ -243,6 +243,14 @@ export class DoctorProfileComponent implements OnInit {
     this.insurance_af = tempArray;
     console.log(this.insurance_af);
   }
+
+  delete_account()
+  {
+    this.afu.delete_user().then(()=>{
+      console.log('authentication deleted!');
+    });
+    this.userservice.delete_user(this.userId);
+  }
   logout()
   {
     this.afu.signout();

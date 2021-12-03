@@ -645,19 +645,33 @@ export class UserService {
   //Delete User
   delete_user(id)
   {
-    this.db.collection('Users').doc(id).delete();
+   return this.db.collection('Users').doc(id).delete().then(()=>{
+      this.router.navigate(['/login']);
+      localStorage.removeItem('Users');
+      console.log('Firestore deleted')
+    })
   }
   delete_lab(id)
   {
-    this.db.collection("Laboratory_Partner").doc(id).delete();
-    console.log("deleted successfully!");
+    this.db.collection('Users').doc(id).delete().then(()=>{
+      console.log('Laboratory from Users Collections: Deleted!');
+     this.db.collection("Laboratory_Partner").doc(id).delete().then(()=>{
+        console.log('Laboratory from Laboratory_Partner Collections: Deleted!');
+        localStorage.removeItem('Users');
+        this.router.navigate(['/login']);
+      })
+    });
   }
   delete_Insurance(id)
   {
-    
-    this.db.collection('Health_Insurance').doc(id).delete().then(function(){
-      console.log("deleted successfully!");
-    })
+    this.db.collection('Users').doc(id).delete().then(()=>{
+      console.log('Insurance from Users Collections: Deleted!');
+     this.db.collection("Health_Insurance").doc(id).delete().then(()=>{
+        console.log('Insurance from Health_Insurance Collections: Deleted!');
+        localStorage.removeItem('Users');
+        this.router.navigate(['/login']);
+      })
+    });
   }
   delete_specialization(id)
   {

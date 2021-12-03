@@ -254,7 +254,10 @@ export class PatientProfileComponent implements OnInit {
   }
   delete_account()
   {
-    
+    this.afu.delete_user().then(()=>{
+      console.log('authentication deleted!');
+    });
+    this.userservice.delete_user(this.userID);
   }
   logout()
   {
