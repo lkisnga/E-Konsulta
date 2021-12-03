@@ -664,10 +664,14 @@ export class UserService {
   }
   delete_Insurance(id)
   {
-    
-    this.db.collection('Health_Insurance').doc(id).delete().then(function(){
-      console.log("deleted successfully!");
-    })
+    this.db.collection('Users').doc(id).delete().then(()=>{
+      console.log('Insurance from Users Collections: Deleted!');
+     this.db.collection("Health_Insurance").doc(id).delete().then(()=>{
+        console.log('Insurance from Health_Insurance Collections: Deleted!');
+        localStorage.removeItem('Users');
+        this.router.navigate(['/login']);
+      })
+    });
   }
   delete_specialization(id)
   {
