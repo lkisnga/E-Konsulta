@@ -1,6 +1,6 @@
 body{
-  font-family: "Roboto", sans-serif;
-  margin: 0;
+  min-height: 100vh;
+  background: #f5f5f5;
 }
 
 .complain-page {
@@ -162,7 +162,6 @@ select{
   white-space: nowrap;
   cursor: pointer;
   text-shadow: 1px 1px #fff;
-  font-weight: 700;
   font-size: 10pt;
   text-align: center;
 }

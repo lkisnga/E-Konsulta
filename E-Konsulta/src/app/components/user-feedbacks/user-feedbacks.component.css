@@ -1,10 +1,6 @@
 body{
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  /*background-image: url("/assets/images/background-doctor2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 657px; */
+  min-height: 100vh;
+  background: #f5f5f5;
 }
 .feedback-page {
   width: 500px;

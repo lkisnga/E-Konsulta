@@ -1,15 +1,8 @@
-body{
-  overflow-y: scroll;
-}
-
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: rgb(0, 129, 138);
   color: white;
-  font-size: 14px;
+  font-size: 1rem;
   padding: 10px;
   height: 85px;
 }
@@ -20,11 +13,11 @@ a{
 }
 
 a:hover{
-  color: white;
-  border-bottom: 1px solid white;
+  color: rgb(247, 245, 245);
+  border-bottom: 1px solid rgb(247, 245, 245);
 }
 a, p, small{
-  padding: 15px 10px 0 10px;
+  padding: 10px 10px 0 10px;
   margin: 2px 10px 0 30px;
   color: black;
   text-align: center;

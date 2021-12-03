@@ -1,8 +1,5 @@
-
 .navbar{
-  background-color: white;
-  border-bottom: 1px solid rgb(0, 129, 138);
-  height: 60px;
+  height: 70px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   width: 100% !important;
   position: fixed;
@@ -22,19 +19,15 @@ li{
 a{
   text-decoration: none;
   list-style-type: none;
-  color: rgb(0, 129, 138);
+  color: rgb(1, 146, 156);
 }
 a:hover{
   color: darkcyan;
 }
 
-.navbar-brand{
+.main{
+  font-size: 1.4rem;
   color: rgb(0, 129, 138);
-  font-weight: bold;
-}
-
-.navbar-brand:hover{
-  color: darkcyan;
 }
 
 .navbar-toggler{

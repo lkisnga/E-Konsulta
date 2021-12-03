@@ -1,24 +1,46 @@
-<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <app-header></app-header>
 <div class="container">
   <div class="row justify-content-md-center mt-4">
     <form class="mt-4" action="">
-      <div class="iam">I am a...</div>
-      <div class="row justify-content-center">
-        <div class="col col-md-3">
-          <button  [routerLink]="['/doctor-registration']" type="button" class="bttn1 py-2">
-            <span class="button-icon"><i class="bi bi-person-check-fill"></i></span>
-            <span class="button-text">Doctor</span>
-          </button>
+      <div class="inside">
+        <div class="row justify-content-center py-2">
+          <div class="col-md-3">
+            <p class="iam">I AM A</p>
+          </div>
         </div>
-        <div class="col-md-3">
-          <button  [routerLink]="['/patient-registration']" type="button" class="bttn py-2">
-            <span class="button-icon"><i class="bi bi-people"></i></span>
-            <span class="button-text">Patient</span>
-          </button>
+        <div class="row justify-content-center py-2">
+          <div class="col-md-3">
+            <button  [routerLink]="['/doctor-registration']" type="button" class="bttn py-2">
+              <span class="button-icon"><i class="bi bi-person-check"></i></span>
+              <span class="button-text">Doctor</span>
+            </button>
+          </div>
+        </div>
+        <div class="row justify-content-center py-2">
+          <div class="col-md-3">
+            <button  [routerLink]="['/patient-registration']" type="button" class="bttn1 py-2">
+              <span class="button-icon"><i class="bi bi-people"></i></span>
+              <span class="button-text">Patient</span>
+            </button>
+          </div>
         </div>
       </div>
     </form>
   </div>
 </div>
+</body>
+</html>
 
+
+<!--
 <app-footer></app-footer>
+-->
