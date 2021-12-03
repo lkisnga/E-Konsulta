@@ -90,8 +90,8 @@ export class PatientDoctorChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //remove this after editing the design
-    document.getElementById("openModal").click();
+    // remove this after editing the design
+    // document.getElementById("openModal").click();
 
     this.userid = this.afu.get_UID();
     console.log(this.userid);

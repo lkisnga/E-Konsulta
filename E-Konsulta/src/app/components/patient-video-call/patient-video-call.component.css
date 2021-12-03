@@ -50,18 +50,7 @@ i{
   color: white;
 }
 
-.answer{
-  border: 0;
-  color: white;
-  background-color: transparent;
-}
-.bi-telephone-inbound-fill:hover{
-  border-radius: 100%;
-  background-color: rgb(235, 235, 235);
-  color: green;
-}
-
 .options{
   margin:auto;
-  width: 280px;
+  width: 250px;
 }
