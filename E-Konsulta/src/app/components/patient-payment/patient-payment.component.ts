@@ -28,7 +28,7 @@ export class PatientPaymentComponent implements OnInit {
 
   sched : string = "";
   schedTime: string = "";
-
+  userInfo:any = JSON.parse(localStorage.getItem('Users'));
   spent:number = 0;
   constructor(
     public userservice : UserService,
@@ -46,6 +46,8 @@ export class PatientPaymentComponent implements OnInit {
     this.paypalButton();
     this.get_schedule();
 
+    console.log(this.userInfo.email)
+
   }
 
 
@@ -58,7 +60,7 @@ export class PatientPaymentComponent implements OnInit {
         return actions.order.create({
           purchase_units: [
             {
-              description: "Consultation",
+              description: this.userInfo.email + " paid $" + this.docInfo.consultation_fee + " as consultation fee for " + this.docInfo.email,
               amount: {
                 currency_code: 'USD',
                 value: this.docInfo.consultation_fee
