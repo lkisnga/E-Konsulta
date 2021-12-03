@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/services/auth.service';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 const mediaConstraints = {
   audio: true,
@@ -38,40 +39,33 @@ export class PatientVideoCallComponent implements AfterViewInit{
 
   constructor(
     public db : AngularFirestore,
-    public afu : AuthService
+    public afu : AuthService,
   ) { }
+  ngOnInit()
+  {
+    this.callInput = localStorage.getItem('callInput');
+  }
   ngAfterViewInit(): void {
-
-
     this.doctorInfo = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
-
-
-    var data;
+  
+    if(this.callInput)
+    {
+      console.log('Working!');
+      this.answerCall();
+    }
+   
     this.db.firestore.collection('calls').where('offer.doctor_id','==',this.doctorInfo.uid).
     where('offer.patient_id','==',this.currentUser_id).onSnapshot(snapshot=>{
       let changes = snapshot.docChanges();
       changes.forEach(e=>{
-        if(e.type == 'added')
-        {
-          console.log('exist!');
-          this.call_sound('call');
-        }
-        else if(e.type == 'removed')
-        {
-          console.log('not exist!');
-          this.call_end();
-        }
-        else
+        if( e.type == 'modified')
         {
           console.log('Modified!');
           this.call_sound('accepted');
         }
-        data = e.doc.id;
       })
-      this.callInput = data;
     })
-
     this.requestMediaDevices();
   }
   private async requestMediaDevices():Promise<void> {
@@ -92,6 +86,20 @@ export class PatientVideoCallComponent implements AfterViewInit{
   private handleTrackEvent = (event: RTCTrackEvent) => {
     console.log(event);
     this.receivedVideo.nativeElement.srcObject = event.streams[0];
+  }
+
+  pauseLocalVideo():void{
+    this.localStream.getTracks().forEach(track=>{
+      track.enabled = false;
+    });
+    this.localVideo.nativeElement.srcObject = undefined;
+  }
+
+  startLocalVideo():void{
+    this.localStream.getTracks().forEach(track=>{
+      track.enabled = true;
+    });
+    this.localVideo.nativeElement.srcObject = this.localStream;
   }
    //Answer Call
    async answerCall() {

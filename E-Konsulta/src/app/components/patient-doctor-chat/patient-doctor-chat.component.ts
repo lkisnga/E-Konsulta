@@ -8,6 +8,8 @@ import { url } from 'inspector';
 import { formatDate } from '@angular/common';
 import { NotificationService } from 'src/app/services/notification.service';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: 'app-patient-doctor-chat',
@@ -36,6 +38,10 @@ export class PatientDoctorChatComponent implements OnInit {
   imgUrl : any;
 
   flag : number = 0;
+
+  audio = new Audio('assets/sounds/Call.mp3');
+
+  dataInput: string = "";
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
   medicalrecords = true;
@@ -76,11 +82,17 @@ export class PatientDoctorChatComponent implements OnInit {
     public afu : AuthService,
     public userservice: UserService,
     public notif: NotificationService,
-    public router: Router
+    public router: Router,
+    public db: AngularFirestore,
+    public sds: SharedDataService
 
   ) { }
 
   ngOnInit(): void {
+
+    //remove this after editing the design
+    document.getElementById("openModal").click();
+
     this.userid = this.afu.get_UID();
     console.log(this.userid);
     this.userservice.get_avatar(this.userid).then(e=>{
@@ -100,8 +112,57 @@ export class PatientDoctorChatComponent implements OnInit {
     this.prescription_record();
 
     this.finish_consultation();
+
+    this.videoCall_listener();
   }
 
+  videoCall_listener()
+  {
+    var data;
+    this.db.firestore.collection('calls').where('offer.doctor_id','==',this.docInfo.uid).
+    where('offer.patient_id','==',this.userid).onSnapshot(snapshot=>{
+      let changes = snapshot.docChanges();
+      changes.forEach(e=>{
+        if(e.type == 'added')
+        {
+          document.getElementById("openModal").click();
+          console.log('exist!');
+          this.call_sound('call');
+          this.dataInput = e.doc.id;
+        }
+        else if(e.type == 'removed')
+        {
+          document.getElementById("closeModal").click();
+          console.log('not exist!');
+          this.call_end();
+        }
+      })
+    })
+  }
+
+  answerCall()
+  {
+    console.log("test");
+    localStorage.setItem('callInput',this.dataInput);
+    this.video_call();
+    document.getElementById("closeModal").click();
+  }
+
+  call_sound(con)
+  {
+    if(con =='call')
+      this.audio.play();
+    else
+    {
+      this.audio.pause();
+      this.audio = new Audio('assets/sounds/Call.mp3');
+    }
+  }
+  call_end()
+  {
+    const audio = new Audio('assets/sounds/callEnd.mp3');
+    audio.play();
+  }
 
   finish_consultation()
   {

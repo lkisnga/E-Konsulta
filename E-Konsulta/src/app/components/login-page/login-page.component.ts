@@ -17,6 +17,8 @@ export class LoginPageComponent implements OnInit {
   errorMessage : string = "";
   error: {name : string, message : string} = {name: '',message: ''};
 
+  emailCheck: boolean = false;
+
   constructor(private authservice : AuthService, 
     private router: Router,
     public userservice : UserService  
@@ -38,6 +40,7 @@ export class LoginPageComponent implements OnInit {
         e.forEach(res => {
           if(res.data().email == this.email) // finding equal email from the firestore
             {
+              this.errorMessage = "";
               if(res.data().role == 'doctor') //finding user Role
               {
                 if(res.data().disabled != 'true')// checks if the account is disabled or not
@@ -110,8 +113,14 @@ export class LoginPageComponent implements OnInit {
                 })
               }
             }
+            else
+            {
+              this.emailCheck = true;
+            }
         })
       })
+      if(this.emailCheck == true)
+        this.errorMessage = "This email is not registered!";
     }
   }
 

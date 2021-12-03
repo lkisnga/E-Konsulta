@@ -7,6 +7,7 @@ export class SharedDataService {
 
   constructor() { }
   list : any = [];
+  callInput: string= "";
 
   set_list(list)
   {
@@ -16,6 +17,15 @@ export class SharedDataService {
   get_list()
   {
     return this.list;
+  }
+
+  set_callInput(input)
+  {
+    this.callInput = input;
+  }
+  get_callInput()
+  {
+    return this.callInput;
   }
 
 }
