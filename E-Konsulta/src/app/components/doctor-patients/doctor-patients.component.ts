@@ -52,16 +52,17 @@ export class DoctorPatientsComponent implements OnInit {
     console.log(info);
     this.userservice.check_upcoming(this.userId,info.uid).then(e=>{
       e.forEach(res=>{
-        this.userservice.update_upcoming(res.id).then(()=>{
-          this.router.navigate(['/doctor-patient-chat']);
-
+        if(res.data().status=="pending")
+        {
           //notification
           let record = {};
           record['title'] = "Consultation accepted!";
           record['description'] = "Your consultation has been accepted Join Now!";
           record['createdAt'] = formatDate(new Date(),'short','en');
           this.notif.send_patient(info.uid,record)
-
+        }
+        this.userservice.update_upcoming(res.id).then(()=>{
+          this.router.navigate(['/doctor-patient-chat']);
           if(localStorage.getItem('data')==null)
           {
             localStorage.setItem('data',JSON.stringify(info))
