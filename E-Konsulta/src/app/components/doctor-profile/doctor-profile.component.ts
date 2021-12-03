@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 export class DoctorInfo
@@ -48,7 +49,11 @@ export class DoctorProfileComponent implements OnInit {
 
   timeLeft: number = 10;
   interval;
-  constructor(public userservice : UserService, public afu : AuthService) { }
+  constructor(
+    public userservice : UserService, 
+    public afu : AuthService,
+    public notif: NotificationService
+  ) { }
 
   ngOnInit(): void {
     
@@ -189,6 +194,13 @@ export class DoctorProfileComponent implements OnInit {
           setTimeout(() => {
             this.request_sent = false;
           }, 5000);
+
+          //notification sent to insurance
+          let record = {};
+          record['title'] = "Doctor Affiliation Verification";
+          record['description']= "A doctor sent a verification, check your Doctor List now!";
+          record['createdAt'] = formatDate(new Date(),'short', 'en');
+          this.notif.send_insurance(this.insurance_id,record);
         })
       }
       else

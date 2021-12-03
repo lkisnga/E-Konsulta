@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,7 +22,11 @@ export class DoctorReviewsComponent implements OnInit {
   reviewId : string = "";
   sent_to : string = "";
 
-  constructor(public userservice : UserService, public afu : AuthService) { }
+  constructor(
+    public userservice : UserService, 
+    public afu : AuthService,
+    public notif : NotificationService
+  ) { }
 
   ngOnInit(): void {
 
@@ -46,6 +52,14 @@ export class DoctorReviewsComponent implements OnInit {
   {
     this.userservice.doctor_reply(this.userId,e.reply,this.info.fullname,this.reviewId,this.sent_to).then(e=>{
       console.log("successfully Replied!");
+      
+      //Notification to patient
+      let record = {};
+      record['title'] = "Feedback";
+      record['description'] = "A doctor replied your feedback!";
+      record['createdAt'] = formatDate(new Date(),"MM/dd/yyyy",'en');
+      this.notif.send_patient(this.sent_to,record);
+
       this.ngOnInit();
     })
   }

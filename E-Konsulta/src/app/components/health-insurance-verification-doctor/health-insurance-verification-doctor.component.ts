@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,7 +21,8 @@ export class HealthInsuranceVerificationDoctorComponent implements OnInit {
   verified1 = false;
   constructor(
     public userservice: UserService,
-    public afu : AuthService
+    public afu : AuthService,
+    public notif: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -82,16 +85,21 @@ export class HealthInsuranceVerificationDoctorComponent implements OnInit {
     })
     this.doctorList2 = tempArray;
   }
-  verify(info,id)
+  verify(info,docInfo)
   {
     if(info=='verified')
     {
-      this.userservice.verify_affiliation(id).then(()=>{
+      this.userservice.verify_affiliation(docInfo.uid).then(()=>{
         console.log('Doctor Verified!')
+        let record = {};
+          record['title'] = "Doctor Affiliation Verified";
+          record['description']= "You have been verified by your insurance!";
+          record['createdAt'] = formatDate(new Date(),'short', 'en');
+          this.notif.send_doctor(docInfo.doctor_id,record);
       })
     }
     else{
-      this.userservice.decline_affiliation(id).then(()=>{
+      this.userservice.decline_affiliation(docInfo.uid).then(()=>{
         console.log('Doctor Declined/Removed!');
       })
     }
