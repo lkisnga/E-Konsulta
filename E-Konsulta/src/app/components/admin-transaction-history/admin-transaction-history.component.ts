@@ -33,12 +33,15 @@ export class AdminTransactionHistoryComponent implements OnInit {
         {
           this.userservice.get_UserInfo(item.data().doctor_id).then(es=>{
             this.userservice.get_UserInfo(item.data().patient_id).then(as=>{
-              data = item.data();
-              data.doctor_name = es.data().fullname;
-              data.patient_name = as.data().fullname;
-              data.uid = item.id;
-              //console.log(data)
-              tempArray.push(data);
+              if(as.exists)
+              {
+                data = item.data();
+                data.doctor_name = es.data().fullname;
+                console.log(as.data().fullname);
+                data.patient_name = as.data().fullname;
+                data.uid = item.id;
+                tempArray.push(data);
+              }
             })
           })
         }
