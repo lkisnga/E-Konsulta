@@ -51,8 +51,6 @@ export class HeaderPatientComponent implements OnInit {
         if(e.type == 'added' && this.flag == false)
         {
           tempArray.push(data);
-          console.log('test');
-          
         }
         if(e.type == 'added' && this.flag == true)
         {
