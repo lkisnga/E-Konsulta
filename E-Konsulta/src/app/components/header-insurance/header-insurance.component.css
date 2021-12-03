@@ -3,11 +3,9 @@
 }
 .navbar{
   background-color: white;
-  border-bottom: 1px solid rgb(0, 129, 138);
-  height: 60px;
+  height: 70px;
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
   width: 100% !important;
-  /*z-index: 99; */
   position: fixed;
   top:0;
 }
@@ -59,13 +57,9 @@ a{
   transform: scale(1.1);
   transition: ease .25s;
 }
-.navbar-brand{
+.main1{
+  font-size: 1.4rem;
   color: rgb(0, 129, 138);
-  font-weight: bold;
-}
-
-.navbar-brand:hover{
-  color: rgb(0, 103, 110);
 }
 
 /*notification*/
