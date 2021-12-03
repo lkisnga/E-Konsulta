@@ -156,16 +156,20 @@
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">{{docInfo.fullname}} is calling..</h5>
-      </div>
       <div class="modal-body">
-        <div>
-          <button (click)="answerCall()" type="button" class="btn btn-primary">Accept</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Decline</button>
+        <h5 class="modal-title py-2" id="staticBackdropLabel">{{docInfo.fullname}} is calling..</h5>
+        <div class="py-2">
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <button type="button" class="decline" data-bs-dismiss="modal"><span><i class="bi bi-x-circle-fill"></i></span></button>
+              <p class="dc">Decline</p>
+            </div>
+            <div class="col-md-3">
+              <button (click)="answerCall()" type="button" class="accept"> <span><i class="bi bi-check-circle-fill"></i></span></button>
+              <p class="ac"> Accept</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="modal-footer">
       </div>
     </div>
   </div>

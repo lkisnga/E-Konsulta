@@ -12,7 +12,7 @@
       </div>
       <div *ngIf="upcoming" class="list-group list-group-flush mt-2">
         <div *ngFor="let list of userList">
-           <a (click)="chat(list)" class="list-group-item list-group-item-action">
+           <a (click)="chat(list)" class="list-group-item list-group-flush list-group-item-action">
             <div *ngIf="list.upcoming_status == 'pending'">
               <span class="full-name mb-2 col">{{list.fullname}}</span>
               <button id="btnUpcoming" class="pending" >Accept <span><i class="bi bi-check-circle"></i></span></button>

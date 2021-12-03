@@ -13,14 +13,12 @@
   padding: 6px;
 }
 
-.bi{
-  color: rgb(0, 129, 138);
-}
 
 #btn{
   border: none;
   outline: none;
   background-color: transparent;
+  color: rgb(0, 129, 138);
 }
 .bi-camera-video-fill{
   padding: 4px 10px;
@@ -227,3 +225,32 @@ input[type=checkbox]{
   color: rgb(1, 146, 156);
 }
 
+/*modal in calling*/
+.accept,
+.decline{
+  border: none;
+  background-color: transparent;
+  font-size: 90px;
+}
+
+.accept{
+  color: green;
+}
+.accept:hover{
+  color: rgb(1, 112, 1);
+}
+.decline{
+  color: red;
+}
+.decline:hover{
+  color: rgb(218, 0, 0);
+}
+.dc,
+.ac{
+  margin-left: 20px !important;
+  font-size: 1.1rem;
+}
+#staticBackdropLabel{
+  color: rgb(0, 129, 138);
+  font-size: 1.2rem !important;
+}
