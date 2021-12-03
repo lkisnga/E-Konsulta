@@ -9,15 +9,7 @@
 
 .nav-link{
   color: white;
-  /*color: rgb(0, 154, 165);*/
-
 }
-
-/*.nav-link:hover{
-   background-color: white;
-  color: rgb(0, 154, 165)
-  color: rgb(173, 251, 255) !important;
-}*/
 
 li>.nav-link>span:hover{
   color: rgb(0, 228, 245);

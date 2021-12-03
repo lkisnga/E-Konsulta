@@ -71,7 +71,7 @@ a{
   background-color: white;
   width: 270px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  z-index: 99;
+  z-index: 999;
   cursor: pointer;
   border-radius: 5px;
   height: 520px !important;
@@ -87,7 +87,6 @@ a{
 }
 .notify_item:hover{
   background-color: rgb(245, 244, 244);
-
 }
 
 .main{
