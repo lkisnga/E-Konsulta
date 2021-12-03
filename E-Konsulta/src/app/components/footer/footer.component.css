@@ -1,11 +1,4 @@
-body{
-  overflow-y: scroll;
-}
-
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: rgb(0, 129, 138);
   color: white;
