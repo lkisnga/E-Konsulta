@@ -1,85 +1,76 @@
-.iam{
-  color: rgb(2, 164, 175);
-  margin: auto;
-  width: 50%;
-  padding: 200px 10px 20px 10px;
+*{
+  box-sizing: border-box;
 }
-
-.bttn1{
-  display: inline-flex;
-  height: 50px;
-  padding: 0;
-  background-color: rgb(0, 192, 206);
-  border: none;
-  outline: none;
-  border-radius: 3px;
-  overflow: hidden;
-  font-size: 16px;
-  font-weight: 500;
-  margin-right: 30px;
+body{
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+.inside{
+  margin-top: 160px;
+}
+.iam{
+  color: rgb(0, 129, 138);
+  font-size: 1.5rem;
+  margin-left: 70px;
 }
 
 .bttn{
   display: inline-flex;
   height: 50px;
   padding: 0;
-  background-color: rgb(0, 192, 206);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid rgb(0, 129, 138);
+  overflow: hidden;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(0, 129, 138);
+}
+
+.bttn1{
+  display: inline-flex;
+  height: 50px;
+  padding: 0;
   border: none;
   outline: none;
   border-radius: 3px;
   overflow: hidden;
   font-size: 16px;
-  font-weight: 500;
+  background-color: rgb(0, 129, 138);
+  color: white;
 }
-
-.bttn:hover,
-.bttn1:hover{
-  background-color: rgb(2, 164, 175);
+.bttn:hover{
   transform: scale(1.1);
   transition: ease .25s;
+  background-color: rgb(0, 129, 138);
+  color: white;
 }
 
-.bttn:active,
-.bttn1:active{
-  background-color: rgb(2, 132, 141);
+.bttn1:hover{
+  transform: scale(1.1);
+  transition: ease .25s;
+  border: 1px solid rgb(0, 129, 138);
+  background-color: transparent;
+  color: rgb(0, 129, 138);
 }
+
 .button-icon,
 .button-text{
   display: inline-flex;
   align-items: center;
-  padding: 0 12px;
-  color: white;
+  padding: 15px;
   height: 100%;
   margin-bottom: 5px;
 }
 
 .button-icon{
-  font-size: 1.7em;
+  font-size: 2em;
 }
 .button-text{
-  width: 160px;
+  width: 150px;
+  font-size: 1.5rem;
 }
 
-@media screen and (max-width: 800px){
-  body{
-    overflow: hidden;
-  }
-  .row{
-    margin-top: 90px !important;
-  }
-  .bttn1, .bttn{
-    margin-bottom: 10px;
-  }
-  .button-icon,
-  .button-text{
-    width: 200px;
-    margin-bottom: 10px;
-  }
-  .iam{
-    position: absolute;
-    top: 25%;
-    left: 43%;
-  }
-}
 
 
