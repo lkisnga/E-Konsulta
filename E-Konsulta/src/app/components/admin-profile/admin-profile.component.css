@@ -6,9 +6,9 @@ body{
   font-size: 14px;
   height: 100% !important;
   width: 100% !important;
+  min-height: 100vh;
+  background: #f5f5f5;
 }
-
-
 
 /*col*/
 .first{
@@ -29,7 +29,7 @@ body{
   width: 500px;
   border-radius: 5px;
   padding: 50px 40px;
-  background-color: rgb(253, 252, 252);
+  background-color: white;
 }
 .admin{
   color: rgb(0, 129, 138);
@@ -73,8 +73,7 @@ body{
   content: 'Update Profile';
   color: black;
   display: inline-block;
-  border: none;
-  background-color: rgb(245, 244, 244);
+  border: 1px solid rgb(230, 230, 230);
   color: rgb(0, 129, 138);
   border-radius: 5px;
   padding: 12px 18px;
@@ -131,7 +130,7 @@ body{
   border:none;
   border-radius: 3px;
   padding: 7px 35px;
-  background-color: rgb(245, 244, 244);
+  background-color: white;
   margin-top: 530px;
   font-weight: 700;
 }
@@ -223,9 +222,9 @@ input:focus{
 
 .register{
   background-color: white;
-  color: rgb(138, 138, 138);
+  border: 1px solid green;
+  color: green;
   border-radius: 3px;
-  border: 1px solid rgb(138, 138, 138);
   padding: 7px 40px;
   font-size: 1rem;
 }
@@ -233,8 +232,7 @@ input:focus{
 .register:hover{
   transform: scale(1.2);
   transition: ease .25s;
-  border: 1px solid green;
-  color: green;
+
 }
 
 @media only screen and (max-width: 600px) {
