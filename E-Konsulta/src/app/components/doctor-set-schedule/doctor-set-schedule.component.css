@@ -30,7 +30,7 @@
 {
   border: 1px solid rgb(0, 111, 119);
   background-color: rgb(0, 129, 138);
-  padding: 6px 14px;
+  padding: 6px 20px;
   color: white;
 }
 
@@ -92,4 +92,8 @@
 .inside-modal
 {
   margin: 50px 12.5% !important;
+}
+
+#editLabel{
+  color: rgb(0, 129, 138);
 }
