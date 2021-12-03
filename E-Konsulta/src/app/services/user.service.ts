@@ -645,7 +645,11 @@ export class UserService {
   //Delete User
   delete_user(id)
   {
-    this.db.collection('Users').doc(id).delete();
+   return this.db.collection('Users').doc(id).delete().then(()=>{
+      this.router.navigate(['/login']);
+      localStorage.removeItem('Users');
+      console.log('Firestore deleted')
+    })
   }
   delete_lab(id)
   {
