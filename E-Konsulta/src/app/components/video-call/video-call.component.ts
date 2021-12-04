@@ -69,10 +69,10 @@ export class VideoCallComponent implements AfterViewInit {
           console.log('modified!');
           clearInterval(this.interval);
           this.call_sound('accepted');
+          this.remoteVideo();
         }
       })
     })
-    this.remoteVideo();
 
   }
 

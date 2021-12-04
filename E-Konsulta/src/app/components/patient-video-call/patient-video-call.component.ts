@@ -56,6 +56,7 @@ export class PatientVideoCallComponent implements AfterViewInit{
     this.doctorInfo = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
    
+    var data;
     this.db.firestore.collection('calls').where('offer.doctor_id','==',this.doctorInfo.uid).
     where('offer.patient_id','==',this.currentUser_id).onSnapshot(snapshot=>{
       let changes = snapshot.docChanges();
@@ -65,7 +66,9 @@ export class PatientVideoCallComponent implements AfterViewInit{
           console.log('Modified!');
           this.call_sound('accepted');
         }
+        data = e.doc.id;
       })
+      this.callInput = data;
     })
     this.requestMediaDevices();
   }
