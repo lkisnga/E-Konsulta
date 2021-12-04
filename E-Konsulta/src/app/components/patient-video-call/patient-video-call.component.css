@@ -35,7 +35,6 @@ i{
   border-radius: 50%;
   background-color: white;
   color: rgb(15, 15, 15);
-  opacity: 0.9;
 }
 
 .stop-local{
@@ -49,8 +48,18 @@ i{
   background-color: red;
   color: white;
 }
+.answer{
+  border: 0;
+  color: white;
+  background-color: transparent;
+}
 
+.bi-telephone-outbound:hover{
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+}
 .options{
   margin:auto;
-  width: 250px;
+  width: 280px;
 }
