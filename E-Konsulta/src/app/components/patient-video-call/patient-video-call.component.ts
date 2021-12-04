@@ -49,7 +49,7 @@ export class PatientVideoCallComponent implements AfterViewInit{
     {
       console.log('Workings!');
       this.answerCall();
-
+      this.remoteVideo();
     }
   }
   ngAfterViewInit(): void {
@@ -107,8 +107,6 @@ export class PatientVideoCallComponent implements AfterViewInit{
   }
    //Answer Call
    async answerCall() {
-
-    this.remoteVideo();
     const callId = this.callInput;
     const callDoc = this.db.firestore.collection('calls').doc(callId);
     const offerCandidates = callDoc.collection('offerCandidates');

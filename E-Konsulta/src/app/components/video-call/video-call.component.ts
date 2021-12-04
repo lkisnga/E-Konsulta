@@ -69,7 +69,6 @@ export class VideoCallComponent implements AfterViewInit {
           console.log('modified!');
           clearInterval(this.interval);
           this.call_sound('accepted');
-          this.remoteVideo();
         }
       })
     })
@@ -180,6 +179,7 @@ export class VideoCallComponent implements AfterViewInit {
   private remoteVideo()
   {
     pc.ontrack = this.handleTrackEvent;
+    console.log('Remote Working ' + pc.ontrack);
   }
 
   private handleTrackEvent = (event: RTCTrackEvent) => {
@@ -202,7 +202,7 @@ export class VideoCallComponent implements AfterViewInit {
   }
   //Create Call
   async Call(): Promise<void> {
-
+    this.remoteVideo();
     this.call_interval = true;
     setTimeout(() => {
       this.call_interval = false;
