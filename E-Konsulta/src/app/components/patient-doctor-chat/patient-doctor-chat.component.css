@@ -41,7 +41,7 @@ img.to{
 }
 
 #msg-to{
-  border-radius: 40px;
+  border-radius: 20px;
   font-size: 14px;
   background-color: rgb(0, 129, 138);
   opacity: 0.9;
@@ -54,7 +54,7 @@ img.to{
 
 /*FROM*/
 #msg-from{
-  border-radius: 40px;
+  border-radius: 20px;
   font-size: 14px;
   background-color: rgb(235, 235, 235);
   color: rgb(27, 27, 27);
@@ -109,7 +109,7 @@ input[type=file]::file-selector-button{
 .chat-send{
   font-size: 25px;
   background-color: transparent;
-  color: white;
+  color: rgb(0, 129, 138);
   border: 0;
   padding: 4px 10px;
   margin-left: 5px;

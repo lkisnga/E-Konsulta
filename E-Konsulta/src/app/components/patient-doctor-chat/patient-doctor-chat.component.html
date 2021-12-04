@@ -19,9 +19,9 @@
           <!-- <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15"> -->
           </div>
           <div *ngIf="msg.uid == docInfo.uid" id="msg-from" role="alert">
-            <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" class="from" width="15px" height="15px">
             {{msg.content}}
           </div>
+          <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" class="from" width="15px" height="15px">
         </div>
       </div>
       <div class="below">
