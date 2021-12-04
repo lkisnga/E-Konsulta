@@ -72,6 +72,8 @@ export class VideoCallComponent implements AfterViewInit {
         }
       })
     })
+    this.remoteVideo();
+
   }
 
   //SCREEN RECORD
@@ -207,8 +209,6 @@ export class VideoCallComponent implements AfterViewInit {
     }, 13000);
     this.callTimer();
     this.call_sound('call');
-
-    this.remoteVideo();
     // Reference Firestore collections for signaling
       const callDoc = this.db.firestore.collection('calls').doc();
       const offerCandidates = callDoc.collection('offerCandidates');

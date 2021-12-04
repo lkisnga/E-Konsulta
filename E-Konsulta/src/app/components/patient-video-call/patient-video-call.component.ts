@@ -41,11 +41,9 @@ export class PatientVideoCallComponent implements AfterViewInit{
     public db : AngularFirestore,
     public afu : AuthService,
   ) { }
-  ngOnInit()
-  {
-    this.callInput = localStorage.getItem('callInput');
-  }
   ngAfterViewInit(): void {
+    
+    this.callInput = localStorage.getItem('callInput');
     this.doctorInfo = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
   
