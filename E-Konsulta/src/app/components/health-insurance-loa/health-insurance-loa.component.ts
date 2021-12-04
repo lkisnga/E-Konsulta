@@ -51,12 +51,15 @@ export class HealthInsuranceLoaComponent implements OnInit {
     this.userservice.get_Insurance_LOA(this.userId).then(e=>{
       e.forEach(item=>{
         this.userservice.get_UserInfo(item.data().patient_id).then(res=>{
-          data = item.data();
-          data.uid= item.id;
-          data.fullname = res.data().fullname;
-          console.log(data);
-          if(data.status=="pending")
-            tempArray.push(data);
+          if(res.exists)
+          {
+            data = item.data();
+            data.uid= item.id;
+            data.fullname = res.data().fullname;
+            console.log(data);
+            if(data.status=="pending")
+              tempArray.push(data);
+          }
         })
       })
     })
@@ -96,7 +99,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
     if(this.filename != "" && this.loafile.nativeElement.value != "")
     {
       let record = {}
-      record['filename'] = this.filename+'.pdf';
+      record['filename'] = this.filename;
       record['file'] = this.file;
       this.userservice.create_Insurance_LOA(this.userId,this.patientInfo.patient_id,record)
       .then(()=>{

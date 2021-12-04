@@ -89,7 +89,7 @@
                 Email: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email"type="text" size="35"> <br><br>
                 <!--<progress max="100" [value]="userservice.uploadProgress | async"></progress><br> -->
                 File Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.filename" name="filename" type="text" size="35"> <br><br>
-                Choose a File: &nbsp;&nbsp; <input type="file" (change)="choosefile($event)"> <br><br>
+                Choose a File: &nbsp;&nbsp; <input type="file" (change)="choosefile($event)" accept=".pdf, image/png, image/jpeg"> <br><br>
               </div>
               <div class="modal-footer">
                 <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>

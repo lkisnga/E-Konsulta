@@ -96,7 +96,7 @@ export class LabPartnerResultComponent implements OnInit {
   {
     if(this.file != "" && e.filename != "")
     {
-      this.userservice.lab_fileUpload(this.file,this.userId,this.requestID,e.filename+'.pdf');
+      this.userservice.lab_fileUpload(this.file,this.userId,this.requestID,e.filename);
     }
     else
      console.log('Empty File or Filename!');
