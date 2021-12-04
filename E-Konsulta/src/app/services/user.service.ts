@@ -328,6 +328,7 @@ export class UserService {
     })
   }
 
+
   lab_reply(id,feedback,name,review_id,sent_to)
   {
     return this.db.collection('Laboratory_Partner').doc(id).collection('reviews').doc(review_id)
@@ -857,6 +858,10 @@ export class UserService {
   get_medical_shared(id)
   {
     return this.db.firestore.collection('Medical_Records').doc(id).get();
+  }
+  get_shareFiles()
+  {
+    return this.db.firestore.collection('Shared_Files').get();
   }
   get_lab_shared(id)
   {

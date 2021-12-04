@@ -28,6 +28,8 @@ export class PatientDoctorChatComponent implements OnInit {
 
   content : string = "";
 
+  sharedList : any = [];
+
 
   shareFile: any = [];
   tempArray = [];
@@ -107,6 +109,8 @@ export class PatientDoctorChatComponent implements OnInit {
       this.chat_source();
     })
 
+
+    this.fileShared();
     this.get_medicalRecord();
     this.get_labRecord();
     this.prescription_record();
@@ -187,17 +191,38 @@ export class PatientDoctorChatComponent implements OnInit {
   {
     var data;
     var tempArray = [];
+    
+    
     this.userservice.get_patient_medical(this.userid)
     .then(e=>{
       e.forEach(item=>{
         data = item.data();
         data.uid = item.id;
+        data.check = false;
+        this.sharedList.forEach(res=>{
+          if(item.id == res.file_id)
+             data.check = true;
+        })
         tempArray.push(data);
       })
     })
     this.medList = tempArray;
     console.log(this.medList);
   }
+
+  fileShared()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_shareFiles().then(a=>{
+      a.forEach(res=>{
+        data = res.data();
+        tempArray.push(data);
+      })
+    });
+    this.sharedList=tempArray;
+  }
+
   get_labRecord()
   {
     var data;
@@ -214,6 +239,11 @@ export class PatientDoctorChatComponent implements OnInit {
               data = item.data();
               data.uid = item.id;
               data.from = res.data().name;
+              data.check = false;
+              this.sharedList.forEach(res=>{
+                if(item.id == res.file_id)
+                   data.check = true;
+              })
               tempArray.push(data);
             })
           }
@@ -233,6 +263,11 @@ export class PatientDoctorChatComponent implements OnInit {
         console.log(item.data());
         data = item.data();
         data.uid = item.id;
+        data.check = false;
+        this.sharedList.forEach(res=>{
+          if(item.id == res.file_id)
+             data.check = true;
+        })
         tempArray.push(data);
       })
     })

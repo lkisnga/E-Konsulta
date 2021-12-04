@@ -77,8 +77,8 @@
                   <td>
                     <button (click)="open(list.file)" class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
-                      <input class="ms-2" type="checkbox" (change)="chooseShare(list.uid,$event.target.checked)">
-                      <span class="checkmark"></span>
+                        <input class="ms-2" type="checkbox" (change)="chooseShare(list.uid,$event.target.checked)" [checked]="list.check">
+                        <span class="checkmark"></span>
                     </label>
                   </td>
                 </tr>
@@ -102,7 +102,7 @@
                   <td>
                     <button (click)="open(list.file)" class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
-                      <input class="ms-2" type="checkbox"  (change)="chooseShare(list.uid,$event.target.checked)">
+                      <input class="ms-2" type="checkbox"  (change)="chooseShare(list.uid,$event.target.checked)" [checked]="list.check">
                       <span class="checkmark"></span>
                     </label>
                   </td>
@@ -127,7 +127,7 @@
                   <td>
                     <button (click)="open(list.file)" class="view" >View <span><i class="bi bi-eye-fill"></i></span></button>
                     <label>Select
-                      <input class="ms-2" type="checkbox"   (change)="chooseShare(list.uid,$event.target.checked)">
+                      <input class="ms-2" type="checkbox"   (change)="chooseShare(list.uid,$event.target.checked)" [checked]="list.check">
                       <span class="checkmark"></span>
                     </label>
                   </td>
