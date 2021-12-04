@@ -15,7 +15,7 @@
       <div class="container-fluid cont-chat" *ngIf="chat$ | async as chat">
         <div *ngFor="let msg of chat.messages" role="alert">
           <div *ngIf="msg.uid == userid" id="msg-to">
-            <img src="{{imgUrl}}" class="to" width="15" height="15">
+            <!--<img src="{{imgUrl}}" class="to" width="15" height="15"> -->
             {{msg.content}}
           </div>
           <div *ngIf="msg.uid == patientInfo.uid" id="msg-from">
