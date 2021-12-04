@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 export class HealthInfo
@@ -18,7 +19,10 @@ export class HealthInfo
 })
 export class AdminHealthInsuranceComponent implements OnInit {
 
-  constructor(public userservice : UserService) { }
+  constructor(
+    public userservice : UserService,
+    public notif : NotificationService
+  ) { }
   model = new HealthInfo();
   model2 = new HealthInfo();
   list : any = [];
@@ -57,8 +61,14 @@ export class AdminHealthInsuranceComponent implements OnInit {
   }
   updateInfo(e)
   {
-    this.userservice.update_insurance(this.UID,e);
-    this.ngOnInit();
+    this.userservice.update_insurance(this.UID,e).then(()=>{
+      let record = {};
+      record['title'] = "Account updated!";
+      record['description'] = "Your Account has been updated by the admin for various reasons";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_insurance(this.UID,record);
+      this.ngOnInit();
+    });
   }
   disable_insurance()
   {
@@ -68,6 +78,12 @@ export class AdminHealthInsuranceComponent implements OnInit {
     this.userservice.update_insurance(this.UID,record).then(()=>{
       this.ngOnInit();
       console.log('Successfully disabled!');
+      //notification patient
+      let record = {};
+      record['title'] = "Account disabled!";
+      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_insurance(this.UID,record);
     })
   }
   getID(id)

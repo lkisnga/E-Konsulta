@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 export class DoctorInfo
 {
@@ -48,8 +49,11 @@ export class AdminDoctorsComponent implements OnInit {
 
   doctor_id : string = "";
 
-  constructor(public authservice : AuthService, public userservice : UserService
-    ,public router : Router) { }
+  constructor(public authservice : AuthService, 
+    public userservice : UserService, 
+    public router : Router,
+    public notif : NotificationService
+  ) { }
 
   ngOnInit(): void {
     this.userID = this.authservice.get_UID();
@@ -149,8 +153,17 @@ export class AdminDoctorsComponent implements OnInit {
     record['contact_number'] = a.contact_number;
     record['address'] = a.address;
     record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
-    this.userservice.update_doctorInfo(a.id,record);
-    this.ngOnInit();
+    this.userservice.update_doctorInfo(a.id,record).then(()=>{
+      //notification doctor
+      let record = {};
+      record['title'] = "Account updated!";
+      record['description'] = "Your Account has been updated by the admin for various reasons";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_doctor(a.id,record);
+      this.ngOnInit();
+    });
+    
+    
   }
   editDisable(id)
   {
@@ -164,6 +177,14 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.update_doctorInfo(this.doctor_id,record)
     .then(()=>{
       console.log('Successfully disabled!');
+
+      //notification doctor
+      let record = {};
+      record['title'] = "Account disabled!";
+      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_doctor(this.doctor_id,record);
+      this.ngOnInit();
     })
   }
   addSpecialization(a)
@@ -185,6 +206,15 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.update_doctorInfo(id,record).then(()=>{
       console.log('Verified!');
       this.ngOnInit();
+
+
+      //notification for doctors
+      let record = {};
+      record['title'] = "Account Verified!";
+      record['description'] = "Your Account has been verified. You can now receive patients. Enjoy!";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_doctor(id,record);
+
     })
   }
 

@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { stringify } from 'querystring';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 export class LabInfo
@@ -18,7 +19,10 @@ export class LabInfo
 
 export class AdminLaboratoryPartnerComponent implements OnInit {
 
-  constructor(public userservice : UserService) { }
+  constructor(
+    public userservice : UserService,
+    public notif: NotificationService
+  ) { }
   model = new LabInfo();
   list : any = [];
   searchName : string = "";
@@ -42,6 +46,11 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     record['address'] = e.address;
     record['contact_number'] = e.contact_number;
     this.userservice.update_lab(this.UID,record).then(()=>{
+      let record = {};
+      record['title'] = "Account updated!";
+      record['description'] = "Your Account has been updated by the admin for various reasons";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_lab(this.UID,record);
       this.ngOnInit()
     })
   }
@@ -56,6 +65,11 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     record['disabled'] = "true";
     record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
     this.userservice.update_lab(this.UID,record).then(()=>{
+      let record = {};
+      record['title'] = "Account disabled!";
+      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_lab(this.UID,record);
       this.ngOnInit();
       console.log("successfully disabled!");
     })
