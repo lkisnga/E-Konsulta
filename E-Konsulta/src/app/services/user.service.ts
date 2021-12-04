@@ -888,5 +888,4 @@ export class UserService {
     return this.db.firestore.collection('LOA_Received').where('insurance_id','==',id)
     .get();
   }
-
 }

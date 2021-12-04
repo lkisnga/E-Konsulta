@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
@@ -42,6 +43,17 @@ success_message: string = "";
         setTimeout(() => {
           this.success_message = ""
         }, 5000);
+        let record = {};
+        record['title'] = "Problem";
+        record['description'] = "A user sent a problem";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.userservice.get_admin().then(e=>{
+          e.forEach(item=>{
+            this.notif.send_admin(item.id,record).then(()=>{
+              console.log('added to admin!');
+            })
+          })
+        })
       })
     }
     else
