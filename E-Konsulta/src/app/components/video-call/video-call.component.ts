@@ -58,6 +58,7 @@ export class VideoCallComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void { 
+    
     this.requestMediaDevices();
     this.db.firestore.collection('calls').where('offer.doctor_id','==',this.currentUser_id).
     where('offer.patient_id','==',this.remoteUser.uid).onSnapshot(snapshot=>{
@@ -162,7 +163,6 @@ export class VideoCallComponent implements AfterViewInit {
 
 
   //END OF SCREEN RECORD
-
 
   private async requestMediaDevices():Promise<void> {
     this.localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
