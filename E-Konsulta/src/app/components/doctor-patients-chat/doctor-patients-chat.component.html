@@ -159,14 +159,14 @@
         <div class="modal-body">
           <p class="presc">Prescription</p>
             <div class="row mx-2">
-              <input [(ngModel)]="filename2" type="text" placeholder="File name">
+              <input [(ngModel)]="filename2" type="text" placeholder="File name" accept=".pdf,.doc">
           </div>
           <div class="row mx-0 mt-2">
             <input #file2 type="file" (change)="choosefile($event,'prs')">
           </div>
           <p class="mt-4 csummary">Consultation summary</p>
           <div class="row mx-2">
-            <input [(ngModel)]="filename" type="text" placeholder="File name">
+            <input [(ngModel)]="filename" type="text" placeholder="File name" accept=".pdf,.doc">
           </div>
           <div class="row mx-0 mt-2">
             <input #file type="file" (change)="choosefile($event,'cs')">
@@ -199,7 +199,7 @@
               <input [(ngModel)]="filename" type="text" placeholder="File name">
           </div>
           <div class="row mx-0 mt-2 mb-3">
-            <input #file type="file" (change)="choosefile2($event)">
+            <input #file type="file" (change)="choosefile2($event)" accept=".pdf,.doc">
           </div>
           <div *ngIf="error_message.length > 0" class="alert alert-danger">
             {{error_message}}
