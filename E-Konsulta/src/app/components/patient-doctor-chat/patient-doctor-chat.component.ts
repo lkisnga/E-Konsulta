@@ -113,12 +113,11 @@ export class PatientDoctorChatComponent implements OnInit {
 
     this.finish_consultation();
 
-   // this.videoCall_listener();
+    this.videoCall_listener();
   }
 
   videoCall_listener()
   {
-    var data;
     this.db.firestore.collection('calls').where('offer.doctor_id','==',this.docInfo.uid).
     where('offer.patient_id','==',this.userid).onSnapshot(snapshot=>{
       let changes = snapshot.docChanges();
@@ -128,7 +127,6 @@ export class PatientDoctorChatComponent implements OnInit {
           document.getElementById("openModal").click();
           console.log('exist!');
           this.call_sound('call');
-          this.dataInput = e.doc.id;
         }
         else if(e.type == 'removed')
         {
@@ -136,6 +134,7 @@ export class PatientDoctorChatComponent implements OnInit {
           console.log('not exist!');
           this.call_end();
         }
+        this.dataInput = e.doc.id;
       })
     })
   }
