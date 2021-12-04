@@ -34,6 +34,8 @@ img{
 }
 img.from{
   margin-right: 5px;
+  width: 20px;
+  height: 20px;
 }
 img.to{
   margin-left: 5px;
@@ -66,7 +68,6 @@ img.to{
 .cont-chat{
   height: 450px !important;
   overflow-y: scroll;
-
 }
 .below{
   display: inline-flex;
