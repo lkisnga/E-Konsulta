@@ -47,8 +47,9 @@ export class PatientVideoCallComponent implements AfterViewInit{
     this.callInput = localStorage.getItem('callInput');
     if(this.callInput)
     {
-      console.log('Working!');
+      console.log('Workings!');
       this.answerCall();
+
     }
   }
   ngAfterViewInit(): void {
