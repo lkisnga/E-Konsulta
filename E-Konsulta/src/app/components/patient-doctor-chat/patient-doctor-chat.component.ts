@@ -113,7 +113,7 @@ export class PatientDoctorChatComponent implements OnInit {
 
     this.finish_consultation();
 
-    this.videoCall_listener();
+   // this.videoCall_listener();
   }
 
   videoCall_listener()

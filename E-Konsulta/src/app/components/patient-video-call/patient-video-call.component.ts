@@ -41,7 +41,7 @@ export class PatientVideoCallComponent implements AfterViewInit{
     public db : AngularFirestore,
     public afu : AuthService,
   ) { }
-
+    /*
   ngOnInit()
   {
     this.callInput = localStorage.getItem('callInput');
@@ -51,7 +51,7 @@ export class PatientVideoCallComponent implements AfterViewInit{
       this.answerCall();
       this.remoteVideo();
     }
-  }
+  }*/
   ngAfterViewInit(): void {
     this.doctorInfo = JSON.parse(localStorage.getItem('data'));
     this.currentUser_id = this.afu.get_UID();
@@ -61,7 +61,17 @@ export class PatientVideoCallComponent implements AfterViewInit{
     where('offer.patient_id','==',this.currentUser_id).onSnapshot(snapshot=>{
       let changes = snapshot.docChanges();
       changes.forEach(e=>{
-        if( e.type == 'modified')
+        if(e.type == 'added')
+        {
+          console.log('exist!');
+          this.call_sound('call');
+        }
+        else if(e.type == 'removed')
+        {
+          console.log('not exist!');
+          this.call_end();
+        }
+        else if( e.type == 'modified')
         {
           console.log('Modified!');
           this.call_sound('accepted');
