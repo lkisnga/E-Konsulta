@@ -34,6 +34,8 @@ img{
 }
 img.from{
   margin-right: 5px;
+  width: 20px;
+  height: 20px;
 }
 img.to{
   margin-left: 5px;
@@ -41,12 +43,12 @@ img.to{
 }
 
 #msg-to{
-  border-radius: 40px;
-  font-size: 12px;
+  border-radius: 20px;
+  font-size: 14px;
   background-color: rgb(0, 129, 138);
   opacity: 0.9;
   color: white;
-  margin: 3px 0;
+  margin: 5px 0;
   padding: 5px 12px;
   float: right;
   clear: both;
@@ -54,11 +56,11 @@ img.to{
 
 /*FROM*/
 #msg-from{
-  border-radius: 40px;
-  font-size: 12px;
+  border-radius: 20px;
+  font-size: 14px;
   background-color: rgb(235, 235, 235);
   color: rgb(27, 27, 27);
-  margin: 3px 0;
+  margin: 5px 0;
   padding: 5px 12px;
   float: left;
   clear: both;
@@ -66,7 +68,6 @@ img.to{
 .cont-chat{
   height: 450px !important;
   overflow-y: scroll;
-
 }
 .below{
   display: inline-flex;
@@ -109,7 +110,7 @@ input[type=file]::file-selector-button{
 .chat-send{
   font-size: 25px;
   background-color: transparent;
-  color: white;
+  color: rgb(0, 129, 138);
   border: 0;
   padding: 4px 10px;
   margin-left: 5px;

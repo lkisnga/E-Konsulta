@@ -16,12 +16,12 @@
         <div *ngFor="let msg of chat.messages">
           <div *ngIf="msg.uid == userid" id="msg-to" role="alert">
             {{msg.content}}
-            <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15">
+          <!-- <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15"> -->
           </div>
           <div *ngIf="msg.uid == docInfo.uid" id="msg-from" role="alert">
-            <img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" class="from" width="15px" height="15px">
             {{msg.content}}
           </div>
+          <!--<img  *ngIf="msg.uid == docInfo.uid" src="{{docInfo.image}}" class="from"> -->
         </div>
       </div>
       <div class="below">
@@ -141,32 +141,4 @@
   </div>
 </div>
 <!--end shared files modal-->
-
-
-<!-- Button trigger modal -->
-<button id="openModal" [hidden]="true" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h5 class="modal-title py-2" id="staticBackdropLabel">{{docInfo.fullname}} is calling..</h5>
-        <div class="py-2">
-          <div class="row justify-content-center">
-            <div class="col-md-3">
-              <button id="closeModal" type="button" class="decline" data-bs-dismiss="modal"><span><i class="bi bi-x-circle-fill"></i></span></button>
-              <p class="dc">Decline</p>
-            </div>
-            <div class="col-md-3">
-              <button (click)="answerCall()" type="button" class="accept"> <span><i class="bi bi-check-circle-fill"></i></span></button>
-              <p class="ac"> Accept</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
