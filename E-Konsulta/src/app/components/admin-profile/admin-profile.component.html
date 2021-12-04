@@ -18,7 +18,7 @@
         <img src="{{imgUrl}}" alt="img" class="profile-pic" width="180" height="180"> <br>
         <div class="imagee">
           <span title="Click to Upload"><button type="button" (click)="uploadImage()" class="upload"><i class="bi bi-cloud-arrow-up-fill"></i></button></span>
-          <input type="file" (change)="choosefile($event)" class="custom-file-input">
+          <input type="file" (change)="choosefile($event)" class="custom-file-input" accept="image/png, image/gif, image/jpeg">
           <span *ngIf="file" class="selection-done"><i class="bi bi-check-circle-fill"></i></span>
         </div>
         <h3 class="admin">{{userData.fullname}}</h3>
