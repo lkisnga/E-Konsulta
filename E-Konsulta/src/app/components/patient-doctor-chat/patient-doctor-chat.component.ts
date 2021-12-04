@@ -124,17 +124,9 @@ export class PatientDoctorChatComponent implements OnInit {
       changes.forEach(e=>{
         if(e.type == 'added')
         {
-          document.getElementById("openModal").click();
           console.log('exist!');
-          this.call_sound('call');
+          this.video_call();
         }
-        else if(e.type == 'removed')
-        {
-          document.getElementById("closeModal").click();
-          console.log('not exist!');
-          this.call_end();
-        }
-        this.dataInput = e.doc.id;
       })
     })
   }
@@ -145,22 +137,6 @@ export class PatientDoctorChatComponent implements OnInit {
     localStorage.setItem('callInput',this.dataInput);
     this.video_call();
     document.getElementById("closeModal").click();
-  }
-
-  call_sound(con)
-  {
-    if(con =='call')
-      this.audio.play();
-    else
-    {
-      this.audio.pause();
-      this.audio = new Audio('assets/sounds/Call.mp3');
-    }
-  }
-  call_end()
-  {
-    const audio = new Audio('assets/sounds/callEnd.mp3');
-    audio.play();
   }
 
   finish_consultation()

@@ -47,7 +47,6 @@ export class PatientVideoCallComponent implements AfterViewInit{
     this.callInput = localStorage.getItem('callInput');
     if(this.callInput)
     {
-      console.log('Workings!');
       //this.answerCall();
       document.getElementById('answerCall').click();
       this.remoteVideo();
@@ -118,7 +117,7 @@ export class PatientVideoCallComponent implements AfterViewInit{
   }
    //Answer Call
    async answerCall() {
-    this.remoteVideo();
+    console.log("Answer Working!");
     const callId = this.callInput;
     const callDoc = this.db.firestore.collection('calls').doc(callId);
     const offerCandidates = callDoc.collection('offerCandidates');
