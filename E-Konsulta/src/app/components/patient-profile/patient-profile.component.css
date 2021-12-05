@@ -71,7 +71,7 @@ body{
   margin-right: 0;
 }
 .custom-file-input::before {
-  content: 'Choose fFile';
+  content: 'Choose File';
   color: black;
   display: inline-block;
   border: none;
