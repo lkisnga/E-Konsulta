@@ -1,6 +1,8 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -22,7 +24,8 @@ export class PatientConsultationComponent implements OnInit {
   constructor(
     public userservice : UserService,
     public afu : AuthService,
-    public router : Router
+    public router : Router,
+    public notif : NotificationService
   ) { }
 
   /** set to false so that when loading the patient's page, content of that function is not displayed */
@@ -112,6 +115,21 @@ export class PatientConsultationComponent implements OnInit {
     record['consultation_schedule'] = this.info.consultation_schedule;
     this.userservice.cancel_consultation(record).then(()=>{
       console.log('Transaction Cancelled!');
+
+      //send notification for cancellation
+      let record = {};
+      record['title'] = "Cancelled Consultaion";
+      record['description'] = "A Patient want to cancel its consultation";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.userservice.get_admin().then(e=>{
+        e.forEach(item=>{
+          this.notif.send_admin(item.id,record);
+        })
+      })
+
+      record['description'] = "A Patient cancelled its consultation";
+      this.notif.send_doctor(this.info.uid,record);
+      
       this.ngOnInit();
     })
     document.getElementById('closeModal').click();
