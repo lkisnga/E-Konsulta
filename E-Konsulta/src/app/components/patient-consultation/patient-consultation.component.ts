@@ -17,6 +17,8 @@ export class PatientConsultationComponent implements OnInit {
 
   error_message: string = ""
 
+  info: any = [];
+
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -95,6 +97,17 @@ export class PatientConsultationComponent implements OnInit {
     })
     this.docList = tempArray;
      console.log(this.docList);
+  }
+  editCancel(info)
+  {
+    this.info = info;
+  }
+  cancel()
+  {
+    console.log(this.info);
+    document.getElementById('closeModal').click();
+
+    this.info = [];
   }
   get_done()
   {
