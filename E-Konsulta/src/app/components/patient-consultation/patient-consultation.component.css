@@ -15,31 +15,38 @@
 .book:hover{
   background-color: white;
 }
-.up, .done{
+.up{
   border: 1px solid white;
+  border-radius: 3px;
   background-color: rgb(0, 129, 138);
   color: white;
-  padding: 4px 12px;
+  padding: 7px 12px;
+  width: 120px;
 }
 .done{
+  border-radius: 3px;
   border: 1px solid white;
-  background-color: red;
-  color: white;
-  padding: 4px 12px;
+  background-color:rgb(255, 238, 0);
+  padding: 7px 12px;
+  width: 80px;
 }
-.up:hover,
-.done:hover{
+.done1{
+  border-radius: 3px;
+  border: 1px solid white;
+  background-color:rgb(255, 238, 0);
+  padding: 7px 12px;
+  width: 120px;
+}
+
+.up:hover{
   color: rgb(0, 129, 138);
   background-color: rgb(235, 233, 233);
 }
+
 .done:hover{
-  color: red;
-  background-color: rgb(235, 233, 233);
+  background-color: rgb(241, 217, 0);
 }
-.up:active,
-.done:active{
-  background-color: rgb(194, 251, 255);
-}
+
 .full-name{
   margin-right: 100px;
   color: #333;
@@ -52,6 +59,9 @@
   border: none;
   padding: 4px 12px;
 }
+.schedule{
+  background-color: transparent;
+}
 .pending{
   border: 1px solid white;
   border-radius: 3px;
@@ -60,9 +70,7 @@
   padding: 7px 12px;
   width: 120px;
 }
-.pending:hover{
-  background-color: rgb(231, 197, 0);
-}
+
 .join-now{
   color: white;
   background-color: rgb(0, 129, 138);

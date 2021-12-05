@@ -34,10 +34,7 @@
 .done1:hover{
   background-color: rgb(241, 217, 0);
 }
-.up:active,
-.done:active{
-  background-color: rgb(194, 251, 255);
-}
+
 .full-name{
   margin-right: 100px;
   color: #333;
