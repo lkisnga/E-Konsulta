@@ -71,7 +71,7 @@ body{
   margin-right: 0;
 }
 .custom-file-input::before {
-  content: 'Update Profile';
+  content: 'Choose fFile';
   color: black;
   display: inline-block;
   border: none;

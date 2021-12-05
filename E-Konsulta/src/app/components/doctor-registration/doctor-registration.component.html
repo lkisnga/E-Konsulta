@@ -22,7 +22,7 @@
         <option *ngFor="let list of spList" value="{{list.id}}">{{list.name}}</option>
       </select>
       <input [(ngModel)]="model.address" name="address" type="text" placeholder="Address" required/>
-      <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
+      <input [(ngModel)]="model.email" type="email" name="email" placeholder="Email address" required/>
       <input [(ngModel)]="model.password" name="password" type="password" placeholder="Password" required/>
       <input type="password" placeholder="Confirm Password" required/>
       <div class="agree">
