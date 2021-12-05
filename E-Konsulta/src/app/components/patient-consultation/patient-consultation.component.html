@@ -11,7 +11,7 @@
         <button type="button" class="done" (click)="doneFunction()">Done</button>
       </div>
       <div *ngIf="upcoming" class="list-group list-group-flush mt-3">
-        <a *ngFor="let list of docList" (click)="chat(list)" class="list-group-item list-group-item-action">
+        <a href="javascript:void(0)" *ngFor="let list of docList" class="list-group-item list-group-item-action">
           <div *ngIf="list.upcoming_status == 'pending'">
             <span class="full-name mb-2 col">{{list.fullname}}</span>
             <button id="btnUpcoming" class="pending">Pending <span><i class="bi bi-stopwatch"></i></span></button>
@@ -19,9 +19,9 @@
          </div>
          <div *ngIf="list.upcoming_status == 'ongoing'">
           <span class="full-name mb-2 col">{{list.fullname}}</span>
-           <button id="btnUpcoming" class="join-now" >Join now <span><i class="bi bi-plus-circle-dotted"></i></span></button>
+           <button (click)="chat(list)" id="btnUpcoming" class="join-now" >Join now <span><i class="bi bi-plus-circle-dotted"></i></span></button>
            <button id="btnSched" class="schedule">{{list.consultation_schedule}} | {{list.schedule}} | {{list.schedtime}}</button>
-           <button class="cancelC">Cancel Consultation</button>
+           <button (click)="editCancel(list)" class="cancelC" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel Consultation</button>
          </div>
         </a>
       </div>
@@ -34,6 +34,25 @@
               <button id="btnUpcoming" class="join-now" >Done <span><i class="bi bi-plus-circle-dotted"></i></span></button>
               <button id="btnSched" class="schedule">{{list.consultation_schedule}} | {{list.schedule}} | {{list.time}}</button>
           </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cancel Consultation</h5>
+      </div>
+      <div class="modal-body">
+        Add text here for cancellation 
+      </div>
+      <div class="modal-footer">
+        <button id="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+        <button (click)="cancel()" type="button" class="btn btn-danger">Continue</button>
       </div>
     </div>
   </div>
