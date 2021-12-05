@@ -250,56 +250,47 @@ input:focus{
   outline: 0;
 }
 .cancel,
-.update,
-.yes,
-.no,
-.set,
-.close
-{
-  padding: 5px 20px;
-  font-size: 10pt;
-  border-radius: 3px;
-}
-.request{
-  padding: 5px 100px;
-  font-size: 10pt;
-  border-radius: 3px;
-}
-.cancel,
 .no,
 .close{
-  border: 1px solid maroon;
-  background-color:white;
-  color: maroon;
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 80px;
+}
+.request{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  width: 250px;
 }
 .update,
 .yes,
 .set{
-  border: 1px solid rgb(0, 129, 138);
-  background-color:white;
-  color: rgb(0, 129, 138);
-}
-.request{
-  border: 1px solid rgb(0, 129, 138);
-  background-color:rgb(0, 129, 138);
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
   color: white;
+  width: 80px;
 }
-.request:hover{
-  background-color: rgb(0, 94, 100);
-}
+
 .cancel:hover,
 .no:hover,
 .close:hover{
-  background-color: maroon;
-  color: white;
+  background-color: rgb(211, 0, 0);
 }
 
 .update:hover,
 .yes:hover,
-.set:hover{
+.set:hover,
+.request:hover{
   background-color: rgb(0, 129, 138);
-  color: white;
 }
+
 .modal-body{
   color: #333;
 }

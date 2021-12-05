@@ -76,6 +76,7 @@ img.to{
 }
 input{
   font-size: 14px;
+  padding: 5px 6px;
 }
 input:focus{
   outline: 0;
@@ -177,15 +178,15 @@ input:focus{
 }
 
 .send{
-  border: none;
-  background-color: rgb(0, 129, 138);
-  padding: 5px 20px;
-  font-size: 10pt;
+  padding: 7px 10px;
   border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
   color: white;
+  width: 80px;
 }
 .send:hover{
-  background-color: rgb(2, 148, 158);
+  background-color: rgb(0, 129, 138);
 }
 
 #send-files{
