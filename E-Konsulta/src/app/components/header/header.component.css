@@ -26,8 +26,9 @@ a:hover{
 }
 
 .main{
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: rgb(0, 129, 138);
+  font-weight: 500;
 }
 
 .navbar-toggler{
