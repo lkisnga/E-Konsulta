@@ -17,26 +17,47 @@
       <div class="col mx-3 py-4">
         <div *ngIf="sent_message" class="alert alert-success">Successfully Sent!</div>
         <h5 class="usr">Transaction History</h5>
-        <div class="btn-group mt-2">
-          <button class="pending">Pending</button>
-          <button class="cancelled">Cancelled</button>
+        <div class="btn-group mt-3">
+          <button class="pending" (click)="pendingFunction()">Pending</button>
+          <button class="cancelled" (click)="cancelledFunction()">Cancelled</button>
         </div>
-        <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of tranList" class="list-group-item flex-column align-items-start mt-3">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="name">{{list.Specialization}}: {{list.doctor_name}}</h5>
-              <button (click)="send_notif(list)" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
-              <small>{{list.createdAt}}</small>
-            </div>
-            <div>
-              <p class="mb-1 mt-1">A patient named {{list.patient_name}} paid an amount of {{list.Amount}} as a payment for one consultation.</p>
-              <p class="mb-1">Patient ID: {{list.patient_id}}</p>
-              <p class="mb-1">Consultation Schedule: {{list.Schedule}}</p>
-              <p class="mb-1">Consultation Fee: {{list.Amount}}</p>
-            </div>
-            <small>Transaction ID: {{list.uid}}</small>
-          </li>
-        </ul>
+        <div *ngIf="pending">
+          <ul class="list-group py-2 whole-trans">
+            <li *ngFor="let list of tranList" class="list-group-item flex-column align-items-start mt-3">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="name">{{list.Specialization}}: {{list.doctor_name}}</h5>
+                <button (click)="send_notif(list)" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
+                <small>{{list.createdAt}}</small>
+              </div>
+              <div>
+                <p class="mb-1 mt-1">A patient named {{list.patient_name}} paid an amount of {{list.Amount}} as a payment for one consultation.</p>
+                <p class="mb-1">Patient ID: {{list.patient_id}}</p>
+                <p class="mb-1">Consultation Schedule: {{list.Schedule}}</p>
+                <p class="mb-1">Consultation Fee: {{list.Amount}}</p>
+              </div>
+              <small>Transaction ID: {{list.uid}}</small>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="cancelled">
+          <ul class="list-group py-2 whole-trans">
+            <li *ngFor="let list of tranList" class="list-group-item flex-column align-items-start mt-3">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="name">{{list.Specialization}}: {{list.doctor_name}}</h5>
+                <button (click)="send_notif(list)" class="cancelled1">Cancelled <span><i class="bi bi-close"></i></span></button>
+                <small>{{list.createdAt}}</small>
+              </div>
+              <div>
+                <p class="mb-1 mt-1">A patient named {{list.patient_name}} paid an amount of {{list.Amount}} as a payment for one consultation.</p>
+                <p class="mb-1">Patient ID: {{list.patient_id}}</p>
+                <p class="mb-1">Consultation Schedule: {{list.Schedule}}</p>
+                <p class="mb-1">Consultation Fee: {{list.Amount}}</p>
+              </div>
+              <small>Transaction ID: {{list.uid}}</small>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
 
