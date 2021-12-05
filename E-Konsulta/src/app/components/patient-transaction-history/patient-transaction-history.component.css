@@ -20,7 +20,7 @@ body{
 }
 
 .whole-trans{
-  height: 490px;
+  height: 480px;
   overflow-y: scroll;
   background-color: rgb(238, 238, 238);
   border-radius: 5px;

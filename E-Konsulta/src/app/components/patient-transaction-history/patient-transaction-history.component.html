@@ -15,12 +15,12 @@
         <!--sidenav -->
         <app-patient-sidenav></app-patient-sidenav>
       </div>
-      <div class="col mx-3 mt-4">
+      <div class="col-9 mx-3 mt-4">
         <h5 class="usr">Transaction History</h5>
         <ul class="list-group py-2 whole-trans">
           <li *ngFor="let list of transList" class="list-group-item flex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>{{userInfo.fullname}}</h5>
+              <h5 class="name">{{userInfo.fullname}}</h5>
               <small>{{list.updatedAt}}</small>
             </div>
             <div>
