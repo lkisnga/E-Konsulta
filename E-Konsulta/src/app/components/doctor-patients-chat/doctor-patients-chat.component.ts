@@ -232,6 +232,21 @@ export class DoctorPatientsChatComponent implements OnInit {
       })
     });
   }
+
+  cancel_consultation()
+  {
+    this.userservice.remove_upcoming(this.patientInfo.upcoming_id)
+    .then(()=>{
+      console.log('Upcoming Removed!');
+      console.log('Cancelled Consultation!');
+
+      let record = {};
+      record['title'] = "Consultation Cancelled";
+      record['description'] = "Your consultation has been cancelled.";
+      record['createdAt'] = formatDate(new Date(),'short','en');
+      this.notif.send_patient(this.patientInfo.uid,record);
+    })
+  }
   open(file)
   {
     window.open(file);
