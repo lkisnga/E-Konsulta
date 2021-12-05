@@ -7,11 +7,18 @@ body{
 
 .card{
   margin-top: 70px;
+  margin-right: 50px;
 }
 
 .wizard-title{
   font-size: 24px;
   color: rgb(0, 129, 138);
+}
+.doctor-name,
+.doctor-spec{
+  color: rgb(0, 129, 138);
+  font-weight: 500;
+  font-size: 18px;
 }
 
 #continue{

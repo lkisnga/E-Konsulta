@@ -38,8 +38,8 @@
               <td>{{list.member_ID}}</td>
               <td>{{list.isVerified}}</td>
               <td>
-                <button (click)="verify(list,'verified')" class="btn btn-success" id="verify">Verify</button>
-                <button (click)="verify(list,'declined')" class="btn btn-danger">Decline</button>
+                <button (click)="verify(list,'verified')" class="verify1" id="verify">Verify</button>
+                <button (click)="verify(list,'declined')" class="decline">Decline</button>
               </td>
             </tr>
           </tbody>
@@ -61,7 +61,7 @@
               <td>{{list.member_ID}}</td>
               <td>{{list.isVerified}}</td>
               <td>
-                <button (click)="edit_info(list)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
+                <button (click)="edit_info(list)" class="update-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
               </td>
             </tr>
           </tbody>

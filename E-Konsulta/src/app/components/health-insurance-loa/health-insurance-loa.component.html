@@ -28,8 +28,8 @@
               <td>{{list.createdAt}}</td>
               <td>{{list.fullname}}</td>
               <td>
-                <button (click)="patientInfo = list" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
-                <button (click)="decline_LOA(list.uid)" class="btn btn-danger">Decline</button>
+                <button (click)="patientInfo = list" type="button" class="send1" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
+                <button (click)="decline_LOA(list.uid)" class="decline">Decline</button>
               </td>
             </tr>
           </tbody>

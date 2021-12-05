@@ -47,54 +47,56 @@ small{
   border-radius: 5px;
   padding: 15px 40px;
   font-size: 1rem;
-  background-color: rgb(0, 129, 138);
+  background-color:rgb(0, 146, 156);
   color: white;
   margin-right: 30px;
 }
 .view:hover{
-  background-color: rgb(0, 114, 122);
+  background-color: rgb(0, 129, 138);
 }
 
 .view1{
-  border: none;
-  border-radius: 5px;
-  padding: 15px 140px;
-  font-size: 1rem;
-  background-color: rgb(0, 129, 138);
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: 1px solid white;
+  background-color:rgb(0, 146, 156);
   color: white;
-  margin-bottom: 30px;
-  margin-left: 50px;
+  width: 180px;
+  margin-bottom: 20px;
 }
 .view1:hover{
-  background-color: rgb(0, 114, 122);
+  background-color: rgb(0, 129, 138);
+}
+.view1,
+.send{
+  margin-left: 130px;
 }
 
 .send{
-  border:none;
-  padding: 10px 50px;
-  font-size: 10pt;
+  padding: 7px 10px;
   border-radius: 3px;
-  background-color: rgb(0, 129, 138);
+  border: 1px solid white;
+  background-color:rgb(0, 146, 156);
   color: white;
-  margin-top: 15px;
-  margin-left: 160px;
+  width: 180px;
+  margin-top: 10px;
 }
 .send:hover{
-  background-color: rgb(0, 113, 121);
+  background-color: rgb(0, 129, 138);
 }
 
 .close{
-  border: 1px solid maroon;
+  padding: 7px 10px;
   border-radius: 3px;
-  background-color:white;
-  color: maroon;
-  padding: 5px 20px;
-  font-size: 10pt;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 80px;
 }
 .close:hover{
-  background-color: maroon;
-  color: white;
+  background-color: rgb(211, 0, 0);
 }
+
 input{
   padding: 3px 6px;
 }

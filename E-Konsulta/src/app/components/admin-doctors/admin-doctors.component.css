@@ -19,13 +19,11 @@ h5{
 .doctor{
   margin-top: 70px;
 }
-.btn-group{
-  border: 5px !important;
-}
+
 .pending{
   padding: 7px 10px;
   border-radius: 3px;
-  border: none;
+  border: 1px solid white;
   background-color:rgb(0, 146, 156);
   color: white;
   width: 100px;
@@ -33,7 +31,7 @@ h5{
 .verified{
   padding: 7px 10px;
   border-radius: 3px;
-  border: none;
+  border: 1px solid white;
   background-color:rgb(255, 238, 0);
   width: 100px;
 }

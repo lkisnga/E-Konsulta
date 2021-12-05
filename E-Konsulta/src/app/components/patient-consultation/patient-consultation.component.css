@@ -21,14 +21,14 @@
   background-color: rgb(0, 129, 138);
   color: white;
   padding: 7px 12px;
-  width: 120px;
+  width: 100px;
 }
 .done{
   border-radius: 3px;
   border: 1px solid white;
   background-color:rgb(255, 238, 0);
   padding: 7px 12px;
-  width: 80px;
+  width: 100px;
 }
 .done1{
   border-radius: 3px;

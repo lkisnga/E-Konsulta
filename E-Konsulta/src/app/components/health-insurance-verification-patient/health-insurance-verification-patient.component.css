@@ -1,27 +1,27 @@
 .pending{
+  padding: 7px 10px;
+  border-radius: 3px;
   border: 1px solid white;
-  background-color: rgb(0, 129, 138);
+  background-color:rgb(0, 146, 156);
   color: white;
-  padding: 4px 12px;
+  width: 100px;
 }
 .verified{
+  padding: 7px 10px;
+  border-radius: 3px;
   border: 1px solid white;
-  background-color: red;
-  color: white;
-  padding: 4px 12px;
+  background-color:rgb(255, 238, 0);
+  width: 100px;
 }
 .pending:hover{
   color: rgb(0, 129, 138);
   background-color: rgb(235, 233, 233);
 }
+
 .verified:hover{
-  color: red;
-  background-color: rgb(235, 233, 233);
+  background-color: rgb(241, 217, 0);
 }
-.pending:active,
-.verified:active{
-  background-color: rgb(194, 251, 255);
-}
+
 .usr{
   margin-top: 70px;
   color: rgb(0, 129, 138);
@@ -39,33 +39,32 @@ input:focus{
   border-radius: 3px;
   border: 1px solid gray;
 }
-.cancel,
-.update
-{
-  border:none;
-  padding: 5px 20px;
-  font-size: 10pt;
-  border-radius: 3px;
-}
-.cancel{
-  border: 1px solid maroon;
-  background-color:white;
-  color: maroon;
+.modal-title{
+  color: rgb(0, 129, 138);
 }
 .update{
-  border: 1px solid rgb(0, 129, 138);
-  background-color:white;
-  color: rgb(0, 129, 138);
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: 1px solid white;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  width: 80px;
+}
+.cancel{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 80px;
 }
 
 .cancel:hover{
-  background-color: maroon;
-  color: white;
+  background-color: rgb(211, 0, 0);
 }
 
 .update:hover{
   background-color: rgb(0, 129, 138);
-  color: white;
 }
 
 select{
@@ -75,4 +74,41 @@ select{
 /**/
 #verify{
   margin-right: 5px;
+}
+
+.verify1{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: 1px solid white;
+  background-color:rgb(255, 238, 0);
+  width: 100px;
+}
+.verify1:hover{
+  background-color: rgb(241, 217, 0);
+}
+.decline,
+.remove{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 100px;
+  margin-left: 5px;
+}
+.update-info{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  width: 120px;
+}
+
+.decline:hover{
+  background-color: rgb(211, 0, 0);
+}
+
+.update-info:hover{
+  background-color: rgb(0, 129, 138);
 }
