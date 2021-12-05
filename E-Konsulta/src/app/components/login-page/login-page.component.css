@@ -21,7 +21,7 @@ body{
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(168, 168, 168, 0.24), 0 5px 5px 0 rgba(156, 156, 156, 0.24);
 }
-.form input[type=text], .form input[type=password] {
+.form input[type=email], .form input[type=password] {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -32,7 +32,7 @@ body{
   font-size: 14px;
 }
 
-.form input[type=text]:hover,.form input[type=text]:active,.form input[type=text]:focus,
+.form input[type=email]:hover,.form input[type=email]:active,.form input[type=email]:focus,
 .form input[type=password]:hover,.form input[type=password]:active,.form input[type=password]:focus{
   background: rgb(234, 252, 253);
   color: rgb(0, 129, 138);

@@ -47,7 +47,8 @@
 }
 .pending,
 .join-now,
-.schedule{
+.schedule,
+.cancelC{
   border: none;
   padding: 4px 12px;
 }
@@ -64,6 +65,14 @@
 }
 .join-now:hover{
   background-color: rgb(0, 113, 121);
+}
+.cancelC{
+  color: white;
+  background-color: red;
+  float: right !important;
+}
+.cancelC:hover{
+  background-color: rgb(219, 0, 0);
 }
 #btnSched{
   margin-left: 1%;
