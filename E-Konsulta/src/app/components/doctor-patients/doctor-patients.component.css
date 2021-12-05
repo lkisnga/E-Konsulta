@@ -30,8 +30,7 @@
   color: rgb(0, 129, 138);
   background-color: rgb(235, 233, 233);
 }
-.done:hover,
-.done1:hover{
+.done:hover{
   background-color: rgb(241, 217, 0);
 }
 
@@ -50,6 +49,10 @@
   background-color: transparent;
 }
 .pending{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  width: 120px;
   background-color: rgb(255, 238, 0);
   border-radius: 3px;
 }
