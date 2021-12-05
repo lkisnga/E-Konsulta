@@ -78,18 +78,7 @@ li{
 .paid:hover{
   background-color: rgb(1, 141, 48);
 }
-.cancelled1{
-  border: 1px solid red;
-  border-radius: 5px;
-  text-decoration: none;
-  outline: none;
-  color: white;
-  background-color: red;
-  padding: 2px 14px;
-  cursor: pointer;
-  text-align: center !important;
-  font-size: 14px;
-}
+
 
 small{
   color: gray;
