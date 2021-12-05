@@ -52,20 +52,21 @@
   color: #333;
   padding: 0 10px;
 }
-.pending,
+
 .join-now,
 .schedule,
 .cancelC{
-  border: none;
+
   padding: 4px 12px;
 }
 .schedule{
   background-color: transparent;
+  border: none;
 }
 .pending{
   border: 1px solid white;
   border-radius: 3px;
-  background-color: rgb(0, 129, 138);
+  background-color: green;
   color: white;
   padding: 7px 12px;
   width: 120px;
@@ -82,6 +83,7 @@
   color: white;
   background-color: red;
   float: right !important;
+  border-radius: 3px;
 }
 .cancelC:hover{
   background-color: rgb(219, 0, 0);

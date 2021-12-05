@@ -17,10 +17,14 @@
       <div class="col mx-3 py-4">
         <div *ngIf="sent_message" class="alert alert-success">Successfully Sent!</div>
         <h5 class="usr">Transaction History</h5>
+        <div class="btn-group mt-2">
+          <button class="pending">Pending</button>
+          <button class="cancelled">Cancelled</button>
+        </div>
         <ul class="list-group py-2 whole-trans">
           <li *ngFor="let list of tranList" class="list-group-item flex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>{{list.Specialization}}: {{list.doctor_name}}</h5>
+              <h5 class="name">{{list.Specialization}}: {{list.doctor_name}}</h5>
               <button (click)="send_notif(list)" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
               <small>{{list.createdAt}}</small>
             </div>
