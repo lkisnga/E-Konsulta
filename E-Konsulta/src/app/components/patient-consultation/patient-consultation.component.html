@@ -8,10 +8,10 @@
     <div class="text-left py-2">
       <div class="btn-group my-2">
         <button type="button" class="up" (click)="upcomingFunction()">Upcoming</button>
-        <button type="button" class="done" (click)="doneFunction()">Done</button>
+        <button type="button" class="done1" (click)="doneFunction()">Done</button>
       </div>
       <div *ngIf="upcoming" class="list-group list-group-flush mt-3">
-        <a href="javascript:void(0)" *ngFor="let list of docList" class="list-group-item list-group-item-action">
+        <a href="javascript:void(0)" *ngFor="let list of docList" class="list-group-item">
           <div *ngIf="list.upcoming_status == 'pending'">
             <span class="full-name mb-2 col">{{list.fullname}}</span>
             <button id="btnUpcoming" class="pending">Pending <span><i class="bi bi-stopwatch"></i></span></button>
@@ -29,9 +29,9 @@
           {{error_message}}
       </div>
       <div *ngIf="done" class="list-group list-group-flush mt-3">
-          <a *ngFor="let list of doneList" class="list-group-item list-group-item-action">
+          <a *ngFor="let list of doneList" class="list-group-item">
             <span class="full-name mb-2 col">{{list.fullname}}</span>
-              <button id="btnUpcoming" class="join-now" >Done <span><i class="bi bi-plus-circle-dotted"></i></span></button>
+              <button id="btnUpcoming" class="done1" >Done <span><i class="bi bi-plus-circle-dotted"></i></span></button>
               <button id="btnSched" class="schedule">{{list.consultation_schedule}} | {{list.schedule}} | {{list.time}}</button>
           </a>
       </div>
@@ -48,7 +48,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Cancel Consultation</h5>
       </div>
       <div class="modal-body">
-        Add text here for cancellation 
+        Add text here for cancellation
       </div>
       <div class="modal-footer">
         <button id="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
