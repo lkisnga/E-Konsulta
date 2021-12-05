@@ -23,11 +23,6 @@
                     </button>
                   </div>
                 </div>
-                <div class="row-md-4">
-                  <div class="col-md-6 mt-4">
-                    <p>By clicking Submit, you agree to our <button id="terms" data-bs-toggle="modal" data-bs-target="#termsC">Terms and Conditions</button>.</p>
-                  </div>
-                </div>
                 <div class="row">
                   <div *ngIf="paidFor" class="alert alert-success">
                     Payment Successful! Click Submit Now!
@@ -36,6 +31,14 @@
                 <div class="row">
                   <div *ngIf="error_book.length > 0" class="alert alert-danger">
                     {{error_book}}
+                  </div>
+                </div>
+                <div class="row-md-4">
+                  <div class="col-md-8 mt-4">
+                    <p class="note">*Cancellation of booking allows you to get a refund, subject to a 20% Cancellation Fee. </p>
+                    <p class="note">*Inability to show up to a scheduled consultation without prior cancellation will not be eligible for refunds.
+                    </p>
+                    <p>By clicking "Submit", you agree to these terms.</p>
                   </div>
                 </div>
                 <div class="row">
@@ -50,22 +53,3 @@
     </form>
 </div>
 
-<!--terms modal -->
-<div class="modal fade" id="termsC" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paymentLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="termsLabel">Terms and Conditions</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-      </div>
-      <form action="">
-        <div class="modal-body">
-          <p>sample Text</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="close" data-bs-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <!--</div>-->

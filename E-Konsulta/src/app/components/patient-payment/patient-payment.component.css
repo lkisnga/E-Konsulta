@@ -25,41 +25,11 @@
 #submit:hover{
   background-color: rgb(0, 129, 138);
 }
-
-p, #terms{
-  font-size: 12px;
+.note{
+  font-size: 13px;
+  font-style: italic;
+  color: #333;
 }
-#terms
-{
-  color: rgb(0, 129, 138);
-  cursor: pointer;
-  border: 0;
-  background-color: transparent;
-}
-
-#termsLabel{
-  color: rgb(0, 129, 138);
-}
-
-#terms:hover{
-  text-decoration: underline;
-}
-
-/*modal*/
-.close
-{
-  border:none;
-  padding: 5px 20px;
-  font-size: 10pt;
-  border-radius: 3px;
-}
-.close{
-  border: 1px solid maroon;
-  border-radius: 3px;
-  background-color:white;
-  color: maroon;
-}
-
 /*insurance button*/
 .insurance{
   border: none;
