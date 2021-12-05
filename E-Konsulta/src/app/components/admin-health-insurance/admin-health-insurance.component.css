@@ -29,3 +29,46 @@ select{
 .btn, ::placeholder{
   font-size: 14px !important;
 }
+
+.edit,
+.update{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  width: 80px;
+}
+
+.disable{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 129, 138);
+  color: white;
+  width: 80px;
+}
+.disable:hover{
+  background-color:rgb(2, 105, 112);
+}
+.edit:hover,
+.update:hover{
+  background-color: rgb(0, 129, 138);
+}
+.close,
+.delete,
+.cancel,
+.disable1{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 80px;
+}
+.close:hover,
+.delete:hover,
+.cancel:hover,
+.disable1:hover{
+  background-color: rgb(211, 0, 0);
+}

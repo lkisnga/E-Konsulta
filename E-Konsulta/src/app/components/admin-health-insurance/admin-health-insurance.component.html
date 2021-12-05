@@ -36,8 +36,8 @@
               <td>{{list.address}}</td>
               <td>{{list.disabled}}</td>
               <td>
-                <button (click)="edit_info(list)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editHealth">EDIT</button> &nbsp;
-                <span><button (click)="getID(list.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteHealth">DISABLE</button></span>
+                <button (click)="edit_info(list)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editHealth">EDIT</button> &nbsp;
+                <span><button (click)="getID(list.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteHealth">DISABLE</button></span>
               </td>
             </tr>
           </tbody>
@@ -61,8 +61,8 @@
             Conctact Number: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.contact_number" name="contact_number" type="text" size="39"> <br><br>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+            <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="update" data-bs-dismiss="modal">Update</button>
           </div>
         </form>
       </div>
@@ -79,11 +79,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete?</p>
+          <p>Are you sure you want to disable?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="disable_insurance()" type="button" class="btn btn-info" data-bs-dismiss="modal">Disable</button>
+          <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="disable_insurance()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
         </div>
       </div>
     </div>

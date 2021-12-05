@@ -25,9 +25,9 @@
           <div class="col">
              <!--Add Specialization-->
             <div class="addSpcl">
-              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addSpcl">Add Specialization</button>
+              <button type="button" class="addSp" data-bs-toggle="modal" data-bs-target="#addSpcl">Add Specialization</button>
             <!--Specialization list-->
-              <button type="button" class="btn btn-info spcl" data-bs-toggle="modal" data-bs-target="#spclList">Specialization List</button>
+              <button type="button" class="listSp spcl" data-bs-toggle="modal" data-bs-target="#spclList">Specialization List</button>
             </div>
           </div>
         </div>
@@ -54,11 +54,11 @@
               <td>{{item.license_number}}</td>
               <td>{{item.sp_name}}</td>
               <td *ngIf="item.isVerified == 'verified'">
-                <button type="button" (click)="editInfo(item)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
-                <span><button (click)="editDisable(item.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
+                <button type="button" (click)="editInfo(item)" class="edit" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
+                <span><button (click)="editDisable(item.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
               </td>
               <td *ngIf="item.isVerified == 'pending'">
-                <button type="button" (click)="verify_doctor(item.uid)" class="btn btn-warning">Verify</button>
+                <button type="button" (click)="verify_doctor(item.uid)" class="verify">VERIFY</button>
               </td>
             </tr>
           </tbody>
@@ -75,12 +75,12 @@
         </div>
         <form #specialInfo="ngForm" (ngSubmit)="addSpecialization(specialInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="47"> <br><br>
-            Description: <textarea [(ngModel)]="sp.description" name="description" id="" cols="50" rows="5"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="47"> <br><br>
+            Description: &nbsp;<textarea [(ngModel)]="sp.description" name="description" id="" cols="47" rows="5"></textarea>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Add</button>
+            <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="add" data-bs-dismiss="modal">Add</button>
           </div>
         </form>
       </div>
@@ -111,17 +111,16 @@
                   <th>{{item.name}}</th>
                   <td>{{item.description}}</td>
                   <td>
-                    <button (click)="editSP(item)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editSpcl">EDIT</button>
+                    <button (click)="editSP(item)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editSpcl">EDIT</button>
                   </td>
                   <td>
-                    <button (click)="deleteSP(item.uid)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSpcl">DELETE</button>
+                    <button (click)="deleteSP(item.uid)" class="delete" data-bs-toggle="modal" data-bs-target="#deleteSpcl">DELETE</button>
                   </td>
                 </tr>
               </tbody>
           </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+          <button type="button" class="close" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -151,8 +150,8 @@
             </select>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-info" data-bs-dismiss="modal">Update</button>
+            <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="update" data-bs-dismiss="modal">Update</button>
           </div>
         </form>
       </div>
@@ -169,11 +168,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete?</p>
+          <p>Are you sure you want to disable?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="disableDoctor()" type="button" class="btn btn-info" data-bs-dismiss="modal">Disable</button>
+          <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="disableDoctor()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
         </div>
       </div>
     </div>

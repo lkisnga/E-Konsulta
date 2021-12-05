@@ -70,7 +70,7 @@ body{
   margin-right: 0;
 }
 .custom-file-input::before {
-  content: 'Update Profile';
+  content: 'Choose File';
   color: black;
   display: inline-block;
   border: 1px solid rgb(230, 230, 230);
@@ -186,38 +186,32 @@ input:focus{
 }
 
 .cancel,
-.update,
-.yes,
-.no
-{
-  border:none;
-  padding: 5px 20px;
-  font-size: 10pt;
-  border-radius: 3px;
-}
-.cancel,
 .no{
-  border: 1px solid maroon;
-  background-color:white;
-  color: maroon;
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 80px;
 }
 .update,
 .yes{
-  border: 1px solid rgb(0, 129, 138);
-  background-color:white;
-  color: rgb(0, 129, 138);
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  width: 80px;
 }
 
 .cancel:hover,
 .no:hover{
-  background-color: maroon;
-  color: white;
+  background-color: rgb(211, 0, 0);
 }
 
 .update:hover,
 .yes:hover{
   background-color: rgb(0, 129, 138);
-  color: white;
 }
 
 .register{
