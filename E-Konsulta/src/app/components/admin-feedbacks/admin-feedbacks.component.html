@@ -16,7 +16,7 @@
       <div class="col-9 mx-3 py-4 content">
         <h5>Feedbacks</h5>
         <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of list" class="list-group-item list-group-item-action flex-column align-items-start mt-3"  data-bs-toggle="modal" data-bs-target="#toReply">
+          <li *ngFor="let list of list" class="list-group-item lex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>{{list.from}}</h5>
               <small>{{list.createdAt}}</small>
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-  <!--reply modal-->
+  <!--reply modal
   <div class="modal fade" id="toReply" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -47,7 +47,7 @@
       </div>
     </div>
   </div>
-  <!--reply modal end-->
+  reply modal end-->
 
 </body>
 </html>
