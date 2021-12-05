@@ -22,10 +22,11 @@
           <li *ngFor="let list of transList" class="list-group-item flex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>{{userInfo.fullname}}</h5>
-              <small>{{list.createdAt}}</small>
+              <small>{{list.updatedAt}}</small>
             </div>
             <div>
-              <p class="mb-1">Paid an amount of {{list.Amount}} USD as a payment for one consultation.</p>
+              <p *ngIf="list.status!='refund'" class="mb-1">Paid an amount of {{list.Amount}} USD as a payment for one consultation.</p>
+              <p *ngIf="list.status=='refund'" class="mb-1">Received an amount of {{list.Amount}} USD for refund.</p>
               <p class="mb-1">Schedule: {{list.Schedule}}</p>
               <p class="mb-1">{{list.Specialization}}: {{list.doctor_name}}</p>
             </div>

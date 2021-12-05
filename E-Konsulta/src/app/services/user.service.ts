@@ -861,10 +861,9 @@ export class UserService {
   }
   get_patient_transaction(patient_id)
   {
-    return this.db.firestore.collection('Transaction').where('patient_id','==',patient_id).get();
+    return this.db.firestore.collection('Transaction').where('patient_id','==',patient_id)
+    .orderBy("updatedAt",'asc').get();
   }
-
-
 
   create_sharedFile(record)
   {
