@@ -36,8 +36,8 @@
               <td>{{list.fullname}}</td>
               <td>{{list.status}}</td>
               <td>
-                <button (click)="verify('verified',list)" class="btn btn-success" id="verify">Verify</button>
-                <button (click)="verify('declined',list)" class="btn btn-danger">Decline</button>
+                <button (click)="verify('verified',list)" class="verify1" id="verify">Verify</button>
+                <button (click)="verify('declined',list)" class="decline">Decline</button>
               </td>
             </tr>
           </tbody>
@@ -57,7 +57,7 @@
               <td>{{list.fullname}}</td>
               <td>{{list.status}}</td>
               <td>
-                <button (click)="verify('declined',list.uid)" class="btn btn-danger">Remove</button>
+                <button (click)="verify('declined',list.uid)" class="remove">Remove</button>
               </td>
             </tr>
           </tbody>
