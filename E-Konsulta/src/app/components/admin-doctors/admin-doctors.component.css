@@ -23,15 +23,19 @@ h5{
   border: 5px !important;
 }
 .pending{
-  border: 1px solid white;
-  background-color: rgb(0, 129, 138);
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color:rgb(0, 146, 156);
   color: white;
-  padding: 7px 12px;
+  width: 100px;
 }
 .verified{
-  border: 1px solid white;
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
   background-color:rgb(255, 238, 0);
-  padding: 7px 12px;
+  width: 100px;
 }
 .pending:hover{
   color: rgb(0, 129, 138);
@@ -113,6 +117,9 @@ select, textarea{
   background-color:red;
   color: white;
   width: 80px;
+}
+.close{
+  float: right;
 }
 .close:hover,
 .delete:hover,
