@@ -13,7 +13,6 @@ body{
 .lower-part{
   background-color: rgb(238, 238, 238);
   border-radius: 5px;
-  width: 930px;
   height: 380px;
   padding: 7px 35px;
   margin-left: 25px;
@@ -46,6 +45,9 @@ input{
   padding: 3px 6px;
 }
 
+input:focus{
+  outline: 0;
+}
 select{
   width: 325px;
   padding: 3px 6px;

@@ -5,7 +5,7 @@
       <!--sidenav -->
       <app-lab-partner-sidenav></app-lab-partner-sidenav>
     </div>
-      <div class="col m-4">
+      <div class="col-9 mt-4 mx-3">
         <div class="row">
           <!--Add Result-->
         <div class="addRqst">
@@ -65,7 +65,7 @@
           </div>
           <form #info="ngForm" (ngSubmit)="addRequest(info.value)">
             <div class="modal-body">
-              Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="40"> <br><br>
+              Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="email" size="40"> <br><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
