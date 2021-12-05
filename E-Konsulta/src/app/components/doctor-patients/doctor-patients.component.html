@@ -12,7 +12,7 @@
       </div>
       <div *ngIf="upcoming" class="list-group list-group-flush mt-2">
         <div *ngFor="let list of userList">
-           <a (click)="chat(list)" class="list-group-item list-group-flush list-group-item-action">
+           <a (click)="chat(list)" class="list-group-item list-group-flush">
             <div *ngIf="list.upcoming_status == 'pending'">
               <span class="full-name mb-2 col">{{list.fullname}}</span>
               <button id="btnUpcoming" class="pending" >Accept <span><i class="bi bi-check-circle"></i></span></button>
@@ -29,9 +29,9 @@
       <div *ngIf="done" class="list-group list-group-flush mt-2">
         <div>
           <div *ngFor="let list of doneList">
-            <a class="list-group-item list-group-item-action">
+            <a class="list-group-item">
                 <span class="full-name mb-2 col">{{list.fullname}}</span>
-                <button id="btnUpcoming" class="done" >Done <span><i class="bi bi-check-circle"></i></span></button>
+                <button id="btnUpcoming" class="done1" >Done <span><i class="bi bi-check-circle"></i></span></button>
                 <button id="btnSched" class="schedule">{{list.consultation_schedule}} | {{list.schedule}} | {{list.schedtime}}</button>
             </a>
           </div>

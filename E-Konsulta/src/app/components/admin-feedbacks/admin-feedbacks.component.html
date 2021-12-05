@@ -16,7 +16,7 @@
       <div class="col-9 mx-3 py-4 content">
         <h5>Feedbacks</h5>
         <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of list" class="list-group-item list-group-item-action flex-column align-items-start mt-3"  data-bs-toggle="modal" data-bs-target="#toReply">
+          <li *ngFor="let list of list" class="list-group-item lex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
               <h5 mb-1>{{list.from}}</h5>
               <small>{{list.createdAt}}</small>
@@ -29,25 +29,6 @@
         </ul>
       </div>
     </div>
-
-  <!--reply modal-->
-  <div class="modal fade" id="toReply" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Reply</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-        </div>
-        <div class="modal-body">
-          <textarea name="" id="" cols="70" rows="5" placeholder="Write a reply..."></textarea>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="submit1" data-bs-dismiss="modal">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--reply modal end-->
 
 </body>
 </html>

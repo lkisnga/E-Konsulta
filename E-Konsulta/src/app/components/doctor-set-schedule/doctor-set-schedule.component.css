@@ -8,16 +8,16 @@
 }
 
 #set{
-  color: rgb(0, 129, 138);
-  border: 1px solid rgb(0, 129, 138);
+  padding: 7px 10px;
   border-radius: 3px;
-  background-color: transparent;
-  padding: 3px 12px;
+  border: none;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  width: 80px;
 }
 
 #set:hover{
   background-color: rgb(0, 129, 138);
-  color: white;
 }
 
 #schedule{
@@ -28,8 +28,8 @@
 /*days*/
 .btn-group .day
 {
-  border: 1px solid rgb(0, 111, 119);
-  background-color: rgb(0, 129, 138);
+  border: 1px solid rgb(0, 145, 0);
+  background-color: rgb(0, 145, 0);
   padding: 6px 20px;
   color: white;
 }
@@ -39,7 +39,7 @@
 }
 
 .btn-group .day:hover{
-  background-color: rgb(0, 94, 100);
+  background-color: rgb(0, 128, 0);
 }
 
 /*edit*/
@@ -48,7 +48,7 @@
   background-color: red;
   color: white;
   border-radius: 3px;
-  padding: 4px 12px;
+  padding: 7px 12px;
   font-size: 12px;
   margin-left: 15px;
   float: right !important;
@@ -71,17 +71,16 @@
 
 /*close*/
 .close{
-  background-color:white;
-  color: maroon;
-  padding: 5px 20px;
-  font-size: 10pt;
-  border: 1px solid maroon;
+  padding: 7px 10px;
   border-radius: 3px;
+  border: none;
+  background-color:red;
+  color: white;
+  width: 80px;
 }
 
 .close:hover{
-  background-color: maroon;
-  color: white;
+  background-color: rgb(211, 0, 0);
 }
 
 .limit
