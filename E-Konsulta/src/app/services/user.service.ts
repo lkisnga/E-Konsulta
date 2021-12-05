@@ -441,6 +441,25 @@ export class UserService {
       status: "ongoing"
     })
   }
+  cancel_consultation(info)
+  {
+   return this.db.firestore.collection('upcoming').doc(info.upcoming_id).delete()
+    .then(()=>{
+      console.log("upcoming Deleted!");
+    return  this.db.firestore.collection('Transaction').where('patient_id','==',info.patient_id)
+      .where('consultation_schedule','==',info.consultation_schedule).get()
+      .then(e=>{
+        e.forEach(item=>{
+          if(item.exists)
+          {
+          return this.db.firestore.collection('Transaction').doc(item.id).update({
+              status: "cancelled"
+            })
+          }
+        })
+      })
+    })
+  }
 
   get_upcoming(upcoming_id)
   {
@@ -502,6 +521,7 @@ export class UserService {
       status: "pending",
       schedule: data.schedule,
       time : data.schedtime,
+      paymentType: data.paymentType,
       consultation_schedule: data.consultation_schedule
     })
   }

@@ -16,12 +16,12 @@
             <span class="full-name mb-2 col">{{list.fullname}}</span>
             <button id="btnUpcoming" class="pending">Pending <span><i class="bi bi-stopwatch"></i></span></button>
             <button id="btnSched" class="schedule"> {{list.consultation_schedule}} | {{list.schedule}} | {{list.schedtime}}</button>
-         </div>
+            <button *ngIf="list.paymentType == 'paypal'" (click)="editCancel(list)" class="cancelC" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel Consultation</button>
+          </div>
          <div *ngIf="list.upcoming_status == 'ongoing'">
           <span class="full-name mb-2 col">{{list.fullname}}</span>
            <button (click)="chat(list)" id="btnUpcoming" class="join-now" >Join now <span><i class="bi bi-plus-circle-dotted"></i></span></button>
            <button id="btnSched" class="schedule">{{list.consultation_schedule}} | {{list.schedule}} | {{list.schedtime}}</button>
-           <button (click)="editCancel(list)" class="cancelC" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel Consultation</button>
          </div>
         </a>
       </div>

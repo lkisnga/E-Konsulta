@@ -82,6 +82,7 @@ export class PatientConsultationComponent implements OnInit {
             data.schedtime = e.doc.data().time;
             data.upcoming_id = e.doc.id;
             data.consultation_schedule = e.doc.data().consultation_schedule;
+            data.paymentType = e.doc.data().paymentType;
             data.image = img.data().image;
             data.uid = a.id;
             if(e.type == 'added')
@@ -105,8 +106,15 @@ export class PatientConsultationComponent implements OnInit {
   cancel()
   {
     console.log(this.info);
+    let record = {};
+    record['patient_id'] = this.userid;
+    record['upcoming_id'] = this.info.upcoming_id;
+    record['consultation_schedule'] = this.info.consultation_schedule;
+    this.userservice.cancel_consultation(record).then(()=>{
+      console.log('Transaction Cancelled!');
+      this.ngOnInit();
+    })
     document.getElementById('closeModal').click();
-
     this.info = [];
   }
   get_done()

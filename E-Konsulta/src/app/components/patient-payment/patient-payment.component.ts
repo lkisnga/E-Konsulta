@@ -30,6 +30,8 @@ export class PatientPaymentComponent implements OnInit {
   schedTime: string = "";
   userInfo:any = JSON.parse(localStorage.getItem('Users'));
   spent:number = 0;
+
+  paymentType : string = "";
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -72,6 +74,7 @@ export class PatientPaymentComponent implements OnInit {
       onApprove: async (data, actions) =>{
         const order = await actions.order.capture();
         this.paidFor = true;
+        this.paymentType = "paypal";
         console.log(this.sched + this.schedTime);
         //record to be created in Transaction Collection 
         let record = {};
@@ -83,6 +86,7 @@ export class PatientPaymentComponent implements OnInit {
         record['Specialization'] = this.docInfo.ins;
         record['patient_id'] = this.userId;
         record['Schedule'] = this.sched + ' ' + this.schedTime;
+        record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         record['Amount'] = order.purchase_units[0].amount.value;
         record['createdAt'] = formatDate(new Date(),'short','en');
         record['updatedAt'] = formatDate(new Date(),'short','en');
@@ -127,6 +131,7 @@ export class PatientPaymentComponent implements OnInit {
                 this.userservice.pay_insurance(this.userId,record).then(()=>{
                   console.log('Paid!');
                   this.paidFor = true;
+                  this.paymentType = "insurance";
                 })
               }
               else
@@ -184,6 +189,7 @@ export class PatientPaymentComponent implements OnInit {
         record['patient_id'] = this.userId;
         record['schedule'] = this.sched;
         record['schedtime'] = this.schedTime;
+        record['paymentType'] = this.paymentType;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');
