@@ -194,20 +194,20 @@ a:hover{
 .prescription,
 .loa,
 .medicalCertificate{
+  padding: 7px 10px;
+  border-radius: 3px;
   border: 1px solid white;
-  background-color: rgb(0, 129, 138);
+  background-color:rgb(0, 146, 156);
   color: white;
-  padding: 4px 12px;
+  width: 150px;
 }
 .medical:hover,
 .lab:hover,
 .prescription:hover,
 .loa:hover,
 .medicalCertificate:hover{
-  color: rgb(0, 129, 138);
-  background-color: rgb(235, 233, 233);
+  background-color: rgb(0, 129, 138);
 }
-
 .bi-eye-fill{
   font-size: 20px;
   margin-left: 10px;

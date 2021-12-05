@@ -15,6 +15,9 @@ body{
 .mb-1{
   font-size: 14px;
 }
+.name{
+  color: rgb(0, 129, 138);
+}
 
 .whole-trans{
   height: 490px;

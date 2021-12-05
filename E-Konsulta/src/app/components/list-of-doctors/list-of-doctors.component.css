@@ -26,26 +26,39 @@
 }
 
 .card-text{
-  font-size: 11px !important;
+  font-size: 12px !important;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*view Button*/
 .view{
-  border: 1px solid rgb(0, 129, 138);
-  border-radius: 40px;
+  border: none;
+  border-radius: 5px;
   text-decoration: none;
   outline: none;
-  color: rgb(0, 129, 138);
-  padding: 2px 15px;
+  background-color:rgb(0, 146, 156);
+  color: white;
+  padding: 4px 15px;
   cursor: pointer;
   float: right;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .view:hover{
-  color: white;
   background-color: rgb(0, 129, 138);
 }
+
+.card-title{
+  font-size: 17px;
+  white-space: nowrap;
+  width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {

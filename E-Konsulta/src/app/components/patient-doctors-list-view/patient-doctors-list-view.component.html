@@ -8,8 +8,8 @@
         <div class="card">
           <div class="card-body px-4">
             <div class="col py-3">
-              Doctor: {{docInfo.fullname}}
-              <p>Specialization: {{docInfo.ins}}</p>
+              <p class="doctor-name">Doctor: {{docInfo.fullname}}</p>
+              <p class="doctor-spec">Specialization: {{docInfo.ins}}</p>
             </div>
               <form #form="ngForm" (ngSubmit)="submit(form.value)">
                 <div id="schedule-container">

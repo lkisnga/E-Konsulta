@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +20,7 @@
         <ul class="list-group py-2 whole-trans">
           <li *ngFor="let list of transList" class="list-group-item flex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>{{userInfo.fullname}}</h5>
+              <h5 class="name">{{userInfo.fullname}}</h5>
               <small>{{list.createdAt}}</small>
             </div>
             <div>
