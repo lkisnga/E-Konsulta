@@ -52,27 +52,17 @@ input{
 input:focus{
   outline: 0;
 }
-.send{
-  padding: 5px 20px;
-  font-size: 10pt;
-  border-radius: 3px;
-  border: 1px solid rgb(0, 129, 138);
-  background-color:white;
-  color: rgb(0, 129, 138);
-}
-.send:hover{
-  background-color: rgb(0, 94, 100);
-  color: white;
-}
 
+.send,
 .send1{
   padding: 7px 10px;
   border-radius: 3px;
-  border: 1px solid white;
+  border: none;
   background-color:rgb(0, 146, 156);
   color: white;
   width: 100px;
 }
+.send:hover,
 .send1:hover{
   background-color: rgb(0, 129, 138);
 }

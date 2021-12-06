@@ -79,12 +79,12 @@
           </div>
           <form #form="ngForm" (ngSubmit)="update_info(form.value)">
             <div class="modal-body">
-              <p>Insurance Package: <input [(ngModel)]="userIns.Package" name="Package" type="text" size="35" required></p>
-              <p>Currently Spent:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="userIns.spent" name="spent" type="text" size="35"></p>
+              <p>Insurance Package: <input [(ngModel)]="userIns.Package" name="Package" type="text" size="32" required></p>
+              <p>Currently Spent:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="userIns.spent" name="spent" type="text" size="32"></p>
               <p>Limit: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input [(ngModel)]="userIns.limit" name="limit" type="text" size="35"></p>
+                <input [(ngModel)]="userIns.limit" name="limit" type="text" size="32"></p>
               <p>Balance:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input [(ngModel)]="balance" name="balance" type="text" size="35">
+                <input [(ngModel)]="balance" name="balance" type="text" size="32">
               </p>
               <p>Last Update: {{userIns.updatedAt}}</p>
             </div>

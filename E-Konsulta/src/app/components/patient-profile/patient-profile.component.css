@@ -265,7 +265,7 @@ input:focus{
 }
 .send{
   border:none;
-  padding: 4px 65px;
+  padding: 4px 30px;
   font-size: 14px;
   border-radius: 3px;
   background-color: rgb(0, 129, 138);
