@@ -76,6 +76,8 @@
 }
 .join-now:hover{
   background-color: rgb(0, 129, 138);
+  transform: scale(1.1);
+  transition: ease .25s;
 }
 .cancelC{
   color: white;

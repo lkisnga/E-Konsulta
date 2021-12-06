@@ -43,6 +43,7 @@ i{
   border: 0;
   color: white;
   background-color: transparent;
+  padding: 0 8px;
 }
 
 .stop-local{
@@ -56,6 +57,7 @@ i{
   border: 0;
   color: white;
   background-color: transparent;
+  padding: 0 8px;
 }
 
 .hangup{
