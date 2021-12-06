@@ -1,16 +1,29 @@
-<div class="footer shadow-sm">
-  <div class="row justify-content-center">
-    <div class="col"></div>
+<div class="footer">
+  <div class="row g-0 justify-content-evenly text-center">
+    <div class="col-md-4 border-end">
+      <p class="year">
+        <span><img class="logo ms-2" src="./assets/images/ekIcon1.ico" width="40" height="40"
+          alt="E-Konsulta"></span>
+         E-Konsulta.</p>
+    </div>
+    <div class="col-md-4">
+      <p><i class="bi bi-envelope-fill"></i><span class="ms-2 d-none d-sm-inline">lineuparray@gmail.com</span></p>
+    </div>
+    <div class="col-md-4">
+      <a [routerLink]="['/user-feedbacks']">Send Feedback</a>
+    </div>
   </div>
-  <!--
-  <div class="d-flex w-100 justify-content-center">
-    <p class="year">&copy; {{currentYear}} All rights reserved </p>
-    <a [routerLink]="['/terms-and-conditions']" class="terms">Terms and Conditions</a>
-    <p><i class="bi bi-envelope-fill"></i><span class="ms-2 d-none d-sm-inline">lineuparray@gmail.com</span></p>
-    <a [routerLink]="['/user-feedbacks']">Send Feedback</a>
-    <a [routerLink]="['/user-complaints']">Complaints</a>
+  <div class="row g-0 justify-content-evenly text-center">
+    <div class="col-md-4 border-end">
+      <p>All rights reserved {{currentYear}}.</p>
+    </div>
+    <div class="col-md-4">
+      <a [routerLink]="['/terms-and-conditions']" class="terms">Terms and Conditions</a>
+    </div>
+    <div class="col-md-4">
+      <a [routerLink]="['/user-complaints']">Complaints</a>
+    </div>
   </div>
-  -->
 </div>
 
 
