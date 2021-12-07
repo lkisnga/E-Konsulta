@@ -15,7 +15,78 @@
         <!--sidenav -->
         <app-patient-sidenav></app-patient-sidenav>
       </div>
-      <div class="col-9 mx-3 mt-4">
+      <div class="col mx-3 mt-4">
+        <div class="whole-trans">
+          <div class="top-part">
+            <p class="top-text">Transaction History</p>
+          </div>
+          <div class="row mx-2">
+            <div class="col-md-4">
+              <input [(ngModel)]="doc_name" (input)="get_transaction()" type="text" class="form-control rounded" placeholder="Search DoctorName" aria-label="Search">
+            </div>
+            <div class="col-md-3 .offset-md-3">
+              <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="get_transaction()">
+                <option value="" selected>Select Status</option>
+                <option value="sucessful">Successful</option>
+                <option value="refund">Cancelled</option>
+              </select>
+            </div>
+            <div class="col-md-2 align-content-end">
+              <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="get_transaction()">
+                <option value="" selected>Select</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-2 mt-4">
+            <div class="col-md-2">
+              <p class="upper">Date</p>
+            </div>
+            <div class="col-md-3">
+              <p class="upper">Doctor</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper">Schedule</p>
+            </div>
+            <div class="col-md-1">
+              <p class="upper">Fee</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper">Transaction ID</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper">Status</p>
+            </div>
+          </div>
+
+          <div *ngFor="let list of transList" class="row justify-content-evenly mx-2">
+            <div class="col-md-2">
+              <p class="content">{{list.updatedAt}}</p>
+            </div>
+            <div class="col-md-3">
+              <p class="content">{{list.Specialization}}: {{list.doctor_name}}</p>
+            </div>
+            <div class="col-md-2">
+              <p class="content">{{list.Schedule}}</p>
+            </div>
+            <div class="col-md-1">
+              <p class="content">{{list.Amount}}</p>
+            </div>
+            <div class="col-md-2">
+              <p class="content">{{list.uid}}</p>
+            </div>
+            <div class="col-md-2">
+              <p *ngIf="list.status!='refund'" class="content content-success">Successful</p>
+              <p *ngIf="list.status=='refund'" class="content content-cancel">Cancelled</p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <!--
         <h5 class="usr">Transaction History</h5>
         <div class="input-group mb-3 row">
           <input [(ngModel)]="doc_name" (input)="get_transaction()" type="text" class="form-control col" placeholder="Search DoctorName" aria-label="Search">
@@ -40,6 +111,7 @@
             <small>Transaction ID: {{list.uid}}</small>
           </li>
         </ul>
+      -->
       </div>
     </div>
 
