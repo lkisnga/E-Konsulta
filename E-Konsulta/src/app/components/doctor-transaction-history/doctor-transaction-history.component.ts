@@ -22,7 +22,7 @@ export class DoctorTransactionHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.afu.get_UID();
     this.get_transaction();
-  }
+ }
 
   get_transaction()
   {

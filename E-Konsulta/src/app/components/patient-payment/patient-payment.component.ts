@@ -88,8 +88,9 @@ export class PatientPaymentComponent implements OnInit {
         record['Schedule'] = this.sched + ' ' + this.schedTime;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         record['Amount'] = order.purchase_units[0].amount.value;
-        record['createdAt'] = formatDate(new Date(),'short','en');
+        record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
         record['updatedAt'] = formatDate(new Date(),'short','en');
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
         this.userservice.create_transaction(record).then(()=>{
           console.log('Added to transaction!');
         });

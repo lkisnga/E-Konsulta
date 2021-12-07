@@ -17,15 +17,23 @@
       </div>
       <div class="col-9 mx-3 mt-4">
         <h5 class="usr">Transaction History</h5>
+        <div class="input-group mb-3 row">
+          <input [(ngModel)]="doc_name" (input)="get_transaction()" type="text" class="form-control col" placeholder="Search DoctorName" aria-label="Search">
+          <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="get_transaction()">
+            <option value="" selected>Select Status</option>
+            <option value="refund">Cancelled</option>
+          </select>
+        </div>
         <ul class="list-group py-2 whole-trans">
           <li *ngFor="let list of transList" class="list-group-item flex-column align-items-start mt-3">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="name">{{userInfo.fullname}}</h5>
+              <h5 *ngIf="list.status!='refund'" class="name">Successful Consultation</h5>
+              <h5 *ngIf="list.status=='refund'" class="name">Consultation Cancelled</h5>
               <small>{{list.updatedAt}}</small>
             </div>
             <div>
-              <p *ngIf="list.status!='refund'" class="mb-1">Paid an amount of {{list.Amount}} USD as a payment for one consultation.</p>
-              <p *ngIf="list.status=='refund'" class="mb-1">Received an amount of {{list.Amount}} USD for refund.</p>
+              <p *ngIf="list.status!='refund'" class="mb-1">You Paid an amount of {{list.Amount}} USD as a payment for one consultation.</p>
+              <p *ngIf="list.status=='refund'" class="mb-1">Received an amount of {{list.net_income}} USD for refund.</p>
               <p class="mb-1">Schedule: {{list.Schedule}}</p>
               <p class="mb-1">{{list.Specialization}}: {{list.doctor_name}}</p>
             </div>

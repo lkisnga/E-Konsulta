@@ -453,7 +453,9 @@ export class UserService {
           if(item.exists)
           {
           return this.db.firestore.collection('Transaction').doc(item.id).update({
-              status: "cancelled"
+              status: "cancelled",
+              updatedAt: formatDate(new Date(),'short','en'),
+              id: new Date(formatDate(new Date(),'short','en')).getTime()
             })
           }
         })
@@ -862,7 +864,7 @@ export class UserService {
   get_patient_transaction(patient_id)
   {
     return this.db.firestore.collection('Transaction').where('patient_id','==',patient_id)
-    .orderBy("updatedAt",'asc').get();
+    .orderBy("id",'desc').get();
   }
 
   create_sharedFile(record)

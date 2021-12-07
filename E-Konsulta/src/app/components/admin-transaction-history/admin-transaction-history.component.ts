@@ -136,7 +136,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
       record = {};
       record['title'] = "Refund"
-      record['description'] = "You have received an amount of " + (info.Amount-(info.Amount*(info.deduction/100))) + "(Inclusive of 20% cancellation fee)";
+      record['description'] = "You have received an amount of " + (info.Amount-(info.Amount*(20/100))) + "(Inclusive of 20% cancellation fee)";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_patient(info.patient_id,record);
 

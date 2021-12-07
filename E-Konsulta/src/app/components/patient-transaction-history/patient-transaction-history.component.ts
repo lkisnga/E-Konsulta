@@ -12,6 +12,9 @@ export class PatientTransactionHistoryComponent implements OnInit {
   userId : string = "";
   transList : any = [];
 
+  status: string = "";
+  doc_name: string = "";
+
   constructor(
     public userservice : UserService,
     public afu : AuthService
@@ -25,6 +28,7 @@ export class PatientTransactionHistoryComponent implements OnInit {
 
   get_transaction()
   {
+    console.log(this.status);
     var data;
     var tempArray = [];
     this.userservice.get_patient_transaction(this.userId).then(e=>{
@@ -33,8 +37,15 @@ export class PatientTransactionHistoryComponent implements OnInit {
         data.uid = item.id;
         tempArray.push(data);
       })
+    }).then(()=>{
+      this.transList = tempArray.filter(e=>{
+        if(e.status != undefined && e.doctor_name != undefined)
+        {
+          return e.status.toLocaleLowerCase().match(this.status.toLocaleLowerCase())
+          && e.doctor_name.toLocaleLowerCase().match(this.doc_name.toLocaleLowerCase());
+        }
+      });
     })
-    this.transList = tempArray;
     console.log(this.transList);
   }
   get_userInfo()
