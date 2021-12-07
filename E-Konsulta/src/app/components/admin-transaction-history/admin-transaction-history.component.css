@@ -1,66 +1,58 @@
-body{
-  overflow: hidden;
-  font-size: 14px;
-  height: 100% !important;
-  width: 100% !important;
-  min-height: 100vh;
-  background: #f5f5f5;
-}
-.usr{
-  color: rgb(0, 129, 138);
-  margin-top: 70px;
-}
-
-.name{
-  color: rgb(0, 129, 138);
-}
-.pending{
-  border: 1px solid white;
-  border-radius: 3px;
-  background-color:rgb(0, 146, 156);
-  color: white;
-  padding: 7px 12px;
-  width: 120px;
-}
-.cancelled{
-  border-radius: 3px;
-  border: 1px solid white;
-  background-color:red;
-  color: white;
-  padding: 7px 12px;
-  width: 120px;
-}
-.pending:hover{
-  color: rgb(0, 129, 138);
-  background-color: white;
-}
-
-.cancelled:hover{
-  background-color: rgb(211, 0, 0);
-}
-
-.list-group-item{
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  color: #333;
-  font-size: 13px;
-}
-li{
-  position: relative;
-}
-
-.mb-1{
-  font-size: 14px;
-}
-
 .whole-trans{
-  height: 490px;
-  overflow-y: scroll;
-  background-color: rgb(238, 238, 238);
-  border-radius: 5px;
-  padding: 15px 30px;
-  margin-top: 20px;
-  width: 1000px;
+  height: 530px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 3px;
+  margin-top: 60px;
 }
+
+.top-part{
+  background-color: rgb(243, 243, 243);
+  border: none;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
+}
+
+.top-text{
+  color: rgb(0, 129, 138);
+  font-size: 18px;
+  padding: 10px 0 10px 15px;
+  font-weight: 500;
+}
+.upper{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input,
+select,
+option,
+.content{
+  font-size: 13px !important;
+}
+.upper-trans{
+  width: 50px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+}
+.content-id,
+.content-trans{
+  font-size: 10px;
+  width: 50px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+}
+.content-success{
+  color: green;
+}
+.content-cancel{
+  color: red;
+}
+
+
 
 .paid{
   border: 1px solid rgb(0, 153, 51);
@@ -69,7 +61,7 @@ li{
   outline: none;
   color: white;
   background-color: rgb(0, 153, 51);
-  padding: 2px 14px;
+  padding: 2px 4px;
   cursor: pointer;
   text-align: center !important;
   font-size: 14px;
@@ -80,6 +72,3 @@ li{
 }
 
 
-small{
-  color: gray;
-}

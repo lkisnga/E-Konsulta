@@ -14,7 +14,90 @@
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
-      <div class="col mx-3 py-4">
+      <div class="col mx-3 mt-4">
+        <div class="whole-trans">
+          <div class="top-part">
+            <p class="top-text">Transaction History</p>
+          </div>
+          <div class="row mx-2">
+            <div class="col-md-4">
+              <input type="text" class="form-control rounded" placeholder="Search PatientName" aria-label="Search">
+            </div>
+            <div class="col-md-3 .offset-md-3">
+              <select  class="form-select col" name="" id="">
+                <option value="" selected>Select Status</option>
+                <option value="sucessful">Successful</option>
+                <option value="refund">Cancelled</option>
+              </select>
+            </div>
+            <div class="col-md-2 align-content-end">
+              <select class="form-select col" name="" id="" >
+                <option value="" selected>Month</option>
+              </select>
+            </div>
+            <div class="col-md-2 align-content-end">
+              <select class="form-select col" name="" id="">
+                <option value="" selected>Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-2 mt-4">
+            <div class="col-md-2">
+              <p class="upper">Date</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper">Patient</p>
+            </div>
+            <div class="col-md-1">
+              <p class="upper">ID</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper">Schedule</p>
+            </div>
+            <div class="col-md-1">
+              <p class="upper">Fee</p>
+            </div>
+            <div class="col-md-1">
+              <p class="upper upper-trans">Transaction ID</p>
+            </div>
+            <div class="col-md-1">
+              <p class="upper">Status</p>
+            </div>
+            <div class="col-md-1">
+              <p class="upper">Action</p>
+            </div>
+          </div>
+
+          <div *ngFor="let list of tranList" class="row justify-content-evenly mx-2">
+            <div class="col-md-2">
+              <p class="content">{{list.updatedAt}}</p>
+            </div>
+            <div class="col-md-2">
+              <p class="content">{{list.patient_name}}</p>
+            </div>
+            <div class="col-md-1">
+              <p class="content-id">{{list.patient_id}}</p>
+            </div>
+            <div class="col-md-2">
+              <p class="content">{{list.Schedule}}</p>
+            </div>
+            <div class="col-md-1">
+              <p class="content">{{list.Amount}}</p>
+            </div>
+            <div class="col-md-1">
+              <p class="content-trans">{{list.uid}}</p>
+            </div>
+            <div class="col-md-1">
+              <p *ngIf="list.status!='refund'" class="content content-success">Successful</p>
+              <p *ngIf="list.status=='refund'" class="content content-cancel">Cancelled</p>
+            </div>
+            <div class="col-md-1">
+              <button (click)="send_notif(list)" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
+            </div>
+          </div>
+        </div>
+
+        <!--
         <h5 class="usr">Transaction History</h5>
         <div class="btn-group mt-3">
           <button class="pending" (click)="pendingFunction()">Pending</button>
@@ -57,7 +140,7 @@
             </li>
           </ul>
         </div>
-
+      -->
       </div>
     </div>
 
