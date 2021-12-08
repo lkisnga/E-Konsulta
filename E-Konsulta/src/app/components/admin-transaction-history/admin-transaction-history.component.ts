@@ -19,17 +19,6 @@ export class AdminTransactionHistoryComponent implements OnInit {
     public userservice : UserService,
     public notif: NotificationService
   ) { }
-  pending = true;
-  cancelled = false;
-
-  pendingFunction(){
-    this.pending = true;
-    this.cancelled = false;
-  }
-  cancelledFunction(){
-   this.pending = false;
-   this.cancelled = true;
-  }
 
   ngOnInit(): void {
 
