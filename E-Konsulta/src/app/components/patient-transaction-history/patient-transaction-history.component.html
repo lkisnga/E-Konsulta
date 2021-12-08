@@ -51,9 +51,6 @@
             <div class="col-md-3">
               <p class="upper">Doctor</p>
             </div>
-            <div class="col-md-2">
-              <p class="upper">Schedule</p>
-            </div>
             <div class="col-md-1">
               <p class="upper">Fee</p>
             </div>
@@ -67,23 +64,20 @@
 
           <div *ngFor="let list of transList" class="row justify-content-evenly mx-2">
             <div class="col-md-2">
-              <p class="content">{{list.updatedAt}}</p>
+              <p class="content">{{list.createdAt}}</p>
             </div>
             <div class="col-md-3">
-              <p class="content">{{list.Specialization}}: {{list.doctor_name}}</p>
-            </div>
-            <div class="col-md-2">
-              <p class="content">{{list.Schedule}}</p>
+              <p class="content">{{list.specialization}}: {{list.doctor_name}}</p>
             </div>
             <div class="col-md-1">
               <p class="content">{{list.Amount}}</p>
             </div>
             <div class="col-md-2">
-              <p class="content">{{list.uid}}</p>
+              <p class="content">{{list.transaction_id}}</p>
             </div>
             <div class="col-md-2">
-              <p *ngIf="list.status=='pending'" class="content content-success">Pending</p>
-              <p *ngIf="list.status=='refund'" class="content content-cancel">Cancelled</p>
+              <p *ngIf="list.status=='done'" class="content content-success">Done</p>
+              <p *ngIf="list.status=='cancel'" class="content content-cancel">Cancelled</p>
             </div>
           </div>
 
