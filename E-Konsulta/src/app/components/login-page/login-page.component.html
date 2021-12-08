@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,10 @@
   <title>Landing Page</title>
 </head>
 <body>
-  <!--header section -->
+
   <app-header></app-header>
 
-  <!--Login-->
+
   <div class="login-page">
     <div class="form">
       <h3>Login</h3>
@@ -32,5 +33,79 @@
     </div>
     </div>
   </div>
+</body>
+</html>
+
+-->
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+<title>Login </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="wrap d-md-flex">
+          <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+            <div class="text w-100">
+              <h2>Welcome to login</h2>
+              <p>Don't have an account?</p>
+              <a [routerLink]="['/register-as']" class="btn btn-white btn-outline-white">Sign Up</a>
+            </div>
+          </div>
+          <div class="login-wrap p-4 p-lg-5">
+            <div class="d-flex">
+              <div class="w-100">
+                <h3 class="mb-4">Sign In</h3>
+              </div>
+            </div>
+            <form class="signin-form" (ngSubmit)="login()">
+              <div class="form-group mb-3">
+                <label class="label" for="name">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Email Address" required>
+              </div>
+              <div class="form-group mb-3">
+                <label class="label" for="password">Password</label>
+                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+              </div>
+              <div class="form-group d-md-flex">
+                <div class="w-100 text-md-right">
+                  <a class="forgot" routerLink='/forgot-password'>Forgot Password</a>
+                </div>
+              </div>
+            </form>
+            <div class="form-group">
+              <p *ngIf="errorMessage.length > 0" class="text-danger">
+                  {{errorMessage}}</p>
+
+              <p *ngIf="error.message.length > 0" class="text-danger">
+                  {{error.message}} </p>
+
+                  <p *ngIf="message.length > 0" class="text-info">
+                      {{message}} </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js+bootstrap.min.js+main.js.pagespeed.jc.iqDpUqoRp9.js"></script><script>eval(mod_pagespeed_qBnQ96WPW1);</script>
+<script>eval(mod_pagespeed__CEwjG2SSu);</script>
+<script>eval(mod_pagespeed_oaROQS6dN_);</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v64f9daad31f64f81be21cbef6184a5e31634941392597" integrity="sha512-gV/bogrUTVP2N3IzTDKzgP0Js1gg4fbwtYB6ftgLbKQu/V8yH2+lrKCfKHelh4SO3DPzKj4/glTO+tNJGDnb0A==" data-cf-beacon='{"rayId":"6ba37da1884a1995","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.11.0","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>
