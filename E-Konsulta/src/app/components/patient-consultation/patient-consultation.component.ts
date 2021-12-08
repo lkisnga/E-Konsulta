@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationService } from 'src/app/services/notification.service';
@@ -86,6 +86,7 @@ export class PatientConsultationComponent implements OnInit {
             data.upcoming_id = e.doc.id;
             data.consultation_schedule = e.doc.data().consultation_schedule;
             data.paymentType = e.doc.data().paymentType;
+            data.transaction_id = e.doc.data().transaction_id;
             data.image = img.data().image;
             data.uid = a.id;
             if(e.type == 'added')
@@ -106,14 +107,19 @@ export class PatientConsultationComponent implements OnInit {
   {
     this.info = info;
   }
+  
   cancel()
   {
     console.log(this.info);
     let record = {};
     record['patient_id'] = this.userid;
     record['upcoming_id'] = this.info.upcoming_id;
-    record['consultation_schedule'] = this.info.consultation_schedule;
-    this.userservice.cancel_consultation(record).then(()=>{
+    record['transaction_id'] = this.info.transaction_id;
+    document.getElementById('closeModal').click();
+    this.info = [];
+  }
+
+  /*
       console.log('Transaction Cancelled!');
 
       //send notification for cancellation
@@ -130,11 +136,7 @@ export class PatientConsultationComponent implements OnInit {
       record['description'] = "A Patient cancelled its consultation";
       this.notif.send_doctor(this.info.uid,record);
       
-      this.ngOnInit();
-    })
-    document.getElementById('closeModal').click();
-    this.info = [];
-  }
+      this.ngOnInit();*/
   get_done()
   {
     var data;
