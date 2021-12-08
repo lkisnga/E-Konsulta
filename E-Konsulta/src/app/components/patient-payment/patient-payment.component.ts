@@ -32,6 +32,8 @@ export class PatientPaymentComponent implements OnInit {
   spent:number = 0;
 
   paymentType : string = "";
+
+  transaction_id : string = "";
   constructor(
     public userservice : UserService,
     public afu : AuthService,
@@ -80,6 +82,7 @@ export class PatientPaymentComponent implements OnInit {
         let record = {};
         record['status'] = "pending";
         record['deduction'] = 10;
+        record['patient_id'] = this.userId;
         record['doctor_id'] = this.docInfo.uid;
         record['Specialization'] = this.docInfo.ins;
         
@@ -88,15 +91,19 @@ export class PatientPaymentComponent implements OnInit {
         record['Amount'] = order.purchase_units[0].amount.value;
         //use for transaction Sorting
         record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
-        record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy, HH:mm a','en');
+        record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
         record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
 
         //use for transaction filtering
         var data2 = new Date();
         record['monthUpdated'] = data2.getMonth()+1;  
         
-        this.userservice.create_transaction(this.userId,record).then(()=>{
+        this.userservice.create_transaction(record).then((e)=>{
           console.log('Added to transaction!');
+
+          //passing transaction ID for UPCOMING
+          this.transaction_id = e.id;
+
         });
       },
       onError: err => {
@@ -192,10 +199,13 @@ export class PatientPaymentComponent implements OnInit {
         let record = {}
         record['doctor_id'] = this.docInfo.uid;
         record['patient_id'] = this.userId;
+        record['transaction_id'] = this.transaction_id;
         record['schedule'] = this.sched;
-        record['schedtime'] = this.schedTime;
+        record['time'] = this.schedTime;
         record['paymentType'] = this.paymentType;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
+        record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+        record['status'] = 'pending'
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');
           

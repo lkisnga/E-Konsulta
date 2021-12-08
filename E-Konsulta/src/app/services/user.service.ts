@@ -493,11 +493,22 @@ export class UserService {
   }
   get_transaction_admin()// admin side
   {
-    return this.db.firestore.collection('Transaction').get();
+    return this.db.firestore.collection('Transaction').orderBy('id','desc').get();
   }
   update_transaction_admin(id,record)
   {
-    return this.db.firestore.collection('Transaction').doc(id).update(record);
+    return this.db.firestore.collection('Transaction').doc(id).update(record)
+    .then(()=>{
+      console.log(id + " Transaction Updated!");
+    })
+  }
+  add_transactionHistory(record)
+  {
+    return this.db.firestore.collection('Transaction_History').add(record);
+  }
+  get_transactionHistory()
+  {
+    return this.db.firestore.collection('Transaction_History').orderBy('id','desc').get();
   }
   get_transaction_doctor(doctor_id)
   {
@@ -516,16 +527,7 @@ export class UserService {
   create_doctor_upcoming(data)
   {
     return this.db.firestore.collection('upcoming')
-    .add({
-      createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
-      patient_id: data.patient_id,
-      doctor_id: data.doctor_id,
-      status: "pending",
-      schedule: data.schedule,
-      time : data.schedtime,
-      paymentType: data.paymentType,
-      consultation_schedule: data.consultation_schedule
-    })
+    .add(data)
   }
   check_upcoming(doc_id,pat_id)
   {
@@ -857,16 +859,18 @@ export class UserService {
     })
   }
 
-  create_transaction(id,record)
+  create_transaction(record)
   {
-    return this.db.firestore.collection('Users').doc(id).collection('Transaction').add(record)
-    .then(e=>{
-      this.db.firestore.collection('Transaction').add({
-        patient_transaction_id: e.id,
-        patient_id: id,
-        status: "pending",
-      })
-    })
+    return this.db.firestore.collection('Transaction').add(record);
+  }
+  create_transactionHistory_User(id,record)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Transaction_History')
+    .add(record);
+  }
+  delete_transaction(id)
+  {
+    return this.db.firestore.collection('Transaction').doc(id).delete();
   }
   get_patient_transaction(patient_id)
   {

@@ -209,6 +209,7 @@ export class DoctorPatientsChatComponent implements OnInit {
       record['doctor_id'] = e.data().doctor_id;
       record['patient_id'] = e.data().patient_id;
       record['schedule'] = e.data().schedule;
+      record['transaction_id'] = e.data().transaction_id;
       record['consultation_schedule'] = e.data().consultation_schedule;
       record['time'] = e.data().time;
       record['status'] = "done";
@@ -216,6 +217,9 @@ export class DoctorPatientsChatComponent implements OnInit {
       this.userservice.remove_upcoming(this.patientInfo.upcoming_id).then(()=>{
         console.log('Upcoming removed!')
 
+        let record2= {};
+        record2['status'] = "done"; 
+        this.userservice.update_transaction_admin(this.patientInfo.transaction_id,record2);
         this.userservice.remove_share(this.userid,this.patientInfo.uid);
 
       }).then(()=>{
