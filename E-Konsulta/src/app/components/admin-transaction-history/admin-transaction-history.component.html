@@ -14,18 +14,18 @@
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
-      <div class="col mx-3 mt-4">
+      <div class="col mt-4">
         <div class="whole-trans">
           <div class="top-part">
-            <p class="top-text">Transaction</p>
+            <p class="top-text">Transactions</p>
           </div>
           <div style="margin-bottom: 1%;" class="container-fluid">
-            <button *ngIf="transac" (click)="tabFunction('th')" class="btn btn-info">Transaction History</button>
-            <button *ngIf="!transac" (click)="tabFunction('t')" class="btn btn-warning">Transaction</button>
+            <button *ngIf="transac" (click)="tabFunction('th')" class="transc-his">Transaction History</button>
+            <button *ngIf="!transac" (click)="tabFunction('t')" class="transc">Transaction</button>
           </div>
           <div class="row mx-2">
             <div class="col-md-4">
-              <input type="text" class="form-control rounded" placeholder="Search PatientName" aria-label="Search">
+              <input type="text" class="form-control" placeholder="Search PatientName" aria-label="Search">
             </div>
             <div class="col-md-3 .offset-md-3">
               <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="Transactions()">
@@ -48,115 +48,115 @@
           </div>
 
           <div *ngIf="transac">
-            <div class="row mx-2 mt-4">
+            <div class="row g-0 mt-4">
               <div class="col-md-2">
-                <p class="upper">Date</p>
-              </div>
-              <div class="col-md-2">
-                <p class="upper">Patient</p>
-              </div>
-              <div class="col-md-1">
-                <p class="upper">Doctor</p>
+                <p class="upper text-center border-bottom">Date</p>
               </div>
               <div class="col-md-2">
-                <p class="upper">Schedule</p>
+                <p class="upper text-center border-bottom">Patient</p>
               </div>
               <div class="col-md-1">
-                <p class="upper">Fee</p>
+                <p class="upper text-center border-bottom">Doctor</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Schedule</p>
               </div>
               <div class="col-md-1">
-                <p class="upper upper-trans">Transaction ID</p>
+                <p class="upper text-center border-bottom">Fee</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">XID</p>
               </div>
               <div class="col-md-1">
-                <p class="upper">Status</p>
+                <p class="upper text-center border-bottom">Status</p>
               </div>
               <div class="col-md-1">
-                <p class="upper">Action</p>
+                <p class="upper text-center border-bottom">Action</p>
               </div>
             </div>
 
-            <div *ngFor="let list of tranList" class="row justify-content-evenly mx-2">
+            <div *ngFor="let list of tranList" class="row g-0 justify-content-evenly">
               <div class="col-md-2">
-                <p class="content">{{list.updatedAt}}</p>
-              </div>
-              <div class="col-md-2">
-                <p class="content">{{list.patient_name}}</p>
-              </div>
-              <div class="col-md-1">
-                <p class="content">{{list.doctor_name}}</p>
+                <p class="content text-center border-bottom">{{list.updatedAt}}</p>
               </div>
               <div class="col-md-2">
-                <p class="content">{{list.Schedule}}</p>
+                <p class="content text-center border-bottom">{{list.patient_name}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content">{{list.Amount}}</p>
+                <p class="content text-center border-bottom">{{list.doctor_name}}</p>
+              </div>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom">{{list.Schedule}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content-trans">{{list.uid}}</p>
+                <p class="content text-center border-bottom">{{list.Amount}}</p>
+              </div>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom">{{list.uid}}</p>
               </div>
               <div class="col-md-1">
-                <p *ngIf="list.status=='pending'" class="content content-success">Pending</p>
+                <p *ngIf="list.status=='pending'" class="content content-success text-center border-bottom">Pending</p>
                 <div *ngIf="list.status=='done' || list.status == 'cancel'">
                   <p *ngIf="list.status=='done'" class="content content-success">Successful</p>
                   <p *ngIf="list.status=='cancel'"  class="content content-cancel">Cancellation</p>
                 </div>
               </div>
               <div class="col-md-1">
-                <button (click)="send_notif(list)" *ngIf="list.status=='done'" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
-                <button *ngIf="list.status=='cancel'" class="btn-danger">Cancel</button>
+                <button (click)="send_notif(list)" *ngIf="list.status=='done'" class="paid text-center border-bottom">Pay <span><i class="bi bi-money"></i></span></button>
+                <button *ngIf="list.status=='cancel'" class="btn-danger text-center border-bottom">Cancel</button>
               </div>
             </div>
           </div>
 
           <div *ngIf="transac_his">
-            <div class="row mx-2 mt-4">
+            <div class="row g-0 mt-4">
               <div class="col-md-2">
-                <p class="upper">Date</p>
-              </div>
-              <div class="col-md-2">
-                <p class="upper">Patient</p>
-              </div>
-              <div class="col-md-1">
-                <p class="upper">Doctor</p>
+                <p class="upper text-center border-bottom">Date</p>
               </div>
               <div class="col-md-2">
-                <p class="upper">Schedule</p>
+                <p class="upper text-center border-bottom">Patient</p>
               </div>
               <div class="col-md-1">
-                <p class="upper">Amount</p>
+                <p class="upper text-center border-bottom">Doctor</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Schedule</p>
               </div>
               <div class="col-md-1">
-                <p class="upper upper-trans">Transaction ID</p>
+                <p class="upper text-center border-bottom">Amount</p>
               </div>
-              <div class="col-md-1">
-                <p class="upper">Status</p>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">XID</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Status</p>
               </div>
             </div>
 
-            <div *ngFor="let list of tranHis" class="row justify-content-evenly mx-2">
+            <div *ngFor="let list of tranHis" class="row g-0 justify-content-evenly">
               <div class="col-md-2">
-                <p class="content">{{list.createdAt}}</p>
-              </div>
-              <div class="col-md-2">
-                <p class="content">{{list.patient_name}}</p>
-              </div>
-              <div class="col-md-1">
-                <p class="content">{{list.doctor_name}}</p>
+                <p class="content text-center border-bottom">{{list.createdAt}}</p>
               </div>
               <div class="col-md-2">
-                <p class="content">{{list.Schedule}}</p>
+                <p class="content text-center border-bottom">{{list.patient_name}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content">{{list.Amount}}</p>
+                <p class="content text-center border-bottom">{{list.doctor_name}}</p>
+              </div>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom">{{list.Schedule}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content-trans">{{list.uid}}</p>
+                <p class="content text-center border-bottom">{{list.Amount}}</p>
               </div>
-              <div class="col-md-1">
-                <p *ngIf="list.status=='pending'" class="content content-success">Pending</p>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom">{{list.uid}}</p>
+              </div>
+              <div class="col-md-2">
+                <p *ngIf="list.status=='pending'" class="content content-success text-center border-bottom">Pending</p>
                 <div *ngIf="list.status=='done' || list.status == 'cancel'">
-                  <p *ngIf="list.status=='done'" class="content content-success">Successful</p>
-                  <p *ngIf="list.status=='cancel'"  class="content content-cancel">Cancellation</p>
+                  <p *ngIf="list.status=='done'" class="content content-success text-center border-bottom">Successful</p>
+                  <p *ngIf="list.status=='cancel'"  class="content content-cancel text-center border-bottom">Cancellation</p>
                 </div>
               </div>
             </div>
