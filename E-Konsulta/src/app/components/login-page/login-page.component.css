@@ -295,6 +295,10 @@ h3{
   color: #000;
 }
 
+.app-name{
+  color: rgb(241, 241, 241);
+}
+
 .forgot{
   float: right !important;
   padding: 5px 10px;
