@@ -857,16 +857,27 @@ export class UserService {
     })
   }
 
-  create_transaction(record)
+  create_transaction(id,record)
   {
-    return this.db.firestore.collection('Transaction').add(record);
+    return this.db.firestore.collection('Users').doc(id).collection('Transaction').add(record)
+    .then(e=>{
+      this.db.firestore.collection('Transaction').add({
+        patient_transaction_id: e.id,
+        patient_id: id,
+        status: "pending",
+      })
+    })
   }
   get_patient_transaction(patient_id)
   {
-    return this.db.firestore.collection('Transaction').where('patient_id','==',patient_id)
-    .orderBy("id",'desc').get();
+    return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction')
+    .get();
   }
-
+  get_transactionInfo(patient_id,transaction_id)
+  {
+   return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction').doc(transaction_id)
+    .get();
+  }
   create_sharedFile(record)
   {
     return this.db.firestore.collection('Shared_Files').add(record);

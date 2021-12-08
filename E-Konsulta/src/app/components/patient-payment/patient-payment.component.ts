@@ -80,18 +80,22 @@ export class PatientPaymentComponent implements OnInit {
         let record = {};
         record['status'] = "pending";
         record['deduction'] = 10;
-        record['net_income'] = 0;
-        record['doctor_name'] = this.docInfo.fullname;
         record['doctor_id'] = this.docInfo.uid;
         record['Specialization'] = this.docInfo.ins;
-        record['patient_id'] = this.userId;
+        
         record['Schedule'] = this.sched + ' ' + this.schedTime;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         record['Amount'] = order.purchase_units[0].amount.value;
+        //use for transaction Sorting
         record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
-        record['updatedAt'] = formatDate(new Date(),'short','en');
+        record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy, HH:mm a','en');
         record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
-        this.userservice.create_transaction(record).then(()=>{
+
+        //use for transaction filtering
+        var data2 = new Date();
+        record['monthUpdated'] = data2.getMonth()+1;  
+        
+        this.userservice.create_transaction(this.userId,record).then(()=>{
           console.log('Added to transaction!');
         });
       },

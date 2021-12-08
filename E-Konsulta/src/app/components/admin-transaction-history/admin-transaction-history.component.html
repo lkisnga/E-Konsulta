@@ -49,7 +49,7 @@
               <p class="upper">Patient</p>
             </div>
             <div class="col-md-1">
-              <p class="upper">ID</p>
+              <p class="upper">Doctor</p>
             </div>
             <div class="col-md-2">
               <p class="upper">Schedule</p>
@@ -76,7 +76,7 @@
               <p class="content">{{list.patient_name}}</p>
             </div>
             <div class="col-md-1">
-              <p class="content-id">{{list.patient_id}}</p>
+              <p class="content">{{list.doctor_name}}</p>
             </div>
             <div class="col-md-2">
               <p class="content">{{list.Schedule}}</p>
@@ -88,11 +88,12 @@
               <p class="content-trans">{{list.uid}}</p>
             </div>
             <div class="col-md-1">
-              <p *ngIf="list.status!='refund'" class="content content-success">Successful</p>
-              <p *ngIf="list.status=='refund'" class="content content-cancel">Cancelled</p>
+              <p *ngIf="list.status == 'pending'" class="content content-success">Pending</p>
+              <p *ngIf="list.status == 'done'" class="content content-success">Successful</p>
+              <p *ngIf="list.status == 'cancel'" class="content content-cancel">Cancelled</p>
             </div>
             <div class="col-md-1">
-              <button (click)="send_notif(list)" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
+              <button class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
             </div>
           </div>
         </div>

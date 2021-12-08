@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -15,6 +16,9 @@ export class PatientTransactionHistoryComponent implements OnInit {
   status: string = "";
   doc_name: string = "";
 
+  year: string = "";
+  month: string = "";
+
   constructor(
     public userservice : UserService,
     public afu : AuthService
@@ -24,29 +28,49 @@ export class PatientTransactionHistoryComponent implements OnInit {
     this.userId = this.afu.get_UID();
     this.get_transaction();
     this.get_userInfo();
+    this.getYears();
+    this.getMonth();
   }
 
+  getYears()
+  {
+    var tempArray = [];
+    let year = new Date().getFullYear();
+    for(let i = 0; i < 101 ; i++)
+    {
+      tempArray[i]  = year + i;
+    }
+    return tempArray;
+  }
+
+  getMonth()
+  {
+    var tempArray = [];
+    for(let i = 0; i<12;i++)
+    {
+      tempArray[i] = i+1;
+    }
+    return tempArray;
+    
+  }
   get_transaction()
   {
-    console.log(this.status);
+    console.log(this.year);
     var data;
     var tempArray = [];
     this.userservice.get_patient_transaction(this.userId).then(e=>{
       e.forEach(item=>{
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
+        this.userservice.get_UserInfo(item.data().doctor_id).then(es=>{
+          data = item.data();
+          data.uid = item.id;
+          data.doctor_name = es.data().fullname;
+          tempArray.push(data);
+        })
       })
     }).then(()=>{
-      this.transList = tempArray.filter(e=>{
-        if(e.status != undefined && e.doctor_name != undefined)
-        {
-          return e.status.toLocaleLowerCase().match(this.status.toLocaleLowerCase())
-          && e.doctor_name.toLocaleLowerCase().match(this.doc_name.toLocaleLowerCase());
-        }
-      });
+      console.log(tempArray);
+      this.transList = tempArray;
     })
-    console.log(this.transList);
   }
   get_userInfo()
   {

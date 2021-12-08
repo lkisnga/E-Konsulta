@@ -33,37 +33,35 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.doctorTransac();
+    this.Transactions();
     this.cancelledList();
 
   }
 
-  doctorTransac()
+  Transactions()
   {
     var data;
     var tempArray = [];
     this.userservice.get_transaction_admin().then(e=>{
       e.forEach(item=>{
-        if(item.data().status == 'pending')
-        {
-          this.userservice.get_UserInfo(item.data().doctor_id).then(es=>{
-            this.userservice.get_UserInfo(item.data().patient_id).then(as=>{
-              if(as.exists)
-              {
-                data = item.data();
-                data.doctor_name = es.data().fullname;
-                console.log(as.data().fullname);
-                data.patient_name = as.data().fullname;
-                data.uid = item.id;
-                tempArray.push(data);
-              }
+        this.userservice.get_UserInfo(item.data().patient_id)
+        .then(as=>{
+          this.userservice.get_transactionInfo(as.id,item.data().patient_transaction_id)
+          .then(res=>{
+            this.userservice.get_UserInfo(res.data().doctor_id).then(docInfo=>{
+              data = res.data();
+              data.uid = item.id;
+              data.patient_name = as.data().fullname;
+              data.doctor_name = docInfo.data().fullname;
+              tempArray.push(data);
+            }).then(()=>{
+              this.tranList = tempArray;
+              console.log(this.tranList)
             })
           })
-        }
+        })
       })
     })
-    this.tranList = tempArray;
-    //console.log(this.tranList);
   }
 
   cancelledList()
