@@ -13,14 +13,14 @@
         <!--sidenav -->
         <app-doctor-sidenav></app-doctor-sidenav>
       </div>
-      <div class="col mx-3 mt-4">
+      <div class="col mt-4">
         <div class="whole-trans">
           <div class="top-part">
             <p class="top-text">Transaction History</p>
           </div>
           <div class="row mx-2">
             <div class="col-md-4">
-              <input (input)="get_transaction()" type="text" class="form-control rounded" placeholder="Search PatientName" aria-label="Search">
+              <input (input)="get_transaction()" type="text" class="form-control" placeholder="Search PatientName" aria-label="Search">
             </div>
             <div class="col-md-3 .offset-md-3">
               <select  class="form-select col" name="" id="" (change)="get_transaction()">
@@ -40,52 +40,52 @@
               </select>
             </div>
           </div>
-          <div class="row mx-2 mt-4">
+          <div class="row g-0 mt-4">
             <div class="col-md-2">
-              <p class="upper">Date</p>
+              <p class="upper text-center border-bottom">Date</p>
             </div>
             <div class="col-md-1">
-              <p class="upper">Patient</p>
+              <p class="upper text-center border-bottom">Patient</p>
             </div>
             <div class="col-md-2">
-              <p class="upper">Schedule</p>
+              <p class="upper text-center border-bottom">Schedule</p>
             </div>
             <div class="col-md-1">
-              <p class="upper">Fee</p>
+              <p class="upper text-center border-bottom">Fee</p>
             </div>
             <div class="col-md-2">
-              <p class="upper">Transaction ID</p>
+              <p class="upper text-center border-bottom">Transaction ID</p>
             </div>
             <div class="col-md-1">
-              <p class="upper">Status</p>
+              <p class="upper text-center border-bottom">Status</p>
             </div>
             <div class="col-md-1">
-              <p class="upper">Deductions</p>
+              <p class="upper text-center border-bottom">Deductions</p>
             </div>
             <div class="col-md-2">
-              <p class="upper">Net Income</p>
+              <p class="upper text-center border-bottom">Net Income</p>
             </div>
           </div>
 
-          <div *ngFor="let list of tranList" class="row justify-content-evenly mx-2">
+          <div *ngFor="let list of tranList" class="row g-0 justify-content-evenly">
             <div class="col-md-2">
-              <p class="content">{{list.updatedAt}}</p>
+              <p class="content text-center border-bottom">{{list.updatedAt}}</p>
             </div>
             <div class="col-md-1">
-              <p class="content">{{list.patient_name}}</p>
+              <p class="content text-center border-bottom">{{list.patient_name}}</p>
             </div>
             <div class="col-md-2">
-              <p class="content">{{list.Schedule}}</p>
+              <p class="content text-center border-bottom">{{list.Schedule}}</p>
             </div>
             <div class="col-md-1">
-              <p class="content">{{list.Amount}}</p>
+              <p class="content text-center border-bottom">{{list.Amount}}</p>
             </div>
             <div class="col-md-2">
-              <p class="content">{{list.uid}}</p>
+              <p class="content text-center border-bottom">{{list.uid}}</p>
             </div>
             <div class="col-md-1">
-              <p *ngIf="list.status!='refund'" class="content content-success">Successful</p>
-              <p *ngIf="list.status=='refund'" class="content content-cancel">Cancelled</p>
+              <p *ngIf="list.status!='refund'" class="content content-success text-center border-bottom">Successful</p>
+              <p *ngIf="list.status=='refund'" class="content content-cancel text-center border-bottom">Cancelled</p>
             </div>
             <div class="col-md-1">
               <p class="content">30.00</p>
