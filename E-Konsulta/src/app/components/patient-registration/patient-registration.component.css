@@ -1,118 +1,173 @@
-body{
-  min-height: 100vh;
-  background: #f5f5f5;
-}
-
-/*registration form*/
-
-.register-page {
-  width: 360px;
-  margin: auto;
-  top: 10px;
-  position: relative;
-  bottom: 0;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin:auto;
-  padding: 10px 20px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(119, 119, 119, 0.24), 0 5px 5px 0 rgba(112, 112, 112, 0.24);
-}
-.form input[type=text], .form input[type=email], .form input[type=password],.form input[type=date], .form select{
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 10px;
-  padding: 12px;
+/*registration*/
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-size: 14px;
 }
 
-input[type="date"]:before {
-  content: attr(placeholder) !important;
-  margin-right: 5.7em;
-  color: rgb(0, 129, 138);
-}
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
-  color: rgb(0, 129, 138);
+body{
+    min-height: 100vh;
+    background: #f5f5f5;
+  }
+
+.ftco-section {
+  padding: 2em 0;
 }
 
-.form input[type=text]:hover, .form input[type=text]:active, .form input[type=text]:focus,
-.form input[type=email]:hover, .form input[type=email]:active, .form input[type=email]:focus,
-.form input[type=password]:hover, .form input[type=password]:active, .form input[type=password]:focus,
-.form input[type=date]:hover, .form input[type=date]:active, .form input[type=date]:focus{
-  background: rgb(234, 252, 253);
-}
+.heading-section {
+  font-size: 28px;
+  color: #000; }
 
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.wrap {
   width: 100%;
-  border: 0;
-  border-radius: 3px;
-  padding: 10px;
-  color: rgb(0, 129, 138);
-  background-color: rgb(189, 249, 255);
-  font-size: 20px;
-  transition: all 0.3 ease;
+  border-radius: 5px;
+  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); }
+
+.text-wrap {
+  width: 40%;
+}
+.login-wrap{
+  width: 60%;
+}
+
+  @media (max-width: 991.98px)
+  {
+    .text-wrap, .login-wrap {
+      width: 100%; }
+    }
+
+.text-wrap {
+  background: rgb(0, 222, 238);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 146, 156) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  color: #fff;
+}
+  .text-wrap .text h2 {
+    font-weight: 900;
+    color: #fff; }
+
+.login-wrap {
+  position: relative;
+  background: #fff;
+ }
+
+.login-wrap h3 {
+    font-weight: 300;
+  }
+
+.form-group {
+  position: relative;
+}
+.form-group .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+    font-weight: 700;
+  }
+.form-group a {
+    color: gray;
+}
+
+.form-control {
+  height: 48px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  font-size: 16px;
+  border-radius: 50px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: all 0.2s ease-in-out;
+}
+  @media (prefers-reduced-motion: reduce) {
+    .form-control {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; }
+    }
+  .form-control::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .form-control:focus, .form-control:active {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.07);
+    border-color: transparent; }
+
+
+
+.btn {
   cursor: pointer;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 50px;
 }
 
-.form button:hover,.form button:active,.form button:focus {
+ .btn:hover, .btn:active, .btn:focus {
+    outline: none;
+  }
+
+.btn.btn-primary {
   background: rgb(0, 129, 138);
-  color: white;
+  border: none;
+  color: #fff;
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
 }
-/*
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: rgb(0, 192, 206);
-  text-decoration: none;
-} */
 
-a{
-  text-decoration: none;
+.btn.btn-primary:hover {
+  border: 1px solid rgb(0, 146, 156);
+  background: rgb(0, 146, 156);
+  color: #fff;
+}
+.btn.btn-white {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.btn.btn-white:hover {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.btn.btn-white.btn-outline-white {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.btn.btn-white.btn-outline-white:hover {
+  border: 1px solid transparent;
+  background: #fff;
+  color: #000;
+}
+
+.app-name{
+  color: rgb(241, 241, 241);
+}
+
+.terms{
   color: rgb(0, 129, 138);
-}
-a:hover{
-  color: rgb(0, 152, 163);
-}
-
-h3{
-    color: rgb(0, 129, 138);
-}
-::placeholder{
-    color: rgb(0, 129, 138);
-}
-
-label{
-  font-size: 12px;
-}
-
-.agree{
-  float: left;
-  margin-bottom: 10px;
+  text-decoration: none;
 }
 
 .terms:hover{
   text-decoration: underline;
 }
 
-@media screen and (max-width: 600px)
-{
-  .register-page {
-    position: relative;
-    width: 100%;
-  }
-}
