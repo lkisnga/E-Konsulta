@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./doctor-registration.component.css']
 })
 export class DoctorRegistrationComponent implements OnInit {
-  
+
   spList : any = [];
 
   model = new DoctorForm();
@@ -47,4 +47,9 @@ export class DoctorRegistrationComponent implements OnInit {
   {
     this.error = {name : '', message : ''};
   }
+
+  // registration design
+  
+
+
 }

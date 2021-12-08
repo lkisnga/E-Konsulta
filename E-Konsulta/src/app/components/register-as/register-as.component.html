@@ -1,46 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<title>Login </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <app-header></app-header>
-<div class="container">
-  <div class="row justify-content-md-center mt-4">
-    <form class="mt-4" action="">
-      <div class="inside">
-        <div class="row justify-content-center py-2">
-          <div class="col-md-3">
-            <p class="iam">I AM A</p>
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="wrap d-md-flex">
+          <div class="login-wrap p-2 p-lg-5 text-center d-flex align-items-center order-md-last">
+            <div class="text w-100">
+              <h3>I am a...</h3>
+              <div class="form-group">
+                <button [routerLink]="['/doctor-registration']" class="form-control btn btn-primary submit px-3">Doctor</button>
+                <button [routerLink]="['/patient-registration']" class="form-control btn btn-primary submit px-3">Patient</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row justify-content-center py-2">
-          <div class="col-md-3">
-            <button  [routerLink]="['/doctor-registration']" type="button" class="bttn py-2">
-              <span class="button-icon"><i class="bi bi-person-check"></i></span>
-              <span class="button-text">Doctor</span>
-            </button>
-          </div>
-        </div>
-        <div class="row justify-content-center py-2">
-          <div class="col-md-3">
-            <button  [routerLink]="['/patient-registration']" type="button" class="bttn1 py-2">
-              <span class="button-icon"><i class="bi bi-people"></i></span>
-              <span class="button-text">Patient</span>
-            </button>
+          <div class="text-wrap p-4 p-lg-5">
+            <div class="text w-100">
+              <img class="logo" src="./assets/images/ekIcon1.ico" width="80" height="80" alt="E-Konsulta">
+                <h1>E-Konsulta</h1>
+            </div>
           </div>
         </div>
       </div>
-    </form>
-  </div>
+    </div>
 </div>
+</section>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js+bootstrap.min.js+main.js.pagespeed.jc.iqDpUqoRp9.js"></script><script>eval(mod_pagespeed_qBnQ96WPW1);</script>
+<script>eval(mod_pagespeed__CEwjG2SSu);</script>
+<script>eval(mod_pagespeed_oaROQS6dN_);</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v64f9daad31f64f81be21cbef6184a5e31634941392597" integrity="sha512-gV/bogrUTVP2N3IzTDKzgP0Js1gg4fbwtYB6ftgLbKQu/V8yH2+lrKCfKHelh4SO3DPzKj4/glTO+tNJGDnb0A==" data-cf-beacon='{"rayId":"6ba37da1884a1995","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.11.0","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-<!--
-<app-footer></app-footer>
--->
