@@ -60,17 +60,20 @@ export class PatientTransactionHistoryComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_patient_transaction(this.userId).then(e=>{
       e.forEach(item=>{
-        this.userservice.get_UserInfo(item.data().doctor_id).then(es=>{
-          data = item.data();
-          data.uid = item.id;
-          data.doctor_name = es.data().fullname;
-          tempArray.push(data);
+        this.userservice.get_UserInfo(item.data().doctor_id)
+        .then(res=>{
+          this.userservice.get_specializationInfo(res.data().specialization)
+          .then(as=>{
+            data = item.data();
+            data.specialization = as.data().name;
+            data.doctor_name = res.data().fullname;
+            tempArray.push(data);
+          })
         })
       })
-    }).then(()=>{
-      console.log(tempArray);
-      this.transList = tempArray;
     })
+    this.transList = tempArray;
+    console.log(this.transList);
   }
   get_userInfo()
   {

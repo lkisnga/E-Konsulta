@@ -116,7 +116,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['Amount'] = info.Amount;
       record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
-      record['doctor_name'] = info.doctor_name;
+      record['doctor_id'] = info.doctor_id;
       record['status'] = info.status;
       record['transaction_id'] = e.id;
       this.userservice.create_transactionHistory_User(info.patient_id,record)

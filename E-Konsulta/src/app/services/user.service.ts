@@ -874,7 +874,7 @@ export class UserService {
   }
   get_patient_transaction(patient_id)
   {
-    return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction')
+    return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction_History')
     .get();
   }
   get_transactionInfo(patient_id,transaction_id)
