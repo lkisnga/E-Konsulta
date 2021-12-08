@@ -11,18 +11,18 @@
   <app-header-patient></app-header-patient>
 
     <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+      <div class="col-3 col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
         <!--sidenav -->
         <app-patient-sidenav></app-patient-sidenav>
       </div>
-      <div class="col mx-3 mt-4">
+      <div class="col mt-4">
         <div class="whole-trans">
           <div class="top-part">
             <p class="top-text">Transaction History</p>
           </div>
           <div class="row mx-2">
             <div class="col-md-4">
-              <input [(ngModel)]="doc_name" (input)="get_transaction()" type="text" class="form-control rounded" placeholder="Search DoctorName" aria-label="Search">
+              <input [(ngModel)]="doc_name" (input)="get_transaction()" type="text" class="form-control" placeholder="Search DoctorName" aria-label="Search">
             </div>
             <div class="col-md-3 .offset-md-3">
               <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="get_transaction()">
@@ -31,12 +31,12 @@
                 <option value="refund">Cancelled</option>
               </select>
             </div>
-            <div class="col-md-2 align-content-end">
+          <!--  <div class="col-md-2 align-content-end">
               <select [(ngModel)]="year" class="form-select col" name="" id="" (change)="get_transaction()">
                 <option value="" selected>Select Year</option>
                 <option *ngFor="let list of getYears()" value="{{list}}">{{list}}</option>
               </select>
-            </div>
+            </div> -->
             <div class="col-md-2 align-content-end">
               <select [(ngModel)]="month" class="form-select col" name="" id="" (change)="get_transaction()">
                 <option value="" selected>Select Month</option>
@@ -44,72 +44,44 @@
               </select>
             </div>
           </div>
-          <div class="row mx-2 mt-4">
+          <div class="row g-0 mt-4">
             <div class="col-md-2">
-              <p class="upper">Date</p>
+              <p class="upper text-center border-bottom">Date</p>
             </div>
             <div class="col-md-3">
-              <p class="upper">Doctor</p>
-            </div>
-            <div class="col-md-1">
-              <p class="upper">Fee</p>
+              <p class="upper text-center border-bottom">Doctor</p>
             </div>
             <div class="col-md-2">
-              <p class="upper">Transaction ID</p>
+              <p class="upper text-center border-bottom">Fee</p>
+            </div>
+            <div class="col-md-3">
+              <p class="upper text-center border-bottom">Transaction ID</p>
             </div>
             <div class="col-md-2">
-              <p class="upper">Status</p>
+              <p class="upper text-center border-bottom">Status</p>
             </div>
           </div>
 
-          <div *ngFor="let list of transList" class="row justify-content-evenly mx-2">
+          <div *ngFor="let list of transList" class="row g-0 justify-content-evenly">
             <div class="col-md-2">
-              <p class="content">{{list.createdAt}}</p>
+              <p class="content text-center border-bottom">{{list.createdAt}}</p>
             </div>
             <div class="col-md-3">
-              <p class="content">{{list.specialization}}: {{list.doctor_name}}</p>
-            </div>
-            <div class="col-md-1">
-              <p class="content">{{list.Amount}}</p>
+              <p class="content text-center border-bottom">{{list.specialization}}: {{list.doctor_name}}</p>
             </div>
             <div class="col-md-2">
-              <p class="content">{{list.transaction_id}}</p>
+              <p class="content text-center border-bottom">{{list.Amount}}</p>
+            </div>
+            <div class="col-md-3">
+              <p class="content text-center border-bottom">{{list.transaction_id}}</p>
             </div>
             <div class="col-md-2">
-              <p *ngIf="list.status=='done'" class="content content-success">Done</p>
-              <p *ngIf="list.status=='cancel'" class="content content-cancel">Cancelled</p>
+              <p *ngIf="list.status=='done'" class="content content-success text-center border-bottom">Done</p>
+              <p *ngIf="list.status=='cancel'" class="content content-cancel text-center border-bottom">Cancelled</p>
             </div>
           </div>
-
-
         </div>
 
-        <!--
-        <h5 class="usr">Transaction History</h5>
-        <div class="input-group mb-3 row">
-          <input [(ngModel)]="doc_name" (input)="get_transaction()" type="text" class="form-control col" placeholder="Search DoctorName" aria-label="Search">
-          <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="get_transaction()">
-            <option value="" selected>Select Status</option>
-            <option value="refund">Cancelled</option>
-          </select>
-        </div>
-        <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of transList" class="list-group-item flex-column align-items-start mt-3">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 *ngIf="list.status!='refund'" class="name">Successful Consultation</h5>
-              <h5 *ngIf="list.status=='refund'" class="name">Consultation Cancelled</h5>
-              <small>{{list.updatedAt}}</small>
-            </div>
-            <div>
-              <p *ngIf="list.status!='refund'" class="mb-1">You Paid an amount of {{list.Amount}} USD as a payment for one consultation.</p>
-              <p *ngIf="list.status=='refund'" class="mb-1">Received an amount of {{list.net_income}} USD for refund.</p>
-              <p class="mb-1">Schedule: {{list.Schedule}}</p>
-              <p class="mb-1">{{list.Specialization}}: {{list.doctor_name}}</p>
-            </div>
-            <small>Transaction ID: {{list.uid}}</small>
-          </li>
-        </ul>
-      -->
       </div>
     </div>
 
