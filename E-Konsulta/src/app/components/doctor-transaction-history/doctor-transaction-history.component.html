@@ -69,7 +69,7 @@
 
           <div *ngFor="let list of tranList" class="row justify-content-evenly mx-2">
             <div class="col-md-2">
-              <p class="content">{{list.updatedAt}}</p>
+              <p class="content">{{list.createdAt}}</p>
             </div>
             <div class="col-md-1">
               <p class="content">{{list.patient_name}}</p>
@@ -81,17 +81,17 @@
               <p class="content">{{list.Amount}}</p>
             </div>
             <div class="col-md-2">
-              <p class="content">{{list.uid}}</p>
+              <p class="content">{{list.transaction_id}}</p>
             </div>
             <div class="col-md-1">
               <p *ngIf="list.status!='refund'" class="content content-success">Successful</p>
               <p *ngIf="list.status=='refund'" class="content content-cancel">Cancelled</p>
             </div>
             <div class="col-md-1">
-              <p class="content">30.00</p>
+              <p class="content">{{list.deduction}}</p>
             </div>
             <div class="col-md-2">
-              <p class="content">420.00</p>
+              <p class="content">{{list.net_income}}</p>
             </div>
           </div>
         </div>
