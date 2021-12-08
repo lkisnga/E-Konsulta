@@ -11,11 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminTransactionHistoryComponent implements OnInit {
 
   tranList : any = [];
+  tranHis: any = [];
   cancelled_list : any = [];
 
   sent_message : boolean = false;
 
   status: string = "";
+
+  transac_his: boolean = false;
+  transac: boolean = true;
 
   constructor(
     public userservice : UserService,
@@ -25,7 +29,22 @@ export class AdminTransactionHistoryComponent implements OnInit {
   ngOnInit(): void {
 
     this.Transactions();
+    this.transactionHistory();
 
+  }
+
+  tabFunction(info)
+  {
+    if(info == 'th')
+    {
+      this.transac = false;
+      this.transac_his = true;
+    }
+    else
+    {
+      this.transac = true;
+      this.transac_his = false;
+    }
   }
 
   Transactions()
@@ -34,60 +53,91 @@ export class AdminTransactionHistoryComponent implements OnInit {
     var tempArray = [];
     this.userservice.get_transaction_admin().then(e=>{
       e.forEach(item=>{
-        if(item.data().status != 'cancelled' && item.data().status != 'sent')
-        {
-          this.userservice.get_UserInfo(item.data().patient_id)
-          .then(as=>{
-            this.userservice.get_transactionInfo(as.id,item.data().patient_transaction_id)
-            .then(res=>{
-              this.userservice.get_UserInfo(res.data().doctor_id).then(docInfo=>{
-                data = res.data();
-                data.uid = item.id;
-                data.patient_name = as.data().fullname;
-                data.doctor_name = docInfo.data().fullname;
-                data.status = item.data().status;
-                tempArray.push(data);
-              }).then(()=>{
-                if(this.status=="")
-                  this.tranList = tempArray;
-                else
-                {
-                  this.tranList = tempArray.filter(e=>{
-                    return e.status.toLocaleLowerCase().match(this.status.toLocaleLowerCase());
-                  })
-                }
-                console.log(this.tranList)
-              })
-            })
+        this.userservice.get_UserInfo(item.data().patient_id)
+        .then(patientInfo=>{
+          this.userservice.get_UserInfo(item.data().doctor_id)
+          .then(doctorInfo=>{
+            data = item.data();
+            data.uid = item.id;
+            data.patient_name = patientInfo.data().fullname;
+            data.doctor_name = doctorInfo.data().fullname;
+            tempArray.push(data);
           })
-        }
+        })
       })
     })
+    this.tranList = tempArray;
+    console.log(this.tranList);
+  }
+
+  transactionHistory()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_transactionHistory().then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.tranHis = tempArray;
   }
 
   send_notif(info)
   {
+    console.log(info);
+    var commision = info.Amount*(info.deduction/100);
+    var net_income = info.Amount - commision;
     let record = {};
-    record['net_income']=  info.Amount-(info.Amount*(info.deduction/100));
-    record['status'] = "sent";
-    record['updatedAt'] = formatDate(new Date(),'short','en');
-    this.userservice.update_transaction_admin(info.uid,record)
-    .then(()=>{
-      console.log('Sent!');
+    //transaction history for admin
+    record['Amount'] = commision;
+    record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
+    record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+    record['patient_name'] = info.patient_name;
+    record['doctor_name'] = info.doctor_name;
+    record['status'] = info.status;
+   this.userservice.add_transactionHistory(record).then(e=>{
+      console.log('Added in Admin Transaction History!')
+      //transaction for doctor
+      record = {};
+      record['Amount'] = net_income;
+      record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+      record['patient_name'] = info.patient_name;
+      record['status'] = info.status;
+      record['transaction_id'] = e.id;
+      this.userservice.create_transactionHistory_User(info.doctor_id,record)
+      .then(()=>{
+        console.log('Added in Doctor Transaction History!')
+      })
+      //transaction for patient
+      record = {};
+      record['Amount'] = info.Amount;
+      record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+      record['doctor_name'] = info.doctor_name;
+      record['status'] = info.status;
+      record['transaction_id'] = e.id;
+      this.userservice.create_transactionHistory_User(info.patient_id,record)
+      .then(()=>{
+        console.log('Added in Patient Transaction History!')
+      })
+   })
+   .then(()=>{
+     this.userservice.delete_transaction(info.uid).then(()=>{
+       console.log('Transaction Deleted and moved to Transaction History!')
 
       //Notification for doctor
       let record = {};
       record['title'] = "Payout"
-      record['description'] = "You have received an amount of " + (info.Amount-(info.Amount*(info.deduction/100))) + "(Inclusive of 10% commission)";
+      record['description'] = "You have received an amount of " + net_income + "(Inclusive of 10% commission)";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_doctor(info.doctor_id,record);
 
       this.ngOnInit();
-      this.sent_message = true;
-      setTimeout(() => {
-        this.sent_message = false;
-      }, 5000);
-    })
+     })
+   })
   }
   send_notif2(info)
   {
