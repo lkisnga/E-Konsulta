@@ -61,10 +61,10 @@
       </div>
       <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
       <div class="modal-body">
-        <p>Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" class="info-modal" type="text" size="42" name="role" readonly></p>
-        <p>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" class="info-modal" type="email" size="42" name="email" readonly></p>
-        <p>Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" class="info-modal" type="text" size="42" name="password"></p>
-        <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" class="info-modal" type="text" size="42" name="fullname"></p>
+        <p>Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.role" class="info-modal" type="text" size="35" name="role" readonly></p>
+        <p>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input [(ngModel)]="model.email" class="info-modal" type="email" size="35" name="email" readonly></p>
+        <p>Password: &nbsp;&nbsp;&nbsp; &nbsp; <input [(ngModel)]="model.password" class="info-modal" type="text" size="35" name="password"></p>
+        <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" class="info-modal" type="text" size="35" name="fullname"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
