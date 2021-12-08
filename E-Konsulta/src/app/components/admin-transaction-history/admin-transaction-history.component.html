@@ -97,13 +97,13 @@
               <div class="col-md-1">
                 <p *ngIf="list.status=='pending'" class="content content-success text-center border-bottom">Pending</p>
                 <div *ngIf="list.status=='done' || list.status == 'cancel'">
-                  <p *ngIf="list.status=='done'" class="content content-success">Successful</p>
-                  <p *ngIf="list.status=='cancel'"  class="content content-cancel">Cancellation</p>
+                  <p *ngIf="list.status=='done'" class="content content-success text-center border-bottom">Successful</p>
+                  <p *ngIf="list.status=='cancel'"  class="content content-cancel text-center border-bottom">Cancellation</p>
                 </div>
               </div>
               <div class="col-md-1">
-                <button (click)="send_notif(list)" *ngIf="list.status=='done'" class="paid text-center border-bottom">Pay <span><i class="bi bi-money"></i></span></button>
-                <button *ngIf="list.status=='cancel'" class="btn-danger text-center border-bottom">Cancel</button>
+                <button (click)="send_notif(list)" *ngIf="list.status=='done'" class="paid btn-sm text-center border-bottom">Pay <span><i class="bi bi-money"></i></span></button>
+                <button *ngIf="list.status=='cancel'" class="cancel btn-sm border-bottom">Cancel</button>
               </div>
             </div>
           </div>
