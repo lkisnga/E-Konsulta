@@ -5,7 +5,7 @@
   <title>Registration Page</title>
 </head>
 <body>
- <!--Registration Form-->
+ <!--Registration Form
  <div class="register-page">
   <div class="form">
     <h3>Registration</h3>
@@ -30,6 +30,70 @@
   </div>
   </div>
 </div>
+-->
+<section class="ftco-section">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="wrap d-md-flex">
+          <div class="text-wrap p-lg-5 text-center d-flex align-items-center order-md-first">
+            <div class="text w-100">
+              <h2 class="app-name mb-4">E-Konsulta</h2>
+              <p>Already have an account?</p>
+              <a [routerLink]="['/login']" class="btn btn-white btn-outline-white">Sign In</a>
+            </div>
+          </div>
+          <div class="login-wrap p-4 p-lg-5">
+            <div class="d-flex">
+              <div class="w-100">
+                <h3 class="mb-4">Sign Up</h3>
+              </div>
+            </div>
+            <form class="signin-form" #userRegForm="ngForm" (ngSubmit)="registerUser(userRegForm.value)">
+              <div class="form-group mb-2">
+                <label class="label" for="name">Full Name</label>
+                <input type="text" class="form-control" [(ngModel)]="this.userForm.fullName" name="fullname" placeholder="Full Name" required/>
+              </div>
+              <div class="form-group mb-2">
+                <label class="label" for="dob">Date of Birth</label>
+                <input [(ngModel)]="this.userForm.dob"  class="form-control dateclass placeholderclass" type="date" name="dob" placeholder="Date of Birth" required>
+              </div>
+              <div class="form-group mb-2">
+                <label class="label" for="email">Email</label>
+                <input class="form-control" [(ngModel)]="this.userForm.emailAddress" type="email" name="email" placeholder="Email address" required/>
+              </div>
+              <div class="form-group mb-2">
+                <label class="label" for="password">Password</label>
+                <input class="form-control"[(ngModel)]="this.userForm.password" name="password" name="password" type="password" placeholder="Password" required/>
+              </div>
+              <div class="form-group mb-2">
+                <label class="label" for="password">Confirm Password</label>
+                <input class="form-control" [(ngModel)]="confirmPass" [ngModelOptions]="{standalone: true}"  type="password" placeholder="Confirm Password" required/>
+              </div>
+              <div class="form-group d-md-flex">
+                <div class="w-100 text-left my-2">
+                  <input type="checkbox" class="form-check-input" id="terms"/>
+                  <label class="form-check-label ms-2" for="terms">I agree to the <a routerLink="/terms-and-conditions" class="terms">Terms and Conditions</a>
+                </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+              </div>
+            </form>
+            <div class="form-group">
+              <p *ngIf="error.message.length > 0" class="text-danger">
+                  {{error.message}} </p>
+                  <p *ngIf="pass_message.length > 0" class="text-danger">
+                    {{pass_message}} </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
 </body>
 </html>
 
