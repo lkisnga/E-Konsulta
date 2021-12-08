@@ -31,15 +31,8 @@ export class DoctorTransactionHistoryComponent implements OnInit {
     this.userservice.get_transaction_doctor(this.userId)
     .then(e=>{
       e.forEach(item=>{
-        this.userservice.get_UserInfo(item.data().patient_id)
-        .then(as=>{
-          data = item.data();
-          data.uid = item.id;
-          data.patient_name = as.data().fullname;
-          data.total_dec = (item.data().Amount*(item.data().deduction/100)).toFixed(2);
-          //console.log(data);
-          tempArray.push(data);
-        })
+        data = item.data();
+        tempArray.push(data);
       })
     })
     this.tranList = tempArray;

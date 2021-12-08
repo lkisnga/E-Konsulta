@@ -101,7 +101,9 @@ export class AdminTransactionHistoryComponent implements OnInit {
       console.log('Added in Admin Transaction History!')
       //transaction for doctor
       record = {};
-      record['Amount'] = net_income;
+      record['net_income'] = net_income;
+      record['Amount'] = info.Amount;
+      record['deduction'] =  commision;
       record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
       record['patient_name'] = info.patient_name;

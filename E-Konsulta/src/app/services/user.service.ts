@@ -443,24 +443,7 @@ export class UserService {
   }
   cancel_consultation(info)
   {
-   return this.db.firestore.collection('upcoming').doc(info.upcoming_id).delete()
-    .then(()=>{
-      console.log("upcoming Deleted!");
-    return  this.db.firestore.collection('Transaction').where('patient_id','==',info.patient_id)
-      .where('consultation_schedule','==',info.consultation_schedule).get()
-      .then(e=>{
-        e.forEach(item=>{
-          if(item.exists)
-          {
-          return this.db.firestore.collection('Transaction').doc(item.id).update({
-              status: "cancelled",
-              updatedAt: formatDate(new Date(),'short','en'),
-              id: new Date(formatDate(new Date(),'short','en')).getTime()
-            })
-          }
-        })
-      })
-    })
+   
   }
 
   get_upcoming(upcoming_id)
@@ -512,8 +495,8 @@ export class UserService {
   }
   get_transaction_doctor(doctor_id)
   {
-    return this.db.firestore.collection('Transaction').where('doctor_id','==',doctor_id)
-    .where('status','==','sent').get();
+    return this.db.firestore.collection('Users').doc(doctor_id).collection('Transaction_History')
+    .get();
   }
   get_today_consultation(doctor_id)
   {
