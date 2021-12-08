@@ -35,12 +35,11 @@
   font-size: 1.2rem;
   font-weight: 700;
 }
-
 input,
 select,
 option,
 .content{
-  font-size: 13px !important;
+  font-size: 15px !important;
 }
 
 .content-success{

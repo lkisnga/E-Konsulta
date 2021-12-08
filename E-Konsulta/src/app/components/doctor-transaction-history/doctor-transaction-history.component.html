@@ -44,7 +44,7 @@
             <div class="col-md-2">
               <p class="upper text-center border-bottom">Date</p>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-2">
               <p class="upper text-center border-bottom">Patient</p>
             </div>
             <div class="col-md-2">
@@ -54,7 +54,7 @@
               <p class="upper text-center border-bottom">Fee</p>
             </div>
             <div class="col-md-2">
-              <p class="upper text-center border-bottom">Transaction ID</p>
+              <p class="upper text-center border-bottom">XID</p>
             </div>
             <div class="col-md-1">
               <p class="upper text-center border-bottom">Status</p>
@@ -62,20 +62,16 @@
             <div class="col-md-1">
               <p class="upper text-center border-bottom">Deductions</p>
             </div>
-            <div class="col-md-2">
-              <p class="upper text-center border-bottom">Net Income</p>
+            <div class="col-md-1">
+              <p class="upper text-center border-bottom">Net</p>
             </div>
           </div>
 
           <div *ngFor="let list of tranList" class="row g-0 justify-content-evenly">
             <div class="col-md-2">
-<<<<<<< HEAD
-              <p class="content text-center border-bottom">{{list.updatedAt}}</p>
-=======
-              <p class="content">{{list.createdAt}}</p>
->>>>>>> 8b8d8a9c3ceff3c91b68c771446895b391a5da8d
+              <p class="content text-center border-bottom">{{list.createdAt}}</p>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-2">
               <p class="content text-center border-bottom">{{list.patient_name}}</p>
             </div>
             <div class="col-md-2">
@@ -85,21 +81,17 @@
               <p class="content text-center border-bottom">{{list.Amount}}</p>
             </div>
             <div class="col-md-2">
-<<<<<<< HEAD
-              <p class="content text-center border-bottom">{{list.uid}}</p>
-=======
-              <p class="content">{{list.transaction_id}}</p>
->>>>>>> 8b8d8a9c3ceff3c91b68c771446895b391a5da8d
+              <p class="content text-center border-bottom">{{list.transaction_id}}</p>
             </div>
             <div class="col-md-1">
               <p *ngIf="list.status!='refund'" class="content content-success text-center border-bottom">Successful</p>
               <p *ngIf="list.status=='refund'" class="content content-cancel text-center border-bottom">Cancelled</p>
             </div>
             <div class="col-md-1">
-              <p class="content">{{list.deduction}}</p>
+              <p class="content text-center border-bottom">{{list.deduction}}</p>
             </div>
-            <div class="col-md-2">
-              <p class="content">{{list.net_income}}</p>
+            <div class="col-md-1">
+              <p class="content text-center border-bottom">{{list.net_income}}</p>
             </div>
           </div>
         </div>
