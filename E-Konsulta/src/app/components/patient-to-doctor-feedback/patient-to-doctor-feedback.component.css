@@ -56,7 +56,8 @@ body{
 /*reply*/
 textarea{
   padding: 10px;
-  font-size: 12px;
+  font-size: 16px;
+  border-radius: 20px;
 }
 textarea:focus{
   outline: 0;
@@ -129,5 +130,7 @@ p.ureply{
 }
 
 .modal-title{
+  font-size: 30px !important;
+  font-weight: 500;
   color: rgb(0, 129, 138);
 }
