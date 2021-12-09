@@ -31,6 +31,13 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
+.up:hover{
+  background: rgb(0, 129, 138);
+}
+.done:hover{
+  background: rgb(233, 179, 0);
+}
+
 .done1{
   border-radius: 50px;
   border: none;
@@ -41,12 +48,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
-.up:hover{
-  background: rgb(0, 129, 138);
-}
-.done:hover{
-  background: rgb(233, 179, 0);
-}
+
 
 .full-name{
   margin-right: 100px;
