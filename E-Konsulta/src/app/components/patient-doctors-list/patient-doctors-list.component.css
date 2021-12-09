@@ -27,6 +27,7 @@
   margin-right: 15px;
   display: inline-block;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .fa{
