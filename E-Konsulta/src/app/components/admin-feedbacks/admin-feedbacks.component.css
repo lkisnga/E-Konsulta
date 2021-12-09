@@ -18,11 +18,11 @@ body{
 }
 
 .g-height-50 {
-  height: 50px;
+  height: 30px;
 }
 
 .g-width-50 {
-  width: 50px !important;
+  width: 30px !important;
 }
 
 @media (min-width: 0){
