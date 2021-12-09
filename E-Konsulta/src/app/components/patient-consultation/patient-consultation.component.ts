@@ -4,14 +4,16 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
-
+declare var paypal;
 @Component({
   selector: 'app-patient-consultation',
   templateUrl: './patient-consultation.component.html',
   styleUrls: ['./patient-consultation.component.css']
 })
+
 export class PatientConsultationComponent implements OnInit {
 
+  @ViewChild('paypal', {static: true}) paypalElement: ElementRef
   userid : any;
 
   docList: any = [];
@@ -44,12 +46,12 @@ export class PatientConsultationComponent implements OnInit {
   ngOnInit(): void {
 
     localStorage.removeItem('data');
-
     this.userid = this.afu.get_UID();
     this.get_upcoming();
     this.get_done();
+    this.paypalButton();
   }
-
+  
   chat(info)
   {
     if(info.upcoming_status != 'pending')
@@ -68,6 +70,11 @@ export class PatientConsultationComponent implements OnInit {
         this.error_message="";
       }, 3000);
     }
+  }
+
+  paypalButton()
+  {
+  
   }
 
   get_upcoming()
@@ -115,6 +122,8 @@ export class PatientConsultationComponent implements OnInit {
     record['patient_id'] = this.userid;
     record['upcoming_id'] = this.info.upcoming_id;
     record['transaction_id'] = this.info.transaction_id;
+    this.userservice.cancel_consultation(record);
+
     document.getElementById('closeModal').click();
     this.info = [];
   }
