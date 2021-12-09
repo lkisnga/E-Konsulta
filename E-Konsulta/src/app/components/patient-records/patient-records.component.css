@@ -4,23 +4,42 @@
   margin-top: 70px;
 }
 
-.medical,
-.lab,
-.prescription,
-.loa{
-  padding: 7px 10px;
-  border-radius: 3px;
-  border: 1px solid white;
-  background-color:rgb(0, 146, 156);
+/*filex*/
+.btn-group .filex:last-child
+{
+  border-radius: 50px;
+  border: 1px solid rgb(1, 129, 1);
+  background-color: rgb(0, 145, 0);
   color: white;
-  width: 170px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
 }
-.medical:hover,
-.lab:hover,
-.prescription:hover,
-.loa:hover{
-  background-color: rgb(0, 129, 138);
+.btn-group .filex:first-child{
+  border-radius: 50px;
+  border: 1px solid rgb(1, 129, 1);
+  background-color: rgb(0, 145, 0);
+  color: white;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
 }
+.btn-group .filex
+{
+  border: 1px solid rgb(1, 129, 1);
+  background-color: rgb(0, 145, 0);
+  color: white;
+  padding: 10px 20px;
+}
+
+.btn-group .filex:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .filex:hover{
+  background: linear-gradient(135deg, rgb(6, 189, 0) 0%, rgb(5, 138, 0) 100%);
+  border: 1px solid rgb(6, 189, 0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+}
+
 .bi-eye-fill{
   font-size: 20px;
   margin-left: 10px;

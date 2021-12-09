@@ -1,5 +1,6 @@
 .presc, .csummary{
-  color: rgb(0, 129, 138);
+  font-size: 18px !important;
+  color: #333;
 }
 .patient-center{
   margin-top: 50px;
@@ -74,9 +75,20 @@ img.to{
   border-top: 1px solid rgb(233, 230, 230);
   float: right;
 }
+.form-control,
+.form-select{
+  border-radius: 50px;
+}
+.form-control:focus, .form-control:active,
+.form-select:focus, .form-select:active {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid rgb(0, 174, 187);
+}
 input{
   font-size: 16px;
-  padding: 5px 6px;
+  padding: 6px 12px;
+  border-radius: 50px;
 }
 input:focus{
   outline: 0;
@@ -187,14 +199,17 @@ input:focus{
 
 .send{
   padding: 7px 10px;
-  border-radius: 3px;
+  border-radius: 50px;
   border: none;
-  background-color:rgb(0, 146, 156);
-  color: white;
-  width: 80px;
+  color: #fff;
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
+  width: 100px;
 }
 .send:hover{
-  background-color: rgb(0, 129, 138);
+  background: rgb(0, 129, 138);
 }
 
 #send-files{
@@ -210,22 +225,41 @@ input:focus{
   padding: 4px 8px;
 }
 
-/*View Files inside the modal*/
-.medical,
-.lab,
-.prescription{
-  border: 1px solid white;
-  background-color: rgb(0, 129, 138);
-  color: white;
-  padding: 4px 12px;
-}
-.medical:hover,
-.lab:hover,
-.prescription:hover
+/*filex*/
+.btn-group .filex:last-child
 {
-  color: rgb(0, 129, 138);
-  background-color: rgb(235, 233, 233);
+  border-radius: 50px;
+  border: 1px solid rgb(0, 145, 0);
+  color: rgb(0, 145, 0);
+  background-color: white;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
 }
+.btn-group .filex:first-child{
+  border-radius: 50px;
+  border: 1px solid rgb(0, 145, 0);
+  color: rgb(0, 145, 0);
+  background-color: white;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+.btn-group .filex
+{
+  border: 1px solid rgb(0, 145, 0);
+  color: rgb(0, 145, 0);
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.btn-group .filex:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .filex:hover{
+  background-color: rgb(0, 128, 0);
+  color: white;
+}
+
 
 
 .view{

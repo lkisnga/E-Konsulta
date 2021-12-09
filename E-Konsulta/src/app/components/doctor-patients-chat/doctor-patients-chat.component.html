@@ -63,14 +63,14 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="send-files">View Shared Files</h5>
+          <h3 class="modal-title" id="send-files">View Shared Files</h3>
           <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
           <div class="btn-group">
-            <button type="button" class="medical" (click)="medicalRecords()">Medical Records</button>
-            <button type="button" class="lab" (click)="labResult()">Laboratory Result</button>
-            <button type="button" class="prescription" (click)="prescription()">Prescription</button>
+            <button type="button" class="filex" (click)="medicalRecords()">Medical Records</button>
+            <button type="button" class="filex" (click)="labResult()">Laboratory Result</button>
+            <button type="button" class="filex" (click)="prescription()">Prescription</button>
           </div>
           <!--medical records-->
           <div *ngIf="medicalrecords">
@@ -153,23 +153,23 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="send-files">Send files</h5>
+          <h3 class="modal-title" id="send-files">Send files</h3>
           <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
           <p class="presc">Prescription</p>
             <div class="row mx-2">
-              <input [(ngModel)]="filename2" type="text" placeholder="File name" accept=".pdf,.doc">
+              <input [(ngModel)]="filename2" type="text" placeholder="File name" accept=".pdf,.doc" class="form-control">
           </div>
           <div class="row mx-0 mt-2">
-            <input #file2 type="file" (change)="choosefile($event,'prs')">
+            <input #file2 type="file" (change)="choosefile($event,'prs')" class="form-control">
           </div>
           <p class="mt-4 csummary">Consultation summary</p>
           <div class="row mx-2">
-            <input [(ngModel)]="filename" type="text" placeholder="File name" accept=".pdf,.doc">
+            <input [(ngModel)]="filename" type="text" placeholder="File name" accept=".pdf,.doc" class="form-control">
           </div>
           <div class="row mx-0 mt-2">
-            <input #file type="file" (change)="choosefile($event,'cs')">
+            <input #file type="file" (change)="choosefile($event,'cs')" class="form-control">
           </div>
         </div>
         <div *ngIf="error_message.length > 0" class="alert alert-danger">
@@ -191,15 +191,15 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="send-files">Send Medical Certificate</h5>
+          <h3 class="modal-title" id="send-files">Send Medical Certificate</h3>
           <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
           <div class="row mx-2">
-              <input [(ngModel)]="filename" type="text" placeholder="File name">
+              <input [(ngModel)]="filename" type="text" placeholder="File name" class="form-control">
           </div>
           <div class="row mx-0 mt-2 mb-3">
-            <input #file type="file" (change)="choosefile2($event)" accept=".pdf,.doc">
+            <input #file type="file" (change)="choosefile2($event)" accept=".pdf,.doc" class="form-control">
           </div>
           <div *ngIf="error_message.length > 0" class="alert alert-danger">
             {{error_message}}

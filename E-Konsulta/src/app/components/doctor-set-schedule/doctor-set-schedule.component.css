@@ -52,25 +52,26 @@
 .btn-group .day:last-child
 {
   border-radius: 50px;
-  border: 1px solid rgb(0, 145, 0);
+  border: 1px solid rgb(1, 129, 1);
   background-color: rgb(0, 145, 0);
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
 }
 .btn-group .day:first-child{
   border-radius: 50px;
-  border: 1px solid rgb(0, 145, 0);
+  border: 1px solid rgb(1, 129, 1);
   background-color: rgb(0, 145, 0);
   border-top-right-radius: 0%;
   border-bottom-right-radius: 0%;
 }
 .btn-group .day
 {
-  border: 1px solid rgb(0, 145, 0);
+  border: 1px solid rgb(1, 129, 1);
   background-color: rgb(0, 145, 0);
   padding: 6px 40px;
   color: white;
   padding: 10px 20px;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .btn-group .day:not(:last-child) {
@@ -78,7 +79,9 @@
 }
 
 .btn-group .day:hover{
-  background-color: rgb(0, 128, 0);
+  background: linear-gradient(135deg, rgb(6, 189, 0) 0%, rgb(5, 138, 0) 100%);
+  border: 1px solid rgb(6, 189, 0);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
 }
 
 /*edit*/
