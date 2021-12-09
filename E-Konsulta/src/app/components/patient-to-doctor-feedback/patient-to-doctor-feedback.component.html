@@ -1,40 +1,43 @@
 <app-header-patient></app-header-patient>
   <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+    <div class="col-2 col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
       <!--sidenav -->
       <app-patient-sidenav></app-patient-sidenav>
     </div>
 
     <div class="col mt-4">
       <img src="{{info2.image}}" alt="img" class="profile-pic"  width="120" height="120">
-      <div class="lab-info ">
-        <p>Name: {{info2.fullname}}</p>
-        <p>Email: {{info2.email}}</p>
-        <p>Address: {{info2.address}}</p>
-        <p>Contact Number: {{info2.contact_number}}</p>
+      <div class="row lab-info">
+        <div class="col-md-6 border-end">
+          <p>Name: {{info2.fullname}}</p>
+          <p>Email: {{info2.email}}</p>
+        </div>
+        <div class="col-md-6">
+          <p>Address: {{info2.address}}</p>
+          <p>Contact Number: {{info2.contact_number}}</p>
+        </div>
       </div>
       <div class="lower-part">
-        <div>
-          <button class='submit' type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Add feedback</button>
-        </div>
-        <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of flist" class="list-group-item flex-column align-items-start">
+        <button class="submit mb-3" type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Add feedback</button>
+        <div class="row">
+          <div *ngFor="let list of flist" class="col-md-6 content">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><span><img src="{{list.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
+              <h2 class="mb-1"><span><img src="{{list.image}}" alt="" width="35" height="35" class="cute-pic"></span>{{list.fullname}}</h2>
               <small>{{list.createdAt}}</small>
             </div>
             <div>
-              <p class="mb-1">{{list.feedback}}</p>
+              <p class="feedback">{{list.feedback}}</p>
             </div>
+            <!--
             <div *ngFor="let reply of replyList">
               <div *ngIf="list.from==reply.sent_to" class="reply-to">
                   <h5 class="mb-1"><span> <img src="{{info2.image}}" alt="" class="cute-pic" width="16px" height="16px"></span>{{reply.fullname}}</h5>
                   <p class="ureply">{{reply.feedback}}</p>
               </div>
             </div>
-           <!-- <small>Transaction ID</small>-->
-          </li>
-        </ul>
+          -->
+          </div>
+        </div>
       </div>
     </div>
 
@@ -47,7 +50,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
         <div class="modal-body">
-          <textarea [(ngModel)]="feedback" name="feedback" id="" cols="70" rows="5" placeholder="Write a reply..."></textarea>
+          <textarea [(ngModel)]="feedback" name="feedback" id="" cols="70" rows="5" placeholder="Write a feedback..."></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
