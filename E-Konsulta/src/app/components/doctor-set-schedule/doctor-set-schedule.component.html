@@ -12,10 +12,9 @@
     <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
       <app-doctor-sidenav></app-doctor-sidenav>
     </div>
-    <div class="col m-3 p-2" action="">
-      <div class="card-body card-min-size ">
+    <div class="col p-2" action="">
+      <div class="card-body card-min-size">
         <form #form="ngForm" (ngSubmit)="setSchedule(form.value)" ngNativeValidate>
-
           <div *ngIf="added_message.length > 0" class="alert alert-success">
             {{added_message}}
           </div>
@@ -117,8 +116,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="row mt-4">
-                  <div class="col-md-4">
+                <div class="row justify-content-end mt-4">
+                  <div class="col-md-4 .offset-md-4">
                     <button type="submit" id="set">Set</button>
                   </div>
                 </div>
@@ -127,7 +126,7 @@
           </div>
         </form>
         <!--THIS IS FOR THE LIST-->
-        <div class="card mt-2">
+        <div class="card mt-4">
           <div class="card-body px-3">
             <div id="schedule-container">
               <div class="wizard-title">Schedule</div>
@@ -264,8 +263,8 @@
                   </ul>
                 </div>
               </div>
-              <div class="row mt-4">
-                <div class="col-md-4">
+              <div class="row justify-content-end mt-4">
+                <div class="col-md-4 .offset-md-4">
                   <button (click)="clear_field()" id="set" data-bs-toggle="modal" data-bs-target="#edit">Edit</button>
                 </div>
               </div>

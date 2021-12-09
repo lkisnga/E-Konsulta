@@ -6,7 +6,7 @@
       <app-patient-sidenav></app-patient-sidenav>
     </div>
     <div class="col col-sm-offset-3 py-4 mx-3">
-      <input [(ngModel)]="searchName" (input)="doctor_list()" type="text" class="form-control rounded" placeholder="Search">
+      <input [(ngModel)]="searchName" (input)="doctor_list()" type="text" class="form-control" placeholder="Search">
       <div *ngFor="let list of list" class="card">
         <div class="row g-0">
           <div class="col-md-4">
