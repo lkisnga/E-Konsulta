@@ -443,7 +443,9 @@ export class UserService {
   }
   cancel_consultation(info)
   {
-   
+    this.db.collection('Transaction').doc(info.transaction_id).update({
+      status: "cancel"
+    })
   }
 
   get_upcoming(upcoming_id)
