@@ -4,9 +4,6 @@
 .patient-center{
   margin-top: 50px;
 }
-.col{
-  margin-top: 50px !important;
-}
 
 .user{
   color: rgb(0, 129, 138);
@@ -43,30 +40,31 @@ img.to{
 }
 
 #msg-to{
-  border-radius: 20px;
-  font-size: 14px;
-  background-color: rgb(0, 129, 138);
+  border-radius: 50px;
+  font-size: 16px;
+  background-color: rgb(1, 155, 167);
   opacity: 0.9;
   color: white;
-  margin: 5px 0;
-  padding: 5px 12px;
+  margin: 15px 5px 10px 0;
+  padding: 5px 15px;
   float: right;
   clear: both;
 }
 
 /*FROM*/
 #msg-from{
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 50px;
+  font-size: 16px;
   background-color: rgb(235, 235, 235);
   color: rgb(27, 27, 27);
-  margin: 5px 0;
-  padding: 5px 12px;
+  margin: 15px 5px 10px 0;
+  padding: 5px 15px;
   float: left;
   clear: both;
 }
+
 .cont-chat{
-  height: 450px !important;
+  height: 430px !important;
   overflow-y: scroll;
 }
 .below{
@@ -75,7 +73,7 @@ img.to{
   float: right;
 }
 input{
-  font-size: 14px;
+  font-size: 16px;
 }
 input:focus{
   outline: 0;
@@ -93,7 +91,7 @@ input[type=file]::file-selector-button{
 }
 
 .chat-type{
-  font-size: 12px;
+  font-size: 16px;
   padding: 5px 14px;
   width: 730px;
   height: 35px;
@@ -123,13 +121,13 @@ input[type=file]::file-selector-button{
 
 .left-profile{
   position: absolute;
-  top: 75px;
+  top: 85px;
   right: 130px;
   overflow: hidden;
 }
 .left-name{
   position: absolute;
-  top: 120px;
+  top: 150px;
   right: 70px;
   overflow: hidden;
 }
@@ -155,7 +153,7 @@ a:hover{
 
 .second{
   width: 850px;
-  margin: -30px 0 0 -20px;
+  margin: 30px 0 0 -20px;
 }
 
 .third{
@@ -166,7 +164,7 @@ a:hover{
   border: none;
   background-color: rgb(0, 129, 138);
   padding: 5px 20px;
-  font-size: 10pt;
+  font-size: 16px;
   border-radius: 3px;
   color: white;
   width: 150px;
