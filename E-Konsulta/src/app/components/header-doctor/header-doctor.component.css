@@ -78,8 +78,8 @@ a{
 }
 
 .notify_info{
-  padding: 4px 8px;
-  line-height: 15px;
+  padding: 4px 10px;
+  line-height: 20px;
 }
 .dropdown .notify_item:last-child{
   border-bottom: none;
@@ -90,14 +90,16 @@ a{
 
 .main{
   color: rgb(32, 32, 32);
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 8px;
+  font-weight: 600;
 }
 .small{
   color: gray;
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: 400;
 }
 .small-1{
   color: gray;
-  font-size: 9px;
+  font-size: 11px;
 }
