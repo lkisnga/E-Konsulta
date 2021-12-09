@@ -122,15 +122,8 @@ export class PatientConsultationComponent implements OnInit {
     record['patient_id'] = this.userid;
     record['upcoming_id'] = this.info.upcoming_id;
     record['transaction_id'] = this.info.transaction_id;
-    this.userservice.cancel_consultation(record);
-
-    document.getElementById('closeModal').click();
-    this.info = [];
-  }
-
-  /*
-      console.log('Transaction Cancelled!');
-
+    this.userservice.cancel_consultation(record)
+    .then(()=>{
       //send notification for cancellation
       let record = {};
       record['title'] = "Cancelled Consultaion";
@@ -141,11 +134,15 @@ export class PatientConsultationComponent implements OnInit {
           this.notif.send_admin(item.id,record);
         })
       })
-
       record['description'] = "A Patient cancelled its consultation";
       this.notif.send_doctor(this.info.uid,record);
-      
-      this.ngOnInit();*/
+      document.getElementById('closeModal').click();      
+      this.ngOnInit();
+    });
+
+    this.info = [];
+  }
+
   get_done()
   {
     var data;
