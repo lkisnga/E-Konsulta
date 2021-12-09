@@ -103,7 +103,7 @@
               </div>
               <div class="col-md-1">
                 <button (click)="send_notif(list)" *ngIf="list.status=='done'" class="paid btn-sm text-center border-bottom">Pay <span><i class="bi bi-money"></i></span></button>
-                <button *ngIf="list.status=='cancel'" class="cancel btn-sm border-bottom">Cancel</button>
+                <button (click)="open_modal(list)" *ngIf="list.status=='cancel'" class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
               </div>
             </div>
           </div>
@@ -164,6 +164,27 @@
 
         </div>
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Refund</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+               <p>Name: {{payerInfo.patient_name}} </p>
+               <p>Schedule: {{payerInfo.consultation_schedule}} {{payerInfo.Schedule}}</p>
+               <p>{{payerInfo.Specialization}}: {{payerInfo.doctor_name}}</p>
+               <p>transaction ID: {{payerInfo.uid}}</p>
+               <p>Amount: {{payerInfo.Amount}}</p>
+               <p>Deduction: {{payerInfo.deduction}} (Cancellation Fee)</p>
+              </div>
+              <div #paypal>
+
+              </div>
+            </div>
+          </div>
+        </div>
         <!--
         <h5 class="usr">Transaction History</h5>
         <div class="btn-group mt-3">

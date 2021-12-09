@@ -77,7 +77,8 @@ export class PatientPaymentComponent implements OnInit {
         const order = await actions.order.capture();
         this.paidFor = true;
         this.paymentType = "paypal";
-        console.log(this.sched + this.schedTime);
+
+        console.log(order);
         //record to be created in Transaction Collection 
         let record = {};
         record['status'] = "pending";
@@ -85,6 +86,9 @@ export class PatientPaymentComponent implements OnInit {
         record['patient_id'] = this.userId;
         record['doctor_id'] = this.docInfo.uid;
         record['Specialization'] = this.docInfo.ins;
+        
+        record['paymentType'] = this.paymentType;
+        record['payer_email'] = order.payer.email_address;
         
         record['Schedule'] = this.sched + ' ' + this.schedTime;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
