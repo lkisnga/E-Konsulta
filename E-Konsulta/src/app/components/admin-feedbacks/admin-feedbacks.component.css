@@ -1,56 +1,62 @@
 body{
   overflow: hidden;
-  font-size: 14px;
   height: 100% !important;
   width: 100% !important;
   min-height: 100vh;
   background: #f5f5f5;
 }
-.content{
-  margin-top: 70px;
+
+@media (min-width: 0) {
+  .g-mr-15 {
+      margin-right: 1.07143rem !important;
+  }
 }
-h5{
+@media (min-width: 0){
+  .g-mt-3 {
+      margin-top: 0.21429rem !important;
+  }
+}
+
+.g-height-50 {
+  height: 30px;
+}
+
+.g-width-50 {
+  width: 30px !important;
+}
+
+@media (min-width: 0){
+  .g-pa-30 {
+      padding: 2.14286rem !important;
+  }
+}
+
+.g-bg-secondary {
+  background-color: #ffffff !important;
+  border-radius: 20px;
+}
+
+.u-shadow-v18 {
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+.g-color-gray-dark-v4 {
+  color: #777 !important;
+}
+
+.g-font-size-12 {
+  font-size: 0.85714rem !important;
+}
+
+.media-comment {
+  margin-top: 10px
+}
+
+.feed-content{
+  margin: 40px 40px 20px 0px !important;
+}
+.feedback{
   color: rgb(0, 129, 138);
-}
-
-.list-group-item{
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  color: gray !important;
-  font-size: 12px;
-}
-
-.mb-1{
-  font-size: 14px;
-}
-
-.whole-trans{
-  height: 485px;
-  overflow-y: scroll;
-  background-color: rgb(238, 238, 238);
-  border-radius: 5px;
-  padding: 15px 30px;
-  margin-top: 20px;
-}
-
-textarea{
-  padding: 10px;
-  font-size: 12px;
-}
-
-/*submit1 Button*/
-.submit1{
-  border: 1px solid rgb(0, 129, 138);
-  border-radius: 5px;
-  text-decoration: none;
-  outline: none;
-  color: rgb(0, 129, 138);
-  background-color: transparent;
-  padding: 2px 10px;
-  cursor: pointer;
-  text-align: center !important;
-}
-
-.submit1:hover{
-  color: white;
-  background-color: rgb(0, 129, 138);
+  font-size: 30px;
+  font-weight: 700;
 }
