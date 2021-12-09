@@ -39,7 +39,7 @@
         <h1 class="left-profile"><img src="{{docInfo.image}}" alt="" width="60" height="60"></h1>
         <h4 class="user left-name">{{docInfo.fullname}}</h4>
         <div class="patient-files">
-            <a href="#sharedFiles" class="nav-link px-1" data-bs-toggle="modal" data-bs-target="#share"> <span class="d-none d-sm-inline">Share Files</span> </a>
+            <a href="#sharedFiles" class="share-file" data-bs-toggle="modal" data-bs-target="#share"> <span class="d-none d-sm-inline">Share Files</span> </a>
         </div>
       </div>
     </div>
@@ -51,14 +51,14 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="send-files">View Shared Files</h5>
+        <h3 class="modal-title" id="send-files">View Shared Files</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
         <div class="btn-group">
-          <button type="button" class="medical" (click)="medicalRecords()">Medical Records</button>
-          <button type="button" class="lab" (click)="labResult()">Laboratory Result</button>
-          <button type="button" class="prescription" (click)="prescription()">Prescription</button>
+          <button type="button" class="filex" (click)="medicalRecords()">Medical Records</button>
+          <button type="button" class="filex" (click)="labResult()">Laboratory Result</button>
+          <button type="button" class="filex" (click)="prescription()">Prescription</button>
         </div>
         <!--medical records-->
         <div *ngIf="medicalrecords">

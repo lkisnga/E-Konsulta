@@ -146,6 +146,8 @@ input:focus{
 .medical1,
 .view-share1,
 .actions{
+  font-size: 18px !important;
+  font-weight: 400;
   display: flex;
   text-decoration: none;
   text-align: center;
@@ -256,11 +258,11 @@ input:focus{
 }
 
 .btn-group .filex:hover{
-  background-color: rgb(0, 128, 0);
+  border: 1px solid rgb(6, 189, 0);
+  background: linear-gradient(135deg, rgb(6, 189, 0) 0%, rgb(5, 138, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   color: white;
 }
-
-
 
 .view{
   border: none;
