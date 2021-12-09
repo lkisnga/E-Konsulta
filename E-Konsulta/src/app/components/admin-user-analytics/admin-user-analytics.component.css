@@ -63,8 +63,9 @@ body{
 
 /* Style the counter cards */
 .card {
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
   padding: 16px;
+  border-radius: 20px !important;
 }
 
 h6{
