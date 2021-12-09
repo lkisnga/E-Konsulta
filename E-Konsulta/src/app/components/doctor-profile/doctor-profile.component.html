@@ -6,7 +6,7 @@
       <!--2nd column-->
       <div class="col-3 mt-4 first">
         <div *ngIf="info.isVerified == 'verified'" class="chip">
-          <div class="chip-content">Verified <span class="checked"><i class="bi bi-check-circle"></i></span></div>
+          <div class="chip-content">Verified <span class="checked"><i class="bi bi-star-fill"></i></span></div>
         </div>
         <div *ngIf="info.isVerified== 'pending' " class="chip">
           <div class="chip-content1">Pending <span class="checked"><i class="bi bi-clock-history"></i></span></div>
@@ -35,16 +35,14 @@
           <p>Address: <span class="info info-5">{{info.address}}</span></p>
           <p>License Number: <span class="info info-6">{{info.license_number}}</span></p>
           <p>Specialization: <span class="info info-7">{{spInfo.name}}</span></p>
-          <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button (click)="edit()" class="edit" id="edit"  data-bs-toggle="modal" data-bs-target="#editInfo">EDIT <span><i class="bi bi-pencil-square"></i></span></button>
           <button class="cfee" data-bs-toggle="modal" data-bs-target="#cfeeBt">CONSULTATION FEE</button>
           <button class="insurance" data-bs-toggle="modal" data-bs-target="#insurance">INSURANCE</button>
         </div>
           <div class="collapse collapse-horizontal" id="collapseWidthExample">
-            <div class="card card-body">
-              <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
-                <span><i class="bi bi-exclamation-circle"></i></span>
-              </button>
-            </div>
+            <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
+              <span><i class="bi bi-exclamation-circle"></i></span>
+            </button>
           </div>
       </div>
       <div class="col-2 third">
@@ -57,38 +55,39 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Edit</h5>
+        <h3 class="modal-title" id="editLabel">Edit</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <form #form="ngForm" (ngSubmit)="update(form.value)">
         <div class="modal-body">
           <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.fullname" name="fullname" type="text" size="42">
+            <input [(ngModel)]="model.fullname" name="fullname" type="text" size="35">
           </p>
           <p>
             Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.email" name="email" type="text" size="42" readonly>
+            <input [(ngModel)]="model.email" name="email" type="text" size="35" readonly>
           </p>
           <p>
             Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.password" name="password" type="text" size="42">
+            <input [(ngModel)]="model.password" name="password" type="text" size="35">
           </p>
           <p>
             Date of Birth:  &nbsp;&nbsp; <input [(ngModel)]="model.dob" name="dob" type="date">
           </p>
           <p>
             Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="42">
+            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="35">
           </p>
           <p>
             Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.address" name="address" type="text" size="42">
+            <input [(ngModel)]="model.address" name="address" type="text" size="35">
           </p>
           <p>
             License #:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.license_number" name="license_number" type="text" size="42">
+            <input [(ngModel)]="model.license_number" name="license_number" type="text" size="35">
           </p>
-          Specialization: &nbsp;<select [(ngModel)]="model.specialization" name="specialization" id="">
+          Specialization: &nbsp;
+          <select [(ngModel)]="model.specialization" name="specialization" id="" class="form-select">
             <option value="{{model.specialization}}" selected>{{spInfo.name}}</option>
             <option *ngFor="let list of spList" value="{{list.uid}}">{{list.name}}</option>
           </select>
@@ -108,7 +107,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Log out</h5>
+        <h3 class="modal-title" id="editLabel">Log out</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -128,11 +127,11 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Consultation Fee</h5>
+        <h3 class="modal-title" id="editLabel">Consultation Fee</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <p>Set Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="fee" name="fee" type="number" size="42"></p>
+        <p>Set Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="fee" name="fee" type="number" size="35"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -148,7 +147,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Insurance Affiliations</h5>
+        <h3 class="modal-title" id="editLabel">Insurance Affiliations</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -190,7 +189,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Account Deletion</h5>
+        <h3 class="modal-title" id="editLabel">Account Deletion</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">

@@ -1,4 +1,6 @@
 .usr{
+  font-size: 30px;
+  font-weight: 700;
   color: rgb(0, 129, 138);
 }
 * {
@@ -68,15 +70,18 @@ body{
 }
 
 .daily{
-
+  font-size: 20px;
+  font-weight: 300;
   color: rgb(0, 129, 138);
   width: 40%;
   padding: 4px 14px;
 }
 
 .total{
+  font-size: 20px;
+  font-weight: 300;
   color: rgb(0, 129, 138);
-  width: 70%;
+  width: 100%;
   padding: 4px 14px;
 }
 
