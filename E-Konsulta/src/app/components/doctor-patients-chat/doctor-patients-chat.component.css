@@ -2,6 +2,7 @@
   font-size: 18px !important;
   color: #333;
 }
+
 .patient-center{
   margin-top: 50px;
 }
@@ -23,9 +24,11 @@
   outline: none;
   background-color: transparent;
 }
+
 .bi-camera-video-fill{
   padding: 4px 10px;
 }
+
 .bi-camera-video-fill:hover{
   background-color: rgb(235, 235, 235);
   border-radius: 5px;
@@ -35,9 +38,11 @@
 img{
   border-radius: 50%;
 }
+
 img.from{
   margin-right: 5px;
 }
+
 img.to{
   margin-left: 5px;
   float: right;
@@ -66,30 +71,36 @@ img.to{
   float: left;
   clear: both;
 }
+
 .cont-chat{
   height: 430px !important;
   overflow-y: scroll;
 }
+
 .below{
   display: inline-flex;
   border-top: 1px solid rgb(233, 230, 230);
   float: right;
 }
+
 .form-control,
 .form-select{
   border-radius: 50px;
 }
+
 .form-control:focus, .form-control:active,
 .form-select:focus, .form-select:active {
   outline: none !important;
   box-shadow: none;
   border: 1px solid rgb(0, 174, 187);
 }
+
 input{
   font-size: 16px;
   padding: 6px 12px;
   border-radius: 50px;
 }
+
 input:focus{
   outline: 0;
 }
@@ -142,6 +153,7 @@ input:focus{
   right: 0px;
   width: 285px;
 }
+
 .prescription1,
 .medical1,
 .view-share1,
@@ -183,9 +195,11 @@ input:focus{
   border-radius: 50px;
   width: 120px;
 }
+
 .finish:hover{
   background: rgb(5, 138, 0);
 }
+
 .cancel:hover{
   background: rgb(138, 32, 0);
 }
@@ -210,6 +224,7 @@ input:focus{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
   width: 100px;
 }
+
 .send:hover{
   background: rgb(0, 129, 138);
 }
@@ -217,7 +232,6 @@ input:focus{
 #send-files{
   color: rgb(0, 129, 138);
 }
-
 
 .end{
   border: none;
@@ -237,6 +251,7 @@ input:focus{
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
 }
+
 .btn-group .filex:first-child{
   border-radius: 50px;
   border: 1px solid rgb(0, 145, 0);
@@ -245,6 +260,7 @@ input:focus{
   border-top-right-radius: 0%;
   border-bottom-right-radius: 0%;
 }
+
 .btn-group .filex
 {
   border: 1px solid rgb(0, 145, 0);

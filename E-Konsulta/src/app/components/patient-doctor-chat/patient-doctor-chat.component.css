@@ -10,16 +10,17 @@
   padding: 6px;
 }
 
-
 #btn{
   border: none;
   outline: none;
   background-color: transparent;
   color: rgb(0, 129, 138);
 }
+
 .bi-camera-video-fill{
   padding: 4px 10px;
 }
+
 .bi-camera-video-fill:hover{
   background-color: rgb(235, 235, 235);
   border-radius: 5px;
@@ -29,11 +30,13 @@
 img{
   border-radius: 50%;
 }
+
 img.from{
   margin-right: 5px;
   width: 20px;
   height: 20px;
 }
+
 img.to{
   margin-left: 5px;
   float: right;
@@ -67,24 +70,21 @@ img.to{
   height: 430px !important;
   overflow-y: scroll;
 }
+
 .below{
   display: inline-flex;
   border-top: 1px solid rgb(233, 230, 230);
   float: right;
 }
+
 input{
   font-size: 16px;
 }
+
 input:focus{
   outline: 0;
 }
 
-/*
-.image-upload > input
-{
-  display: none;
-}
-*/
 /*hide choose file*/
 input[type=file]::file-selector-button{
   display: none;
@@ -232,7 +232,6 @@ a:hover{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   color: white;
 }
-
 
 .bi-eye-fill{
   font-size: 20px;
