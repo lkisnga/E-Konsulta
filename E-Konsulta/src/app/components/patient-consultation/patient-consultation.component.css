@@ -2,18 +2,22 @@
   box-sizing: border-box;
 }
 .book{
-  border: none;
-  border-left: 2px solid rgb(0, 129, 138);
-  border-radius: 5px;
+  border: 1px solid rgb(0, 187, 201);
+  color: rgb(0, 187, 201);
+  border-radius: 50px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding: 6px 10px;
-  color: rgb(0, 129, 138);
+  padding: 7px 20px;
+  font-size: 20px;
+  font-weight: 300;
   margin-top: 70px;
   margin-bottom: 10px;
+  background-color: white;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .book:hover{
-  background-color: white;
+  color: rgb(0, 129, 138);
+  border: 1px solid rgb(0, 129, 138);
 }
 .up{
   font-size: 18px;
