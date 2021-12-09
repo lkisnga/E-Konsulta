@@ -28,7 +28,7 @@
                         <div class="input-group date" id="datepicker">
                           <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" [minDate]="minDate" ngbDatepicker #d="ngbDatepicker" >
                           <div class="input-group-append">
-                            <button class="btn btn-outline-success calendar" (click)="d.toggle()" type="button">
+                            <button class="btn calendar" (click)="d.toggle()" type="button">
                               <span><i class="bi bi-calendar3"></i></span>
                             </button>
                           </div>
@@ -52,8 +52,8 @@
                   <div *ngIf="error_schedule.length > 0" class="alert alert-danger">
                     {{error_schedule}}
                   </div>
-                  <div class="row mt-4">
-                    <div class="col-md-4">
+                  <div class="row justify-content-end mt-4">
+                    <div class="col-md-3 .offset-md-3">
                       <button type="submit" id="continue">Continue <span><i class="bi bi-arrow-right"></i></span></button>
                     </div>
                   </div>
