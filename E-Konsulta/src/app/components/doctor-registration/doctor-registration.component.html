@@ -78,8 +78,8 @@
               <div class="form-group mb-2">
                 <label class="label" for="specialization">Specialization</label>
                 <select  class="form-control" [(ngModel)]="model.specialization" name="specialization" id="">
-                  <option value="default" selected>--SELECT SPECIALIZATION--</option>
-                  <option *ngFor="let list of spList" value="{{list.id}}">{{list.name}}</option>
+                  <option value="" selected>--SELECT SPECIALIZATION--</option>
+                  <option *ngFor="let list of spList" value="{{list.uid}}">{{list.name}}</option>
                 </select>
               </div>
               <div class="form-group mb-2">

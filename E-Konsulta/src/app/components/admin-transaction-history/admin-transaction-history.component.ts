@@ -3,6 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 declare var paypal;
+
 @Component({
   selector: 'app-admin-transaction-history',
   templateUrl: './admin-transaction-history.component.html',
@@ -27,12 +28,12 @@ export class AdminTransactionHistoryComponent implements OnInit {
     public userservice : UserService,
     public notif: NotificationService
   ) { }
-
   ngOnInit(): void {
 
     this.Transactions();
     this.transactionHistory();
     this.paypalButton();
+
   }
 
   tabFunction(info)
@@ -48,7 +49,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       this.transac_his = false;
     }
   }
-
+  
   Transactions()
   {
     var data;
@@ -185,7 +186,9 @@ export class AdminTransactionHistoryComponent implements OnInit {
     info.deduction = deduction;
     info.Amount = parseFloat(info.Amount);
     this.payerInfo = info;
+    this.send_notif2(this.payerInfo);
   }
+  //not yet done
   send_notif2(info)
   {
     console.log(info);
@@ -195,7 +198,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
     record['status'] = "refund";
     record['updatedAt'] = formatDate(new Date(),'short','en');
     console.log(record);
-    /*
+    
     this.userservice.update_transaction_admin(info.uid,record)
     .then(()=>{
       console.log('Sent!');
@@ -217,7 +220,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       setTimeout(() => {
         this.sent_message = false;
       }, 5000);
-    })*/
+    })
   }
 
 }
