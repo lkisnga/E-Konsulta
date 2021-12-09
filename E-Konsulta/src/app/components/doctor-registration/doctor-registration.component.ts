@@ -17,6 +17,7 @@ export class DoctorRegistrationComponent implements OnInit {
   error: { name: string, message: string } = { name: '', message: ''};
   constructor(public afu : AuthService, public userservice : UserService, public router : Router) { }
 
+
   ngOnInit(): void {
 
     var data;
