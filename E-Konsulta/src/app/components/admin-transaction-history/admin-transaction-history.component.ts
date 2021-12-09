@@ -1,15 +1,15 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
-
+declare var paypal;
 @Component({
   selector: 'app-admin-transaction-history',
   templateUrl: './admin-transaction-history.component.html',
   styleUrls: ['./admin-transaction-history.component.css']
 })
 export class AdminTransactionHistoryComponent implements OnInit {
-
+  @ViewChild('paypal', {static: true}) paypalElement: ElementRef
   tranList : any = [];
   tranHis: any = [];
   cancelled_list : any = [];
@@ -21,6 +21,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
   transac_his: boolean = false;
   transac: boolean = true;
 
+  payerInfo: any = [];
+
   constructor(
     public userservice : UserService,
     public notif: NotificationService
@@ -30,7 +32,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
     this.Transactions();
     this.transactionHistory();
-
+    this.paypalButton();
   }
 
   tabFunction(info)
@@ -68,6 +70,42 @@ export class AdminTransactionHistoryComponent implements OnInit {
     })
     this.tranList = tempArray;
     console.log(this.tranList);
+  }
+
+  paypalButton()
+  {
+    paypal
+    .Buttons({
+      style: {
+        layout:  'vertical',
+        color:   'silver',
+        shape:   'rect',
+        label:   'paypal'
+      },
+      createOrder: (data, actions)=>{
+        return actions.order.create({
+          intent: 'CAPTURE',
+          description : "" ,
+          purchase_units:[{
+            amount: {
+              currency_code: 'USD',
+              value: '200.00'
+            },
+            payee: {
+              email_address: this.payerInfo.payer_email
+            }
+          }]
+        });
+      },
+      onApprove: async (data, actions) =>{
+        const order = await actions.order.capture();
+        console.log(order);
+        this.send_notif2(this.payerInfo);
+      },
+      onError: err => {
+        console.log(err);
+      }
+    }).render(this.paypalElement.nativeElement);
   }
 
   transactionHistory()
@@ -141,12 +179,23 @@ export class AdminTransactionHistoryComponent implements OnInit {
      })
    })
   }
+  open_modal(info)
+  {
+    var deduction = parseFloat(info.Amount)*(parseFloat((info.deduction)+10)/100);
+    info.deduction = deduction;
+    info.Amount = parseFloat(info.Amount);
+    this.payerInfo = info;
+  }
   send_notif2(info)
   {
+    console.log(info);
+
     let record = {};
     record['net_income']=  info.Amount-(info.Amount*(20/100));
     record['status'] = "refund";
     record['updatedAt'] = formatDate(new Date(),'short','en');
+    console.log(record);
+    /*
     this.userservice.update_transaction_admin(info.uid,record)
     .then(()=>{
       console.log('Sent!');
@@ -168,7 +217,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       setTimeout(() => {
         this.sent_message = false;
       }, 5000);
-    })
+    })*/
   }
 
 }
