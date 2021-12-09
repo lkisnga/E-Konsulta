@@ -1,20 +1,24 @@
 <app-header-doctor></app-header-doctor>
   <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
+    <div class="col-2 col-md-3 col-xl-2 px-sm-1 px-0">
       <!--sidenav -->
      <app-doctor-sidenav></app-doctor-sidenav>
     </div>
-    <div class="col mt-4">
+    <div class="col">
       <img src="{{imgUrl}}" alt="img" class="profile-pic"  width="120" height="120">
-      <div class="lab-info ">
-        <p>Name: {{info.fullname}}</p>
-        <p>Email: {{info.email}}</p>
-        <p>Address: {{info.address}}</p>
-        <p>Contact Number: {{info.contact_number}}</p>
+      <div class="row doctor-info">
+        <div class="col-md-6 border-end">
+          <p>Name: {{info.fullname}}</p>
+          <p>Email: {{info.email}}</p>
+        </div>
+        <div class="col-md-6">
+          <p>Address: {{info.address}}</p>
+          <p>Contact Number: {{info.contact_number}}</p>
+        </div>
       </div>
       <div class="lower-part">
-        <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of fList" class="list-group-item flex-column align-items-start">
+        <div class="row">
+          <div *ngFor="let list of fList" class="col-md-6 content">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><span><img src="{{list.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
               <small>{{list.createdAt}}</small>
@@ -35,8 +39,8 @@
               <button (click)="reply_button(list)" class='submit' type="button" data-bs-toggle="modal" data-bs-target="#toReply">Reply</button>
             </div>
            <!-- <small>Transaction ID</small>-->
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -46,11 +50,11 @@
         <form #form="ngForm" (ngSubmit)="reply_user(form.value)" >
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addSpclLabel">Add a reply</h5>
+              <h5 class="modal-title" id="addSpclLabel">Reply</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
             </div>
               <div class="modal-body">
-                <textarea [(ngModel)]="reply" name="reply" id="" cols="70" rows="5" placeholder="Write a reply..."></textarea>
+                <textarea [(ngModel)]="reply" name="reply" id="" cols="52" rows="5" placeholder="Write a reply..."></textarea>
               </div>
               <div class="modal-footer">
                 <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>

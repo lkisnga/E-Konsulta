@@ -4,42 +4,47 @@ body{
 }
 
 .profile-pic{
-  margin: 70px auto auto 25px;
+  margin: 70px auto auto 0;
+  border-radius: 20px;
 }
 .lab-info{
   background-color: rgb(238, 238, 238);
-  width: 830px;
-  font-size: 13px;
-  margin: -120px 50px 0 160px;
-  padding: 15px 20px 1px 20px;
-  color: gray !important;
-}
-.lab-info p{
-  line-height: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  margin: -120px 50px 0 130px;
+  padding: 17px 20px;
+  color: #333;
+  border-radius: 20px;
 }
 
 .lower-part{
   background-color: rgb(238, 238, 238);
-  border-radius: 5px;
-  width: 965px;
+  border-radius: 20px;
   height: 370px;
   padding: 10px 35px;
-  margin-left: 25px;
+  margin-right: 45px;
   margin-top: 20px;
   overflow-y: scroll;
 }
 
 /*content*/
-.list-group-item{
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+.content{
+  border-radius: 20px;
+  background: white;
   color: gray !important;
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 5px;
+  padding: 15px;
 }
 
 .mb-1{
-  font-size: 12px;
+  font-size: 20px;
   margin-bottom: 10px;
+}
+.feedback{
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: 3px;
 }
 
 .cute-pic{
@@ -50,7 +55,8 @@ body{
 /*reply*/
 textarea{
   padding: 10px;
-  font-size: 12px;
+  font-size: 16px;
+  border-radius: 20px;
 }
 textarea:focus{
   outline: 0;
@@ -58,53 +64,52 @@ textarea:focus{
 
 /*submit1 Button*/
 .add{
-  border: 1px solid rgb(0, 129, 138);
-  border-radius: 5px;
-  text-decoration: none;
-  outline: none;
-  color: rgb(0, 129, 138);
-  background-color: transparent;
-  padding: 4px 10px;
-  cursor: pointer;
-  text-align: center !important;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  width: 100px;
+  color: #fff;
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
 .cancel{
-  border: 1px solid red;
-  border-radius: 5px;
-  text-decoration: none;
-  outline: none;
-  color: red;
-  background-color: transparent;
-  padding: 4px 10px;
-  cursor: pointer;
-  text-align: center !important;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  width: 100px;
+  color: #fff;
+  background: rgb(138, 32, 0);
+  background: linear-gradient(135deg, rgb(255, 77, 23) 0%, rgb(138, 32, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
 
 .add:hover{
-  color: white;
-  background-color: rgb(0, 129, 138);
+  background: rgb(0, 129, 138);
 }
 .cancel:hover{
-  color: white;
-  background-color: red;
-}
-.modal-title{
-  color: rgb(0, 129, 138);
+  background: rgb(138, 32, 0);
 }
 
 .submit{
   margin-top: 5px;
-  font-size: 11px !important;
+  font-size: 16px !important;
   text-decoration: none;
-  border-radius: 200px;
-  border: 1px solid gray;
-  padding: 2px 8px;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 20px;
+  width: 20%;
+  color: #fff;
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
 
 .submit:hover, .submit:focus{
-  border: 1px solid rgb(0, 192, 206);
-  color: white;
-  background-color: rgb(0, 192, 206) ;
+  background: rgb(0, 129, 138);
 }
 p.ufeedback{
   margin: 5px auto 10px 30px;
@@ -120,4 +125,11 @@ p.ureply{
   background-color: rgb(243, 243, 243);
   border-radius: 25px;
   width: 100%;
+  margin-bottom: 5px;
+}
+
+.modal-title{
+  font-size: 30px !important;
+  font-weight: 500;
+  color: rgb(0, 129, 138);
 }
