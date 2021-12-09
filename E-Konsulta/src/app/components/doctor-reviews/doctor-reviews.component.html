@@ -6,7 +6,7 @@
     </div>
     <div class="col">
       <img src="{{imgUrl}}" alt="img" class="profile-pic"  width="120" height="120">
-      <div class="row lab-info">
+      <div class="row doctor-info">
         <div class="col-md-6 border-end">
           <p>Name: {{info.fullname}}</p>
           <p>Email: {{info.email}}</p>
@@ -54,7 +54,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
             </div>
               <div class="modal-body">
-                <textarea [(ngModel)]="reply" name="reply" id="" cols="70" rows="5" placeholder="Write a reply..."></textarea>
+                <textarea [(ngModel)]="reply" name="reply" id="" cols="52" rows="5" placeholder="Write a reply..."></textarea>
               </div>
               <div class="modal-footer">
                 <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
