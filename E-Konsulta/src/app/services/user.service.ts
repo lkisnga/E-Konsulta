@@ -429,11 +429,13 @@ export class UserService {
   }
   get_doctor_upcoming(doc_id)
   {
-    return this.db.firestore.collection('upcoming').where('doctor_id','==',doc_id);
+    return this.db.firestore.collection('upcoming').where('doctor_id','==',doc_id)
+    .orderBy('id','asc');
   }
   get_patient_upcoming(patient_id)
   {
-    return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id); 
+    return this.db.firestore.collection('upcoming').where('patient_id','==',patient_id)
+    .orderBy('id','asc'); 
   }
   update_upcoming(upcoming_id)
   {
@@ -443,8 +445,11 @@ export class UserService {
   }
   cancel_consultation(info)
   {
-    this.db.collection('Transaction').doc(info.transaction_id).update({
-      status: "cancel"
+   return this.db.collection('upcoming').doc(info.upcoming_id).delete().then(()=>{
+      console.log('Upcoming Deleted!');
+     return this.db.collection('Transaction').doc(info.transaction_id).update({
+        status: "cancel"
+      })
     })
   }
 

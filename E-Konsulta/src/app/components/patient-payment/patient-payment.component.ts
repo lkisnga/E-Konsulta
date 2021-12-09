@@ -204,6 +204,7 @@ export class PatientPaymentComponent implements OnInit {
         record['doctor_id'] = this.docInfo.uid;
         record['patient_id'] = this.userId;
         record['transaction_id'] = this.transaction_id;
+        record['id'] = new Date(formatDate(new Date(),this.schedInfo.consultation_schedule,'en')).getTime();
         record['schedule'] = this.sched;
         record['time'] = this.schedTime;
         record['paymentType'] = this.paymentType;
