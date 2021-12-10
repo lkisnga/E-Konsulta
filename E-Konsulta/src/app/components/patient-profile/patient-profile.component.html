@@ -39,11 +39,9 @@
             is correct Or contact your insurance provider.
         </div>
         <div class="collapse collapse-horizontal" id="collapseWidthExample">
-          <div class="card card-body">
-            <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
-              <span><i class="bi bi-exclamation-circle"></i></span>
-            </button>
-          </div>
+          <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
+            <span><i class="bi bi-exclamation-circle"></i></span>
+          </button>
         </div>
 
       </div>
@@ -56,30 +54,30 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Edit</h5>
+        <h3 class="modal-title">Edit</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <form #form="ngForm" (ngSubmit)="update(form.value)">
         <div class="modal-body">
           <p>
             Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.email" name="email" type="text" size="42" readonly>
+            <input [(ngModel)]="model.email" name="email" type="text" size="35" readonly>
           </p>
           <p>
             Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.fullname" name="fullname" type="text" size="42">
+            <input [(ngModel)]="model.fullname" name="fullname" type="text" size="35">
           </p>
           <p>Date of Birth: &nbsp;&nbsp; <input [(ngModel)]="model.dob" name="dob" type="date"></p>
           <p>
             Contact #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="42">
+            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="35">
           </p>
           <p>
-            Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="42">
+            Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.password" name="password" type="text" size="35">
           </p>
           <p>
             Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.address" name="address" type="text" size="42">
+            <input [(ngModel)]="model.address" name="address" type="text" size="35">
           </p>
         </div>
         <div class="modal-footer">
@@ -96,7 +94,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Log out</h5>
+        <h3 class="modal-title">Log out</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -115,7 +113,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">{{info.insurance_name}}</h5>
+        <h3 class="modal-title">{{info.insurance_name}}</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -123,8 +121,9 @@
           <div class="row">
             <div class="col-md-6">
               <p>Status: {{info.isVerified}}</p>
-              <p>
-                Health Insurance: &nbsp; <select [(ngModel)]="health_insurance" name="health_insurance" type="text">
+              <p class="form-inline">
+                Health Insurance:
+                <select [(ngModel)]="health_insurance" name="health_insurance" type="text" class="form-select">
                   <option value="{{info.health_insurance}}" selected>{{info.insurance_name}}</option>
                   <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
                   </select>
@@ -181,15 +180,15 @@
           </div>
           <div class="row">
             <div class="col-md-8">
-              <p>Choose Laboratory: &nbsp; <select [(ngModel)]="lab_id" name="lab_id" id="" class="mb-2">
+                <select [(ngModel)]="lab_id" name="lab_id" id="" class="form-select mb-2">
                 <option value="" selected>Select Laboratory</option>
                 <option *ngFor="let list of labList" value="{{list.uid}}">{{list.name}}</option>
-              </select></p>
+              </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <p>Filename: &nbsp; <input [(ngModel)]="filename" type="text" size="25"></p>
+              <p>Filename: <input [(ngModel)]="filename" type="text" size="25" placeholder="Input filename" class="custom-file"></p>
             </div>
             <div class="col-md-3">
               <input (change)="choosefile($event)" type="file">
@@ -218,7 +217,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Account Deletion</h5>
+        <h5 class="modal-title">Account Deletion</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
