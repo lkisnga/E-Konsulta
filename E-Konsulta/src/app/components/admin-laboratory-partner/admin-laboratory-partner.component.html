@@ -14,10 +14,10 @@
         <app-admin-sidenav></app-admin-sidenav>
       </div>
       <div class="col col-sm-offset-3 py-4 mx-3 content">
-        <h5>Laboratory Partners</h5>
-        <input [(ngModel)]="searchName" (input)="listOfPartners()" type="search" class="form-control rounded" placeholder="Search Laboratory Partner" aria-label="Search"
+        <p class="lab">Laboratory Partners</p>
+        <input [(ngModel)]="searchName" (input)="listOfPartners()" type="search" class="form-control" placeholder="Search Laboratory Partner" aria-label="Search"
             aria-describedby="search-addon" />
-        <table class="table striped">
+        <table class="table striped mt-2">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -51,9 +51,9 @@
         </div>
         <form #info="ngForm" (ngSubmit)="updateInfo(info.value)">
           <div class="modal-body">
-            Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="47"> <br><br>
-            Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="47"><br><br>
-            Contact #:&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="47"><br><br>
+            <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.name" name="name" type="text" size="37"></p>
+            <p>Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.address" name="address" type="text" size="37"></p>
+            <p>Contact #: &nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="37"></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
