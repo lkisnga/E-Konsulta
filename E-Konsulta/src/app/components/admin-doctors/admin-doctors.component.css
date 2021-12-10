@@ -81,10 +81,6 @@ textarea{
   border: 1px solid rgb(207, 207, 207);
 }
 
-select, textarea{
-  padding: 3px 6px;
-}
-
 .btn, ::placeholder{
   font-size: 14px !important;
 }
