@@ -185,6 +185,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['title'] = "Payout"
       record['description'] = "You have received an amount of " + net_income + "(Inclusive of 10% commission)";
       record['createdAt'] = formatDate(new Date(),'short','en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_doctor(info.doctor_id,record);
 
       this.ngOnInit();
@@ -234,6 +235,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
         record = {};
         record['title'] = "Refund"
         record['description'] = "You have received an amount of " + info.net_income + "(Inclusive of 20% cancellation fee)";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
         record['createdAt'] = formatDate(new Date(),'short','en');
         this.notif.send_patient(info.patient_id,record);
       })

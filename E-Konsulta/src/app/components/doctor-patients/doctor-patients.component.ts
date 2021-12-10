@@ -59,6 +59,7 @@ export class DoctorPatientsComponent implements OnInit {
           record['title'] = "Consultation accepted!";
           record['description'] = "Your consultation has been accepted Join Now!";
           record['createdAt'] = formatDate(new Date(),'short','en');
+          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
           this.notif.send_patient(info.uid,record)
         }
         this.userservice.update_upcoming(res.id).then(()=>{

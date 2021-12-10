@@ -155,6 +155,7 @@ export class PatientProfileComponent implements OnInit {
         let record2 = {};
         record2['createdAt'] = formatDate(new Date(),'short','en');
         record2['title'] = "Patient Verification";
+        record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
         record2['description'] = "Go to Verification and verify the Patient whether He/She is in your service";
         this.notif.send_insurance(this.info.health_insurance,record2)
 
@@ -179,6 +180,7 @@ export class PatientProfileComponent implements OnInit {
         let record2 = {};
         record2['createdAt'] = formatDate(new Date(),'short','en');
         record2['title'] = "LOA";
+        record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
         record2['description'] = "A patient sent an LOA. Check your LOA list";
         this.notif.send_lab(this.info.health_insurance,record2)
 
@@ -231,6 +233,7 @@ export class PatientProfileComponent implements OnInit {
               record['createdAt'] = formatDate(new Date(),'short','en');
               record['title'] = "LOA request";
               record['description'] = "A patient requested for LOA";
+              record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
               this.notif.send_insurance(this.info.health_insurance,record)
 
             })

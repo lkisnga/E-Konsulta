@@ -219,6 +219,7 @@ export class PatientPaymentComponent implements OnInit {
           record2['createdAt'] = formatDate(new Date(),'short','en');
           record2['title'] = "Patient Booked";
           record2['description'] = "A patient successfully booked! Check your Patients upcoming!";
+          record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
           this.notif.send_doctor(this.docInfo.uid,record2)
 
           this.router.navigate(['patient-consultation']);

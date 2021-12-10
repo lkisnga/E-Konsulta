@@ -66,7 +66,8 @@ export class PatientRegistrationComponent implements OnInit {
           //Notification send to Health Insurance
           let record = {};
           record['createdAt'] = formatDate(new Date(),'short','en');
-          record['title'] = "Patient Verification"
+          record['title'] = "Patient Verification";
+          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
           record['description'] = "Go to Verification and Verify the Patient whether He/She is in your service!";
           this.notif.send_insurance(frm.health_insurance,record);
           //End of notification 

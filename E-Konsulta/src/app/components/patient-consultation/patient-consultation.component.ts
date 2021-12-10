@@ -129,6 +129,7 @@ export class PatientConsultationComponent implements OnInit {
       record['title'] = "Cancelled Consultaion";
       record['description'] = "A Patient want to cancel its consultation";
       record['createdAt'] = formatDate(new Date(),'short','en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.userservice.get_admin().then(e=>{
         e.forEach(item=>{
           this.notif.send_admin(item.id,record);

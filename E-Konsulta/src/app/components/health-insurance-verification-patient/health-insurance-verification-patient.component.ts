@@ -83,6 +83,7 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
       record['createdAt'] = formatDate(new Date(),'short','en');
       record['title'] = "Insurance Verified!";
       record['description'] = "Your insurance credentials has been verified. Check your Insurance Info now!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_patient(e.uid,record)
       this.ngOnInit();
     })
@@ -118,6 +119,7 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
         record2['createdAt'] = formatDate(new Date(),'short','en');
         record2['title'] = "Insurance Info Updated!";
         record2['description'] = "Your Insurance Information has been updated. Check your Insurance Information in your profile.";
+        record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
         this.notif.send_patient(this.patient_id,record2)
       })
     }
@@ -130,6 +132,7 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
         record2['createdAt'] = formatDate(new Date(),'short','en');
         record2['title'] = "Insurance Info Updated!";
         record2['description'] = "Your Insurance Information has been updated. Check your Insurance Information in your profile.";
+        record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
         this.notif.send_patient(this.patient_id,record2)
       })
     }

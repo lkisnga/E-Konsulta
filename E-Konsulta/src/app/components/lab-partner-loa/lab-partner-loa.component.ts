@@ -104,6 +104,7 @@ export class LabPartnerLoaComponent implements OnInit {
           record2['title'] = "A laboratory sent a LOA";
           record2['description'] = "Check your received to view this LOA.";
           record2['createdAt'] = formatDate(new Date(),'short','en');
+          record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
           this.notif.send_insurance(this.insurance_id,record2);
 
 
