@@ -16,10 +16,10 @@
         <app-admin-sidenav></app-admin-sidenav>
       </div>
       <div class="col col-sm-offset-3 py-4 mx-3 content">
-        <h5>Health Insurance</h5>
-          <input  [(ngModel)]="searchName" (input)='listOfInsurance()' type="search" class="form-control rounded" placeholder="Search Health Insurance" aria-label="Search"
+        <p class="health">Health Insurance</p>
+        <input  [(ngModel)]="searchName" (input)='listOfInsurance()' type="search" class="form-control" placeholder="Search Health Insurance" aria-label="Search"
             aria-describedby="search-addon" />
-        <table class="table striped">
+        <table class="table striped mt-2">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -55,10 +55,10 @@
         </div>
         <form #editInfo="ngForm" (ngSubmit)="updateInfo(editInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.name" name="name" type="text" size="43"> <br><br>
-            Branch name: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.branchname" name="branchname" type="text" size="43"><br><br>
-            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.address" name="address" type="text" size="43"><br><br>
-            Conctact Number: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.contact_number" name="contact_number" type="text" size="39"> <br><br>
+            <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.name" name="name" type="text" size="35"></p>
+            <p>Branch name: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.branchname" name="branchname" type="text" size="35"></p>
+            <p>Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.address" name="address" type="text" size="35"></p>
+            <p>Conctact Number: &nbsp;&nbsp;&nbsp; <input [(ngModel)]="model2.contact_number" name="contact_number" type="text" size="28"></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
