@@ -10,7 +10,7 @@
   <h6>Send Report</h6>
   <div class="form">
     <form ngNativeValidate #form="ngForm"  class="feedback-form" (ngSubmit)="send_problem(form.value)" >
-      <textarea [(ngModel)]="content" name="content" id="" cols="70" rows="5" placeholder="Describe the issue..." required></textarea>
+      <textarea [(ngModel)]="content" name="content" id="" cols="52" rows="5" placeholder="Describe the issue..." required></textarea>
       <div class="image">
         <input (change)="get_image($event)" type="file" class="custom-file-input">
       </div>

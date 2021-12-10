@@ -14,7 +14,7 @@ body{
   z-index: 1;
   background: #FFFFFF;
   margin:auto;
-  border-radius: 20px;
+  border-radius: 3px;
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 10px 20px;
   margin-bottom: 10px;
@@ -101,7 +101,7 @@ h6{
   background: #e0e0e0;
   width: 100%;
   padding: 14px 12px;
-  border-radius: 50px;
+  border-radius: 3px;
 }
 
 p{
