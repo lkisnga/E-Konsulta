@@ -58,6 +58,7 @@ export class DoctorReviewsComponent implements OnInit {
       record['title'] = "Feedback";
       record['description'] = "A doctor replied your feedback!";
       record['createdAt'] = formatDate(new Date(),"MM/dd/yyyy",'en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_patient(this.sent_to,record);
 
       this.ngOnInit();
