@@ -71,12 +71,18 @@ body{
   font-weight: 700;
 }
 
+.xid{
+  font-size: 14px !important;
+  padding-bottom: 3px;
+}
+
 input,
 select,
 option,
 .content{
   font-size: 1rem !important;
 }
+
 .upper-trans{
  font-size: 12px;
 }
