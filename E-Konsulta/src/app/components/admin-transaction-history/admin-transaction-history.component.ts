@@ -205,7 +205,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
   //For cancellations
   send_notif2(info)
   {
-
+    document.getElementById('closeCancel').click();
     let record = {};
     record['Amount'] = info.deductions;
     record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
