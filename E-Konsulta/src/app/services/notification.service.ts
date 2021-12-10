@@ -24,7 +24,7 @@ export class NotificationService {
   get_insurance(id)
   {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('Notification')
-    .orderBy('createdAt','desc');
+    .orderBy('id','desc');
   }
 
   notif_sound(id,flag) // insurance
@@ -56,7 +56,7 @@ export class NotificationService {
   get_lab(id)
   {
     return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('Notification')
-    .orderBy('createdAt','desc');
+    .orderBy('id','desc');
   }
   notif_soundLab(id,flag)
   {
@@ -87,7 +87,7 @@ export class NotificationService {
   get_patient(id)
   {
     return this.db.firestore.collection('Users').doc(id).collection('Notification')
-    .orderBy('createdAt','desc');
+    .orderBy('id','desc');
   }
   notif_soundPatient(id,flag)
   {
@@ -119,7 +119,7 @@ export class NotificationService {
   get_doctor(id)
   {
     return this.db.firestore.collection('Users').doc(id).collection('Notification')
-    .orderBy('createdAt','desc');
+    .orderBy('id','desc');
   }
   notif_soundDoctor(id,flag)
   {
@@ -150,7 +150,7 @@ export class NotificationService {
   get_admin(id)
   {
     return this.db.firestore.collection('Users').doc(id).collection('Notification')
-    .orderBy('createdAt','desc');
+    .orderBy('id','desc');
   }
   notif_soundAdmin(id,flag)
   {
