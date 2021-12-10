@@ -28,14 +28,12 @@
           <p>Email: <span class="info info-4">{{info.email}}</span></p>
           <p>User Type: <span class="info info-5">{{info.role}}</span></p>
           <p>Contact Number: <span class="info info-6">{{info.contact_number}}</span></p>
-          <button (click)="editInfo()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT</button>
+          <button (click)="editInfo()" class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#editInfo">EDIT<span><i class="bi bi-pencil-square"></i></span></button>
         </div>
         <div class="collapse collapse-horizontal" id="collapseWidthExample">
-          <div class="card card-body">
-            <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
-              <span><i class="bi bi-exclamation-circle"></i></span>
-            </button>
-          </div>
+          <button type="button" class="deletion" data-bs-toggle="modal" data-bs-target="#accDeletion"> ACCOUNT DELETION
+            <span><i class="bi bi-exclamation-circle"></i></span>
+          </button>
         </div>
       </div>
       <div class="col-2 third">
@@ -47,30 +45,30 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Edit</h5>
+        <h5 class="modal-title">Edit</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <form #userInfo="ngForm" (ngSubmit)="updateInfo(userInfo.value)" class="form">
         <div class="modal-body">
           <p>
             Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.name" name="name" type="text" size="43">
+            <input [(ngModel)]="model.name" name="name" type="text" size="37">
           </p>
           <p>
             Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.email" name="email" type="text" size="43" readonly>
+            <input [(ngModel)]="model.email" name="email" type="text" size="37" readonly>
           </p>
           <p>
             Password: &nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.password" name="password" type="text" size="43">
+            <input [(ngModel)]="model.password" name="password" type="text" size="37">
           </p>
           <p>
             Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.address" name="address" type="text" size="43">
+            <input [(ngModel)]="model.address" name="address" type="text" size="37">
           </p>
           <p>
             Contact #: &nbsp;&nbsp;&nbsp;&nbsp;
-            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="43">
+            <input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="37">
           </p>
         </div>
         <div class="modal-footer">
@@ -87,7 +85,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Log out</h5>
+        <h5 class="modal-title">Log out</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
@@ -107,7 +105,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editLabel">Account Deletion</h5>
+        <h5 class="modal-title">Account Deletion</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
