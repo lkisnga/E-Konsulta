@@ -73,7 +73,8 @@ export class PatientToHealthInsuranceFeedbackComponent implements OnInit {
               //add notification to receiver
               let record = {};
               record['createdAt'] = formatDate(new Date(),'short','en');
-              record['title'] = "Feedback"
+              record['title'] = "Feedback";
+              record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
               record['description'] = this.userInfo.fullname+" sent you a feedback! Go to Reviews and Check it!";
               this.notif.send_insurance(this.info2.uid,record)
 

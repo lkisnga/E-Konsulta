@@ -136,6 +136,7 @@ export class DoctorPatientsChatComponent implements OnInit {
       record2['title'] = "Medical Summary and Prescription"
       record2['description'] = "The doctor sent your Medical Summary and your Prescription. Check your Records now!";
       record2['createdAt'] = formatDate(new Date(),'short','en');
+      record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_patient(this.patientInfo.uid,record2);
 
 
@@ -167,6 +168,7 @@ export class DoctorPatientsChatComponent implements OnInit {
         record2['title'] = "Medical Certificate"
         record2['description'] = "A doctor sent a medical Certificate. Check your Records now!";
         record2['createdAt'] = formatDate(new Date(),'short','en');
+        record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
         this.notif.send_patient(this.patientInfo.uid,record2);
 
         setTimeout(() => {
@@ -231,6 +233,7 @@ export class DoctorPatientsChatComponent implements OnInit {
           record2['title'] = "Consultation Finished"
           record2['description'] = "Congratulations! You have finished your Consultation!";
           record2['createdAt'] = formatDate(new Date(),'short','en');
+          record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
           this.notif.send_patient(this.patientInfo.uid,record2);
         })
       })
@@ -248,6 +251,7 @@ export class DoctorPatientsChatComponent implements OnInit {
       record['title'] = "Consultation Cancelled";
       record['description'] = "Your consultation has been cancelled.";
       record['createdAt'] = formatDate(new Date(),'short','en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_patient(this.patientInfo.uid,record);
     })
   }

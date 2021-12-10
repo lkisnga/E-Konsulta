@@ -71,6 +71,7 @@ export class AdminPatientsComponent implements OnInit {
       let record = {};
       record['title'] = "Account updated!";
       record['description'] = "Your Account has been updated by the admin for various reasons";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_patient(e.uid,record);
       this.ngOnInit();
@@ -123,6 +124,7 @@ export class AdminPatientsComponent implements OnInit {
       //notification patient
       let record = {};
       record['title'] = "Account disabled!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_patient(this.disable_id,record);

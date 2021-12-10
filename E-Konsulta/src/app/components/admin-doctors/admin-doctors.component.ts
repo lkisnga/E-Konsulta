@@ -157,6 +157,7 @@ export class AdminDoctorsComponent implements OnInit {
       //notification doctor
       let record = {};
       record['title'] = "Account updated!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['description'] = "Your Account has been updated by the admin for various reasons";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_doctor(a.id,record);
@@ -181,6 +182,7 @@ export class AdminDoctorsComponent implements OnInit {
       //notification doctor
       let record = {};
       record['title'] = "Account disabled!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_doctor(this.doctor_id,record);
@@ -211,6 +213,7 @@ export class AdminDoctorsComponent implements OnInit {
       //notification for doctors
       let record = {};
       record['title'] = "Account Verified!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['description'] = "Your Account has been verified. You can now receive patients. Enjoy!";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_doctor(id,record);

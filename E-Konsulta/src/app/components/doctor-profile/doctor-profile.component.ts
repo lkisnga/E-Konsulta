@@ -200,6 +200,7 @@ export class DoctorProfileComponent implements OnInit {
           record['title'] = "Doctor Affiliation Verification";
           record['description']= "A doctor sent a verification, check your Doctor List now!";
           record['createdAt'] = formatDate(new Date(),'short', 'en');
+          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
           this.notif.send_insurance(this.insurance_id,record);
         })
       }

@@ -95,6 +95,7 @@ export class HealthInsuranceVerificationDoctorComponent implements OnInit {
           record['title'] = "Doctor Affiliation Verified";
           record['description']= "You have been verified by your insurance!";
           record['createdAt'] = formatDate(new Date(),'short', 'en');
+          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
           this.notif.send_doctor(docInfo.doctor_id,record);
       })
     }

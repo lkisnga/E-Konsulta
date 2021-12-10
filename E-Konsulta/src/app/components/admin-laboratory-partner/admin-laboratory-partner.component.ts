@@ -48,6 +48,7 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     this.userservice.update_lab(this.UID,record).then(()=>{
       let record = {};
       record['title'] = "Account updated!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['description'] = "Your Account has been updated by the admin for various reasons";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_lab(this.UID,record);
@@ -67,6 +68,7 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     this.userservice.update_lab(this.UID,record).then(()=>{
       let record = {};
       record['title'] = "Account disabled!";
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
       record['createdAt'] = formatDate(new Date(),'short','en');
       this.notif.send_lab(this.UID,record);
