@@ -9,24 +9,23 @@
  <div class="feedback-page">
   <h6>Give Us Your Thoughts on an E-Konsulta Feature</h6>
   <div class="form">
-
     <form ngNativeValidate #form="ngForm" (ngSubmit)="submit_form(form.value)" class="feedback-form">
       <p>Please let us know how we can make your E-Konsulta experience better.</p>
       <div class="user-email">
-        <p>Your email <br>
+        <p class="content">Your email <br>
         <span><input [(ngModel)]="model.email" name="email" type="text" required></span> </p>
       </div>
       <div>
         <p>Please provide feedback by selecting a feature from the list below.</p>
-        <p>Feature</p>
-        <select [(ngModel)]="model.feature" name="feature" id="">
+        <p class="content">Feature</p>
+        <select [(ngModel)]="model.feature" name="feature" id="" class="form-select">
           <option value="others" selected>Others</option>
           <option value="Billing">Billing</option>
           <option value="Chat">Chat</option>
           <option value="Notification">Notification</option>
         </select>
-        <p>Your Feedback</p>
-        <textarea [(ngModel)]="model.content" name="content" id="" cols="70" rows="4" required></textarea>
+        <p class="content">Your Feedback</p>
+        <textarea [(ngModel)]="model.content" name="content" id="" cols="50" rows="4" required></textarea>
       </div>
       <div>
         <p>Thank you for taking the time to provide feedback. Though we are unable to review and respond to

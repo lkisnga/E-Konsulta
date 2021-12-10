@@ -14,6 +14,7 @@ body{
   z-index: 1;
   background: #FFFFFF;
   margin:auto;
+  border-radius: 20px;
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 10px 20px;
   margin-bottom: 10px;
@@ -28,42 +29,29 @@ body{
   box-sizing: border-box;
   font-size: 12px;
 }
-
-input[type="date"]:before {
-  content: attr(placeholder) !important;
-  color: rgb(0, 192, 206);
-  margin-right: 5.7em;
+.form-select,
+input[type=text],
+input[type=email]
+{
+  font-size: 16px !important;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgb(207, 207, 207);
 }
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
-  color: rgb(0, 192, 206);
-}
-
-.form input[type=text]:hover,.form input[type=text]:active,.form input[type=text]:focus,
-.form input[type=password]:hover,.form input[type=password]:active,.form input[type=password]:focus,
-.form input[type=date]:hover, .form input[type=date]:active, .form input[type=date]:focus{
-  background: #e0e0e0;
-  color: grey;
-}
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
+input:focus,
+textarea:focus{
   outline: 0;
-  width: 100%;
-  border: 0;
-  padding: 10px;
-  color: rgb(0, 129, 138);
-  background-color: rgb(189, 249, 255);
-  font-size: 20px;
-  transition: all 0.3 ease;
-  cursor: pointer;
 }
 
-.form button:hover,.form button:active,.form button:focus {
-  background: rgb(0, 129, 138);
-  color: white;
+textarea
+{
+  font-size: 16px !important;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgb(207, 207, 207);
 }
+
+
 /*
 .form .message {
   margin: 15px 0 0;
@@ -109,10 +97,11 @@ label{
 }
 
 h6{
-  text-align: left;
+  text-align: center;
   background: #e0e0e0;
   width: 100%;
   padding: 14px 12px;
+  border-radius: 50px;
 }
 
 p{
@@ -132,16 +121,21 @@ select:focus{
   padding: 14px 12px;
 }
 .send{
-  font-size: 12px !important;
-  text-decoration: none;
-  padding: 4px 12px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  width: 50%;
+  margin-left: 100px;
+  text-align: center;
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
 .send:hover, .send:focus{
-  color: white;
-  background-color: rgb(0, 129, 138);
+  background: rgb(0, 129, 138);
 }
 
-textarea{
-  font-size: 12px;
-  padding: 4px 8px;
+.content{
+  font-weight: 600;
 }
