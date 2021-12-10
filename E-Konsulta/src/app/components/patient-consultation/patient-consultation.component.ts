@@ -136,11 +136,10 @@ export class PatientConsultationComponent implements OnInit {
       })
       record['description'] = "A Patient cancelled its consultation";
       this.notif.send_doctor(this.info.uid,record);
-      document.getElementById('closeModal').click();      
+      document.getElementById('closeModal').click();   
+      this.info = [];   
       this.ngOnInit();
     });
-
-    this.info = [];
   }
 
   get_done()
