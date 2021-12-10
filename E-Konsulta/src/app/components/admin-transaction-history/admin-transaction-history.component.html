@@ -103,7 +103,7 @@
               </div>
               <div class="col-md-1">
                 <button (click)="send_notif(list)" *ngIf="list.status=='done'" class="paid btn-sm text-center border-bottom">Pay <span><i class="bi bi-money"></i></span></button>
-                <button (click)="open_modal(list)" *ngIf="list.status=='cancel'" class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
+                <button (click)="open_modalCancel(list)" *ngIf="list.status=='cancel'" class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
               </div>
             </div>
           </div>
@@ -177,7 +177,7 @@
                <p>{{payerInfo.Specialization}}: {{payerInfo.doctor_name}}</p>
                <p>transaction ID: {{payerInfo.uid}}</p>
                <p>Amount: {{payerInfo.Amount}}</p>
-               <p>Deduction: {{payerInfo.deduction}} (Cancellation Fee)</p>
+               <p>Deduction: {{payerInfo.deductions}} (Cancellation Fee)</p>
               </div>
               <div #paypal>
 

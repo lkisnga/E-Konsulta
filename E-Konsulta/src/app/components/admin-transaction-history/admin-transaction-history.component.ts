@@ -24,6 +24,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
   payerInfo: any = [];
 
+  pay: any = [];
+
   constructor(
     public userservice : UserService,
     public notif: NotificationService
@@ -61,6 +63,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
           this.userservice.get_UserInfo(item.data().doctor_id)
           .then(doctorInfo=>{
             data = item.data();
+           // data.deduction = item.data().deduction.toString();
             data.uid = item.id;
             data.patient_name = patientInfo.data().fullname;
             data.doctor_name = doctorInfo.data().fullname;
@@ -90,8 +93,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
           purchase_units:[{
             amount: {
               currency_code: 'USD',
-              value: '200.00'
-            },
+              value: this.payerInfo.net_income
+            }, 
             payee: {
               email_address: this.payerInfo.payer_email
             }
@@ -125,6 +128,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
   send_notif(info)
   {
+
+
     console.log(info);
     var commision = info.Amount*(info.deduction/100);
     var net_income = info.Amount - commision;
@@ -136,6 +141,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
     record['patient_name'] = info.patient_name;
     record['doctor_name'] = info.doctor_name;
     record['status'] = info.status;
+
+
    this.userservice.add_transactionHistory(record).then(e=>{
       console.log('Added in Admin Transaction History!')
       //transaction for doctor
@@ -148,6 +155,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['patient_name'] = info.patient_name;
       record['status'] = info.status;
       record['transaction_id'] = e.id;
+
+
       this.userservice.create_transactionHistory_User(info.doctor_id,record)
       .then(()=>{
         console.log('Added in Doctor Transaction History!')
@@ -160,6 +169,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['doctor_id'] = info.doctor_id;
       record['status'] = info.status;
       record['transaction_id'] = e.id;
+
+
       this.userservice.create_transactionHistory_User(info.patient_id,record)
       .then(()=>{
         console.log('Added in Patient Transaction History!')
@@ -180,47 +191,60 @@ export class AdminTransactionHistoryComponent implements OnInit {
      })
    })
   }
-  open_modal(info)
+
+
+  open_modalCancel(info) 
   {
-    var deduction = parseFloat(info.Amount)*(parseFloat((info.deduction)+10)/100);
-    info.deduction = deduction;
-    info.Amount = parseFloat(info.Amount);
+    var deduction = 0,net_income = 0;
+    deduction = info.Amount*(info.deduction+10)/100;
+    net_income = info.Amount - deduction
     this.payerInfo = info;
-    this.send_notif2(this.payerInfo);
+    this.payerInfo.deductions = deduction;
+    this.payerInfo.net_income = net_income;
   }
-  //not yet done
+  //For cancellations
   send_notif2(info)
   {
-    console.log(info);
 
     let record = {};
-    record['net_income']=  info.Amount-(info.Amount*(20/100));
-    record['status'] = "refund";
-    record['updatedAt'] = formatDate(new Date(),'short','en');
-    console.log(record);
-    
-    this.userservice.update_transaction_admin(info.uid,record)
-    .then(()=>{
-      console.log('Sent!');
+    record['Amount'] = info.deductions;
+    record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
+    record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+    record['patient_name'] = info.patient_name;
+    record['doctor_name'] = info.doctor_name;
+    record['status'] = info.status;
+
+
+    this.userservice.add_transactionHistory(record)
+    .then((e)=>{
+
 
       let record = {};
-      record['title'] = "Payout from cancelled consultation"
-      record['description'] = "You have received an amount of " + (info.Amount*(info.deduction/100)) + "(Inclusive of 10% commission)";
-      record['createdAt'] = formatDate(new Date(),'short','en');
-      this.notif.send_doctor(info.doctor_id,record);
+      record['Amount'] = info.net_income;
+      record['doctor_id'] = info.doctor_id;
+      record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
+      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+      record['status'] = info.status;
+      record['transaction_id'] = e.id;
 
-      record = {};
-      record['title'] = "Refund"
-      record['description'] = "You have received an amount of " + (info.Amount-(info.Amount*(20/100))) + "(Inclusive of 20% cancellation fee)";
-      record['createdAt'] = formatDate(new Date(),'short','en');
-      this.notif.send_patient(info.patient_id,record);
-
-      this.ngOnInit();
-      this.sent_message = true;
-      setTimeout(() => {
-        this.sent_message = false;
-      }, 5000);
+      this.userservice.create_transactionHistory_User(info.patient_id,record)
+      .then(()=>{
+        console.log('Added Patient transaction history!');
+        //Patient Notification
+        record = {};
+        record['title'] = "Refund"
+        record['description'] = "You have received an amount of " + info.net_income + "(Inclusive of 20% cancellation fee)";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_patient(info.patient_id,record);
+      })
+      
     })
+    .then(()=>{
+     this.userservice.delete_transaction(info.uid).then(()=>{
+       console.log('Transaction Deleted and moved to Transaction History!');
+       this.ngOnInit();
+     })
+    });
   }
 
 }
