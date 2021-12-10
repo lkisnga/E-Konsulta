@@ -14,10 +14,10 @@
         <app-admin-sidenav></app-admin-sidenav>
       </div>
       <div class="col col-sm-offset-3 py-4 mx-3">
-        <h5 class="doctor">Doctors</h5>
+        <p class="doctor">Doctors</p>
         <div class="row">
           <div class="col">
-            <div class="btn-group mt-2">
+            <div class="btn-group">
               <button (click)="isVerified_Doc('pending')" type="button" class="pending">Pending</button>
               <button (click)="isVerified_Doc('verified')" type="button" class="verified">Verified</button>
             </div>
@@ -32,10 +32,10 @@
           </div>
         </div>
 
-        <input [(ngModel)]="searchName" (input)='listOfDoctors()' type="text" class="mt-3 form-control rounded" placeholder="Search Doctor" aria-label="Search"
+        <input [(ngModel)]="searchName" (input)='listOfDoctors()' type="search" class="mt-3 form-control" placeholder="Search Doctor" aria-label="Search"
             aria-describedby="search-addon" />
         <!--table-->
-        <table class="table striped">
+        <table class="mt-2 table striped">
           <thead>
             <tr>
               <th scope="col">Doctor Email</th>
@@ -75,8 +75,8 @@
         </div>
         <form #specialInfo="ngForm" (ngSubmit)="addSpecialization(specialInfo.value)">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="sp.name" name="name" type="text" size="47"> <br><br>
-            Description: &nbsp;<textarea [(ngModel)]="sp.description" name="description" id="" cols="47" rows="5"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp.name" name="name" type="text" size="38"> <br><br>
+            Description: &nbsp;<textarea [(ngModel)]="sp.description" name="description" id="" cols="50" rows="5"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -137,14 +137,14 @@
         </div>
         <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
           <div class="modal-body">
-            Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="40" readonly> <br><br>
-            User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="40" readonly> <br><br>
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="40"><br><br>
-            License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="40"><br><br>
-            Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="40"><br><br>
-            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="40"><br><br>
+            Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="30" readonly> <br><br>
+            User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="30" readonly> <br><br>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="30"><br><br>
+            License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="30"><br><br>
+            Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br>
+            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
             Specialization:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example">
+            <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example" class="form-select">
               <option selected value="{{model.specialization}}">{{model.sp_name}}</option>
               <option *ngFor="let list of spList"value="{{list.uid}}">{{list.name}}</option>
             </select>
@@ -189,8 +189,8 @@
         </div>
         <form (ngSubmit)="update_Specialization()">
           <div class="modal-body">
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp2.name" name="name" type="text" size="45"><br><br>
-            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="62" rows="6"></textarea>
+            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="sp2.name" name="name" type="text" size="37"><br><br>
+            Description:  &nbsp; <textarea [(ngModel)]="sp2.description" name="description" id="" cols="50" rows="6"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
