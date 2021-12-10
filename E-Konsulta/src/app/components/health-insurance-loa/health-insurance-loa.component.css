@@ -113,6 +113,7 @@ input:focus{
 .send:hover{
   background: rgb(0, 129, 138);
 }
+
 .decline{
   padding: 7px 10px;
   width: 100px;
