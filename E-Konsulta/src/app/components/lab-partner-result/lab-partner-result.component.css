@@ -6,45 +6,59 @@ body{
   margin-top: -39%;
 }
 
-.usr{
-  color: rgb(0, 192, 206);
-}
 
 .lower-part{
   background-color: rgb(238, 238, 238);
-  border-radius: 5px;
-  height: 380px;
-  padding: 7px 35px;
-  margin-left: 25px;
+  border-radius: 20px;
+  height: 370px;
+  padding: 20px 35px;
+  margin-right: 45px;
   margin-top: 20px;
   overflow-y: scroll;
 }
 
 /*content*/
-.list-group-item{
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+.content{
+  border-radius: 20px;
+  background: white;
   color: gray !important;
-  font-size: 12px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  padding: 15px;
   cursor: pointer;
 }
+
 .addr{
-  padding: 7px 10px;
-  border-radius: 3px;
-  border: none;
-  background-color:rgb(0, 146, 156);
-  color: white;
-  width: 150px;
-  margin-left: 20px;
+  border: 1px solid rgb(0, 187, 201);
+  color: rgb(0, 187, 201);
+  border-radius: 50px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 7px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .addr:hover{
-  background-color: rgb(0, 129, 138);
+  color: rgb(0, 129, 138);
+  border: 1px solid rgb(0, 129, 138);
 }
 
-input{
-  padding: 3px 6px;
+.mb-1{
+  font-weight: 700;
+  color: rgb(0, 129, 138);
 }
 
+input[type=text],
+input[type=email]
+{
+  font-size: 16px !important;
+  padding: 6px 12px;
+  border-radius: 50px;
+  border: 1px solid rgb(207, 207, 207);
+}
 input:focus{
   outline: 0;
 }
@@ -58,58 +72,71 @@ select{
 }
 
 .modal-title{
+  font-size: 25px;
+  font-weight: 700;
   color: rgb(0, 129, 138);
 }
 .cancel{
   padding: 7px 10px;
-  border-radius: 3px;
+  width: 100px;
+  margin-left: 5px;
+  border-radius: 50px;
   border: none;
-  background-color:red;
-  color: white;
-  width: 80px;
+  color: #fff;
+  background: linear-gradient(135deg, rgb(255, 77, 23) 0%, rgb(138, 32, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
 .cancel:hover{
-  background-color: rgb(211, 0, 0);
+  background: rgb(138, 32, 0);
 }
 .submit{
   padding: 7px 10px;
-  border-radius: 3px;
-  border: 1px solid white;
-  background-color:rgb(0, 146, 156);
-  color: white;
-  width: 80px;
+  width: 100px;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .submit:hover{
-  background-color: rgb(0, 129, 138);
+  background: rgb(0, 129, 138);
 }
 
 .input:focus{
   outline: 0;
 }
-.btn-group{
-  margin-left: 20px;
-}
+
 .pending{
-  border: 1px solid white;
-  border-radius: 3px;
-  background-color: rgb(0, 129, 138);
-  color: white;
-  padding: 7px 12px;
-  width: 100px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  width: 150px;
+  color: #fff;
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
 .done{
-  border-radius: 3px;
-  border: 1px solid white;
-  background-color:rgb(255, 238, 0);
-  padding: 7px 12px;
-  width: 100px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 20px;
+  width: 150px;
+  color: #fff;
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(255, 210, 9) 0%, rgb(233, 190, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
-
 .pending:hover{
-  color: rgb(0, 129, 138);
-  background-color: rgb(235, 233, 233);
+  background: rgb(0, 129, 138);
 }
-
 .done:hover{
-  background-color: rgb(241, 217, 0);
+  background: rgb(233, 179, 0);
 }
