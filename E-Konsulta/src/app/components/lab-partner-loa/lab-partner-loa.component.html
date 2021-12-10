@@ -1,24 +1,27 @@
 <app-header-lab></app-header-lab>
 
   <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0">
+    <div class="col-2 col-md-3 col-xl-2 px-sm-1 px-0">
       <!--sidenav -->
       <app-lab-partner-sidenav></app-lab-partner-sidenav>
     </div>
-      <div class="col mx-4">
-        <h5 class="usr">Patient LOA</h5>
-        <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of labList"  class="list-group-item flex-column align-items-start mt-3">
-            <div class="info">
-              <h5>{{list.fullname}}</h5>
-              <p class="mb-1">File Name: {{list.filename}}</p>
-              <small>{{list.createdAt}}</small>
+      <div class="col">
+        <p class="usr">Patient LOA</p>
+        <div class="whole-trans">
+          <div class="row">
+            <div *ngFor="let list of labList"  class="col-md-6 content">
+              <div class="info">
+                <h5>{{list.fullname}}</h5>
+                <p class="mb-1">File Name: {{list.filename}}</p>
+                <small>{{list.createdAt}}</small>
+              </div>
+              <div class="bttn">
+                <button (click)="edit_labLOA(list)" class="view" data-bs-toggle="modal" data-bs-target="#view">View</button>
+              </div>
             </div>
-            <div class="bttn">
-              <button (click)="edit_labLOA(list)" class="view" data-bs-toggle="modal" data-bs-target="#view">View</button>
-            </div>
-          </li>
-        </ul>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -27,11 +30,11 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="editLabel">Insurance Name</h5>
+            <p class="modal-title">Insurance Name</p>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
           <div class="modal-body">
-            <button (click)="open()" class="view1 mt-2">View File <span><i class="bi bi-eye"></i></span></button>
+            <button (click)="open()" class="view1 my-2">View File</button> <br> <br>
             <div class="loa">
               <h5 id="editLabel" class="mt-2">Send LOA</h5>
               <select [(ngModel)]="insurance_id" class="form-select" name="insurance_idid=">
@@ -46,7 +49,7 @@
               </div>
               <div *ngIf="empty_ins" class="alert alert-danger">
                 {{empty_ins}}
-              </div>  
+              </div>
               <div *ngIf="added_message" class="alert alert-success">
                 {{added_message}}
               </div>
