@@ -10,7 +10,7 @@
         <button type="button" class="up" (click)="upcomingFunction()">Upcoming</button>
         <button type="button" class="done" (click)="doneFunction()">Done</button>
       </div>
-      <div *ngIf="upcoming" class="list-group list-group-flush mt-3">
+      <div *ngIf="upcoming" class="list-group mt-3">
         <a href="javascript:void(0)" *ngFor="let list of docList" class="list-group-item">
           <div *ngIf="list.upcoming_status == 'pending'">
             <span class="full-name mb-2 col">{{list.fullname}}</span>

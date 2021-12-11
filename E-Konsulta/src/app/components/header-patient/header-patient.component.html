@@ -33,7 +33,7 @@
           <span *ngIf="badge=='true' " class="badge">.</span>
         </div>
         <div class="dropdown" *ngIf="notification" >
-          <div *ngFor="let list of notifList" class="notify_item">
+          <div *ngFor="let list of notifList" class="notify_item border-bottom">
             <div class="notify_info">
               <p class="main">{{list.title}}</p>
 						  <p class="small">{{list.description}}</p>

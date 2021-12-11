@@ -79,17 +79,17 @@ export class PatientPaymentComponent implements OnInit {
         this.paymentType = "paypal";
 
         console.log(order);
-        //record to be created in Transaction Collection 
+        //record to be created in Transaction Collection
         let record = {};
         record['status'] = "pending";
         record['deduction'] = 10;
         record['patient_id'] = this.userId;
         record['doctor_id'] = this.docInfo.uid;
         record['Specialization'] = this.docInfo.ins;
-        
+
         record['paymentType'] = this.paymentType;
         record['payer_email'] = order.payer.email_address;
-        
+
         record['Schedule'] = this.sched + ' ' + this.schedTime;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         record['Amount'] = order.purchase_units[0].amount.value;
@@ -100,8 +100,8 @@ export class PatientPaymentComponent implements OnInit {
 
         //use for transaction filtering
         var data2 = new Date();
-        record['monthUpdated'] = data2.getMonth()+1;  
-        
+        record['monthUpdated'] = data2.getMonth()+1;
+
         this.userservice.create_transaction(record).then((e)=>{
           console.log('Added to transaction!');
 
@@ -213,7 +213,7 @@ export class PatientPaymentComponent implements OnInit {
         record['status'] = 'pending'
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');
-          
+
           //Notification
           let record2 = {};
           record2['createdAt'] = formatDate(new Date(),'short','en');
@@ -244,6 +244,6 @@ export class PatientPaymentComponent implements OnInit {
         this.chats.create_chat(this.docInfo.uid,this.userId);
       else
         console.log("Chat already exist!");
-    })  
+    })
   }
 }

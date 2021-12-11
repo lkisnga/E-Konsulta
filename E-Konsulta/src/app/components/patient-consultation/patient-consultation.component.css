@@ -90,8 +90,9 @@
 }
 
 .join-now{
-  border: none;
+  font-size: 16px;
   width: 120px;
+  padding: 6px 10px;
   border: 1px solid rgb(0, 129, 138);
   border-radius: 50px;
   color: rgb(0, 129, 138);
