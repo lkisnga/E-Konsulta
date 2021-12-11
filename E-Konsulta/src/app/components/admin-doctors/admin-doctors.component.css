@@ -129,7 +129,8 @@ textarea{
 .edit,
 .add,
 .update,
-.disable{
+.disable,
+.delete1{
   padding: 7px 10px;
   border-radius: 20px;
   border: none;
@@ -143,7 +144,8 @@ textarea{
 .edit:hover
 .add:hover,
 .update:hover,
-.disable:hover{
+.disable:hover,
+.delete1:hover{
   background: rgb(0, 129, 138);
 }
 
