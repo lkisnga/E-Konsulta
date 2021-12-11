@@ -16,27 +16,35 @@
       </div>
       <div class="col mt-4">
         <h3 class="usr">Analytics</h3>
-        <div class="column">
-          <div class="card">
-            <h6 class="daily">Today</h6>
-            <div class="card-body">
-              <small>Total Users</small>
-              <p class="card-text">{{today}}</p>
+        <div class="content">
+          <div class="row justify-content-evenly">
+            <div class="col-5 mb-4 consultation-content">
+              <h4>Today:
+                <span class="card-text">{{today}}</span>
+              </h4>
+            </div>
+            <div class="col-5 mb-4 consultation-content">
+              <h4>Total Consultations:
+                <span class="card-text">{{total}}</span>
+              </h4>
             </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="card">
-            <h6 class="total">Total Consultations</h6>
-            <div class="card-body">
-              <small style="visibility: hidden;">Total Users</small>
-              <p class="card-text">{{total}}</p>
+
+          <div class="row border-top justify-content-evenly">
+            <div class="col-5 mt-4 consultation-content">
+              <h4>Current:
+                <span class="card-text">0</span>
+              </h4>
+            </div>
+            <div class="col-5 mt-4 consultation-content">
+              <h4>Total Earnings:
+                <span class="card-text">0</span>
+              </h4>
             </div>
           </div>
         </div>
       </div>
     </div>
-
 
 </body>
 </html>
