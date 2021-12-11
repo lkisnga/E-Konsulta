@@ -66,7 +66,7 @@ textarea:focus{
 .cancel,
 .disable1{
   padding: 7px 10px;
-  border-radius: 50px;
+  border-radius: 20px;
   border: none;
   color: white;
   width: 100px;
@@ -80,4 +80,36 @@ textarea:focus{
 .cancel:hover,
 .disable1:hover{
   background: rgb(138, 32, 0);
+}
+
+.bi-eye{
+  margin-left: 10px;
+}
+
+.view{
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 129, 138);
+  color: rgb(0, 129, 138);
+  background:white;
+  width: 80px;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.view:hover,
+.view1:hover{
+  color: #fff;
+  border: 1px solid rgb(0, 222, 238);
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+}
+
+.view1{
+  float: right;
+  padding: 6px 8px;
+  border-radius: 21px;
+  border: 1px solid rgb(0, 129, 138);
+  color: rgb(0, 129, 138);
+  background:white;
+  width: 90px;
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
