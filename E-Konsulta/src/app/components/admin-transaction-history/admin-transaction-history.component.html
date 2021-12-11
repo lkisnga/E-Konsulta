@@ -159,13 +159,17 @@
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Send Refund</h5>
                 <button id="closeCancel" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
+                <div>
+                  <img src="./assets/images/ekIcon1.ico" alt="" width="50" height="50">
+                  <span class="main ms-2">E-KONSULTA</span>
+                </div>
                <p>Name: {{payerInfo.patient_name}} </p>
                <p>Schedule: {{payerInfo.consultation_schedule}} {{payerInfo.Schedule}}</p>
                <p>{{payerInfo.Specialization}}: {{payerInfo.doctor_name}}</p>

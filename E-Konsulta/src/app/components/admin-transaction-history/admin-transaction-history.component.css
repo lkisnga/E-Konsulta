@@ -122,4 +122,8 @@ option,
   background-color: rgb(5, 138, 0);
 }
 
-
+.modal-title{
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(0, 129, 138);
+}
