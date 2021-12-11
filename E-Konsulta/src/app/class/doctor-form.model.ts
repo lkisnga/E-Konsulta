@@ -7,4 +7,5 @@ export class DoctorForm {
     specialization: string = "";
     contact_number: string;
     license_number: string;
+    paypal_email: string = "";
 }
