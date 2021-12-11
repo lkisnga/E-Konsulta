@@ -27,8 +27,6 @@ export class PatientProfileComponent implements OnInit {
   insList : any = [];
   file : any;
 
-  filename: string = "";
-
   insurance_info: any = [];
 
   request_error: string="";
@@ -168,11 +166,11 @@ export class PatientProfileComponent implements OnInit {
   }
   send_labLOA()
   {
-    if(this.file && this.filename && this.lab_id)
+    if(this.file && this.lab_id)
     {
       let record = {};
       record['file'] = this.file;
-      record['filename'] = this.filename;
+      record['filename'] = this.file.name;
       this.userservice.send_labLOA(this.lab_id,this.userID,record)
       .then(()=>{
         console.log('added!');

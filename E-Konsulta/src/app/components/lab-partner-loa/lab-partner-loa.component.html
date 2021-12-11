@@ -30,18 +30,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <p class="modal-title">Insurance Name</p>
+            <p class="modal-title">Send LOA</p>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
           <div class="modal-body">
             <button (click)="open()" class="view1 my-2">View File</button> <br> <br>
             <div class="loa">
-              <h5 id="editLabel" class="mt-2">Send LOA</h5>
-              <select [(ngModel)]="insurance_id" class="form-select" name="insurance_idid=">
-                <option value="" selected>Select Insurance</option>
-                <option *ngFor="let list of insuranceList" value="{{list.uid}}">{{list.name}}</option>
-              </select>
-              <p class="mt-4">Filename: &nbsp; <input [(ngModel)]="filename" name="filename" type="text" size="40"></p>
+              <h5 id="editLabel" class="mt-2">Send LOA to {{patientInfo.ins_name}}</h5>
               <p>Choose File: <input (change)="choosefile($event)" type="file"></p>
 
               <div *ngIf="empty_field" class="alert alert-danger">

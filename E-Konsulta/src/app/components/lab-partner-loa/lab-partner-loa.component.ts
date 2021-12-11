@@ -14,18 +14,19 @@ export class LabPartnerLoaComponent implements OnInit {
   userid: string = "";
   labList : any = [];
   file: string = "";
-  file2:  string = "";
+  file2 : any;
 
   filename: string = "";
 
   insuranceList : any = [];
-  insurance_id : string = "";
 
   empty_field: string = "";
   empty_ins: string = "";
   added_message : string = "";
 
   labLOA_id: string = "";
+
+  patientInfo: any = [];
   constructor(
     public userservice: UserService,
     public notif : NotificationService,
@@ -36,7 +37,6 @@ export class LabPartnerLoaComponent implements OnInit {
     this.userid = this.afu.get_UID();
 
     this.get_LOA();
-    this.get_insurance();
   }
 
   get_LOA()
@@ -47,36 +47,26 @@ export class LabPartnerLoaComponent implements OnInit {
       e.forEach(item=>{
         this.userservice.get_UserInfo(item.data().patient_id)
         .then(a=>{
-          data = item.data();
-          data.fullname = a.data().fullname;
-          data.uid = item.id;
-          tempArray.push(data);
+          this.userservice.get_HealthInsurance_Info(a.data().health_insurance)
+          .then(hi=>{
+            data = item.data();
+            data.fullname = a.data().fullname;
+            data.uid = item.id;
+            data.ins_id = hi.id;
+            data.ins_name = hi.data().name;
+            tempArray.push(data);
+          })
         })
       })
     })
     this.labList = tempArray;
     console.log(this.labList);
   }
-  get_insurance()
-  {
-    var data;
-    var tempArray = [];
-    this.userservice.get_HealthInsurance()
-    .then(e=>{
-      e.forEach(item=>{
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
-      })
-    })
-    this.insuranceList = tempArray;
-    console.log(this.insuranceList)
-  }
   edit_labLOA(info)
   {
     this.file=info.file;
     this.labLOA_id = info.uid;
-
+    this.patientInfo = info;
   }
   open()
   {
@@ -88,14 +78,12 @@ export class LabPartnerLoaComponent implements OnInit {
   }
   send()
   {
-    if(this.insurance_id)
-    {
-      console.log(this.filename);
-      if(this.file2 && this.filename)
+      console.log(this.patientInfo);
+      if(this.file2)
       {
         let record = {};
-        record['insurance_id'] = this.insurance_id;
-        record['filename'] = this.filename;
+        record['insurance_id'] = this.patientInfo.ins_id;
+        record['filename'] = "Updated"+this.patientInfo.fullname+this.file2.name;
         record['file'] = this.file2;
         record['lab_id'] = this.userid;
         this.userservice.send_labInsurance_LOA(record).then(e=>{
@@ -105,8 +93,7 @@ export class LabPartnerLoaComponent implements OnInit {
           record2['description'] = "Check your received to view this LOA.";
           record2['createdAt'] = formatDate(new Date(),'short','en');
           record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-          this.notif.send_insurance(this.insurance_id,record2);
-
+          this.notif.send_insurance(this.patientInfo.ins_id,record2);
 
           this.userservice.update_labLOA(this.labLOA_id)
           .then(()=>{
@@ -117,7 +104,6 @@ export class LabPartnerLoaComponent implements OnInit {
           this.added_message = "LOA sent!";
           this.file2 = "";
           this.filename = "";
-          this.insurance_id = "";
           setTimeout(() => {
             this.added_message = "";
           }, 5000);
@@ -125,21 +111,12 @@ export class LabPartnerLoaComponent implements OnInit {
       }
       else
       {
-        console.log("Empty File or Filename!");
-        this.empty_field = "Empty File or Filename!"
+        console.log("Empty File");
+        this.empty_field = "Empty File!"
         setTimeout(() => {
           this.empty_field = "";
         }, 5000);
       }
-    }
-    else
-    {
-      console.log('Please select an insurance!');
-      this.empty_ins = "Please select an insurance!"
-      setTimeout(() => {
-        this.empty_ins = "";
-      }, 5000);
-    }
   }
 
 }
