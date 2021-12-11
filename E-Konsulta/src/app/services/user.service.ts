@@ -777,7 +777,8 @@ export class UserService {
           filename: record.filename,
           lab_id: record.lab_id,
           insurance_id: record.insurance_id,
-          createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+          createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+          id: new Date(formatDate(new Date(),'short','en')).getTime()
         })
       })
     })
@@ -922,7 +923,7 @@ export class UserService {
   get_loa_receieved(id)
   {
     return this.db.firestore.collection('LOA_Received').where('insurance_id','==',id)
-    .get();
+    .orderBy('id','asc').get();
   }
 
   get_doctor_verificationFile(id)
