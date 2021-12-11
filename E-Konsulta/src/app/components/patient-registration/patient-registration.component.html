@@ -74,18 +74,23 @@
               </div>
               <div class="form-group mb-2">
                 <label class="label" for="specialization">Health Insurance</label>
-                <select  class="form-control" [(ngModel)]="model.health_insurance" name="health_insurance">
-                  <option value="" selected>--SELECT HEALTH INSURANCE--</option>
+                <select #f class="form-control" [(ngModel)]="model.health_insurance" name="health_insurance" (change)="change(f.value)">
+                  <option value="none" selected>--SELECT HEALTH INSURANCE--</option>
                   <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
                 </select>
               </div>
-              <div class="form-group mb-2">
-                <label class="label" for="insurance_id">Health Insurance ID</label>
-                <input class="form-control" [(ngModel)]="model.member_ID" name="member_ID" type="text" placeholder="Health Insurance ID" required/>
-              </div>
-              <div class="form-group mb-2">
-                <label class="label" for="id">Insurance Card Pic and Recent Picture</label>
-                <input class="form-control" name="id" type="file" multiple/>
+              <button hidden id="showIns" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Button with data-bs-target
+              </button>
+              <div class="collapse" id="collapseExample">
+                <div class="form-group mb-2">
+                  <label class="label" for="insurance_id">Health Insurance ID</label>
+                  <input class="form-control" [(ngModel)]="model.member_ID" name="member_ID" type="text" placeholder="Health Insurance ID" required/>
+                </div>
+                <div class="form-group mb-2">
+                  <label class="label" for="id">Insurance Card Pic and Recent Picture</label>
+                  <input class="form-control" name="id" type="file" multiple/>
+                </div>
               </div>
               <div class="form-group mb-2">
                 <label class="label" for="address">Address</label>

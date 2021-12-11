@@ -16,8 +16,8 @@ export class PatientInfo
   password: string;
   contact_number: string;
   address : string;
-  health_insurance: string = "";
-  member_ID: string;
+  health_insurance: string = "none";
+  member_ID: string = "none";
 }
 
 @Component({
@@ -33,6 +33,8 @@ export class PatientRegistrationComponent implements OnInit {
   error: { name: string, message: string } = { name: '', message: ''};
   confirmPass: string="";
   pass_message:string ="";
+
+  show : boolean = false;
 
   constructor(public userservice : UserService, 
     public afu : AuthService, 
@@ -53,6 +55,18 @@ export class PatientRegistrationComponent implements OnInit {
     this.insList = tempArray;
     console.log(this.insList);
 
+  }
+
+  change(e)
+  {
+    if(e != "")
+    {
+      document.getElementById('showIns').click();
+    }
+    else
+    {
+      document.getElementById('showIns').click();
+    }
   }
 
   register_Patient(frm)
