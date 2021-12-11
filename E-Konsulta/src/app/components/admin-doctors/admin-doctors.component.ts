@@ -16,6 +16,8 @@ export class DoctorInfo
   license_number: string;
   contact_number: string;
   specialization: string;
+  paypal_email: string;
+  email: string;
   sp_name: string;
   role: string;
 }
@@ -114,19 +116,26 @@ export class AdminDoctorsComponent implements OnInit {
     this.userservice.get_doctorList().then(res=>{
       res.forEach(doc=>{
         console.log(doc.data());
-        this.userservice.get_specializationInfo(doc.data().specialization).then(e=>{
-          if(doc.data().isVerified == this.isVerified)
-          {
-            data =  doc.data();
-            data.uid = doc.id;
-            data.sp_name = e.data().name;
-            tempArray.push(data);
-          }
-        }).then(()=>{
-          this.list=tempArray.filter(res => {
-            return res.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+        this.userservice.get_doctor_verificationFile(doc.id)
+        .then(f=>{
+          f.forEach(file=>{
+            this.userservice.get_specializationInfo(doc.data().specialization).then(e=>{
+            if(doc.data().isVerified == this.isVerified)
+            {
+              data =  doc.data();
+              data.uid = doc.id;
+              data.file = file.data().file;
+              data.sp_name = e.data().name;
+              tempArray.push(data);
+            }
+          }).then(()=>{
+            this.list=tempArray.filter(res => {
+              return res.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+            })
+          })
           })
         })
+        
       })
     })
   }
@@ -138,6 +147,8 @@ export class AdminDoctorsComponent implements OnInit {
     this.model.fullname = record.fullname;
     this.model.address= record.address;
     this.model.specialization = record.specialization;
+    this.model.email = record.email;
+    this.model.paypal_email = record.paypal_email;
     this.model.license_number= record.license_number;
     this.model.contact_number = record.contact_number;
     this.model.role = record.role;
@@ -188,6 +199,10 @@ export class AdminDoctorsComponent implements OnInit {
       this.notif.send_doctor(this.doctor_id,record);
       this.ngOnInit();
     })
+  }
+  view_file(e)
+  {
+    window.open(e);
   }
   addSpecialization(a)
   {
