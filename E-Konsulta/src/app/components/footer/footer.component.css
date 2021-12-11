@@ -8,6 +8,7 @@
 
 a, p, small{
   color: rgb(228, 228, 228);
+  font-size: 18px;
 }
 a{
   text-decoration: none;
