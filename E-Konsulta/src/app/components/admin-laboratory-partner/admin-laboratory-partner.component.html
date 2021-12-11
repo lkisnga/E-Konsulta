@@ -23,6 +23,7 @@
               <th scope="col">Name</th>
               <th scope="col">Address</th>
               <th scope="col">isDisabled</th>
+              <th scope="col">Files</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -32,6 +33,9 @@
               <td>{{item.address}}</td>
               <td>{{item.disabled}}</td>
               <td>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#view" class="view ms-2">VIEW</button>
+              </td>
+              <td>
                 <button (click)="editInfo(item)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editLabPartner">EDIT</button> &nbsp;
                 <span><button (click)="disableInfo(item.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteLabPartner">DISABLE</button></span>
               </td>
@@ -40,6 +44,35 @@
         </table>
       </div>
     </div>
+
+    <!--View Modal-->
+  <div class="modal fade" id="view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewLabel">Files</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+          <div class="modal-body">
+            <div class="row mt-2 mx-4 inside-modal">
+              <div class="col">
+                <ul class="list-group list-group-flush">
+                  <div>
+                  </div>
+                  <li class="list-group-item">
+                    <span>Filename</span>
+                    <button class="view1">View<span><i class="bi bi-eye"></i></span></button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="cancel" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>
 
   <!--Edit Laboratory Prtner Modal-->
   <div class="modal fade" id="editLabPartner" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
