@@ -121,7 +121,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       style: {
         layout:  'vertical',
         color:   'silver',
-        shape:   'rect',
+        shape:   'pill',
         label:   'paypal'
       },
       createOrder: (data, actions)=>{
@@ -132,7 +132,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
             amount: {
               currency_code: 'USD',
               value: this.payerInfo.net_income
-            }, 
+            },
             payee: {
               email_address: this.payerInfo.payer_email
             }
