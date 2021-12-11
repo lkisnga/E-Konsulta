@@ -43,6 +43,7 @@
               <th scope="col">User Type</th>
               <th scope="col">License Number</th>
               <th scope="col">Specialization</th>
+              <th scope="col">Files</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -53,6 +54,7 @@
               <td>{{item.role}}</td>
               <td>{{item.license_number}}</td>
               <td>{{item.sp_name}}</td>
+              <td><button class="view">View<i class="bi bi-eye"></i></button></td>
               <td *ngIf="item.isVerified == 'verified'">
                 <button type="button" (click)="editInfo(item)" class="edit" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
                 <span><button (click)="editDisable(item.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
@@ -213,8 +215,8 @@
           <p>Are you sure you want to delete?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="delete_Specialization()" type="button" class="btn btn-info" data-bs-dismiss="modal">Delete</button>
+          <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="delete_Specialization()" type="button" class="delete1" data-bs-dismiss="modal">Delete</button>
         </div>
       </div>
     </div>
