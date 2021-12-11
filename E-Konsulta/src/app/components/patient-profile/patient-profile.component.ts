@@ -67,6 +67,7 @@ export class PatientProfileComponent implements OnInit {
       this.health_insurance = e.data().health_insurance;
       this.member_ID = e.data().member_ID;
 
+      if(this.health_insurance != "none")
       this.userservice.get_HealthInsurance_Info(e.data().health_insurance).then(item=>{
         data = e.data();
         data.insurance_name=item.data().name;
@@ -79,7 +80,15 @@ export class PatientProfileComponent implements OnInit {
           })
         })
       })
+      else
+      {
+        data = e.data();
+        data.insurance_name="none";
+        this.info = data;
+      }
+
     })
+
     this.insurance_list();
 
     this.get_lab();
@@ -163,7 +172,7 @@ export class PatientProfileComponent implements OnInit {
         this.ngOnInit();
       })
     }
-  }
+  } 
   send_labLOA()
   {
     if(this.file && this.lab_id)
@@ -198,6 +207,7 @@ export class PatientProfileComponent implements OnInit {
       }, 3000);
     }
   }
+
   get_lab()
   {
     var data;
