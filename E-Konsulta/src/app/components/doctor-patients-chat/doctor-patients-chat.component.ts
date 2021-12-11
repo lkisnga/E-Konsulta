@@ -136,7 +136,7 @@ export class DoctorPatientsChatComponent implements OnInit {
       record2['title'] = "Medical Summary and Prescription"
       record2['description'] = "The doctor sent your Medical Summary and your Prescription. Check your Records now!";
       record2['createdAt'] = formatDate(new Date(),'short','en');
-      record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+      record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
       this.notif.send_patient(this.patientInfo.uid,record2);
 
 
@@ -242,14 +242,15 @@ export class DoctorPatientsChatComponent implements OnInit {
 
   cancel_consultation()
   {
-    this.userservice.remove_upcoming(this.patientInfo.upcoming_id)
+    console.log(this.patientInfo);
+    this.userservice.cancel_consultation_doctor(this.patientInfo)
     .then(()=>{
       console.log('Upcoming Removed!');
       console.log('Cancelled Consultation!');
-
+      
       let record = {};
       record['title'] = "Consultation Cancelled";
-      record['description'] = "Your consultation has been cancelled.";
+      record['description'] = "Your consultation has been cancelled because of your nonappearance.";
       record['createdAt'] = formatDate(new Date(),'short','en');
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_patient(this.patientInfo.uid,record);
