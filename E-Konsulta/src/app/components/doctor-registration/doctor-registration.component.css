@@ -11,7 +11,7 @@ body{
   }
 
 .ftco-section {
-  padding: 2em 0;
+  padding: 1.2em 0;
 }
 
 .heading-section {
@@ -74,7 +74,8 @@ body{
     color: gray;
 }
 
-.form-control {
+.form-control,
+.form-select {
   height: 48px;
   background: rgba(0, 0, 0, 0.05);
   color: #000;
@@ -170,3 +171,15 @@ body{
   text-decoration: underline;
 }
 
+span.trans{
+  text-transform: lowercase !important;
+  color: gray;
+  font-weight: 300;
+}
+
+span.note
+{
+  text-transform: lowercase !important;
+  font-weight: 300;
+  color: rgb(236, 1, 1);
+}
