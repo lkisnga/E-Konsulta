@@ -86,12 +86,15 @@ export class PatientRegistrationComponent implements OnInit {
       this.afu.registerWithEmail_patient(frm)
         .then(() => {
           //Notification send to Health Insurance
-          let record = {};
-          record['createdAt'] = formatDate(new Date(),'short','en');
-          record['title'] = "Patient Verification";
-          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
-          record['description'] = "Go to Verification and Verify the Patient whether He/She is in your service!";
-          this.notif.send_insurance(frm.health_insurance,record);
+          if(frm.health_insurance != "none")
+          {
+            let record = {};
+            record['createdAt'] = formatDate(new Date(),'short','en');
+            record['title'] = "Patient Verification";
+            record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+            record['description'] = "Go to Verification and Verify the Patient whether He/She is in your service!";
+            this.notif.send_insurance(frm.health_insurance,record);
+          }
           //End of notification 
           this.router.navigate(['/login'])
         }).catch(_error => {
