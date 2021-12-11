@@ -46,16 +46,16 @@
           <table class="table mt-3">
             <thead>
               <tr>
-                <th>File Name</th>
                 <th>Date</th>
+                <th>File Name</th>
                 <th>From</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let list of list">
-                  <td>{{list.filename}}</td>
                   <td>{{list.createdAt}}</td>
+                  <td>{{list.filename}}</td>
                   <td>{{list.from}}</td>
                   <td>
                     <button (click)="viewFile(list.file)" class="view">View<span><i class="bi bi-eye-fill"></i></span></button>
