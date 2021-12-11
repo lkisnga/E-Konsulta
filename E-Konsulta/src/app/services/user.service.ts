@@ -719,11 +719,12 @@ export class UserService {
   {
     return this.db.firestore.collection('Users').doc(user_id).update(fee);
   }
-  update_patient_insurance(user_id,record)
+  update_patient_insurance(user_id,record,file)
   {
     return this.db.collection('Users').doc(user_id).update(record)
     .then(()=>{
-      this.db.collection('Users').doc(user_id).collection('Insurance_Info').get()
+
+     this.db.collection('Users').doc(user_id).collection('Insurance_Info').get()
       .forEach(e=>{
         if(!e.empty)
         {
@@ -732,6 +733,53 @@ export class UserService {
             .delete()
             .then(()=>{
               console.log('Insurance Info Deleted!');
+            })
+          })
+        }
+      })
+
+     this.db.collection('Users').doc(user_id).collection('Verification_Files').get()
+      .forEach(e=>{
+        if(!e.empty)
+        {
+          e.forEach(item=>{
+            this.db.firestore.collection('Users').doc(user_id).collection('Verification_Files')
+            .doc(item.id).delete()
+            .then(()=>{
+              console.log("Verification Files Deleted!");
+
+              this.store.ref('Users-Files/' + user_id + '/' + file.name).put(file)
+              .then(()=>{
+                this.store.storage.ref('Users-Files/' + user_id + '/' + file.name)
+                .getDownloadURL()
+                .then(e=>{
+                  this.db.firestore.collection('Users').doc(user_id).collection('Verification_Files')
+                  .add({
+                    file: e
+                  })
+                  .then(()=>{
+                    console.log("updated Verification Files");
+                  })
+                })
+              })
+
+            })
+          })
+        }
+        else
+        {
+          this.store.ref('Users-Files/' + user_id + '/' + file.name).put(file)
+          .then(()=>{
+            this.store.storage.ref('Users-Files/' + user_id + '/' + file.name)
+            .getDownloadURL()
+            .then(e=>{
+              this.db.firestore.collection('Users').doc(user_id).collection('Verification_Files')
+              .add({
+                file: e
+              })
+              .then(()=>{
+                console.log("added from none to Verification Files");
+              })
             })
           })
         }

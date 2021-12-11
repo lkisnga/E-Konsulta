@@ -133,8 +133,8 @@
           </div>
           <div class="row">
             <div class="form-group mb-2">
-              <label class="label" for="id">Insurance Card Pic and Recent Picture</label>
-              <input (change)="choosefile2($event)" class="form-control" name="id" type="file" multiple/>
+              <label class="label" for="id">Insurance Card Pic and Recent Picture(Must be in one file)</label>
+              <input (change)="choosefile2($event)" class="form-control" name="id" type="file"/>
             </div>
           </div>
           <div class="row first1">
@@ -153,59 +153,61 @@
               {{verification_sent}}
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-3">
-              <h5 id="editLabel">INFO</h5>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <p>Package: {{insurance_info.Package}}</p>
-            </div>
-          </div>
-          <div class="row second2">
-            <div class="col-md-4">
-              <span id="insBal">Current Spent:</span><button class="php">{{insurance_info.spent}}php</button>
-            </div>
-            <div class="col-md-4">
-              <span id="insBal2">Limit:</span><button class="php">{{insurance_info.limit}}php</button>
-            </div>
-            <div class="col-md-4">
-              <button (click)="request_LOA()" class="request">REQUEST LOA</button>
-            </div>
-            <div *ngIf="request_error.length > 0" style="margin-top: 2%;" class="alert alert-danger">
-              {{request_error}}
-            </div>
-            <div *ngIf="request_sent.length > 0" style="margin-top: 2%;" class="alert alert-warning">
-              {{request_sent}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <h5 id="editLabel" class="mt-2">LABORATORY</h5>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8">
-                <select [(ngModel)]="lab_id" name="lab_id" id="" class="form-select mb-2">
-                <option value="" selected>Select Laboratory</option>
-                <option *ngFor="let list of labList" value="{{list.uid}}">{{list.name}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
-              <input (change)="choosefile($event)" type="file">
-            </div>
-            <div class="col-md-3">
-              <button (click)="send_labLOA()" class="send">Send LOA</button>
-            </div>
-            <div *ngIf="lab_message" class="alert alert-success">
-              {{lab_message}}
-            </div>
-            <div *ngIf="empty_field" class="alert alert-danger">
-              {{empty_field}}
-            </div>
+          <div *ngIf="info.health_insurance != 'none' && info.isVerified != 'pending'">
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5 id="editLabel">INFO</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Package: {{insurance_info.Package}}</p>
+                  </div>
+                </div>
+                <div class="row second2">
+                  <div class="col-md-4">
+                    <span id="insBal">Current Spent:</span><button class="php">{{insurance_info.spent}}php</button>
+                  </div>
+                  <div class="col-md-4">
+                    <span id="insBal2">Limit:</span><button class="php">{{insurance_info.limit}}php</button>
+                  </div>
+                  <div class="col-md-4">
+                    <button (click)="request_LOA()" class="request">REQUEST LOA</button>
+                  </div>
+                  <div *ngIf="request_error.length > 0" style="margin-top: 2%;" class="alert alert-danger">
+                    {{request_error}}
+                  </div>
+                  <div *ngIf="request_sent.length > 0" style="margin-top: 2%;" class="alert alert-warning">
+                    {{request_sent}}
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <h5 id="editLabel" class="mt-2">LABORATORY</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                    <select [(ngModel)]="lab_id" name="lab_id" id="" class="form-select mb-2">
+                    <option value="" selected>Select Laboratory</option>
+                    <option *ngFor="let list of labList" value="{{list.uid}}">{{list.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <input (change)="choosefile($event)" type="file">
+                </div>
+                <div class="col-md-3">
+                  <button (click)="send_labLOA()" class="send">Send LOA</button>
+                </div>
+                <div *ngIf="lab_message" class="alert alert-success">
+                  {{lab_message}}
+                </div>
+                <div *ngIf="empty_field" class="alert alert-danger">
+                  {{empty_field}}
+                </div>
+              </div>
           </div>
         </div>
       </div>

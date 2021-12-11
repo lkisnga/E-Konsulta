@@ -150,40 +150,44 @@ export class PatientProfileComponent implements OnInit {
   }
   update_insurance()
   {
-    let record = {}
-    if(this.info.isVerified == 'verified' && this.info.health_insurance == this.health_insurance)
-    {
-      console.log('Already Verified!');
-      this.verified_message = "Already Verified!";
-      setTimeout(() => {
-        this.verified_message = "";
-      }, 5000);
-    }
-    else if(this.info.isVerified == "pending" && this.info.health_insurance != "none")
-    {
-      record['isVerified'] = 'pending';
-      record['health_insurance'] = this.health_insurance;
-      record['member_ID'] = this.member_ID;
-      this.userservice.update_patient_insurance(this.userID,record).then(()=>{
-        this.verification_sent = "Verification Sent!";
-
-        let record2 = {};
-        record2['createdAt'] = formatDate(new Date(),'short','en');
-        record2['title'] = "Patient Verification";
-        record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-        record2['description'] = "Go to Verification and verify the Patient whether He/She is in your service";
-        this.notif.send_insurance(this.info.health_insurance,record2)
-
+    if(this.health_insurance != "none" && this.health_insurance != "" && this.file2 != undefined && this.member_ID != "" && this.member_ID != "none")
+      if(this.info.isVerified == 'verified' && this.info.health_insurance == this.health_insurance)
+      {
+        console.log('Already Verified!');
+        this.verified_message = "Already Verified!";
         setTimeout(() => {
-          this.verification_sent = "";
+          this.verified_message = "";
         }, 5000);
-        this.ngOnInit();
-      })
-      
-    }
+      }
+      else if(this.info.isVerified == "pending" && this.info.health_insurance == "none" || this.info.health_insurance != this.health_insurance)
+      {
+        let record = {};
+        record['isVerified'] = 'pending';
+        record['health_insurance'] = this.health_insurance;
+        record['member_ID'] = this.member_ID;
+        this.userservice.update_patient_insurance(this.userID,record,this.file2).then(()=>{
+          this.verification_sent = "Verification Sent!";
+
+          let record2 = {};
+          record2['createdAt'] = formatDate(new Date(),'short','en');
+          record2['title'] = "Patient Verification";
+          record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+          record2['description'] = "Go to Verification and verify the Patient whether He/She is in your service";
+          this.notif.send_insurance(this.health_insurance,record2)
+
+          setTimeout(() => {
+            this.verification_sent = "";
+          }, 5000);
+          this.ngOnInit();
+        })
+      }
+      else
+      {
+        console.log("test");
+      }
     else
     {
-      console.log(this.file2);
+      console.log('Empty Fields');
     }
   } 
   send_labLOA()
