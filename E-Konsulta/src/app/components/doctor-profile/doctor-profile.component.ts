@@ -39,6 +39,9 @@ export class DoctorProfileComponent implements OnInit {
   insurance_af : any = [];
 
   fee : number = 0;
+  feeDisplay : number = 0;
+  deduction: number = 0;
+  net_pay: number = 0;
 
   profile_changed : boolean = false;
 
@@ -66,7 +69,11 @@ export class DoctorProfileComponent implements OnInit {
     this.userId = this.afu.get_UID();
     this.userservice.get_patientInfo(this.userId).then(e=>{
       console.log(e.data());
-     this.fee = e.data().consultation_fee;
+      this.feeDisplay = e.data().consultation_fee;
+
+      this.deduction = e.data().consultation_fee*(10/100);
+      this.net_pay = e.data().consultation_fee-this.deduction;
+
       this.info = e.data();
       this.check_verification(this.info.isVerified);
     }).then(()=>{

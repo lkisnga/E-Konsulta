@@ -513,7 +513,7 @@ export class UserService {
   get_transaction_doctor(doctor_id)
   {
     return this.db.firestore.collection('Users').doc(doctor_id).collection('Transaction_History')
-    .get();
+    .orderBy('id','desc').get();
   }
   get_today_consultation(doctor_id)
   {

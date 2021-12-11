@@ -127,6 +127,9 @@
       </div>
       <div class="modal-body">
         <p>Set Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="fee" name="fee" type="number" size="35"></p>
+        <p>Current Consultation Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="feeDisplay" type="number" size="35" disabled></p>
+        <p>Deduction 10%: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="deduction" type="number" size="35" disabled></p>
+        <p>Net Pay: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="net_pay" type="number" size="35" disabled></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
