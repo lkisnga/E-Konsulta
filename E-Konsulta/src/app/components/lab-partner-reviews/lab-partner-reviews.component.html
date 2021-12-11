@@ -18,7 +18,7 @@
       </div>
       <div class="lower-part">
         <div class="row">
-          <div *ngFor="let list of list" class="col-md-6 content">
+          <div *ngFor="let list of list" class="col content">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><span *ngFor="let img of userImgUrl"><img *ngIf="list.from == img.uid" src="{{img.image}}" alt="" width="25" height="25" class="cute-pic"></span>{{list.fullname}}</h5>
               <small>{{list.createdAt}}</small>
