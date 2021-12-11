@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class DoctorRegistrationComponent implements OnInit {
 
   spList : any = [];
+  file : any;
 
   model = new DoctorForm();
   error: { name: string, message: string } = { name: '', message: ''};
@@ -35,7 +36,7 @@ export class DoctorRegistrationComponent implements OnInit {
   }
   registerDoctor(frm)
   {
-    //console.log(frm);
+    frm.file = this.file;
     this.clearErrorMessage();
     this.afu.registerWithEmail_Doctor(frm).then(()=>{
       this.router.navigate(['/login']);
@@ -44,6 +45,12 @@ export class DoctorRegistrationComponent implements OnInit {
       this.router.navigate(['/doctor-registration']);
     })
   }
+
+  choosefile(e)
+  {
+    this.file = e.target.files[0]
+  }
+
   clearErrorMessage()
   {
     this.error = {name : '', message : ''};

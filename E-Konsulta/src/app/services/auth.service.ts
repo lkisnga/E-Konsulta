@@ -231,6 +231,7 @@ export class AuthService {
   insertUserData_Doctor(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
+      paypal_email: this.newUser.paypal_email,
       password: this.newUser.password,
       fullname: this.newUser.fullname,
       address: this.newUser.address,
@@ -245,6 +246,18 @@ export class AuthService {
       role: 'doctor',
       disabled: "false",
       isVerified: "pending"
+    }).then(()=>{
+      this.store.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.file.name).put(this.newUser.file)
+      .then(()=>{
+        console.log("Files Stored!");
+        this.store.storage.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.file.name)
+        .getDownloadURL().then(e=>{
+            this.db.collection('Users').doc(userCredential.user.uid).collection('Verification_Files')
+            .add({
+              file: e
+            })
+        })
+      })
     })
   }
   
