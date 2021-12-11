@@ -79,6 +79,7 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
   {
     this.userservice.verify_userInsurance(e.uid,stats).then(()=>{
       console.log("Successfully Verified!");
+      
       let record = {};
       record['createdAt'] = formatDate(new Date(),'short','en');
       record['title'] = "Insurance Verified!";
