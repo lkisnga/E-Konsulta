@@ -453,6 +453,16 @@ export class UserService {
     })
   }
 
+  cancel_consultation_doctor(info)
+  {
+    return this.db.collection('upcoming').doc(info.upcoming_id).delete().then(()=>{
+      console.log('Upcoming Deleted!');
+     return this.db.collection('Transaction').doc(info.transaction_id).update({
+        status: "noshow"
+      })
+    })
+  }
+
   get_upcoming(upcoming_id)
   {
     return this.db.firestore.collection('upcoming').doc(upcoming_id).get();
