@@ -94,6 +94,7 @@ export class AuthService {
         throw error
       });
   }
+
   insertUserData_patient(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
@@ -110,8 +111,23 @@ export class AuthService {
       updatedAt: formatDate(new Date(), 'MM/dd/yyyy', 'en'),
       isVerified: "pending",
       disabled: "false"
+    }).then(()=>{
+      if(this.newUser.file != undefined)
+      this.store.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.file.name)
+      .put(this.newUser.file)
+      .then(()=>{
+        this.store.storage.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.file.name)
+        .getDownloadURL()
+        .then(e=>{
+          this.db.firestore.collection('Users').doc(userCredential.user.uid).collection('Verification_Files')
+          .add({
+            file: e
+          })
+        })
+      })
     })
   }
+
   registerWithEmail_Lab(user) {
     return this.afu.createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
