@@ -167,15 +167,52 @@
                 <button id="closeCancel" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-               <p>Name: {{payerInfo.patient_name}} </p>
-               <p>Schedule: {{payerInfo.consultation_schedule}} {{payerInfo.Schedule}}</p>
-               <p>{{payerInfo.Specialization}}: {{payerInfo.doctor_name}}</p>
-               <p>transaction ID: {{payerInfo.uid}}</p>
-               <p>Amount: {{payerInfo.Amount}}</p>
-               <p>Deduction: {{payerInfo.deductions}} (Cancellation Fee)</p>
+                <div class="icon mb-4">
+                  <img src="./assets/images/ekIcon1.ico" alt="" width="60" height="60">
+                  <span class="main ms-2">E-KONSULTA</span>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Name:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.patient_name}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Schedule:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.consultation_schedule}} {{payerInfo.Schedule}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Transaction ID:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.uid}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Amount:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.Amount}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Deduction:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.deductions}} (Cancellation Fee)</p>
+                  </div>
+                </div>
               </div>
-              <div #paypal>
-
+              <div class="paypal" #paypal>
               </div>
             </div>
           </div>
