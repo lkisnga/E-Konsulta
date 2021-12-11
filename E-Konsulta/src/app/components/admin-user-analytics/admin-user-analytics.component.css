@@ -15,7 +15,7 @@ body{
 
 h4{
   font-weight: 300;
-  color: rgb(0, 129, 138);
+  color: gray;
 }
 
 .consultation,
@@ -28,15 +28,15 @@ h4{
 .consultation-content{
   border-radius: 20px;
   background: white;
-  color: gray !important;
+
   font-size: 16px;
   margin-bottom: 5px;
   padding: 15px;
   text-align: center;
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .card-text{
+  color: gray !important;
   font-size: 30px;
   font-weight: 700;
 }
