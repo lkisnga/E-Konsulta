@@ -36,6 +36,8 @@ export class PatientRegistrationComponent implements OnInit {
 
   show : boolean = false;
 
+  file: any;
+
   constructor(public userservice : UserService, 
     public afu : AuthService, 
     public router: Router,
@@ -69,9 +71,15 @@ export class PatientRegistrationComponent implements OnInit {
     }
   }
 
+  choosefile(e)
+  {
+    this.file = e.target.files[0];
+    console.log(this.file);
+  }
   register_Patient(frm)
   {
     //console.log(frm);
+    frm.file = this.file;
     if(frm.password == this.confirmPass)
     {
       console.log(frm);
