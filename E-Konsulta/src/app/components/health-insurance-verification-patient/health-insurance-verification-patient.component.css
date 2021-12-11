@@ -156,30 +156,19 @@ select{
   margin-left: 10px;
 }
 
-.view:hover,
-.view1:hover{
+.view:hover{
   color: #fff;
   border: 1px solid rgb(0, 222, 238);
   background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
 }
 
-.view1{
-  float: right;
-  padding: 7px 12px;
-  border-radius: 50px;
-  border: 1px solid rgb(0, 129, 138);
-  color: rgb(0, 129, 138);
-  background:white;
-  width: 90px;
-  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
 .view{
+  font-size: 18px;
   padding: 7px 12px;
   border-radius: 50px;
   border: 1px solid rgb(0, 129, 138);
   color: rgb(0, 129, 138);
   background:white;
-  width: 90px;
+  width: 100px;
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

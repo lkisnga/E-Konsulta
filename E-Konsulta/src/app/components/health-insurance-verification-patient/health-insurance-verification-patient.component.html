@@ -39,7 +39,7 @@
               <td>{{list.member_ID}}</td>
               <td>{{list.isVerified}}</td>
               <td>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#view" class="view ms-2">View</button>
+                <button type="button" class="view ms-2">View<span><i class="bi bi-eye"></i></span></button>
               </td>
               <td>
                 <button (click)="verify(list,'verified')" class="verify1" id="verify">Verify</button>
@@ -66,7 +66,7 @@
               <td>{{list.member_ID}}</td>
               <td>{{list.isVerified}}</td>
               <td>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#view" class="view ms-2">View</button>
+                <button type="button" class="view ms-2">View<span><i class="bi bi-eye"></i></span></button>
               </td>
               <td>
                 <button (click)="edit_info(list)" class="update-info" data-bs-toggle="modal" data-bs-target="#updateInfo">Update Info</button>
@@ -76,35 +76,6 @@
         </table>
       </div>
     </div>
-
-    <!--View Modal-->
-  <div class="modal fade" id="view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="viewLabel">Files</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-        </div>
-          <div class="modal-body">
-            <div class="row mt-2 mx-4 inside-modal">
-              <div class="col">
-                <ul class="list-group list-group-flush">
-                  <div>
-                  </div>
-                  <li class="list-group-item">
-                    <span>Filename</span>
-                    <button class="view1">View<span><i class="bi bi-eye"></i></span></button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="cancel" data-bs-dismiss="modal">Close</button>
-          </div>
-      </div>
-    </div>
-  </div>
 
     <!--start update info modal-->
     <div class="modal fade" id="updateInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
