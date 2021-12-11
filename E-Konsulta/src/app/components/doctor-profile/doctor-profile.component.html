@@ -119,17 +119,34 @@
 
 <!-- start Fee Modal-->
 <div class="modal fade" id="cfeeBt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="editLabel">Consultation Fee</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div class="modal-body">
-        <p>Set Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="fee" name="fee" type="number" size="35"></p>
-        <p>Current Consultation Fee: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="feeDisplay" type="number" size="35" disabled></p>
-        <p>Deduction 10%: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="deduction" type="number" size="35" disabled></p>
-        <p>Net Pay: &nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="net_pay" type="number" size="35" disabled></p>
+        <div class="row">
+          <div class="col-md-5 border-end">
+            <p>Set Fee:</p>
+          </div>
+          <div class="col-md-7">
+            <p>Current Consultation Fee: <span class="display">{{feeDisplay}}</span> </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 border-end">
+            <p><input [(ngModel)]="fee" name="fee" type="number" size="10"></p>
+          </div>
+          <div class="col-md-7">
+            <p>Deduction 10%:<span class="display">{{deduction}}</span> </p>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-md-7 offset-md-7 border-start">
+            <p>Net Pay:<span class="display">{{net_pay}}</span> </p>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>

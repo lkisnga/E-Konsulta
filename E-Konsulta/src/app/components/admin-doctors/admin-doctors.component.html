@@ -139,19 +139,19 @@
         </div>
         <form #userInfo="ngForm" (ngSubmit)="onSubmit(userInfo.value)">
           <div class="modal-body">
-            Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="30" readonly> <br><br>
-            User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="30" readonly> <br><br>
-            Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="30" readonly> <br><br>
-            Paypal Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.paypal_email" name="paypal_email" type="text" size="30" readonly> <br><br>
-            Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="30"><br><br>
-            License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="30"><br><br>
-            Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"><br><br>
-            Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="30"><br><br>
-            Specialization:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example" class="form-select">
-              <option selected value="{{model.specialization}}">{{model.sp_name}}</option>
-              <option *ngFor="let list of spList"value="{{list.uid}}">{{list.name}}</option>
-            </select>
+            <p>Doctor Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.id" name="id" type="text" size="30" readonly></p>
+            <p>User Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.role" name="role" type="text" size="30" readonly></p>
+            <p>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.email" name="email" type="text" size="30" readonly></p>
+            <p>Paypal Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.paypal_email" name="paypal_email" type="text" size="30" readonly></p>
+            <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input [(ngModel)]="model.fullname" name="fullname" type="text" size="30"></p>
+            <p>License Number: &nbsp;&nbsp;<input [(ngModel)]="model.license_number" name="license_number" type="text" size="30"></p>
+            <p>Contact Number: &nbsp;&nbsp;<input [(ngModel)]="model.contact_number" name="contact_number" type="text" size="30"></p>
+            <p>Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input [(ngModel)]="model.address" name="address" type="text" size="30"></p>
+            <p>Specialization:
+              <select [(ngModel)]="model.specialization" name="specialization" aria-label="Default select example" class="form-select">
+                <option selected value="{{model.specialization}}">{{model.sp_name}}</option>
+                <option *ngFor="let list of spList"value="{{list.uid}}">{{list.name}}</option>
+              </select></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
