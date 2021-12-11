@@ -247,6 +247,8 @@ export class DoctorPatientsChatComponent implements OnInit {
     .then(()=>{
       console.log('Upcoming Removed!');
       console.log('Cancelled Consultation!');
+
+      this.router.navigate(['doctor-patients']);
       
       let record = {};
       record['title'] = "Consultation Cancelled";

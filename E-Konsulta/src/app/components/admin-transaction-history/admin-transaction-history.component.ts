@@ -11,6 +11,7 @@ declare var paypal;
 })
 export class AdminTransactionHistoryComponent implements OnInit {
   @ViewChild('paypal', {static: true}) paypalElement: ElementRef
+  @ViewChild('paypal2', {static: true}) paypalElement2: ElementRef
   tranList : any = [];
   tranHis: any = [];
   cancelled_list : any = [];
@@ -35,6 +36,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
     this.Transactions();
     this.transactionHistory();
     this.paypalButton();
+    this.paypalButton2();
 
   }
 
@@ -76,7 +78,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
     console.log(this.tranList);
   }
 
-  paypalButton()
+  paypalButton() // for patient
   {
     paypal
     .Buttons({
@@ -112,6 +114,43 @@ export class AdminTransactionHistoryComponent implements OnInit {
     }).render(this.paypalElement.nativeElement);
   }
 
+  paypalButton2() // for doctor
+  {
+    paypal
+    .Buttons({
+      style: {
+        layout:  'vertical',
+        color:   'silver',
+        shape:   'rect',
+        label:   'paypal'
+      },
+      createOrder: (data, actions)=>{
+        return actions.order.create({
+          intent: 'CAPTURE',
+          description : "" ,
+          purchase_units:[{
+            amount: {
+              currency_code: 'USD',
+              value: this.payerInfo.net_income
+            }, 
+            payee: {
+              email_address: this.payerInfo.payer_email
+            }
+          }]
+        });
+      },
+      onApprove: async (data, actions) =>{
+        const order = await actions.order.capture();
+        console.log(order);
+        this.send_notif(this.payerInfo);
+      },
+      onError: err => {
+        console.log(err);
+      }
+    }).render(this.paypalElement2.nativeElement);
+  }
+
+
   transactionHistory()
   {
     var data;
@@ -128,9 +167,8 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
   send_notif(info)
   {
-
-
     console.log(info);
+    document.getElementById('closeCancel2').click();
     var commision = info.Amount*(info.deduction/100);
     var net_income = info.Amount - commision;
     let record = {};
@@ -153,6 +191,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
       record['patient_name'] = info.patient_name;
+      record['schedule'] = info.consultation_schedule;
       record['status'] = info.status;
       record['transaction_id'] = e.id;
 
@@ -168,6 +207,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
       record['doctor_id'] = info.doctor_id;
       record['status'] = info.status;
+      record['schedule'] = info.consultation_schedule;
       record['transaction_id'] = e.id;
 
 
@@ -204,6 +244,20 @@ export class AdminTransactionHistoryComponent implements OnInit {
     this.payerInfo.net_income = net_income;
   }
   //For cancellations
+  open_modalPay(info)
+  {
+    console.log(info);
+    var deduction = 0,net_income = 0;
+    deduction = info.Amount*(info.deduction)/100;
+    net_income = info.Amount - deduction
+    this.userservice.get_UserInfo(info.doctor_id)
+    .then(e=>{
+      this.payerInfo = info;
+      this.payerInfo.deductions = deduction;
+      this.payerInfo.net_income = net_income;
+      this.payerInfo.payer_email = e.data().paypal_email;
+    })
+  }
   send_notif2(info)
   {
     document.getElementById('closeCancel').click();
@@ -219,13 +273,14 @@ export class AdminTransactionHistoryComponent implements OnInit {
     this.userservice.add_transactionHistory(record)
     .then((e)=>{
 
-
+      //patient transactionHistory
       let record = {};
       record['Amount'] = info.net_income;
       record['doctor_id'] = info.doctor_id;
       record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
       record['status'] = info.status;
+      record['schedule'] = info.consultation_schedule;
       record['transaction_id'] = e.id;
 
       this.userservice.create_transactionHistory_User(info.patient_id,record)
