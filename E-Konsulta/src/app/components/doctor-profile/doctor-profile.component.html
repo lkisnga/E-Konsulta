@@ -86,11 +86,6 @@
             License #:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input [(ngModel)]="model.license_number" name="license_number" type="text" size="35">
           </p>
-          Specialization: &nbsp;
-          <select [(ngModel)]="model.specialization" name="specialization" id="" class="form-select">
-            <option value="{{model.specialization}}" selected>{{spInfo.name}}</option>
-            <option *ngFor="let list of spList" value="{{list.uid}}">{{list.name}}</option>
-          </select>
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>

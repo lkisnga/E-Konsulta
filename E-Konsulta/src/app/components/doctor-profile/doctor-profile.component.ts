@@ -13,7 +13,6 @@ export class DoctorInfo
   contact_number : string;
   address : string ;
   license_number : string;
-  specialization: string;
 }
 
 @Component({
@@ -28,7 +27,6 @@ export class DoctorProfileComponent implements OnInit {
   userId : string = "";
   info : any = [];
   spInfo : any = [];
-  spList : any = [];
   imgUrl : any;
   file : any;
 
@@ -58,7 +56,7 @@ export class DoctorProfileComponent implements OnInit {
   ngOnInit(): void {
     
     this.get_doctorInfo();
-    this.get_specialization();
+
     this.insurance_list();
     this.get_insurance();
   }
@@ -73,7 +71,8 @@ export class DoctorProfileComponent implements OnInit {
       this.check_verification(this.info.isVerified);
     }).then(()=>{
       this.userservice.get_specializationInfo(this.info.specialization).then(e=>{
-        this.spInfo = e.data();
+        if(e.exists)
+          this.spInfo = e.data();
       })
     })
 
@@ -101,19 +100,6 @@ export class DoctorProfileComponent implements OnInit {
       },1000)
     }
   }
-  get_specialization()
-  {
-    var data;
-    var tempArray = [];
-    this.userservice.get_Speciaalization().then(e=>{
-      e.forEach(item=>{
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
-      })
-    })
-    this.spList = tempArray;
-  }
   uploadImage()
   {
     this.userservice.upload_avatar(this.file,this.userId)
@@ -139,7 +125,6 @@ export class DoctorProfileComponent implements OnInit {
     this.model.contact_number = this.info.contact_number;
     this.model.address = this.info.address;
     this.model.license_number = this.info.license_number;
-    this.model.specialization = this.info.specialization;
   }
 
   update(e)
