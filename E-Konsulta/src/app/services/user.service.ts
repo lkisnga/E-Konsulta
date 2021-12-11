@@ -932,4 +932,19 @@ export class UserService {
     .get();
   }
 
+  create_Verification_File(patient_id,record)
+  {
+    return this.store.ref('Users-Files/' + patient_id + '/' + record.file.name).put(record.file)
+    .then(()=>{
+      return this.store.storage.ref('Users-Files/' + patient_id + '/' + record.file.name)
+      .getDownloadURL().then(e=>{
+        return this.db.collection('Users').doc(patient_id).collection('Verification_Files')
+        .add({
+          file: e
+        })
+      })
+    })
+  }
+
+
 }

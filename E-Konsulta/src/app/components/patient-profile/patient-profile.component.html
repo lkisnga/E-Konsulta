@@ -120,7 +120,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6">
-              <p>Status: {{info.isVerified}}</p>
+              <p *ngIf="info.health_insurance != 'none'">Status: {{info.isVerified}}</p>
+              <p *ngIf="info.health_insurance == 'none'">Status: none</p>
               <p class="form-inline">
                 Health Insurance:
                 <select [(ngModel)]="health_insurance" name="health_insurance" type="text" class="form-select">
@@ -128,6 +129,12 @@
                   <option *ngFor="let list of insList" value="{{list.uid}}">{{list.name}}</option>
                   </select>
               </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group mb-2">
+              <label class="label" for="id">Insurance Card Pic and Recent Picture</label>
+              <input (change)="choosefile2($event)" class="form-control" name="id" type="file" multiple/>
             </div>
           </div>
           <div class="row first1">

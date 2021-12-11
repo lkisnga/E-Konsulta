@@ -26,6 +26,7 @@ export class PatientProfileComponent implements OnInit {
   info : any = [];
   insList : any = [];
   file : any;
+  file2: any;
 
   insurance_info: any = [];
 
@@ -99,6 +100,13 @@ export class PatientProfileComponent implements OnInit {
     this.file = e.target.files[0];
     console.log(this.file);
   }
+
+  choosefile2(e)
+  {
+    this.file2 = e.target.files[0];
+    console.log(this.file2);
+  }
+
   uploadImage()
   {
     this.userservice.upload_avatar(this.file,this.userID)
@@ -151,7 +159,7 @@ export class PatientProfileComponent implements OnInit {
         this.verified_message = "";
       }, 5000);
     }
-    else
+    else if(this.info.isVerified == "pending" && this.info.health_insurance != "none")
     {
       record['isVerified'] = 'pending';
       record['health_insurance'] = this.health_insurance;
@@ -171,6 +179,11 @@ export class PatientProfileComponent implements OnInit {
         }, 5000);
         this.ngOnInit();
       })
+      
+    }
+    else
+    {
+      console.log(this.file2);
     }
   } 
   send_labLOA()
