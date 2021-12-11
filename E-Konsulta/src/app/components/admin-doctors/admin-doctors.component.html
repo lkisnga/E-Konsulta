@@ -54,7 +54,7 @@
               <td>{{item.role}}</td>
               <td>{{item.license_number}}</td>
               <td>{{item.sp_name}}</td>
-              <td><span>View<i class="bi bi-eye"></i></span></td>
+              <td><button class="view">View<i class="bi bi-eye"></i></button></td>
               <td *ngIf="item.isVerified == 'verified'">
                 <button type="button" (click)="editInfo(item)" class="edit" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
                 <span><button (click)="editDisable(item.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
