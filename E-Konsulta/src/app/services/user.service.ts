@@ -924,4 +924,11 @@ export class UserService {
     return this.db.firestore.collection('LOA_Received').where('insurance_id','==',id)
     .get();
   }
+
+  get_doctor_verificationFile(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Verification_Files')
+    .get();
+  }
+
 }
