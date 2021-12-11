@@ -51,7 +51,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       this.transac_his = false;
     }
   }
-  
+
   Transactions()
   {
     var data;
@@ -83,7 +83,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       style: {
         layout:  'vertical',
         color:   'silver',
-        shape:   'rect',
+        shape:   'pill',
         label:   'paypal'
       },
       createOrder: (data, actions)=>{
@@ -94,7 +94,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
             amount: {
               currency_code: 'USD',
               value: this.payerInfo.net_income
-            }, 
+            },
             payee: {
               email_address: this.payerInfo.payer_email
             }
@@ -194,7 +194,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
   }
 
 
-  open_modalCancel(info) 
+  open_modalCancel(info)
   {
     var deduction = 0,net_income = 0;
     deduction = info.Amount*(info.deduction+10)/100;
@@ -239,7 +239,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
         record['createdAt'] = formatDate(new Date(),'short','en');
         this.notif.send_patient(info.patient_id,record);
       })
-      
+
     })
     .then(()=>{
      this.userservice.delete_transaction(info.uid).then(()=>{

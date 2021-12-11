@@ -154,78 +154,66 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Send Refund</h5>
                 <button id="closeCancel" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <div>
-                  <img src="./assets/images/ekIcon1.ico" alt="" width="50" height="50">
+                <div class="icon mb-4">
+                  <img src="./assets/images/ekIcon1.ico" alt="" width="60" height="60">
                   <span class="main ms-2">E-KONSULTA</span>
                 </div>
-               <p>Name: {{payerInfo.patient_name}} </p>
-               <p>Schedule: {{payerInfo.consultation_schedule}} {{payerInfo.Schedule}}</p>
-               <p>{{payerInfo.Specialization}}: {{payerInfo.doctor_name}}</p>
-               <p>transaction ID: {{payerInfo.uid}}</p>
-               <p>Amount: {{payerInfo.Amount}}</p>
-               <p>Deduction: {{payerInfo.deductions}} (Cancellation Fee)</p>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Name:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.patient_name}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Schedule:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.consultation_schedule}} {{payerInfo.Schedule}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Transaction ID:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.uid}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Amount:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.Amount}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Deduction:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{payerInfo.deductions}} (Cancellation Fee)</p>
+                  </div>
+                </div>
               </div>
-              <div #paypal>
-
+              <div class="paypal" #paypal>
               </div>
             </div>
           </div>
         </div>
-        <!--
-        <h5 class="usr">Transaction History</h5>
-        <div class="btn-group mt-3">
-          <button class="pending" (click)="pendingFunction()">Pending</button>
-          <button class="cancelled" (click)="cancelledFunction()">Cancelled</button>
-        </div>
-        <div *ngIf="sent_message" class="alert alert-success">Successfully Sent!</div>
-        <div *ngIf="pending">
-          <ul class="list-group py-2 whole-trans">
-            <li *ngFor="let list of tranList" class="list-group-item flex-column align-items-start mt-3">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="name">{{list.Specialization}}: {{list.doctor_name}}</h5>
-                <button (click)="send_notif(list)" class="paid">Pay <span><i class="bi bi-check2"></i></span></button>
-                <small>{{list.createdAt}}</small>
-              </div>
-              <div>
-                <p class="mb-1 mt-1">A patient named {{list.patient_name}} paid an amount of {{list.Amount}} as a payment for one consultation.</p>
-                <p class="mb-1">Patient ID: {{list.patient_id}}</p>
-                <p class="mb-1">Consultation Schedule: {{list.Schedule}}</p>
-                <p class="mb-1">Consultation Fee: {{list.Amount}}</p>
-              </div>
-              <small>Transaction ID: {{list.uid}}</small>
-            </li>
-          </ul>
-        </div>
-        <div *ngIf="cancelled">
-          <ul class="list-group py-2 whole-trans">
-            <li *ngFor="let list of cancelled_list" class="list-group-item flex-column align-items-start mt-3">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="name">{{list.patient_name}}</h5>
-                <button (click)="send_notif2(list)" class="paid">Pay<span><i class="bi bi-check2"></i></span></button>
-                <small>{{list.createdAt}}</small>
-              </div>
-              <div>
-                <p class="mb-1 mt-1">A patient named {{list.patient_name}} paid an amount of {{list.Amount}} as a payment for one consultation.</p>
-                <p class="mb-1">Patient ID: {{list.patient_id}}</p>
-                <p class="mb-1">Consultation Schedule: {{list.Schedule}}</p>
-                <p class="mb-1">Consultation Fee: {{list.Amount}}</p>
-              </div>
-              <small>Transaction ID: {{list.uid}}</small>
-            </li>
-          </ul>
-        </div>
-      -->
       </div>
     </div>
 
