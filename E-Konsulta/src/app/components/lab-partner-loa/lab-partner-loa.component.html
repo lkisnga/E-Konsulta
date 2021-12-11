@@ -16,12 +16,11 @@
                 <small>{{list.createdAt}}</small>
               </div>
               <div class="bttn">
-                <button (click)="edit_labLOA(list)" class="view" data-bs-toggle="modal" data-bs-target="#view">View</button>
+                <button (click)="edit_labLOA(list)" class="view" data-bs-toggle="modal" data-bs-target="#view">VIEW</button>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -34,9 +33,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
           <div class="modal-body">
-            <button (click)="open()" class="view1 my-2">View File</button> <br> <br>
+            <button (click)="open()" class="view1 mb-2">View File</button> <br> <br>
             <div class="loa">
-              <h5 id="editLabel" class="mt-2">Send LOA to {{patientInfo.ins_name}}</h5>
+              <h5 id="editLabel" class="mt-2 mb-4 border-top">Send LOA to {{patientInfo.ins_name}}</h5>
               <p>Choose File: <input (change)="choosefile($event)" type="file"></p>
 
               <div *ngIf="empty_field" class="alert alert-danger">
@@ -48,7 +47,6 @@
               <div *ngIf="added_message" class="alert alert-success">
                 {{added_message}}
               </div>
-
               <span><button (click)="send()" class="send">Send LOA</button></span>
             </div>
           </div>

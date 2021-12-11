@@ -16,7 +16,7 @@ body{
   background-color: rgb(238, 238, 238);
   border-radius: 20px;
   height: 450px;
-  padding: 20px 35px;
+  padding: 20px 45px;
   margin-right: 45px;
   margin-top: 20px;
   overflow-y: scroll;
@@ -29,7 +29,7 @@ body{
   color: gray !important;
   font-size: 16px;
   margin-bottom: 5px;
-  padding: 15px;
+  padding: 15px 20px;
 }
 
 .info{
@@ -38,7 +38,7 @@ body{
 
 .bttn{
   float: right;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .view{
@@ -52,17 +52,18 @@ body{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
 .view:hover{
   background: rgb(0, 129, 138);
 }
 
 .view1{
   padding: 7px 10px;
-  width: 150px;
+  width: 60%;
+  margin-left: 90px;
   border-radius: 50px;
   border: none;
   color: #fff;
-  float: right;
   background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -75,11 +76,11 @@ body{
 
 .send{
   padding: 7px 10px;
-  width: 150px;
+  margin-left: 90px;
+  width: 60%;
   border-radius: 50px;
   border: none;
   color: #fff;
-  float: right;
   background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
