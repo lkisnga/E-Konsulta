@@ -121,6 +121,7 @@ export class AuthService {
         .then(e=>{
           this.db.firestore.collection('Users').doc(userCredential.user.uid).collection('Verification_Files')
           .add({
+            insurance_id: this.newUser.health_insurance,
             file: e
           })
         })
