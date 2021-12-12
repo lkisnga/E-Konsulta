@@ -22,8 +22,8 @@
             <p class="top-text">Transactions</p>
           </div>
           <div style="margin-bottom: 1%;" class="container-fluid">
-            <button class="transc-his">Transaction History</button>
-            <button class="transc">Transaction</button>
+            <button *ngIf="tran" (click)="button('tr')" class="transc-his">Transaction History</button>
+            <button *ngIf="tranH" (click)="button('th')"  class="transc">Transaction</button>
           </div>
           <div class="row mx-2">
             <div class="col-md-4">
