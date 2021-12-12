@@ -205,6 +205,7 @@ export class DoctorPatientsChatComponent implements OnInit {
 
   finish_consultation()
   {
+    console.log(this.patientInfo);
     let record = {};
     this.userservice.get_upcoming(this.patientInfo.upcoming_id).then(e=>{
       record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
@@ -221,7 +222,12 @@ export class DoctorPatientsChatComponent implements OnInit {
 
         let record2= {};
         record2['status'] = "done"; 
-        this.userservice.update_transaction_admin(this.patientInfo.transaction_id,record2);
+        if(this.patientInfo.paymentType != "insurance")
+         this.userservice.update_transaction_admin(this.patientInfo.transaction_id,record2);
+        else
+        {
+          this.userservice.update_transaction_insurance(this.patientInfo.health_insurance,this.patientInfo.transaction_id,record2);
+        }
         this.userservice.remove_share(this.userid,this.patientInfo.uid);
 
       }).then(()=>{

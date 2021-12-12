@@ -182,6 +182,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
     record['patient_name'] = info.patient_name;
     record['doctor_name'] = info.doctor_name;
     record['status'] = info.status;
+    record['paymentType'] = info.paymentType;
 
 
    this.userservice.add_transactionHistory(record).then(e=>{
@@ -197,6 +198,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['schedule'] = info.consultation_schedule;
       record['status'] = info.status;
       record['transaction_id'] = e.id;
+      record['paymentType'] = info.paymentType;
 
 
       this.userservice.create_transactionHistory_User(info.doctor_id,record)
@@ -212,6 +214,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['status'] = info.status;
       record['schedule'] = info.consultation_schedule;
       record['transaction_id'] = e.id;
+      record['paymentType'] = info.paymentType;
 
 
       this.userservice.create_transactionHistory_User(info.patient_id,record)
@@ -271,6 +274,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
     record['patient_name'] = info.patient_name;
     record['doctor_name'] = info.doctor_name;
     record['status'] = info.status;
+    record['paymentType'] = info.paymentType;
 
 
     this.userservice.add_transactionHistory(record)
@@ -285,6 +289,7 @@ export class AdminTransactionHistoryComponent implements OnInit {
       record['status'] = info.status;
       record['schedule'] = info.consultation_schedule;
       record['transaction_id'] = e.id;
+      record['paymentType'] = info.paymentType;
 
       this.userservice.create_transactionHistory_User(info.patient_id,record)
       .then(()=>{
