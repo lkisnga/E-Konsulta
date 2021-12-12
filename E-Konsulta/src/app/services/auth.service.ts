@@ -153,6 +153,7 @@ export class AuthService {
         throw error
       });
   }
+  
   insertUserData_UserLab(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
@@ -160,6 +161,7 @@ export class AuthService {
       status: "active"
     })
   }
+
   insertUserData_Lab(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Laboratory_Partner').doc(userCredential.user.uid).set({
       email: this.newUser.email,

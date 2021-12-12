@@ -27,6 +27,7 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
   list : any = [];
   searchName : string = "";
   UID : any = "";
+  files: any = [];
 
   ngOnInit(): void {
     this.listOfPartners();
@@ -55,6 +56,18 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
       this.ngOnInit()
     })
   }
+  view_files(e)
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_lab_files(e).then(a=>{
+      a.forEach(item=>{
+        data = item.data();
+        tempArray.push(data);
+      })
+    })
+    this.files = tempArray;
+  }
   disableInfo(e)
   {
     this.UID = e;
@@ -75,6 +88,11 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
       this.ngOnInit();
       console.log("successfully disabled!");
     })
+  }
+
+  open(e)
+  {
+    window.open(e);
   }
 
   listOfPartners()
