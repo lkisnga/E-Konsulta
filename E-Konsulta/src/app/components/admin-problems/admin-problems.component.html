@@ -16,21 +16,6 @@
         <app-admin-sidenav></app-admin-sidenav>
       </div>
       <div class="col py-4 content">
-        <!--
-        <h5>Problems</h5>
-        <ul class="list-group py-2 whole-trans">
-          <li *ngFor="let list of list" class="list-group-item list-group-item-action flex-column align-items-start mt-3" (click)="imgUrl=list.image" data-bs-toggle="modal" data-bs-target="#toReply">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 mb-1>Click to View</h5>
-              <small>{{list.createdAt}}</small>
-            </div>
-            <div id="reply">
-              <p class="mb-1">{{list.content}}</p>
-            </div>
-            <small>Transaction ID: {{list.uid}}</small>
-          </li>
-        </ul>
-      -->
       <div class="row justify-content-start feed-content">
         <p class="feedback mt-4">Problems</p>
         <div  *ngFor="let list of list" (click)="imgUrl=list.image" data-bs-toggle="modal" data-bs-target="#toReply" class="col-md-4 mb-1">

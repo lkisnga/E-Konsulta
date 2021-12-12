@@ -43,7 +43,7 @@
               <td>
                 <button (click)="editList(item)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editPatient">EDIT</button> &nbsp;
                 <span *ngIf="item.disabled == 'false'"><button (click)="editDisable(item.uid,'true')" class="disable1" data-bs-toggle="modal" data-bs-target="#deletePatient">DISABLE</button></span>
-                <span *ngIf="item.disabled == 'true'"><button (click)="editDisable(item.uid,'false')" class="disable1" data-bs-toggle="modal" data-bs-target="#deletePatient">ENABLE</button></span>
+                <span *ngIf="item.disabled == 'true'"><button (click)="editDisable(item.uid,'false')" class="enable1" data-bs-toggle="modal" data-bs-target="#deletePatient">ENABLE</button></span>
               </td>
             </tr>
           </tbody>
@@ -99,7 +99,7 @@
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
           <button *ngIf="status=='true'" (click)="disable()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
-          <button *ngIf="status=='false'" (click)="disable()" type="button" class="disable" data-bs-dismiss="modal">Enable</button>
+          <button *ngIf="status=='false'" (click)="disable()" type="button" class="enable" data-bs-dismiss="modal">Enable</button>
         </div>
       </div>
     </div>
