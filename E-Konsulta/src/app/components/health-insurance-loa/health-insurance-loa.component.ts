@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -23,7 +25,9 @@ export class HealthInsuranceLoaComponent implements OnInit {
   err_message : string = "";
   file_message : string = "";
   file2_message: string = "";
-  constructor(public userservice : UserService,public afu :AuthService) { }
+  constructor(public userservice : UserService,public afu :AuthService,
+    public notif: NotificationService
+    ) { }
 
   pending = true;
   done = false;
@@ -108,6 +112,15 @@ export class HealthInsuranceLoaComponent implements OnInit {
         .then(()=>{
           this.ngOnInit();
           this.file2_message = "Request has been sent";
+
+          //Notification to patient
+          record = {};
+          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+          record['createdAt'] = formatDate(new Date(),'short','en');
+          record['title'] = "LOA Request";
+          record['description'] = "Your LOA request has been approved by your insurance.";
+          this.notif.send_patient(this.patientInfo.uid,record);
+
           setTimeout(() => {
             this.file2_message = "";
           }, 5000);
@@ -134,7 +147,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
     var status = "declined"
     this.userservice.update_LOA_Request(this.userId,request_id,status).then(()=>{
       this.ngOnInit();
-      this.err_message = "Request has been delclined";
+      this.err_message = "Request has been declined";
       setTimeout(() => {
         this.err_message = "";
       }, 5000);
