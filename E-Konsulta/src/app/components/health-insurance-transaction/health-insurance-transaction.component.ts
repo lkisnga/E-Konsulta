@@ -56,6 +56,7 @@ export class HealthInsuranceTransactionComponent implements OnInit {
       })
     })
     this.list = tempArray;
+    console.log(this.list);
   }
 
 }

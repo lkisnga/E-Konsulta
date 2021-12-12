@@ -44,7 +44,7 @@
             </div>
           </div>
 
-          <div class="column">
+          <div *ngIf="tran" class="column">
             <div class="row g-0 mt-4">
               <div class="col-md-2">
                 <p class="upper text-center border-bottom">Date</p>
@@ -72,7 +72,7 @@
               </div>
             </div>
 
-            <div class="row g-0 justify-content-evenly">
+            <div *ngFor="let list of list" class="row g-0 justify-content-evenly">
               <div class="col-md-2">
                 <p class="content text-center border-bottom"></p>
               </div>
@@ -107,7 +107,7 @@
             </div>
           </div>
 
-          <div class="column">
+          <div *ngIf="tranH" class="column">
             <div class="row g-0 mt-4">
               <div class="col-md-2">
                 <p class="upper text-center border-bottom">Date</p>

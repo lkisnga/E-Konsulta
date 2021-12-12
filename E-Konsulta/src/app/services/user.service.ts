@@ -964,12 +964,12 @@ export class UserService {
   }
   create_transaction_insurance(id,record)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Transaction_History')
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Transaction')
     .add(record);
   }
   get_transaction_insurance(id)
   {
-    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Transaction_History')
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Transaction')
     .get();
   }
   create_transactionHistory_User(id,record)
