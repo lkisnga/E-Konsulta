@@ -1,1 +1,91 @@
-<p>health-insurance-transaction works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient - Transaction History</title>
+</head>
+<body>
+
+  <app-header-patient></app-header-patient>
+
+    <div class="row flex-nowrap">
+      <div class="col-2 col-md-3 col-xl-2 px-sm-1 px-0" id="sidenav">
+        <!--sidenav -->
+        <app-health-insurance-sidenav></app-health-insurance-sidenav>
+      </div>
+      <div class="col mt-4">
+        <div class="whole-trans">
+          <div class="top-part">
+            <p class="top-text">Transaction History</p>
+          </div>
+          <div class="row mx-2">
+            <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="Search PatientName" aria-label="Search">
+            </div>
+            <div class="col-md-3 .offset-md-3">
+              <select class="form-select col" name="" id="">
+                <option value="" selected>Select Status</option>
+                <option value="successful">Successful</option>
+                <option value="refund">Cancelled</option>
+              </select>
+            </div>
+          <!--  <div class="col-md-2 align-content-end">
+              <select [(ngModel)]="year" class="form-select col" name="" id="" (change)="get_transaction()">
+                <option value="" selected>Select Year</option>
+                <option *ngFor="let list of getYears()" value="{{list}}">{{list}}</option>
+              </select>
+            </div> -->
+            <div class="col-md-2 align-content-end">
+              <select class="form-select col" name="" id="">
+                <option value="" selected>Select Month</option>
+                <option value=""></option>
+              </select>
+            </div>
+          </div>
+          <div class="column">
+          <div class="row g-0 mt-4">
+            <div class="col-md-2">
+              <p class="upper text-center border-bottom">Date</p>
+            </div>
+            <div class="col-md-3">
+              <p class="upper text-center border-bottom">Patient</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper text-center border-bottom">Fee</p>
+            </div>
+            <div class="col-md-3">
+              <p class="upper text-center border-bottom">Transaction ID</p>
+            </div>
+            <div class="col-md-2">
+              <p class="upper text-center border-bottom">Status</p>
+            </div>
+          </div>
+
+          <div class="row g-0 justify-content-evenly">
+            <div class="col-md-2">
+              <p class="content text-center border-bottom"></p>
+            </div>
+            <div class="col-md-3">
+              <p class="content text-center border-bottom"></p>
+            </div>
+            <div class="col-md-2">
+              <p class="content text-center border-bottom"></p>
+            </div>
+            <div class="col-md-3">
+              <p class="content text-center border-bottom"></p>
+            </div>
+            <div class="col-md-2">
+              <p class="content content-success text-center border-bottom">Done</p>
+              <p class="content content-cancel text-center border-bottom">Cancelled</p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</body>
+</html>
