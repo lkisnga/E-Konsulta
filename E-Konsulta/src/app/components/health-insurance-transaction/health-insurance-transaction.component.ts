@@ -14,6 +14,9 @@ export class HealthInsuranceTransactionComponent implements OnInit {
   
   list: any = [];
 
+  tran: boolean = true;
+  tranH: boolean = false;
+
   constructor(
     public afu : AuthService,
     public userservice: UserService,
@@ -24,6 +27,20 @@ export class HealthInsuranceTransactionComponent implements OnInit {
     this.userid = this.afu.get_UID();
 
     this.get_transactionList();
+  }
+
+  button(e)
+  {
+    if(e=='tr')
+    {
+      this.tran = false;
+      this.tranH = true;
+    }
+    else
+    {
+      this.tran = true;
+      this.tranH = false;
+    }
   }
 
   get_transactionList()
