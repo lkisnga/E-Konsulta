@@ -249,6 +249,7 @@ export class DoctorPatientsChatComponent implements OnInit {
   cancel_consultation()
   {
     console.log(this.patientInfo);
+    if(this.patientInfo.paymentType != 'insurance')
     this.userservice.cancel_consultation_doctor(this.patientInfo)
     .then(()=>{
       console.log('Upcoming Removed!');
@@ -263,6 +264,23 @@ export class DoctorPatientsChatComponent implements OnInit {
       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
       this.notif.send_patient(this.patientInfo.uid,record);
     })
+    else
+    {
+      this.userservice.cancel_consultation_insurance(this.patientInfo)
+      .then(()=>{
+        console.log('Upcoming Removed!');
+        console.log('Cancelled Consultation!!');
+        
+        this.router.navigate(['doctor-patients']);
+        
+        let record = {};
+        record['title'] = "Consultation Cancelled";
+        record['description'] = "Your consultation has been cancelled because of your nonappearance.";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        this.notif.send_patient(this.patientInfo.uid,record);
+      })
+    }
   }
   open(file)
   {

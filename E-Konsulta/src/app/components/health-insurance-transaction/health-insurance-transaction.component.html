@@ -128,27 +128,26 @@
               </div>
             </div>
 
-            <div class="row g-0 justify-content-evenly">
+            <div *ngFor="let list of history" class="row g-0 justify-content-evenly">
               <div class="col-md-2">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.createdAt}}</p>
               </div>
               <div class="col-md-2">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.patient_name}}</p>
               </div>
               <div class="col-md-2">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.doctor_name}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.Amount}}</p>
               </div>
               <div class="col-md-3">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.uid}}</p>
               </div>
               <div class="col-md-2">
                 <div>
-                  <p class="content content-success text-center border-bottom">Successful</p>
-                  <p class="content content-cancel text-center border-bottom">Cancelled</p>
-                  <p  class="content content-cancel text-center border-bottom">No Show</p>
+                  <p *ngIf="list.status == 'done'" class="content content-success text-center border-bottom">Successful</p>
+                  <p *ngIf="list.status == 'noshow'" class="content content-cancel text-center border-bottom">No Show</p>
                 </div>
               </div>
             </div>

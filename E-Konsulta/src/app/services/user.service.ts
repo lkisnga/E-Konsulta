@@ -73,7 +73,11 @@ export class UserService {
       console.log("Added!");
     })
   }
-
+  get_insurance_transactionHistory(userid)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(userid).collection('Transaction_History')
+    .orderBy('id','desc').get();
+  }
   insurance_affiliation(record)
   {
     return this.db.firestore.collection('Insurance_Affiliation')
@@ -452,6 +456,17 @@ export class UserService {
       })
     })
   }
+  cancel_consultation_insurance(info)
+  {
+    return this.db.collection('upcoming').doc(info.upcoming_id).delete()
+    .then(()=>{
+      console.log('Upcoming Deleted!');
+      return this.db.collection('Health_Insurance').doc(info.health_insurance).collection('Transaction')
+      .doc(info.transaction_id).update({
+        status: "noshow"
+      })
+    })
+  }
 
   cancel_consultation_doctor(info)
   {
@@ -763,9 +778,12 @@ export class UserService {
   {
     const user = this.fireb.auth().currentUser;
     const newPassword = record.password;
+    this.db.collection('Users').doc(user_id).update(record)
+      .then(()=>{
+        console.log('Updated');
+      })
    return user.updatePassword(newPassword).then(()=>{
       console.log("Password Changed!");
-      this.db.collection('Users').doc(user_id).update(record);
     }).catch((error)=>{
       console.log(error);
     })
@@ -1001,8 +1019,9 @@ export class UserService {
   get_patient_transaction(patient_id)
   {
     return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction_History')
-    .get();
+    .orderBy('id','desc').get();
   }
+
   get_transactionInfo(patient_id,transaction_id)
   {
    return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction').doc(transaction_id)
