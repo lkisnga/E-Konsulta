@@ -16,6 +16,7 @@ export class HealthInsuranceTransactionComponent implements OnInit {
   
   payerInfo: any = [];
   list: any = [];
+  history: any = [];
 
   tran: boolean = true;
   tranH: boolean = false;
@@ -31,6 +32,7 @@ export class HealthInsuranceTransactionComponent implements OnInit {
 
     this.paypalButton();
     this.get_transactionList();
+    this.get_history();
   }
 
   button(e)
@@ -69,6 +71,21 @@ export class HealthInsuranceTransactionComponent implements OnInit {
     })
     this.list = tempArray;
     console.log(this.list);
+  }
+  get_history()
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_insurance_transactionHistory(this.userid)
+    .then(e=>{
+      e.forEach(item=>{
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+      })
+    })
+    this.history = tempArray;
+    console.log(this.history);
   }
   paypalButton() // for patient
   {
@@ -114,14 +131,13 @@ export class HealthInsuranceTransactionComponent implements OnInit {
     var net_income = info.Amount - commision;
     let record = {};
     //transaction history for insurance
-    record['Amount'] = commision;
+    record['Amount'] = info.Amount;
     record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
     record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
     record['patient_name'] = info.patient_name;
     record['doctor_name'] = info.doctor_name;
     record['paymentType'] = info.paymentType;
     record['status'] = info.status;
-
 
    this.userservice.add_transactionHistory_insurance(this.userid,record).then(e=>{
       console.log('Added in Insurance Transaction History!')
@@ -176,6 +192,7 @@ export class HealthInsuranceTransactionComponent implements OnInit {
      })
    })
   }
+
 
   open_modalPay(info)
   {

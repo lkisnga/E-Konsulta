@@ -73,7 +73,11 @@ export class UserService {
       console.log("Added!");
     })
   }
-
+  get_insurance_transactionHistory(userid)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(userid).collection('Transaction_History')
+    .orderBy('id','desc').get();
+  }
   insurance_affiliation(record)
   {
     return this.db.firestore.collection('Insurance_Affiliation')
@@ -449,6 +453,17 @@ export class UserService {
       console.log('Upcoming Deleted!');
      return this.db.collection('Transaction').doc(info.transaction_id).update({
         status: "cancel"
+      })
+    })
+  }
+  cancel_consultation_insurance(info)
+  {
+    return this.db.collection('upcoming').doc(info.upcoming_id).delete()
+    .then(()=>{
+      console.log('Upcoming Deleted!');
+      return this.db.collection('Health_Insurance').doc(info.health_insurance).collection('Transaction')
+      .doc(info.transaction_id).update({
+        status: "noshow"
       })
     })
   }
@@ -1001,8 +1016,9 @@ export class UserService {
   get_patient_transaction(patient_id)
   {
     return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction_History')
-    .get();
+    .orderBy('id','desc').get();
   }
+
   get_transactionInfo(patient_id,transaction_id)
   {
    return this.db.firestore.collection('Users').doc(patient_id).collection('Transaction').doc(transaction_id)
