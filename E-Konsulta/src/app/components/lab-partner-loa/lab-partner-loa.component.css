@@ -8,6 +8,14 @@ body{
   font-weight: 700;
 }
 
+.form-control{
+  font-size: 16px;
+  width: 400px;
+  padding: 10px 12px;
+  border-radius: 50px;
+  border: 1px solid rgb(207, 207, 207);
+}
+
 .mb-1{
   font-size: 14px;
 }
@@ -15,7 +23,7 @@ body{
 .whole-trans{
   background-color: rgb(238, 238, 238);
   border-radius: 20px;
-  height: 450px;
+  height: 420px;
   padding: 20px 45px;
   margin-right: 45px;
   margin-top: 20px;
@@ -36,7 +44,6 @@ body{
 
 .bttn{
   float: right;
-  margin-top: 15px;
 }
 
 .view{
