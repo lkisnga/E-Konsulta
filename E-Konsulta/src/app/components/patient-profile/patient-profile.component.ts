@@ -222,8 +222,8 @@ export class PatientProfileComponent implements OnInit {
         record2['createdAt'] = formatDate(new Date(),'short','en');
         record2['title'] = "LOA";
         record2['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-        record2['description'] = "A patient sent an LOA. Check your LOA list";
-        this.notif.send_lab(this.info.health_insurance,record2)
+        record2['description'] = "A patient sent a LOA. Check your LOA list";
+        this.notif.send_lab(this.lab_id,record2)
 
         this.lab_message = "File sent!";
         this.file = "";
