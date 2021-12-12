@@ -86,6 +86,7 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
        }else
        {
          console.log("Only one feedback!");
+         alert('You can only add one feedback!');
        }
     })
   }
