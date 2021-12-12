@@ -87,6 +87,7 @@ export class DoctorPatientsComponent implements OnInit {
             data.upcoming_id = e.doc.id;
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
+            data.paymentType = e.doc.data().paymentType;
             data.transaction_id = e.doc.data().transaction_id;
             data.consultation_schedule = e.doc.data().consultation_schedule;
             data.image = im.data().image;

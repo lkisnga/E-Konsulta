@@ -86,23 +86,22 @@
                 <p class="sched text-center border-bottom">{{list.Schedule}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content text-center border-bottom">{{list.Status}}</p>
+                <p class="content text-center border-bottom">{{list.Amount}}</p>
               </div>
               <div class="col-md-2">
-                <p class="xid text-center border-bottom">{{list.Amount}}</p>
+                <p class="xid text-center border-bottom">{{list.uid}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content content-success text-center border-bottom">Pending</p>
-                <div>
-                  <p class="content content-success text-center border-bottom">Successful</p>
-                  <p  class="content content-cancel text-center border-bottom">Cancellation</p>
-                  <p class="content content-cancel text-center border-bottom">No Show</p>
+                <p *ngIf="list.status == 'pending'" class="content content-success text-center border-bottom">Pending</p>
+                <div *ngIf="list.status != 'pending'">
+                  <p *ngIf="list.status == 'done'" class="content content-success text-center border-bottom">Successful</p>
+                  <p *ngIf="list.status == 'cancel'" class="content content-cancel text-center border-bottom">Cancellation</p>
+                  <p *ngIf="list.status == 'noshow'"class="content content-cancel text-center border-bottom">No Show</p>
                 </div>
               </div>
               <div class="col-md-1">
-                <button class="paid btn-sm text-center border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <span><i class="bi bi-money"></i></span></button>
-                <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">No Show</button>
-                <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
+                <button (click)="open_modalPay(list)" *ngIf="list.status == 'done'" class="paid btn-sm text-center border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <span><i class="bi bi-money"></i></span></button>
+                <button (click)="open_modalPay(list)" *ngIf="list.status == 'noshow'" class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">No Show</button>
               </div>
             </div>
           </div>
@@ -156,65 +155,6 @@
           </div>
         </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Send Refund</h5>
-                <button id="closeCancel" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="icon mb-4">
-                  <img src="./assets/images/ekIcon1.ico" alt="" width="60" height="60">
-                  <span class="main ms-2">E-KONSULTA</span>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Name:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Schedule:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Transaction ID:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Amount:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Deduction:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p> (Cancellation Fee)</p>
-                  </div>
-                </div>
-              </div>
-              <div class="paypal" #paypal>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="payment" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -232,7 +172,7 @@
                     <p>Name:</p>
                   </div>
                   <div class="col-md-8">
-                    <p></p>
+                    <p>{{payerInfo.doctor_name}}</p>
                   </div>
                 </div>
                 <div class="row">
@@ -240,7 +180,7 @@
                     <p>Schedule:</p>
                   </div>
                   <div class="col-md-8">
-                    <p></p>
+                    <p>{{payerInfo.Schedule}}</p>
                   </div>
                 </div>
                 <div class="row">
@@ -248,7 +188,7 @@
                     <p>Patient:</p>
                   </div>
                   <div class="col-md-8">
-                    <p></p>
+                    <p>{{payerInfo.patient_name}}</p>
                   </div>
                 </div>
                 <div class="row">
@@ -256,7 +196,7 @@
                     <p>Transaction ID:</p>
                   </div>
                   <div class="col-md-8">
-                    <p></p>
+                    <p>{{payerInfo.uid}}</p>
                   </div>
                 </div>
                 <div class="row">
@@ -264,7 +204,7 @@
                     <p>Amount:</p>
                   </div>
                   <div class="col-md-8">
-                    <p></p>
+                    <p>{{payerInfo.Amount}}</p>
                   </div>
                 </div>
                 <div class="row">
@@ -272,7 +212,7 @@
                     <p>Deduction:</p>
                   </div>
                   <div class="col-md-8">
-                    <p> (Cancellation Fee)</p>
+                    <p>{{payerInfo.deductions}}</p>
                   </div>
                 </div>
                 <div class="row">
@@ -280,11 +220,11 @@
                     <p>Net Pay:</p>
                   </div>
                   <div class="col-md-8">
-                    <p></p>
+                    <p>{{payerInfo.net_income}}</p>
                   </div>
                 </div>
               </div>
-              <div class="paypal"  #paypal2>
+              <div class="paypal"  #paypal>
 
               </div>
             </div>

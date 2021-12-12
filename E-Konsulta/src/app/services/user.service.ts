@@ -502,9 +502,21 @@ export class UserService {
       console.log(id + " Transaction Updated!");
     })
   }
+  update_transaction_insurance(userid,id,record)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(userid).collection('Transaction').doc(id).update(record)
+    .then(()=>{
+      console.log(id + " Transaction Updated!");
+    })
+  }
   add_transactionHistory(record)
   {
     return this.db.firestore.collection('Transaction_History').add(record);
+  }
+  add_transactionHistory_insurance(userid,record)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(userid).collection('Transaction_History')
+    .add(record); 
   }
   get_transactionHistory()
   {
@@ -980,6 +992,11 @@ export class UserService {
   delete_transaction(id)
   {
     return this.db.firestore.collection('Transaction').doc(id).delete();
+  }
+  delete_transaction_insurance(userid,id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(userid).collection('Transaction').doc(id)
+    .delete();
   }
   get_patient_transaction(patient_id)
   {
