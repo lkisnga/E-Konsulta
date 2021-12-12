@@ -74,22 +74,22 @@
 
             <div *ngFor="let list of list" class="row g-0 justify-content-evenly">
               <div class="col-md-2">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.updatedAt}}</p>
               </div>
               <div class="col-md-2">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.patient_name}}</p>
               </div>
               <div class="col-md-1">
-                <p class="doc text-center border-bottom"></p>
+                <p class="doc text-center border-bottom">{{list.doctor_name}}</p>
               </div>
               <div class="col-md-2">
-                <p class="sched text-center border-bottom"></p>
+                <p class="sched text-center border-bottom">{{list.Schedule}}</p>
               </div>
               <div class="col-md-1">
-                <p class="content text-center border-bottom"></p>
+                <p class="content text-center border-bottom">{{list.Status}}</p>
               </div>
               <div class="col-md-2">
-                <p class="xid text-center border-bottom"></p>
+                <p class="xid text-center border-bottom">{{list.Amount}}</p>
               </div>
               <div class="col-md-1">
                 <p class="content content-success text-center border-bottom">Pending</p>
