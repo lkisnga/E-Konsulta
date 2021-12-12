@@ -59,7 +59,7 @@
                 <h3 class="mb-4">Sign Up</h3>
               </div>
             </div>
-            <form class="signin-form" #userRegForm="ngForm" (ngSubmit)="register_Patient(userRegForm.value)">
+            <form class="signin-form" #userRegForm="ngForm" (ngSubmit)="register_Patient(userRegForm.value)" ngNativeValidate>
               <div class="form-group mb-2">
                 <label class="label" for="name">Full Name</label>
                 <input class="form-control" [(ngModel)]="model.fullname" type="text" name="fullname" placeholder="Full Name" required/>

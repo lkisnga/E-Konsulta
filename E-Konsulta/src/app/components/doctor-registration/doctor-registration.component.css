@@ -170,16 +170,10 @@ body{
 .terms:hover{
   text-decoration: underline;
 }
-
-span.trans{
-  text-transform: lowercase !important;
-  color: gray;
-  font-weight: 300;
-}
-
+span.trans,
 span.note
 {
   text-transform: lowercase !important;
-  font-weight: 300;
+  font-weight: 500;
   color: rgb(236, 1, 1);
 }

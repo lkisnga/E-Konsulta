@@ -23,7 +23,7 @@
                   <h3 class="mb-4">Sign Up</h3>
                 </div>
               </div>
-              <form class="signin-form" #info="ngForm" (ngSubmit)="registerDoctor(info.value)">
+              <form class="signin-form" #info="ngForm" (ngSubmit)="registerDoctor(info.value)" ngNativeValidate>
                 <div class="form-group mb-2">
                   <label class="label" for="email">Email</label>
                   <input class="form-control" [(ngModel)]="model.email" type="email" name="email" placeholder="Email address" required/>
