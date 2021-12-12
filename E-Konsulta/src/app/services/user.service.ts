@@ -559,6 +559,11 @@ export class UserService {
     return this.db.firestore.collection('Health_Insurance').doc(id).collection('reviews').doc(review_id)
     .collection('reply').get();
   }
+  get_doctorEarning(id)
+  {
+    return this.db.firestore.collection('Users').doc(id).collection('Transaction_History')
+    .get();
+  }
   get_insurance_verification(id)
   {
     return this.db.firestore.collection('Users').where('health_insurance','==',id).get();
