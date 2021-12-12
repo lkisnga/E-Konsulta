@@ -135,6 +135,7 @@ export class PatientPaymentComponent implements OnInit {
           if(!e.empty)
           {
             e.forEach(item=>{
+              console.log(item.data());
               balance = item.data().limit - item.data().spent;
               if(balance >= this.docInfo.consultation_fee)
               {
@@ -148,6 +149,34 @@ export class PatientPaymentComponent implements OnInit {
                   console.log('Paid!');
                   this.paidFor = true;
                   this.paymentType = "insurance";
+
+                  let record = {};
+                  record['status'] = "pending";
+                  record['deduction'] = 10;
+                  record['patient_id'] = this.userId;
+                  record['doctor_id'] = this.docInfo.uid;
+                  record['Specialization'] = this.docInfo.ins;
+          
+                  record['paymentType'] = this.paymentType;
+                  record['payer_email'] = this.docInfo.paypal_email;
+          
+                  record['Schedule'] = this.sched + ' ' + this.schedTime;
+                  record['consultation_schedule'] = this.schedInfo.consultation_schedule;
+                  record['Amount'] = this.docInfo.consultation_fee;
+                  //use for transaction Sorting
+                  record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+                  record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy, h:mm a','en');
+                  record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+
+                  //use for transaction filtering
+                  var data2 = new Date();
+                  record['monthUpdated'] = data2.getMonth()+1;
+                  this.userservice.create_transaction_insurance(item.data().health_insurance,record)
+                  .then(e=>{
+                    console.log('Added to insurance transaction!');
+                    this.transaction_id = e.id;
+                  })
+
                 })
               }
               else

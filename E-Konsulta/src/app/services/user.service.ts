@@ -962,6 +962,16 @@ export class UserService {
   {
     return this.db.firestore.collection('Transaction').add(record);
   }
+  create_transaction_insurance(id,record)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Transaction_History')
+    .add(record);
+  }
+  get_transaction_insurance(id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Transaction_History')
+    .get();
+  }
   create_transactionHistory_User(id,record)
   {
     return this.db.firestore.collection('Users').doc(id).collection('Transaction_History')
