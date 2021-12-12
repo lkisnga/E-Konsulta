@@ -54,15 +54,29 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
       e.forEach(item=>{
         if(item.data().isVerified == 'pending')
         {
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
+          this.userservice.get_verification_file(item.id)
+          .then(res=>{
+            res.forEach(a=>{
+              data = item.data();
+              data.uid = item.id;
+              data.file = a.data().file;
+              tempArray.push(data);
+              console.log(tempArray);
+            })
+          })
         }
         if(item.data().isVerified == 'verified')
         {
-          data = item.data();
-          data.uid = item.id;
-          tempArray2.push(data);
+          this.userservice.get_verification_file(item.id)
+          .then(res=>{
+            if(!res.empty)
+            res.forEach(a=>{
+              data = item.data();
+              data.uid = item.id;
+              data.file = a.data().file;
+              tempArray2.push(data);
+            })
+          })
         }
       })
     })
@@ -70,9 +84,9 @@ export class HealthInsuranceVerificationPatientComponent implements OnInit {
     this.list = tempArray;
   }
 
-  get_patient_insuranceInfo()
+  open(e)
   {
-
+    window.open(e);
   }
 
   verify(e,stats)
