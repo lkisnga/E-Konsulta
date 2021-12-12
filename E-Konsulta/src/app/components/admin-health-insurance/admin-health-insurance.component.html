@@ -45,7 +45,8 @@
               </td>
               <td>
                 <button (click)="edit_info(list)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editHealth">EDIT</button> &nbsp;
-                <span><button (click)="getID(list.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteHealth">DISABLE</button></span>
+                <span *ngIf="list.disabled == 'false'"><button (click)="getID(list.uid,'true')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteHealth">DISABLE</button></span>
+                <span *ngIf="list.disabled == 'true'"><button (click)="getID(list.uid,'false')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteHealth">ENABLE</button></span>
               </td>
             </tr>
           </tbody>
@@ -122,7 +123,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="disable_insurance()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
+          <button *ngIf="status=='true'" (click)="disable_insurance()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
+          <button *ngIf="status=='false'" (click)="disable_insurance()" type="button" class="disable" data-bs-dismiss="modal">Enable</button>
         </div>
       </div>
     </div>

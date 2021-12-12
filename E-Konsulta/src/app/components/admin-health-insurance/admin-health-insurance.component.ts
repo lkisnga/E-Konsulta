@@ -30,6 +30,8 @@ export class AdminHealthInsuranceComponent implements OnInit {
   searchName : string = "";
   file : any = [];
 
+  status : string = "";
+
   ngOnInit(): void {
     this.listOfInsurance();
   }
@@ -74,22 +76,37 @@ export class AdminHealthInsuranceComponent implements OnInit {
   disable_insurance()
   {
     let record = {};
-    record['disabled'] = true;
+    record['disabled'] = this.status;
     record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
     this.userservice.update_insurance(this.UID,record).then(()=>{
       this.ngOnInit();
-      console.log('Successfully disabled!');
-      //notification patient
-      let record = {};
-      record['title'] = "Account disabled!";
-      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
-      record['createdAt'] = formatDate(new Date(),'short','en');
-      this.notif.send_insurance(this.UID,record);
+
+      if(this.status == 'true')
+      {
+        //notification patient
+        let record = {};
+        record['title'] = "Account disabled!";
+        record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+        this.notif.send_insurance(this.UID,record);
+      }
+      else
+      {
+         //notification patient
+         let record = {};
+         record['title'] = "Account enabled!";
+         record['description'] = "Your Account has been enabled!";
+         record['createdAt'] = formatDate(new Date(),'short','en');
+         record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+         this.notif.send_insurance(this.UID,record);
+      }
     })
   }
-  getID(id)
+  getID(id,status)
   {
     this.UID = id;
+    this.status = status;
   }
   view_files(e)
   {
