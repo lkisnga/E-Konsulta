@@ -15,6 +15,7 @@
         <!--sidenav -->
         <app-health-insurance-sidenav></app-health-insurance-sidenav>
       </div>
+
       <div class="col mt-4">
         <div class="whole-trans">
           <div class="top-part">
@@ -31,23 +32,23 @@
             <div class="col-md-3 .offset-md-3">
               <select class="form-select col" name="" id="">
                 <option value="" selected>Select Status</option>
-                <option value="successful">Successful</option>
-                <option value="refund">Cancelled</option>
+                <option value="done">Done</option>
+                <option value="cancel">Cancel</option>
+                <option value="pending">Pending</option>
               </select>
             </div>
-          <!--  <div class="col-md-2 align-content-end">
-              <select [(ngModel)]="year" class="form-select col" name="" id="" (change)="get_transaction()">
-                <option value="" selected>Select Year</option>
-                <option *ngFor="let list of getYears()" value="{{list}}">{{list}}</option>
+            <div class="col-md-2 align-content-end">
+              <select class="form-select col" name="" id="" >
+                <option value="" selected>Month</option>
               </select>
-            </div> -->
+            </div>
             <div class="col-md-2 align-content-end">
               <select class="form-select col" name="" id="">
-                <option value="" selected>Select Month</option>
-                <option value=""></option>
+                <option value="" selected>Year</option>
               </select>
             </div>
           </div>
+
           <div class="column">
             <div class="row g-0 mt-4">
               <div class="col-md-2">
@@ -76,87 +77,87 @@
               </div>
             </div>
 
-          <div class="row g-0 justify-content-evenly">
-            <div class="col-md-2">
-              <p class="content text-center border-bottom"></p>
-            </div>
-            <div class="col-md-2">
-              <p class="content text-center border-bottom"></p>
-            </div>
-            <div class="col-md-1">
-              <p class="doc text-center border-bottom"></p>
-            </div>
-            <div class="col-md-2">
-              <p class="sched text-center border-bottom"></p>
-            </div>
-            <div class="col-md-1">
-              <p class="content text-center border-bottom"></p>
-            </div>
-            <div class="col-md-2">
-              <p class="xid text-center border-bottom"></p>
-            </div>
-            <div class="col-md-1">
-              <p class="content content-success text-center border-bottom">Pending</p>
-              <div>
-                <p class="content content-success text-center border-bottom">Successful</p>
-                <p  class="content content-cancel text-center border-bottom">Cancellation</p>
-                <p class="content content-cancel text-center border-bottom">No Show</p>
+            <div class="row g-0 justify-content-evenly">
+              <div class="col-md-2">
+                <p class="content text-center border-bottom"></p>
               </div>
-            </div>
-            <div class="col-md-1">
-              <button class="paid btn-sm text-center border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <span><i class="bi bi-money"></i></span></button>
-              <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">No Show</button>
-              <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
-            </div>
-
-            <div class="column">
-              <div class="row g-0 mt-4">
-                <div class="col-md-2">
-                  <p class="upper text-center border-bottom">Date</p>
-                </div>
-                <div class="col-md-2">
-                  <p class="upper text-center border-bottom">Patient</p>
-                </div>
-                <div class="col-md-2">
-                  <p class="upper text-center border-bottom">Doctor</p>
-                </div>
-                <div class="col-md-1">
-                  <p class="upper text-center border-bottom">Amount</p>
-                </div>
-                <div class="col-md-3">
-                  <p class="upper text-center border-bottom">XID</p>
-                </div>
-                <div class="col-md-2">
-                  <p class="upper text-center border-bottom">Status</p>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-1">
+                <p class="doc text-center border-bottom"></p>
+              </div>
+              <div class="col-md-2">
+                <p class="sched text-center border-bottom"></p>
+              </div>
+              <div class="col-md-1">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-2">
+                <p class="xid text-center border-bottom"></p>
+              </div>
+              <div class="col-md-1">
+                <p class="content content-success text-center border-bottom">Pending</p>
+                <div>
+                  <p class="content content-success text-center border-bottom">Successful</p>
+                  <p  class="content content-cancel text-center border-bottom">Cancellation</p>
+                  <p class="content content-cancel text-center border-bottom">No Show</p>
                 </div>
               </div>
-
-              <div class="row g-0 justify-content-evenly">
-                <div class="col-md-2">
-                  <p class="content text-center border-bottom"></p>
-                </div>
-                <div class="col-md-2">
-                  <p class="content text-center border-bottom"></p>
-                </div>
-                <div class="col-md-2">
-                  <p class="content text-center border-bottom"></p>
-                </div>
-                <div class="col-md-1">
-                  <p class="content text-center border-bottom"></p>
-                </div>
-                <div class="col-md-3">
-                  <p class="content text-center border-bottom"></p>
-                </div>
-                <div class="col-md-2">
-                  <div>
-                    <p class="content content-success text-center border-bottom">Successful</p>
-                    <p class="content content-cancel text-center border-bottom">Cancelled</p>
-                    <p class="content content-cancel text-center border-bottom">No Show</p>
-                  </div>
-                </div>
+              <div class="col-md-1">
+                <button class="paid btn-sm text-center border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <span><i class="bi bi-money"></i></span></button>
+                <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">No Show</button>
+                <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
               </div>
             </div>
           </div>
+
+          <div class="column">
+            <div class="row g-0 mt-4">
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Date</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Patient</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Doctor</p>
+              </div>
+              <div class="col-md-1">
+                <p class="upper text-center border-bottom">Amount</p>
+              </div>
+              <div class="col-md-3">
+                <p class="upper text-center border-bottom">XID</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Status</p>
+              </div>
+            </div>
+
+            <div class="row g-0 justify-content-evenly">
+              <div class="col-md-2">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-2">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-1">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-3">
+                <p class="content text-center border-bottom"></p>
+              </div>
+              <div class="col-md-2">
+                <div>
+                  <p class="content content-success text-center border-bottom">Successful</p>
+                  <p class="content content-cancel text-center border-bottom">Cancelled</p>
+                  <p  class="content content-cancel text-center border-bottom">No Show</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -209,7 +210,7 @@
                     <p>Deduction:</p>
                   </div>
                   <div class="col-md-8">
-                    <p>(Cancellation Fee)</p>
+                    <p> (Cancellation Fee)</p>
                   </div>
                 </div>
               </div>
@@ -294,8 +295,8 @@
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
 
 </body>
