@@ -37,7 +37,7 @@
         </div>
         <div class="lower-part" *ngIf="done">
           <div class="row">
-            <div *ngFor="let list of list">
+            <div *ngFor="let list of list2">
               <div *ngIf="userId == list.diagnostic_center" (click)="editinfo(list)" class="col content" data-bs-toggle="modal" data-bs-target="#editRqst">
                 <div class="d-flex justify-content-between">
                   <h5>{{list.email}}</h5>

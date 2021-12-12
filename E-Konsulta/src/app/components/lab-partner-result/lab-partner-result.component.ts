@@ -20,6 +20,7 @@ export class LabPartnerResultComponent implements OnInit {
   model = new RequestForm();
   file : any = "";
   list : any = [];
+  list2: any = [];
 
   requestID: string="";
   userId : string="";
@@ -40,17 +41,9 @@ export class LabPartnerResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.afu.get_UID();
+    this.get_labResult();
+    this.get_labResult2();
 
-    var data;
-    var tempArray = [];
-   this.userservice.get_Lab_Result().then(e=>{
-     e.forEach(item =>{
-       data = item.data();
-       data.uid = item.id;
-       tempArray.push(data);
-     })
-     this.list = tempArray;
-   })
   }
   editinfo(e)
   {
@@ -62,6 +55,38 @@ export class LabPartnerResultComponent implements OnInit {
     {
      this.model.filename = e.filename.replace('.pdf','');
     }
+  }
+  get_labResult()
+  {
+    var data;
+    var tempArray = [];
+   this.userservice.get_Lab_Result().then(e=>{
+     e.forEach(item =>{
+       if(item.data().status == "pending")
+       {
+        data = item.data();
+        data.uid = item.id;
+        tempArray.push(data);
+       }
+     })
+     this.list = tempArray;
+   })
+  }
+  get_labResult2()
+  {
+    var data;
+    var tempArray = [];
+   this.userservice.get_Lab_Result().then(e=>{
+     e.forEach(item =>{
+      if(item.data().status == "sent")
+      {
+       data = item.data();
+       data.uid = item.id;
+       tempArray.push(data);
+      }
+     })
+     this.list2 = tempArray;
+   })
   }
   choosefile(e)
   {
