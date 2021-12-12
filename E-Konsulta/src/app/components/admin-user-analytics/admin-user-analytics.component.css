@@ -28,11 +28,11 @@ h4{
 .consultation-content{
   border-radius: 20px;
   background: white;
-
   font-size: 16px;
   margin-bottom: 5px;
   padding: 15px;
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .card-text{

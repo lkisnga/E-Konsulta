@@ -71,7 +71,9 @@ body{
   font-weight: 700;
 }
 
-.xid{
+.xid,
+.sched,
+.doc{
   font-size: 14px !important;
   padding-bottom: 3px;
 }
@@ -138,4 +140,10 @@ option,
 .paypal{
   margin-left: 50px;
   width: 400px;
+}
+
+
+.column{
+  height: 350px;
+  overflow-y: scroll;
 }
