@@ -1,7 +1,7 @@
 export class DoctorForm {
     email: string;
     fullname: string;
-    password: string;
+    password: string = "";
     dob: string;
     address: string;
     specialization: string = "";

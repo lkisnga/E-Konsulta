@@ -14,6 +14,11 @@ export class DoctorRegistrationComponent implements OnInit {
   spList : any = [];
   file : any;
 
+  confirmPass: string = "";
+  conPass: string = "";
+
+  checkbox: boolean = false;
+
   model = new DoctorForm();
   error: { name: string, message: string } = { name: '', message: ''};
   constructor(public afu : AuthService, public userservice : UserService, public router : Router) { }
@@ -36,16 +41,43 @@ export class DoctorRegistrationComponent implements OnInit {
   }
   registerDoctor(frm)
   {
-    frm.file = this.file;
-    this.clearErrorMessage();
-    this.afu.registerWithEmail_Doctor(frm).then(()=>{
-      this.router.navigate(['/login']);
-    }).catch(_error=>{
-      this.error = _error;
-      this.router.navigate(['/doctor-registration']);
-    })
+    if(this.checkbox != false)
+    {
+      frm.file = this.file;
+      this.clearErrorMessage();
+      this.afu.registerWithEmail_Doctor(frm).then(()=>{
+        this.router.navigate(['/login']);
+      }).catch(_error=>{
+        this.error = _error;
+        this.router.navigate(['/doctor-registration']);
+      })
+    }
+    else
+    {
+      console.log('you must agree to the terms and conditions');
+      this.error.message = "you must agree to the terms and conditions";
+    }
   }
 
+  confirm()
+  {
+    if(this.confirmPass == this.model.password && this.confirmPass != "" && this.model.password != "")
+    {
+      this.conPass = "true";
+    }
+    else
+    {
+      this.conPass = "false";
+    }
+    if(this.confirmPass == "")
+    {
+      this.conPass = "";
+    }
+  }
+  checkBox(e)
+  {
+    this.checkbox = e;
+  }
   choosefile(e)
   {
     this.file = e.target.files[0]
