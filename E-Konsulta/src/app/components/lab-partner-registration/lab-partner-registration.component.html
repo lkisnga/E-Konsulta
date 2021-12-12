@@ -5,33 +5,6 @@
   <title>Doctor Registration Page</title>
 </head>
 <body>
-
- <!--Registration Form
- <div class="register-page">
-  <div class="form">
-    <h3 class="py-1">Registration</h3>
-    <form #userRegForm="ngForm" (ngSubmit)="onSubmit(userRegForm.value)" class="register-form">
-      <input [(ngModel)]="model.name" type="text" name="name" placeholder=" Name" required/>
-      <input [(ngModel)]="model.address" type="text" name="address" placeholder="Address" required/>
-      <input [(ngModel)]="model.contact_number" name="contact_number" type="text" placeholder="Contact Number" required/>
-      <input [(ngModel)]="model.email" type="text" name="email" placeholder="Email address" required/>
-      <input [(ngModel)]="model.password" name="password" type="password" placeholder="Password" required/>
-      <input type="password" placeholder="Confirm Password" required/>
-      <div class="agree">
-        <input type="checkbox" class="form-check-input" id="terms"/>
-        <label class="form-check-label ms-2" for="terms">I agree to the <a routerLink="/terms-and-conditions" class="terms">Terms and Conditions</a></label>
-      </div>
-      <button type="submit">REGISTER</button>
-    </form>
-    <div class="form-group">
-      <p *ngIf="error.message.length > 0" class="text-danger">
-          {{error.message}} </p>
-    </div>
-  </div>
-</div>
-
--->
-
 <section class="ftco-section">
   <div class="container-fluid">
     <div class="row justify-content-center">
@@ -61,7 +34,7 @@
               </div>
               <div class="form-group mb-2">
                 <label class="label" for="certificate">DTI/SEC Registration Certificate, Tax Certificate </label>
-                <input class="form-control" name="certificate" type="file" multiple/>
+                <input (change)="choosefile($event)" class="form-control" name="certificate" type="file" multiple/>
               </div>
               <div class="form-group mb-2">
                 <label class="label" for="contact_number">Contact Number</label>

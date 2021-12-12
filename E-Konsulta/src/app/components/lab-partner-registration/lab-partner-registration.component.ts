@@ -11,13 +11,20 @@ export class LabPartnerRegistrationComponent implements OnInit {
 
   model = new LabForm();
   error: { name: string, message: string } = { name: '', message: ''};
+  files : any = [];
+
+
   constructor(public afu : AuthService, public router : Router) { }
 
   ngOnInit(): void {
   }
-
+  choosefile(e)
+  {
+    this.files = e.target.files;
+  }
   onSubmit(frm)
   {
+    frm.files = this.files;
     this.afu.registerWithEmail_Lab(frm).then(() =>{
       this.router.navigate(['/login']);
     }).catch(_error => {
