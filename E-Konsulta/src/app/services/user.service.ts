@@ -778,9 +778,12 @@ export class UserService {
   {
     const user = this.fireb.auth().currentUser;
     const newPassword = record.password;
+    this.db.collection('Users').doc(user_id).update(record)
+      .then(()=>{
+        console.log('Updated');
+      })
    return user.updatePassword(newPassword).then(()=>{
       console.log("Password Changed!");
-      this.db.collection('Users').doc(user_id).update(record);
     }).catch((error)=>{
       console.log(error);
     })
