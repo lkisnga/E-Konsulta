@@ -45,42 +45,202 @@
             </div>
           </div>
           <div class="column">
-          <div class="row g-0 mt-4">
-            <div class="col-md-2">
-              <p class="upper text-center border-bottom">Date</p>
+            <div class="row g-0 mt-4">
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Date</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Patient</p>
+              </div>
+              <div class="col-md-1">
+                <p class="upper text-center border-bottom">Doctor</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">Schedule</p>
+              </div>
+              <div class="col-md-1">
+                <p class="upper text-center border-bottom">Fee</p>
+              </div>
+              <div class="col-md-2">
+                <p class="upper text-center border-bottom">XID</p>
+              </div>
+              <div class="col-md-1">
+                <p class="upper text-center border-bottom">Status</p>
+              </div>
+              <div class="col-md-1">
+                <p class="upper text-center border-bottom">Action</p>
+              </div>
             </div>
-            <div class="col-md-3">
-              <p class="upper text-center border-bottom">Patient</p>
-            </div>
-            <div class="col-md-2">
-              <p class="upper text-center border-bottom">Fee</p>
-            </div>
-            <div class="col-md-3">
-              <p class="upper text-center border-bottom">Transaction ID</p>
-            </div>
-            <div class="col-md-2">
-              <p class="upper text-center border-bottom">Status</p>
-            </div>
-          </div>
 
           <div class="row g-0 justify-content-evenly">
             <div class="col-md-2">
               <p class="content text-center border-bottom"></p>
             </div>
-            <div class="col-md-3">
-              <p class="content text-center border-bottom"></p>
-            </div>
             <div class="col-md-2">
               <p class="content text-center border-bottom"></p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-1">
+              <p class="doc text-center border-bottom"></p>
+            </div>
+            <div class="col-md-2">
+              <p class="sched text-center border-bottom"></p>
+            </div>
+            <div class="col-md-1">
               <p class="content text-center border-bottom"></p>
             </div>
             <div class="col-md-2">
-              <p class="content content-success text-center border-bottom">Done</p>
-              <p class="content content-cancel text-center border-bottom">Cancelled</p>
+              <p class="xid text-center border-bottom"></p>
+            </div>
+            <div class="col-md-1">
+              <p class="content content-success text-center border-bottom">Pending</p>
+              <div>
+                <p class="content content-success text-center border-bottom">Successful</p>
+                <p  class="content content-cancel text-center border-bottom">Cancellation</p>
+                <p class="content content-cancel text-center border-bottom">No Show</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <button class="paid btn-sm text-center border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <span><i class="bi bi-money"></i></span></button>
+              <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#paymentModal">No Show</button>
+              <button class="cancel btn-sm border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel</button>
+            </div>
+
+          </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Refund</h5>
+                <button id="closeCancel" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="icon mb-4">
+                  <img src="./assets/images/ekIcon1.ico" alt="" width="60" height="60">
+                  <span class="main ms-2">E-KONSULTA</span>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Name:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Schedule:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Transaction ID:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Amount:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Deduction:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>(Cancellation Fee)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="paypal" #paypal>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="payment" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Payment</h5>
+                <button id="closeCancel2" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="icon mb-4">
+                  <img src="./assets/images/ekIcon1.ico" alt="" width="60" height="60">
+                  <span class="main ms-2">E-KONSULTA</span>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Name:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Schedule:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Patient:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Transaction ID:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Amount:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Deduction:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p> (Cancellation Fee)</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Net Pay:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+              <div class="paypal"  #paypal2>
+
+              </div>
+            </div>
           </div>
         </div>
 
