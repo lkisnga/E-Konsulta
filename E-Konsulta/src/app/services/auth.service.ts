@@ -217,6 +217,25 @@ export class AuthService {
       createdAt: formatDate(new Date(),"MM/dd/yyyy",'en'),
       role: 'Health_Insurance',
       disabled: "false"
+    }).then(()=>{
+      for(let i = 0;i<this.newUser.files.length;i++)
+      {
+        this.store.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.files[i].name)
+        .put(this.newUser.files[i])
+        .then(()=>{
+          this.store.storage.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.files[i].name)
+          .getDownloadURL()
+          .then(e=>{
+            this.db.collection('Health_Insurance').doc(userCredential.user.uid).collection('Verification_Files')
+            .add({
+              file: e
+            })
+            .then(()=>{
+              console.log('Added file '+ this.newUser.files[i].name);
+            })
+          })
+        })
+      }
     })
   }
 
