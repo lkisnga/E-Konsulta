@@ -25,7 +25,7 @@ h1{
 }
 .content1{
   position: absolute;
-  bottom: -540px;
+  bottom: -680px;
   right: 0;
   width: 50%;
   padding: 20px 80px;
@@ -37,7 +37,7 @@ h1{
 }
 .content2{
   position: absolute;
-  bottom: -1000px;
+  bottom: -1140px;
   left: 0;
   width: 50%;
   padding: 20px 80px;
@@ -50,12 +50,15 @@ h1{
 
 .content3{
   position: absolute;
-  bottom: -1550px;
+  bottom: -1630px;
   right: 0;
   width: 50%;
   padding: 20px 80px;
 }
 
+.contentx{
+  font-size: 20px;
+}
 
 body {
 	background-color: #f2f2f2;
@@ -69,33 +72,34 @@ body {
 
 /* Home Page */
 .titular .tagline {
-	font-size: 65px !important;
+	font-size: 90px !important;
 	color: rgb(0, 129, 138);
 	position: absolute;
-  margin-top: 200px;
+  margin-top: 270px;
  	left: 50%;
  	transform: translate(-50%, -50%);
 	animation: effect 2s linear infinite;
-	text-shadow: 1px 1px 4px #000000;
+	text-shadow: 1px 1px 4px #4d4d4d;
 }
 
 @keyframes effect {
 	0% {
-		color: #FFF;
+		color: rgb(0, 238, 255);
 		-webkit-background-clip: text;
 	}
 	100% {
-		color: rgb(0,255,132);
+		color: rgb(0, 167, 179);
 		-webkit-background-clip: text;
 	}
 }
 
 .titular .subtitle {
-	font-size: 25px;
+	font-size: 27px !important;
 	color: #FFFFFF;
 	position: absolute;
-	margin-top: 230px;;
+	margin-top: 300px;
   left: 50%;
+  right: 0;
   transform: translate(-50%, -50%);
 	text-shadow: 1px 1px 4px #000000;
 }
@@ -109,6 +113,7 @@ body {
   cursor: pointer;
 	background-color: white;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .options{
@@ -188,7 +193,18 @@ body {
   background: linear-gradient(135deg, rgb(2, 196, 255)  0%, rgb(0, 170, 221) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
 	width: 100%;
-	height: 100vh;
+	height: 50vh;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.area2{
+  background: rgb(0, 129, 138);
+  background: linear-gradient(135deg, rgb(2, 196, 255)  0%, rgb(0, 170, 221) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+	width: 100%;
+	height: 15vh;
 	display: flex;
   justify-content: center;
   align-items: center;
@@ -210,7 +226,7 @@ body {
 	width: 20px;
 	height: 20px;
 	background: white;
-	animation: rise 25s linear infinite;
+	animation: rise 15s linear infinite;
 	bottom: -150px;
 	border-radius: 50%;
 }
@@ -307,7 +323,6 @@ body {
 	text-align: center;
 	color: rgb(0,35,51);
 	font-size: 50px;
-	font-family: Times New Roman;
 	vertical-align: center;
 }
 
