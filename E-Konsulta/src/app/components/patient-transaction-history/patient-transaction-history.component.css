@@ -52,9 +52,7 @@ option,
   color: red;
 }
 
-/*
-ul{
-  column-count: 6;
-  list-style-type: none;
+.column{
+  height: 370px;
+  overflow-y: scroll;
 }
-*/
