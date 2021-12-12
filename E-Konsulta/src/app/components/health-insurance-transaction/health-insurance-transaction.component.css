@@ -1,0 +1,58 @@
+.whole-trans{
+  height: 530px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 3px;
+  margin-top: 60px;
+  margin-right: 40px !important;
+  box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+}
+
+.top-part{
+  background-color: rgb(243, 243, 243);
+  border: none;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
+}
+.top-text{
+  color: rgb(0, 129, 138);
+  font-size: 20px;
+  padding: 10px 0 10px 15px;
+  font-weight: 700;
+}
+
+.form-control,
+.form-select{
+  border-radius: 50px;
+}
+.form-control:focus, .form-control:active,
+.form-select:focus, .form-select:active {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid rgb(0, 174, 187);
+}
+
+.upper{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+input,
+select,
+option,
+.content{
+  font-size: 1rem !important;
+}
+
+.content-success{
+  color: green;
+}
+.content-cancel{
+  color: red;
+}
+
+.column{
+  height: 370px;
+  overflow-y: scroll;
+}
