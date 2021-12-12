@@ -43,6 +43,7 @@ textarea:focus{
 
 .edit,
 .update,
+.enable,
 .disable{
   padding: 7px 10px;
   border-radius: 20px;
@@ -57,6 +58,7 @@ textarea:focus{
 
 .edit:hover,
 .update:hover,
+.enable:hover,
 .disable:hover{
   background: rgb(0, 129, 138);
 }
@@ -112,4 +114,18 @@ textarea:focus{
   background:white;
   width: 90px;
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.enable1{
+  padding: 7px 10px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  width: 80px;
+  background: linear-gradient(135deg, rgb(6, 189, 0) 0%, rgb(5, 138, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+}
+
+.enable1:hover{
+  background: rgb(5, 138, 0);
 }
