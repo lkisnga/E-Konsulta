@@ -25,7 +25,7 @@
           </div>
           <div class="row mx-2">
             <div class="col-md-4">
-              <input type="text" class="form-control" placeholder="Search PatientName" aria-label="Search">
+              <input [(ngModel)]="patientName" (change)="Transaction()" type="text" class="form-control" placeholder="Search PatientName" aria-label="Search">
             </div>
             <div class="col-md-3 .offset-md-3">
               <select [(ngModel)]="status" class="form-select col" name="" id="" (change)="Transactions()">

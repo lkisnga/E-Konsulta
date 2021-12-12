@@ -27,6 +27,9 @@ export class AdminTransactionHistoryComponent implements OnInit {
 
   pay: any = [];
 
+  //filter
+  patientName: string = "";
+
   constructor(
     public userservice : UserService,
     public notif: NotificationService
