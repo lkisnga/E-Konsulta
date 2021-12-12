@@ -13,13 +13,18 @@ export class HealthInsuranceRegistrationComponent implements OnInit {
   model = new HealthInsuranceForm();
   error: { name: string, message: string } = { name: '', message: ''};
   constructor(public afu : AuthService, public router: Router) { }
+  files : any = [];
 
   ngOnInit(): void {
 
   }
-
+  choosefile(e)
+  {
+    this.files = e.target.files;
+  }
   register_user(form)
   {
+    form.files = this.files;
     this.afu.registerWithEmail_HealthInsurance(form).then(() => {
       this.router.navigate(['/login'])
     }).catch(_error => {

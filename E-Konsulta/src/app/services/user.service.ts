@@ -698,6 +698,11 @@ export class UserService {
       })
     });
   }
+  get_insurance_files(id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Verification_Files')
+    .get();
+  }
   delete_specialization(id)
   {
     this.db.collection('specialization').doc(id).delete().then(function(){
@@ -715,10 +720,17 @@ export class UserService {
       console.log(error);
     })
   }
+
   update_doctor_fee(user_id,fee)
   {
     return this.db.firestore.collection('Users').doc(user_id).update(fee);
   }
+
+  get_verification_file(user_id)
+  {
+    return this.db.firestore.collection('Users').doc(user_id).collection('Verification_Files').get();
+  }
+
   update_patient_insurance(user_id,record,file)
   {
     return this.db.collection('Users').doc(user_id).update(record)
