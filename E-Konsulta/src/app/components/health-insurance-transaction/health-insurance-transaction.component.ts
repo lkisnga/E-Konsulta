@@ -50,9 +50,17 @@ export class HealthInsuranceTransactionComponent implements OnInit {
     this.userservice.get_transaction_insurance(this.userid)
     .then(e=>{
       e.forEach(item=>{
-        data = item.data();
-        data.uid = item.id;
-        tempArray.push(data);
+        this.userservice.get_UserInfo(item.data().patient_id)
+        .then(patient=>{
+          this.userservice.get_UserInfo(item.data().doctor_id)
+          .then(doctor=>{
+            data = item.data();
+            data.uid = item.id;
+            data.patient_name = patient.data().fullname;
+            data.doctor_name = doctor.data().fullname;
+            tempArray.push(data);
+          })
+        })
       })
     })
     this.list = tempArray;
