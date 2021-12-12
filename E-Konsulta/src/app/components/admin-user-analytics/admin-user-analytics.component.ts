@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,6 +14,9 @@ export class AdminUserAnalyticsComponent implements OnInit {
   inssize : number = 0;
   labsize : number = 0;
   adminsize : number = 0;
+
+  currentEarning : number = 0;
+  totalEarning: number = 0;
 
   consSize: number = 0;
   todayCons: number = 0;
@@ -75,6 +79,18 @@ export class AdminUserAnalyticsComponent implements OnInit {
       this.todayCons=e.size;
     })
 
+    this.userservice.get_transactionHistory()
+    .then((e)=>{
+      e.forEach(item=>{
+        var date = (new Date(item.data().createdAt).getMonth()+1)+'/'+new Date(item.data().createdAt).getDate()+'/'+new Date(item.data().createdAt).getFullYear();
+        if(date.match(formatDate(new Date(),'M/d/yyyy','en')))
+        {
+          console.log('true');
+          this.currentEarning+=parseFloat(item.data().Amount);
+        }
+        this.totalEarning+=parseFloat(item.data().Amount);
+      })
+    })
 
   }
 
