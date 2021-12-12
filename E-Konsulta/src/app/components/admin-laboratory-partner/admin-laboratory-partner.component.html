@@ -41,7 +41,8 @@
               </td>
               <td>
                 <button (click)="editInfo(item)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editLabPartner">EDIT</button> &nbsp;
-                <span><button (click)="disableInfo(item.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteLabPartner">DISABLE</button></span>
+                <span *ngIf="item.disabled == 'false'"><button (click)="disableInfo(item.uid,'true')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteLabPartner">DISABLE</button></span>
+                <span *ngIf="item.disabled == 'true'"><button (click)="disableInfo(item.uid,'false')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteLabPartner">ENABLE</button></span>
               </td>
             </tr>
           </tbody>
@@ -115,7 +116,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="disable()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
+          <button *ngIf="status=='true'" (click)="disable()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
+          <button *ngIf="status=='false'" (click)="disable()" type="button" class="disable" data-bs-dismiss="modal">Enable</button>
         </div>
       </div>
     </div>

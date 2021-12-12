@@ -29,6 +29,8 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
   UID : any = "";
   files: any = [];
 
+  status: string = "";
+
   ngOnInit(): void {
     this.listOfPartners();
   }
@@ -68,25 +70,38 @@ export class AdminLaboratoryPartnerComponent implements OnInit {
     })
     this.files = tempArray;
   }
-  disableInfo(e)
+  disableInfo(e,status)
   {
     this.UID = e;
+    this.status = status;
     console.log(this.UID);
   }
   disable()
   {
     let record ={}
-    record['disabled'] = "true";
+    record['disabled'] = this.status;
     record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
     this.userservice.update_lab(this.UID,record).then(()=>{
-      let record = {};
-      record['title'] = "Account disabled!";
-      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
-      record['createdAt'] = formatDate(new Date(),'short','en');
-      this.notif.send_lab(this.UID,record);
+
+      if(this.status=='true')
+      {
+        let record = {};
+        record['title'] = "Account disabled!";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_lab(this.UID,record);
+      }
+      else
+      {
+        let record = {};
+        record['title'] = "Account enabled!";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        record['description'] = "Your Account has been enabled!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_lab(this.UID,record);
+      }
       this.ngOnInit();
-      console.log("successfully disabled!");
     })
   }
 
