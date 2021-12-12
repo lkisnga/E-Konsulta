@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
@@ -88,11 +88,28 @@ export class PatientProfileComponent implements OnInit {
         this.info = data;
       }
 
+    }).then(()=>{
+      this.passwordUpdateChecker();
     })
 
     this.insurance_list();
 
     this.get_lab();
+
+  }
+
+  passwordUpdateChecker() //checks if there is a changed in password
+  {
+    let record = {};
+    record['id'] = this.userID;
+    record['role'] = this.info.role;
+    record['password'] = sessionStorage.getItem('Current');
+    if(this.info.password != sessionStorage.getItem('Current'))
+    {
+      this.userservice.update_password(record).then(()=>{
+        this.ngOnInit()
+      })
+    }
   }
 
   choosefile(e)

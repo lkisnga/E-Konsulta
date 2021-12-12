@@ -153,7 +153,7 @@ export class AuthService {
         throw error
       });
   }
-  
+
   insertUserData_UserLab(userCredential: firebase.auth.UserCredential) {
     return this.db.collection('Users').doc(userCredential.user.uid).set({
       email: this.newUser.email,
@@ -339,8 +339,10 @@ export class AuthService {
 
   loginWithEmail(email: string, password: string,role : string)
   {
+    var data;
     return this.afu.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem('Users',JSON.stringify(res.user));
+      sessionStorage.setItem('Current',password);
     }).then(() => {
       if(role == "admin")
         this.router.navigate(['/admin-profile'])

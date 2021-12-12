@@ -563,6 +563,34 @@ export class UserService {
   {
     return this.db.firestore.collection('Users').where('health_insurance','==',id).get();
   }
+  update_password(data)
+  {
+    if(data.role == 'patient' && data.role == 'doctor')
+    {
+     return this.db.firestore.collection('Users').doc(data.id).update({
+        password: data.password
+      });
+    }
+    else if(data.role == 'Health_Insurance')
+    {
+     return this.db.firestore.collection('Health_Insurance').doc(data.id).update({
+        password: data.password
+      });
+    }
+    else if(data.role == 'Laboratory_Partner')
+    {
+     return this.db.firestore.collection('Laboratory_Partner').doc(data.id)
+      .update({
+        password: data.password
+      })
+    }
+    else
+    {
+     return this.db.firestore.collection('Users').doc(data.id).update({
+        password: data.password
+      });
+    }
+  }
 
   Insurance_reply(id,feedback,name,review_id,sent_to)
   {
