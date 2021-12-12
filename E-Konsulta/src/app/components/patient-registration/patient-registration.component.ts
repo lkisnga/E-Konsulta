@@ -38,6 +38,10 @@ export class PatientRegistrationComponent implements OnInit {
 
   file: any;
 
+  checkbox: boolean = false;
+
+  conPass : string = "";
+
   constructor(public userservice : UserService, 
     public afu : AuthService, 
     public router: Router,
@@ -79,34 +83,60 @@ export class PatientRegistrationComponent implements OnInit {
   register_Patient(frm)
   {
     //console.log(frm);
-    frm.file = this.file;
-    if(frm.password == this.confirmPass)
+    if(this.checkbox != false)
     {
-      console.log(frm);
-      this.afu.registerWithEmail_patient(frm)
-        .then(() => {
-          //Notification send to Health Insurance
-          if(frm.health_insurance != "none")
-          {
-            let record = {};
-            record['createdAt'] = formatDate(new Date(),'short','en');
-            record['title'] = "Patient Verification";
-            record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
-            record['description'] = "Go to Verification and Verify the Patient whether He/She is in your service!";
-            this.notif.send_insurance(frm.health_insurance,record);
-          }
-          //End of notification 
-          this.router.navigate(['/login'])
-        }).catch(_error => {
-          this.error = _error
-          this.router.navigate(['/patient-registration'])
-        })
+      frm.file = this.file;
+      if(frm.password == this.confirmPass)
+      {
+        console.log(frm);
+        this.afu.registerWithEmail_patient(frm)
+          .then(() => {
+            //Notification send to Health Insurance
+            if(frm.health_insurance != "none")
+            {
+              let record = {};
+              record['createdAt'] = formatDate(new Date(),'short','en');
+              record['title'] = "Patient Verification";
+              record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+              record['description'] = "Go to Verification and Verify the Patient whether He/She is in your service!";
+              this.notif.send_insurance(frm.health_insurance,record);
+            }
+            //End of notification 
+            this.router.navigate(['/login'])
+          }).catch(_error => {
+            this.error = _error
+            this.router.navigate(['/patient-registration'])
+          })
+      }
+      else
+      {
+        this.pass_message = "Passwords do not match!"
+      }
     }
     else
     {
-      this.pass_message = "Passwords do not match!"
+      console.log('you must agree to the terms and conditions');
+      this.error.message = "You must agree to the terms and conditions";
     }
-
-        
+  }
+  checkBox(e)
+  {
+    this.checkbox = e;
+    console.log(this.checkbox);
+  }
+  confirm()
+  {
+    if(this.confirmPass == this.model.password && this.confirmPass != "" && this.model.password != "")
+    {
+      this.conPass = "true";
+    }
+    else
+    {
+      this.conPass = "false";
+    }
+    if(this.confirmPass == "")
+    {
+      this.conPass = "";
+    }
   }
 }
