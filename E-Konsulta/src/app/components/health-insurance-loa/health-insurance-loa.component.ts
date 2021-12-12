@@ -147,6 +147,14 @@ export class HealthInsuranceLoaComponent implements OnInit {
     var status = "declined"
     this.userservice.update_LOA_Request(this.userId,request_id,status).then(()=>{
       this.ngOnInit();
+      //Notification to patient
+       //Notification to patient
+       let record = {};
+       record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+       record['createdAt'] = formatDate(new Date(),'short','en');
+       record['title'] = "LOA Request Declined";
+       record['description'] = "Your LOA request has been declined by your insurance.";
+       this.notif.send_patient(request_id,record);
       this.err_message = "Request has been declined";
       setTimeout(() => {
         this.err_message = "";
