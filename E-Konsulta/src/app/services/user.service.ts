@@ -698,6 +698,11 @@ export class UserService {
       })
     });
   }
+  get_insurance_files(id)
+  {
+    return this.db.firestore.collection('Health_Insurance').doc(id).collection('Verification_Files')
+    .get();
+  }
   delete_specialization(id)
   {
     this.db.collection('specialization').doc(id).delete().then(function(){

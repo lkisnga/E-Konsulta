@@ -228,7 +228,8 @@ export class AuthService {
           .then(e=>{
             this.db.collection('Health_Insurance').doc(userCredential.user.uid).collection('Verification_Files')
             .add({
-              file: e
+              file: e,
+              filename: this.newUser.files[i].name
             })
             .then(()=>{
               console.log('Added file '+ this.newUser.files[i].name);

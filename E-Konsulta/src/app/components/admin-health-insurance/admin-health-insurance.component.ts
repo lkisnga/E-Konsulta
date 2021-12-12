@@ -28,6 +28,7 @@ export class AdminHealthInsuranceComponent implements OnInit {
   list : any = [];
   UID : string = "";
   searchName : string = "";
+  file : any = [];
 
   ngOnInit(): void {
     this.listOfInsurance();
@@ -89,6 +90,22 @@ export class AdminHealthInsuranceComponent implements OnInit {
   getID(id)
   {
     this.UID = id;
+  }
+  view_files(e)
+  {
+    var data;
+    var tempArray = [];
+    this.userservice.get_insurance_files(e).then(a=>{
+      a.forEach(res=>{
+        data = res.data();
+        tempArray.push(data);
+      })
+    })
+    this.file = tempArray;
+  }
+  open(e)
+  {
+    window.open(e);
   }
   addHealthInsurance(e)
   {
