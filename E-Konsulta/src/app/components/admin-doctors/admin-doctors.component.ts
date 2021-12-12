@@ -51,6 +51,8 @@ export class AdminDoctorsComponent implements OnInit {
 
   doctor_id : string = "";
 
+  status: string = "";
+
   constructor(public authservice : AuthService, 
     public userservice : UserService, 
     public router : Router,
@@ -177,26 +179,38 @@ export class AdminDoctorsComponent implements OnInit {
     
     
   }
-  editDisable(id)
+  editDisable(id,status)
   {
     this.doctor_id = id;
+    this.status = status;
+    console.log(this.status);
   }
   disableDoctor()
   {
     let record = {};
-    record['disabled'] = "true";
+    record['disabled'] = this.status;
     record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
     this.userservice.update_doctorInfo(this.doctor_id,record)
     .then(()=>{
-      console.log('Successfully disabled!');
-
       //notification doctor
-      let record = {};
-      record['title'] = "Account disabled!";
-      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
-      record['createdAt'] = formatDate(new Date(),'short','en');
-      this.notif.send_doctor(this.doctor_id,record);
+      if(this.status == 'true')
+      {
+        let record = {};
+        record['title'] = "Account disabled!";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_doctor(this.doctor_id,record);
+      }
+      else
+      {
+        let record = {};
+        record['title'] = "Account enabled!";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        record['description'] = "Your Account has been enabled!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_doctor(this.doctor_id,record);
+      }
       this.ngOnInit();
     })
   }

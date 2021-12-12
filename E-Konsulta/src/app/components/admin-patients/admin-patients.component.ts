@@ -31,6 +31,7 @@ export class AdminPatientsComponent implements OnInit {
   tempName : string ="";
 
   disable_id : string = "";
+  status : string = "";
 
   constructor(
     public userService : UserService, 
@@ -112,22 +113,40 @@ export class AdminPatientsComponent implements OnInit {
     })
   }
 
+  editDisable(id,status)
+  {
+    this.disable_id = id;
+    this.status = status;
+  }
   //Disable account
   disable()
   {
     let record = {};
-    record['disabled'] = "true";
+    record['disabled'] = this.status;
     record['updatedAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
     this.userService.update_patientInfo(this.disable_id,record).then(()=>{
       this.ngOnInit();
-      console.log('Successfully Disabled!');
-      //notification patient
-      let record = {};
-      record['title'] = "Account disabled!";
-      record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-      record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
-      record['createdAt'] = formatDate(new Date(),'short','en');
-      this.notif.send_patient(this.disable_id,record);
+
+      if(this.status == 'true')
+      {
+        //notification patient
+        let record = {};
+        record['title'] = "Account disabled!";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        record['description'] = "Your Account has been disabled for various reasons. Contact us now!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_patient(this.disable_id,record);
+      }
+      else
+      {
+        //notification patient
+        let record = {};
+        record['title'] = "Account enabled!";
+        record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+        record['description'] = "Your Account has been enabled!";
+        record['createdAt'] = formatDate(new Date(),'short','en');
+        this.notif.send_patient(this.disable_id,record);
+      }
       this.ngOnInit();
     })
   }

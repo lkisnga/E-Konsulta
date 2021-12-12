@@ -59,7 +59,8 @@
               <td><button (click)="view_file(item.file)" class="view">View<i class="bi bi-eye"></i></button></td>
               <td *ngIf="item.isVerified == 'verified'">
                 <button type="button" (click)="editInfo(item)" class="edit" data-bs-toggle="modal" data-bs-target="#editDoctor">EDIT</button> &nbsp;
-                <span><button (click)="editDisable(item.uid)" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
+                <span *ngIf="item.disabled=='false'"><button (click)="editDisable(item.uid,'true')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteDoctor">DISABLE</button></span>
+                <span *ngIf="item.disabled=='true'"><button (click)="editDisable(item.uid,'false')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteDoctor">ENABLE</button></span>
               </td>
               <td *ngIf="item.isVerified == 'pending'">
                 <button type="button" (click)="verify_doctor(item.uid)" class="verify">VERIFY</button>
@@ -178,7 +179,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
-          <button (click)="disableDoctor()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
+          <button *ngIf="status=='true'" (click)="disableDoctor()" type="button" class="disable" data-bs-dismiss="modal">Disable</button>
+          <button *ngIf="status=='false'" (click)="disableDoctor()" type="button" class="disable" data-bs-dismiss="modal">Enable</button>
         </div>
       </div>
     </div>
