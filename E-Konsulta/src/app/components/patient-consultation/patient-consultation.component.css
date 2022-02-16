@@ -2,8 +2,8 @@
   box-sizing: border-box;
 }
 .book{
-  border: 1px solid rgb(0, 187, 201);
-  color: rgb(0, 187, 201);
+  border: none;
+  color: white;
   border-radius: 50px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -12,13 +12,14 @@
   font-weight: 700;
   margin-top: 70px;
   margin-bottom: 10px;
-  background-color: white;
+  background: linear-gradient(135deg, rgb(90, 185, 248) 0%, rgb(0, 141, 235));
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .book:hover{
-  color: rgb(0, 129, 138);
-  border: 1px solid rgb(0, 129, 138);
+  background: rgb(1, 133, 221);
 }
+
 .up{
   font-size: 18px;
   border-radius: 50px;
@@ -27,7 +28,6 @@
   margin-right: 10px;
   width: 150px;
   color: #fff;
-  background: rgb(0, 129, 138);
   background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;

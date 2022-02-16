@@ -88,6 +88,7 @@ import { LabPartnerLoaComponent } from './components/lab-partner-loa/lab-partner
 import { HealthInsuranceReceivedLoaComponent } from './components/health-insurance-received-loa/health-insurance-received-loa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HealthInsuranceTransactionComponent } from './components/health-insurance-transaction/health-insurance-transaction.component';
+import { MedicalCertificateComponent } from './components/medical-certificate/medical-certificate.component';
 
 
 @NgModule({
@@ -164,7 +165,8 @@ import { HealthInsuranceTransactionComponent } from './components/health-insuran
     HealthInsuranceVerificationPatientComponent,
     LabPartnerLoaComponent,
     HealthInsuranceReceivedLoaComponent,
-    HealthInsuranceTransactionComponent
+    HealthInsuranceTransactionComponent,
+    MedicalCertificateComponent
   ],
   imports: [
     FormsModule,
