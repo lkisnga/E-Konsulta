@@ -20,7 +20,7 @@
       <div class="lower-part">
         <button class="submit mb-3" type="submit" data-bs-toggle="modal" data-bs-target="#toReply">Add feedback</button>
         <div class="row">
-          <div *ngFor="let list of flist" class="col-md-6 content">
+          <div *ngFor="let list of flist" class="content">
             <div class="d-flex w-100 justify-content-between">
               <h2 class="mb-1"><span><img src="{{list.image}}" alt="" width="35" height="35" class="cute-pic"></span>{{list.fullname}}</h2>
               <small>{{list.createdAt}}</small>
