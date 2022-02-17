@@ -5,13 +5,14 @@
 .row{
   background-color: rgb(0, 129, 138);
 } */
-video{
-  background: rgb(194, 194, 194);
-  border-radius: 5pt;
-  margin: 5px;
-  max-width: 650px;
-  height: 400px;
-}
+
+  video{
+    background: rgb(194, 194, 194);
+    border-radius: 5pt;
+    margin: 5px;
+    max-width: 650px;
+    height: 400px;
+  }
 
 .video-description{
   margin-top: 70px;
@@ -112,10 +113,23 @@ i{
   background-color: white;
 }
 
-@media screen and (max-width: 500px) {
+
+@media screen and (min-width: 600px) {
   video{
-    width: 50% !important;
+    max-width: 450px !important;
     float: left;
   }
 
 }
+
+
+@media screen and (min-width: 1000px) {
+  video{
+    max-width: 500px !important;
+    float: left;
+  }
+}
+
+
+
+

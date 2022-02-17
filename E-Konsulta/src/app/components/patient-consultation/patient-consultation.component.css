@@ -12,12 +12,12 @@
   font-weight: 700;
   margin-top: 70px;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, rgb(90, 185, 248) 0%, rgb(0, 141, 235));
+  background: linear-gradient(135deg, rgb(8, 238, 0) 0%, rgb(5, 138, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .book:hover{
-  background: rgb(1, 133, 221);
+  background: rgb(5, 138, 0);
 }
 
 .up{

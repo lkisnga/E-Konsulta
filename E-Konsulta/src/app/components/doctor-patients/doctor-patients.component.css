@@ -41,19 +41,22 @@
 .done1{
   cursor: context-menu;
   border: none;
-  padding: 10px;
   font-size: 18px;
   width: 100px;
   color: rgb(5, 138, 0);
   background-color: white;
   font-weight: 700;
+  margin-left: 50px;
 }
 
 
 .full-name{
   margin-right: 100px;
   color: #333;
-  padding: 0 10px;
+  width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pending,
@@ -61,6 +64,7 @@
 .schedule{
   border: none;
   padding: 6px 10px;
+  margin-left: 50px;
 }
 
 .schedule{
