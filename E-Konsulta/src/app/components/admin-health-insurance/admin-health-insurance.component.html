@@ -15,7 +15,7 @@
         <!--sidenav -->
         <app-admin-sidenav></app-admin-sidenav>
       </div>
-      <div class="col col-sm-offset-3 py-4 mx-3 content">
+      <div class="col col-sm-offset-3 py-4 mx-1 content">
         <p class="health">Health Insurance</p>
         <input  [(ngModel)]="searchName" (input)='listOfInsurance()' type="search" class="form-control" placeholder="Search Health Insurance" aria-label="Search"
             aria-describedby="search-addon" />
@@ -44,7 +44,7 @@
                 <button (click)="view_files(list.uid)" type="button" data-bs-toggle="modal" data-bs-target="#view" class="view ms-2">VIEW</button>
               </td>
               <td>
-                <button (click)="edit_info(list)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editHealth">EDIT</button> &nbsp;
+                <button (click)="edit_info(list)" type="button" class="edit" data-bs-toggle="modal" data-bs-target="#editHealth">EDIT</button>
                 <span *ngIf="list.disabled == 'false'"><button (click)="getID(list.uid,'true')" class="disable1" data-bs-toggle="modal" data-bs-target="#deleteHealth">DISABLE</button></span>
                 <span *ngIf="list.disabled == 'true'"><button (click)="getID(list.uid,'false')" class="enable1" data-bs-toggle="modal" data-bs-target="#deleteHealth">ENABLE</button></span>
               </td>
