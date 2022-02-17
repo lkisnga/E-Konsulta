@@ -38,14 +38,15 @@ body{
 }
 
 .mb-1{
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 .feedback{
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 20px;
   margin-top: 3px;
 }
+
 
 .cute-pic{
   border-radius: 50%;
@@ -100,7 +101,8 @@ textarea:focus{
   border-radius: 50px;
   border: none;
   padding: 10px 20px;
-  width: 20%;
+  float: right;
+  width: 10%;
   color: #fff;
   background: rgb(0, 129, 138);
   background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
