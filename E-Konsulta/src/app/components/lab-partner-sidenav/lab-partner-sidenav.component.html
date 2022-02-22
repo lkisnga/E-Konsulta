@@ -15,9 +15,20 @@
             <i class="bi bi-file-earmark-medical"></i><span class="ms-2 d-none d-sm-inline">Medical Result</span> </a>
         </li>
         <li>
-          <a routerLink='/lab-partner-loa' class="nav-link px-0 align-middle">
-            <i class="bi bi-file-text"></i><span class="ms-2 d-none d-sm-inline">LOA</span> </a>
-        </li>
+          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+            <i class="bi bi-file-text"></i> <span class="ms-2 d-none d-sm-inline">LOA <i class="bi bi-caret-down"></i> </span> </a>
+            <ul class="collapse nav flex-column ms-2" id="submenu2" data-bs-parent="#menu">
+              <li>
+                <a routerLink='/lab-partner-loa' class="nav-link px-0 align-middle">
+                  <span class="ms-2 d-none d-sm-inline">Patient</span> </a>
+              </li>
+              <li>
+                <a routerLink='/lab-insurance-loa' class="nav-link px-0 align-middle">
+                  <span class="ms-2 d-none d-sm-inline">Insurance</span> </a>
+              </li>
+            </ul>
+          </li>
+
         <li>
             <a routerLink='/lab-partner-reviews' class="nav-link px-0 align-middle ">
               <i class="bi bi-chat-dots"></i> <span class="ms-2 d-none d-sm-inline">Reviews</span></a>

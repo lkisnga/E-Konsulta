@@ -1,0 +1,63 @@
+<app-header-lab></app-header-lab>
+
+  <div class="row flex-nowrap">
+    <div class="col-2 col-md-3 col-xl-2 px-sm-1 px-0">
+      <!--sidenav -->
+      <app-lab-partner-sidenav></app-lab-partner-sidenav>
+    </div>
+      <div class="col">
+        <p class="usr">Insurance LOA</p>
+        <input type="search" class="form-control" placeholder="Search InsuranceName" aria-label="Search"
+            aria-describedby="search-addon" />
+        <div class="whole-trans">
+          <div class="row">
+            <div class="col-6 content">
+              <div class="info">
+                <h5></h5>
+                <p class="mb-1">File Name: </p>
+                <small></small>
+              </div>
+              <div class="bttn">
+                <button  class="view" data-bs-toggle="modal" data-bs-target="#view">VIEW</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--view Modal-->
+    <div class="modal fade" id="view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSpclLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title">Send LOA</p>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <div class="modal-body">
+            <button class="view1 mb-2">View File</button> <br> <br>
+            <div class="loa">
+              <h5 id="editLabel" class="mt-2 mb-4 border-top">Send LOA to </h5>
+              <p>Choose File: <input type="file"></p>
+
+              <div class="alert alert-danger">
+
+              </div>
+              <div  class="alert alert-danger">
+
+              </div>
+              <div class="alert alert-success">
+
+              </div>
+              <span><button  class="send">Send LOA</button></span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="close" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
