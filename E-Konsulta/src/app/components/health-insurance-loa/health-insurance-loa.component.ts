@@ -57,12 +57,16 @@ export class HealthInsuranceLoaComponent implements OnInit {
         this.userservice.get_UserInfo(item.data().patient_id).then(res=>{
           if(res.exists)
           {
-            data = item.data();
-            data.uid= item.id;
-            data.fullname = res.data().fullname;
-            console.log(data);
-            if(data.status=="pending")
-              tempArray.push(data);
+            this.userservice.get_labInfo(item.data().lab_id).forEach(res2=>{
+              data = item.data();
+              data.uid= item.id;
+              data.lab_name = res2.data().name;
+              data.lab_id = res2.id;
+              data.fullname = res.data().fullname;
+              console.log(data);
+              if(data.status=="pending")
+                tempArray.push(data);
+            })
           }
         })
       })

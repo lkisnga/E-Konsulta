@@ -44,8 +44,10 @@ export class PatientProfileComponent implements OnInit {
 
   labList : any = [];
   lab_id : string = "";
+  lab_id2 : string = ""; //for request LOA 
   empty_field: string = "";
   lab_message: string = "";
+
   constructor(
     public userservice : UserService, 
     public afu : AuthService,
@@ -265,20 +267,31 @@ export class PatientProfileComponent implements OnInit {
       .then(e=>{
         if(e.empty)
         {
-          this.userservice.request_LOA(this.info.health_insurance,this.userID)
-            .then(()=>{
-              this.request_sent = "Request Sent!";
-              setTimeout(() => {
-                this.request_sent = "";
-              }, 3000);
-              let record = {};
-              record['createdAt'] = formatDate(new Date(),'short','en');
-              record['title'] = "LOA request";
-              record['description'] = "A patient requested for LOA";
-              record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
-              this.notif.send_insurance(this.info.health_insurance,record)
+          if(this.lab_id2 != "")
+          {
+            this.userservice.request_LOA(this.info.health_insurance,this.userID,this.lab_id2)
+              .then(()=>{
+                this.request_sent = "Request Sent!";
+                setTimeout(() => {
+                  this.request_sent = "";
+                  this.lab_id2 = "";
+                }, 3000);
+                let record = {};
+                record['createdAt'] = formatDate(new Date(),'short','en');
+                record['title'] = "LOA request";
+                record['description'] = "A patient requested for LOA";
+                record['id'] = new Date(formatDate(new Date(),'short','en')).getTime()
+                this.notif.send_insurance(this.info.health_insurance,record)
 
-            })
+              })
+          }
+          else
+          {
+            this.request_error = "Please choose a laboratory!";
+            setTimeout(() => {
+              this.request_error = "";
+            }, 3000);
+          }
         }
         else
         {

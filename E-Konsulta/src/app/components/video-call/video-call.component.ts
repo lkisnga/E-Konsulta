@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/services/auth.service';
@@ -149,7 +150,7 @@ export class VideoCallComponent implements AfterViewInit {
     const blob = new Blob(recordedChunks, {
        type: 'video/webm'
      });
-     let filename = window.prompt('Enter file name'),
+     let filename = this.remoteUser.fullname+"_"+formatDate(new Date(),'short','en'),
      downloadLink = document.createElement('a');
      downloadLink.href = URL.createObjectURL(blob);
      downloadLink.download = `${filename}.webm`;

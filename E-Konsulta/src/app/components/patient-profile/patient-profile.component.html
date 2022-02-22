@@ -171,6 +171,15 @@
                   <div class="col-md-4">
                     <span id="insBal2">Limit:</span><button class="php">{{insurance_info.limit}}php</button>
                   </div>
+                  <!--SELECT LAB FOR REQUEST LOA-->
+
+                  <div class="col-md-8">
+                    <select [(ngModel)]="lab_id2" name="lab_id" id="" class="form-select mb-2">
+                    <option value="" selected>Select Laboratory</option>
+                    <option *ngFor="let list of labList" value="{{list.uid}}">{{list.name}}</option>
+                  </select>
+                  </div>
+
                   <div class="col-md-4">
                     <button (click)="request_LOA()" class="request">REQUEST LOA</button>
                   </div>

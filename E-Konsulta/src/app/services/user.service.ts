@@ -688,12 +688,13 @@ export class UserService {
     return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA_Request')
     .where('patient_id','==',pat_id).where('createdAt','==',nowDate).get();
   }
-  request_LOA(ins_id,pat_id)
+  request_LOA(ins_id,pat_id,lab_id2)
   {
     return this.db.firestore.collection('Health_Insurance').doc(ins_id).collection('Insurance_LOA_Request')
     .add({
       patient_id: pat_id,
       createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
+      lab_id: lab_id2,
       status: 'pending'
     })
   }

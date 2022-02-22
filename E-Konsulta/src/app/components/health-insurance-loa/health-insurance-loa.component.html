@@ -20,6 +20,7 @@
             <tr>
               <th scope="col">Date</th>
               <th scope="col">Name</th>
+              <th scope="col">Laboratory</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -27,6 +28,7 @@
             <tr *ngFor="let list of loa_list">
               <td>{{list.createdAt}}</td>
               <td>{{list.fullname}}</td>
+              <td>{{list.lab_name}}</td>
               <td>
                 <button (click)="patientInfo = list" type="button" class="send1" data-bs-toggle="modal" data-bs-target="#sendFle">Send File</button>
                 <button (click)="decline_LOA(list.uid)" class="decline">Decline</button>
