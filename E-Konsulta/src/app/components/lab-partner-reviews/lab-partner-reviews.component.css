@@ -100,7 +100,8 @@ textarea:focus{
   border-radius: 50px;
   border: none;
   padding: 10px 20px;
-  width: 20%;
+  float: right;
+  width: 10%;
   color: #fff;
   background: rgb(0, 129, 138);
   background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
