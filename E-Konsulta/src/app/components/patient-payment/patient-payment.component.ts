@@ -50,7 +50,7 @@ export class PatientPaymentComponent implements OnInit {
     this.paypalButton();
     this.get_schedule();
 
-    console.log(this.userInfo.email)
+    console.log(this.userInfo.email);
 
   }
 
@@ -230,6 +230,8 @@ export class PatientPaymentComponent implements OnInit {
       this.userservice.patient_book_schedule(record)
       .then(()=>{
         let record = {}
+        var today = new Date();
+
         record['doctor_id'] = this.docInfo.uid;
         record['patient_id'] = this.userId;
         record['transaction_id'] = this.transaction_id;
@@ -238,7 +240,9 @@ export class PatientPaymentComponent implements OnInit {
         record['time'] = this.schedTime;
         record['paymentType'] = this.paymentType;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
-        record['createdAt'] = formatDate(new Date(),'MM/dd/yyyy','en');
+        record['createdAt'] = formatDate(today,'MM/dd/yyyy hh:mm a','en');
+        today.setHours(today.getHours() + 1);
+        record['cancelLimit'] = formatDate(today,'MM/dd/yyyy hh:mm a','en');
         record['status'] = 'pending'
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');

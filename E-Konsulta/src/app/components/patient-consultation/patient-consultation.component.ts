@@ -18,8 +18,10 @@ export class PatientConsultationComponent implements OnInit {
 
   docList: any = [];
   doneList : any = [];
+  currentDate: string = "";
 
-  error_message: string = ""
+  error_message: string = "";
+
 
   info: any = [];
 
@@ -46,6 +48,10 @@ export class PatientConsultationComponent implements OnInit {
   ngOnInit(): void {
 
     localStorage.removeItem('data');
+    
+    //getting the current Date
+    this.currentDate = formatDate(new Date(),'MM/dd/yyyy hh:mm','en');
+
     this.userid = this.afu.get_UID();
     this.get_upcoming();
     this.get_done();
@@ -88,6 +94,8 @@ export class PatientConsultationComponent implements OnInit {
           this.userservice.get_avatar(e.doc.data().doctor_id).then(img=>{
             data = a.data();
             data.upcoming_status = e.doc.data().status;
+            data.createdAt = e.doc.data().createdAt;
+            data.cancelLimit = e.doc.data().cancelLimit;
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
             data.upcoming_id = e.doc.id;
