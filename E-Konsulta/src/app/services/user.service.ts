@@ -674,7 +674,11 @@ export class UserService {
     .get();
   }
 
-
+  get_lab_insurance_LOA(id)
+  {
+    return this.db.firestore.collection('LAB-Insurance_LOA').where('lab_id','==',id)
+    .get();
+  }
   get_LOA_sent(ins_id)
   {
     return this.db.firestore.collection('Insurance_LOA').where('insurance_id','==',ins_id).get();
@@ -703,7 +707,7 @@ export class UserService {
    return this.store.ref('Insurance-LOA/' + insurance_id + '/patients/' + patient_id + '/' + data.filename).put(data.file)
     .then(()=>{
        this.store.storage.ref('Insurance-LOA/' + insurance_id + '/patients/' + patient_id + '/' + data.filename).getDownloadURL().then(e =>{
-            this.db.collection('Insurance_LOA').doc(insurance_id).set({
+            this.db.collection('Insurance_LOA').add({
               filename: data.filename,
               file : e,
               patient_id : patient_id,
@@ -714,6 +718,23 @@ export class UserService {
       }).catch(error => {
         console.log(error.message);
       })
+  }
+  create_insurance_LOA_lab(insurance_id,patient_id,lab_id,data)
+  {
+    return this.store.ref('Insurance-LOA/' + insurance_id + '/Laboratory/' + lab_id + '/' + data.filename).put(data.file)
+    .then(()=>{
+      this.store.storage.ref('Insurance-LOA/' + insurance_id + '/Laboratory/' + lab_id + '/' + data.filename).getDownloadURL()
+      .then(e=>{
+        this.db.collection('LAB-Insurance_LOA').add({
+          filename: data.filename,
+          file : e,
+          patient_id : patient_id,
+          insurance_id: insurance_id,
+          lab_id: lab_id,
+          createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
+        })
+      })
+    })
   }
   get_health_review(id)
   {

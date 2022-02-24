@@ -57,6 +57,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
         this.userservice.get_UserInfo(item.data().patient_id).then(res=>{
           if(res.exists)
           {
+            if(item.data().lab_id != undefined)
             this.userservice.get_labInfo(item.data().lab_id).forEach(res2=>{
               data = item.data();
               data.uid= item.id;
@@ -109,6 +110,24 @@ export class HealthInsuranceLoaComponent implements OnInit {
       let record = {}
       record['filename'] = this.filename;
       record['file'] = this.file;
+
+      //send to Laboratory
+      this.userservice.create_insurance_LOA_lab(this.userId,this.patientInfo.patient_id,this.patientInfo.lab_id,record)
+      .then(()=>{
+          //Notification to patient
+          record = {};
+          record['id'] = new Date(formatDate(new Date(),'short','en')).getTime();
+          record['createdAt'] = formatDate(new Date(),'short','en');
+          record['title'] = "Insurance LOA";
+          record['description'] = "An Insurance sent a copy of a patient LOA.";
+          this.notif.send_lab(this.patientInfo.lab_id,record);
+          setTimeout(() => {
+            this.file2_message = "";
+          }, 5000);
+
+        console.log("send to lab successful!");
+      })
+      //send to patient
       this.userservice.create_Insurance_LOA(this.userId,this.patientInfo.patient_id,record)
       .then(()=>{
         var status = "sent"
@@ -128,6 +147,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
           setTimeout(() => {
             this.file2_message = "";
           }, 5000);
+          console.log("send to patient successful!");
         });
       });
     }
