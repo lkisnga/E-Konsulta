@@ -59,6 +59,8 @@ import { LabPartnerLoaComponent } from './components/lab-partner-loa/lab-partner
 import { HealthInsuranceReceivedLoaComponent } from './components/health-insurance-received-loa/health-insurance-received-loa.component';
 import { HealthInsuranceTransactionComponent } from './components/health-insurance-transaction/health-insurance-transaction.component';
 import { LabInsuranceLoaComponent } from './components/lab-insurance-loa/lab-insurance-loa.component';
+import { MedicalCertificateComponent } from './components/medical-certificate/medical-certificate.component';
+import { LoaComponent } from './components/loa/loa.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -119,7 +121,9 @@ const routes: Routes = [
   { path: 'lab-partner-loa', component: LabPartnerLoaComponent},
   { path: 'health-insurance-received-loa', component: HealthInsuranceReceivedLoaComponent},
   { path: 'health-insurance-transaction', component: HealthInsuranceTransactionComponent},
-  { path: 'lab-insurance-loa', component: LabInsuranceLoaComponent}
+  { path: 'lab-insurance-loa', component: LabInsuranceLoaComponent},
+  { path: 'medical-certificate', component: MedicalCertificateComponent},
+  { path: 'loa', component: LoaComponent}
 ];
 
 
@@ -191,5 +195,7 @@ export const routingComponents = [
   LabPartnerLoaComponent,
   HealthInsuranceReceivedLoaComponent,
   HealthInsuranceTransactionComponent,
-  LabInsuranceLoaComponent
+  LabInsuranceLoaComponent,
+  MedicalCertificateComponent,
+  LoaComponent
 ];
