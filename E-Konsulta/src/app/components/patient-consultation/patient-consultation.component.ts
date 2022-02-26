@@ -56,6 +56,7 @@ export class PatientConsultationComponent implements OnInit {
     this.get_upcoming();
     this.get_done();
     this.paypalButton();
+    
   }
   
   chat(info)
