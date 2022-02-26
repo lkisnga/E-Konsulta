@@ -190,6 +190,7 @@ export class DoctorPatientsChatComponent implements OnInit {
   choosefile2(e)
   {
     this.file1 = e.target.files[0];
+    this.filename = this.patientInfo.fullname + '' + formatDate(new Date(),'MM/dd/yyyy','en') + ' ' + this.file1.name;
     console.log(this.file1);
   } 
   close()

@@ -200,9 +200,6 @@
             <input [(ngModel)]="prsc" type="text" class="form-control" placeholder="Prescriptions">
             <button (click)="generate_MC()" class="btn btn-primary">Generate Medical Certificate</button>
           </div>
-          <div class="row mx-2">
-              <input [(ngModel)]="filename" type="text" placeholder="File name" class="form-control">
-          </div>
           <div class="row mx-0 mt-2 mb-3">
             <input #file type="file" (change)="choosefile2($event)" accept=".pdf,.doc" class="form-control">
           </div>
