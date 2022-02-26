@@ -8,25 +8,23 @@
 </head>
 <body>
   <div class="whole">
-    <div class="container d-flex justify-content-center">
+    <div id="content" class="container d-flex justify-content-center">
       <div class="content mx-5">
-        <p class="mb-5">[Date] </p>
+        <p class="mb-5">{{datas.today}} </p>
         <div class="second mb-5">
-          <p class="contact">[Contact]</p>
-          <p class="insurance">[Insurance Company Name]</p>
-          <p>[Address]</p>
-          <p>[City, State Zip Code</p>
+          <p class="contact">{{datas.contact_number}}</p>
+          <p class="insurance">{{datas.name}}</p>
+          <p>{{datas.address}}</p>
         </div>
         <div class="third mb-5">
-          <p>Patient Name: [Insert patient name.]</p>
+          <p>Patient Name: {{datas.patient_name}}</p>
           <p>Policy Number: [Insert policy number.]</p>
           <p>Group Number: [Insert group number.]</p>
-          <p>Diagnosis: [Insert diagnosis and ICD-9-CM code(s).]</p>
         </div>
         <div class="fourth mb-5">
-          <p class="mb-4">Dear [name or contact]:</p>
+          <p class="mb-4">Dear {{datas.lab}}:</p>
           <div class="fourth-1">
-            <p class="text-justify">I am writing on behalf of my patient, [patient name], to request coverage and appropriate payment
+            <p class="text-justify">I am writing on behalf of my patient, {{datas.patient_name}}, to request coverage and appropriate payment
               for [Laparoscopic Adjustable Gastric Banding (LAGB)/Gastric Bypass (GB)/Sleeve Gastrectomy]. This letter provides
               information on the patient’s diagnosis and treatment, as well as product literature demonstrating
               medical necessity for the [LAGB/GB/Sleeve Gastrectomy] and associated procedures.</p>
@@ -82,7 +80,7 @@
         </div>
         <div class="fifth mt-5">
           <p>Sincerely, </p>
-          <p class="mt-4">Physician Name</p>
+          <p class="mt-4">{{datas.name}}</p>
         </div>
       </div>
     </div>

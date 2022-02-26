@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { stringify } from 'querystring';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
@@ -184,6 +185,19 @@ export class HealthInsuranceLoaComponent implements OnInit {
         this.err_message = "";
       }, 5000);
     });
+  }
+
+  generate_loa()
+  {
+    let record = {};
+    record['patient_id'] = this.patientInfo.patient_id;
+    record['lab_id'] = this.patientInfo.lab_id;
+    console.log(this.patientInfo.lab_id,this.patientInfo.patient_id)
+    if(localStorage.getItem('loa')==null)
+    {
+      localStorage.setItem('loa',JSON.stringify(record));
+    }
+    window.open('loa');
   }
 
 }

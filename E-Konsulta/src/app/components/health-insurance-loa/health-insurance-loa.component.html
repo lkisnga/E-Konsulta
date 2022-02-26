@@ -69,6 +69,9 @@
         <h5 class="modal-title" id="editLabel">Send File</h5>
         <button (click)="clear()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
+      <div>
+        <button (click)="generate_loa()" class="btn btn-primary form-control">Generate LOA</button>
+      </div>
       <div class="modal-body">
         <p>Add File</p>
         <p><input [(ngModel)]="filename" type="text" size="40" placeholder="Input filename"></p>
