@@ -12,7 +12,7 @@ body{
 }
 
 .top-part{
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .lab-name{
@@ -20,6 +20,7 @@ body{
 }
 .details{
   font-size: 13px;
+  font-weight: 400;
 }
 
 .mid-part{
