@@ -74,7 +74,6 @@
       </div>
       <div class="modal-body">
         <p>Add File</p>
-        <p><input [(ngModel)]="filename" type="text" size="40" placeholder="Input filename"></p>
         <input #loa_file type="file" (change)="choosefile($event)" accept=".pdf,.docx">
       </div>
       <div *ngIf="file_message.length > 0" class="alert alert-danger">

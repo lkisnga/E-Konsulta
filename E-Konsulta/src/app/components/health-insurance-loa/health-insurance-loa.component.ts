@@ -101,6 +101,7 @@ export class HealthInsuranceLoaComponent implements OnInit {
   choosefile(e)
   {
     this.file = e.target.files[0];
+    this.filename = this.file.name;
     console.log(this.file)
   }
 
