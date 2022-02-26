@@ -37,6 +37,9 @@ export class DoctorPatientsChatComponent implements OnInit {
   error_message = "";
   success_message = "";
 
+  sf: string = "";
+  prsc: string = "";
+
 
   medList: any = [];
   labList: any = [];
@@ -355,6 +358,23 @@ export class DoctorPatientsChatComponent implements OnInit {
     this.presList = tempArray;
     console.log(this.presList);
   }
+  
+  generate_MC()
+  {
+    let record = {};
+    record['patients_id'] = this.patientInfo.uid;
+    record['sf'] = this.sf;
+    record['prsc'] = this.prsc;
+    record['fullname'] = this.patientInfo.fullname;
+    if(localStorage.getItem('mc')==null)
+          {
+            localStorage.setItem('mc',JSON.stringify(record))
+          }
+    window.open('medical-certificate');
+  }
+
+
+
     /** set to false so that when loading the user analytics page, content of that function is not displayed */
     medicalrecords = false;
     labresult = false;

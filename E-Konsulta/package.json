@@ -27,6 +27,8 @@
     "bootstrap": "^5.1.0",
     "bootstrap-icons": "^1.7.0",
     "firebase": "^7.14.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -37,6 +39,7 @@
     "@angular/compiler-cli": "~9.1.13",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jspdf": "^2.0.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",

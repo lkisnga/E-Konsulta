@@ -1,15 +1,6 @@
 body{
   font-size: 14px;
 }
-.container{
-  padding: 30px 90px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  height: 716px;
-  width: 1056px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
 
 .top-part{
   font-weight: 600;
@@ -31,4 +22,9 @@ body{
 {
   line-height: 10px;
   margin-top: 50px;
+}
+.btn-cont
+{
+  margin-top: 5%;
+  margin-left: 9%;
 }

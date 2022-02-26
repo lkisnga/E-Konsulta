@@ -196,7 +196,9 @@
         </div>
         <div class="modal-body">
           <div class="row mx-2">
-            <button class="btn btn-primary">Generate MC</button>
+            <input [(ngModel)]="sf" type="text" class="form-control" placeholder="Suffer's from">
+            <input [(ngModel)]="prsc" type="text" class="form-control" placeholder="Prescriptions">
+            <button (click)="generate_MC()" class="btn btn-primary">Generate Medical Certificate</button>
           </div>
           <div class="row mx-2">
               <input [(ngModel)]="filename" type="text" placeholder="File name" class="form-control">
