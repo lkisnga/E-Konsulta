@@ -196,9 +196,9 @@
         </div>
         <div class="modal-body">
           <div class="row mx-2">
-            <input [(ngModel)]="sf" type="text" class="form-control" placeholder="Suffer's from">
+            <input [(ngModel)]="sf" type="text" class="form-control mb-2" placeholder="Suffer's from">
             <input [(ngModel)]="prsc" type="text" class="form-control" placeholder="Prescriptions">
-            <button (click)="generate_MC()" class="btn btn-primary">Generate Medical Certificate</button>
+            <button (click)="generate_MC()" class="generate-medcert">Generate Medical Certificate</button>
           </div>
           <div class="row mx-0 mt-2 mb-3">
             <input #file type="file" (change)="choosefile2($event)" accept=".pdf,.doc" class="form-control">

@@ -295,3 +295,21 @@ input:focus{
 .view:hover{
   color: rgb(1, 146, 156);
 }
+
+
+.generate-medcert{
+  margin: 30px 10px 30px 80px;
+  padding: 7px 10px;
+  width: 300px;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, rgb(8, 238, 0) 0%, rgb(5, 138, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.generate-medcert:hover{
+  background: rgb(5, 138, 0);
+}
+
