@@ -135,3 +135,19 @@ input[type=text]
   border-radius: 50px;
   border: 1px solid rgb(207, 207, 207);
 }
+
+.generate-loa{
+  margin: 30px 10px 30px 150px;
+  padding: 7px 10px;
+  width: 200px;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, rgb(8, 238, 0) 0%, rgb(5, 138, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.generate-loa:hover{
+  background: rgb(5, 138, 0);
+}

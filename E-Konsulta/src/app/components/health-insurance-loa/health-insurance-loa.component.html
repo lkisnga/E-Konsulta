@@ -70,10 +70,10 @@
         <button (click)="clear()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
       <div>
-        <button (click)="generate_loa()" class="btn btn-primary form-control">Generate LOA</button>
+        <button (click)="generate_loa()" class="generate-loa">Generate LOA</button>
       </div>
       <div class="modal-body">
-        <p>Add File</p>
+        <p><b>Add File</b></p>
         <input #loa_file type="file" (change)="choosefile($event)" accept=".pdf,.docx">
       </div>
       <div *ngIf="file_message.length > 0" class="alert alert-danger">
