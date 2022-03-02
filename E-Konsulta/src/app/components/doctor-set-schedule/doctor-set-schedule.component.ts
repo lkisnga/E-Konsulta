@@ -29,6 +29,7 @@ export class DoctorSetScheduleComponent implements OnInit {
 
   empty_message: string = "Empty List! Choose a date!";
   error_message: string ="";
+  error_message2: string = "";
 
   added_message: string = "";
 
@@ -165,7 +166,11 @@ export class DoctorSetScheduleComponent implements OnInit {
             }
             else
             {
-              console.log('Time already exist!');
+              this.error_message2='Time already exist!';
+              setTimeout(() => {
+                this.error_message2 = ""
+              }, 5000);
+              
             }
           })
         })

@@ -11,6 +11,7 @@
         <div class="col-md-6 border-end">
           <p>Name: {{info2.fullname}}</p>
           <p>Email: {{info2.email}}</p>
+          <p>Rating: {{doctor_rating}}</p>
         </div>
         <div class="col-md-6">
           <p>Address: {{info2.address}}</p>
@@ -22,7 +23,7 @@
         <div class="row">
           <div *ngFor="let list of flist" class="content">
             <div class="d-flex w-100 justify-content-between">
-              <h2 class="mb-1"><span><img src="{{list.image}}" alt="" width="35" height="35" class="cute-pic"></span>{{list.fullname}}</h2>
+              <h2 class="mb-1"><span><img src="{{list.image}}" alt="" width="35" height="35" class="cute-pic"></span>{{list.fullname}} +{{list.rating}}</h2>
               <small>{{list.createdAt}}</small>
             </div>
             <div>
@@ -50,6 +51,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
       </div>
         <div class="modal-body">
+          <select [(ngModel)]="rating" style="margin-bottom:2%; border-radius: 10px !important;" class="form-control" name="" id="">
+            <option value="0" selected>Rate 1 - 5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
           <textarea [(ngModel)]="feedback" name="feedback" id="" cols="52" rows="5" placeholder="Write a feedback..."></textarea>
         </div>
         <div class="modal-footer">

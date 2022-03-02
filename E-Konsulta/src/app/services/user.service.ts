@@ -141,12 +141,13 @@ export class UserService {
     return this.db.firestore.collection('Laboratory_Partner').doc(id).collection('reviews')
     .where('from','==',user_id).get();
   }
-  create_Doctor_feedback(doc_id,user_id,feedback,name)
+  create_Doctor_feedback(doc_id,user_id,record,name)
   {
     return this.db.firestore.collection('Users').doc(doc_id)
     .collection('reviews').add({
       createdAt: formatDate(new Date(),'MM/dd/yyyy','en'),
-      feedback : feedback,
+      feedback : record.feedback,
+      rating: record.rating,
       from: user_id,
       fullname: name
     })
@@ -381,7 +382,6 @@ export class UserService {
     return this.db.firestore.collection('Users').doc(id).collection('reviews')
     .orderBy('createdAt','desc').get();
   }
-
   get_Lab_Result()
   {
     return this.db.firestore.collection('Laboratory_Results').get();

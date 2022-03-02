@@ -27,6 +27,8 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
   replyList : any = [];
 
   feedback : string = "";
+  rating: string = "0";
+  doctor_rating: string = "";
 
   ngOnInit(): void {
 
@@ -48,6 +50,7 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
     //console.log(this.info2);
 
     this.get_feedback();
+    this.get_rating();
   }
 
   add_feedback()
@@ -62,7 +65,10 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
         if(this.feedback != "")
           {
             //add feedback
-            this.userservice.create_Doctor_feedback(this.info2.uid,this.userId,this.feedback,this.userInfo.fullname)
+            let record= {}
+            record['feedback'] = this.feedback;
+            record['rating'] = this.rating;
+            this.userservice.create_Doctor_feedback(this.info2.uid,this.userId,record,this.userInfo.fullname)
             .then(()=>{
               console.log("Added!");
 
@@ -117,7 +123,37 @@ export class PatientToDoctorFeedbackComponent implements OnInit {
       })
     })
     this.flist = tempArray;
+    console.log(this.flist);
     //console.log(this.flist);
+  }
+  get_rating()
+  {
+    var one=0,two=0,three=0,four=0,five=0;
+    var totalScore = 0;
+    var totalReview = 0;
+    var rating = 0;
+    this.userservice.get_Doctor_Reviews(this.info2.uid)
+    .then(a=>{
+      a.forEach(item=>{
+        console.log(item.data().rating);
+        if(item.data().rating == '1')
+          one++;
+        if(item.data().rating=='2')
+          two++;
+        if(item.data().rating=='3')
+          three++;
+        if(item.data().rating=='4')
+          four++;
+        if(item.data().rating=='5')
+          five++;
+      })
+    }).then(()=>{
+      console.log(one+ ' ' +two+' '+three+' '+four+' '+five);
+      totalScore = 1*one + 2*two + 3*three + 4*four + 5*five;
+      totalReview = one + two + three + four + five;
+      rating = totalScore/totalReview;
+      this.doctor_rating = rating.toFixed(1);
+    })
   }
 
 }
