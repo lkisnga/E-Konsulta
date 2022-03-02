@@ -30,6 +30,8 @@ export class DoctorProfileComponent implements OnInit {
   imgUrl : any;
   file : any;
 
+  university: string = "";
+
   insuranceList : any = [];
   insurance_id : string = "";
   request_sent : boolean = false;
@@ -73,7 +75,7 @@ export class DoctorProfileComponent implements OnInit {
 
       this.deduction = e.data().consultation_fee*(10/100);
       this.net_pay = e.data().consultation_fee-this.deduction;
-
+      this.university = e.data().university;
       this.info = e.data();
       this.check_verification(this.info.isVerified);
     }).then(()=>{
@@ -140,6 +142,25 @@ export class DoctorProfileComponent implements OnInit {
       this.ngOnInit();
       alert("Updated successfully!");
     })
+  }
+
+  updateUni()
+  {
+    if(this.university != "")
+    this.userservice.update_university(this.userId,this.university)
+    .then(()=>{
+      document.getElementById("alert2").hidden = false;
+      setTimeout(() => {
+        document.getElementById("alert2").hidden = true;
+      }, 3000);
+    })
+    else
+    {
+      document.getElementById("alert3").hidden = false;
+      setTimeout(() => {
+        document.getElementById("alert3").hidden = true;
+      }, 3000);
+    }
   }
   update_fee()
   {

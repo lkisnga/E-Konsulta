@@ -303,7 +303,8 @@ export class AuthService {
       status: 'active',
       role: 'doctor',
       disabled: "false",
-      isVerified: "pending"
+      isVerified: "pending",
+      university: ""
     }).then(()=>{
       this.store.ref('Users-Files/' + userCredential.user.uid + '/' + this.newUser.file.name).put(this.newUser.file)
       .then(()=>{

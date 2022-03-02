@@ -391,6 +391,13 @@ export class UserService {
     return this.db.firestore.collection('Laboratory_Results').where('email','==',email).get();
   }
 
+  update_university(id,data)
+  {
+    return this.db.firestore.collection('Users').doc(id).update({
+      university: data
+    })
+  }
+
   get_patient()
   {
     return this.db.firestore.collection('Users').where("role", "==", "patient").get();
