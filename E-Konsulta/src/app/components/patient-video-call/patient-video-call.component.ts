@@ -44,13 +44,7 @@ export class PatientVideoCallComponent implements AfterViewInit{
     
   ngOnInit()
   {
-    this.callInput = localStorage.getItem('callInput');
-    if(this.callInput)
-    {
-      //this.answerCall();
-      document.getElementById('answerCall').click();
       this.remoteVideo();
-    }
   }
   ngAfterViewInit(): void {
     this.doctorInfo = JSON.parse(localStorage.getItem('data'));
