@@ -27,7 +27,7 @@
 }
 
 /*chat*/
-img{
+.doc-image{
   border-radius: 50%;
 }
 
@@ -54,6 +54,15 @@ img.to{
   clear: both;
 }
 
+
+.image-file{
+  background-color: transparent !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 0 !important;
+}
+
+
 /*FROM*/
 #msg-from{
   border-radius: 50px;
@@ -72,11 +81,14 @@ img.to{
 }
 
 .below{
-  display: inline-flex;
+  display: inline;
   border-top: 1px solid rgb(233, 230, 230);
   float: right;
+  margin-right: 0 !important;
 }
-
+.right{
+  margin-right: 0 !important;
+}
 input{
   font-size: 16px;
 }
@@ -85,20 +97,16 @@ input:focus{
   outline: 0;
 }
 
-/*hide choose file*/
-input[type=file]::file-selector-button{
-  display: none;
-}
-
 .chat-type{
   font-size: 16px;
   padding: 5px 14px;
-  width: 730px;
+  width: 420px;
   height: 35px;
   display: inline-block;
   border: 0;
   border-radius: 40px;
   background-color: rgb(235, 235, 235);
+  margin-left: 0 !important;
 }
 
 .chat-type:focus{
@@ -282,3 +290,36 @@ input[type=checkbox]{
   color: rgb(0, 129, 138);
   font-size: 1.2rem !important;
 }
+
+/*chat*/
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  display: none;
+}
+.custom-file-input::before {
+  content: 'Select some files';
+  color: rgb(0, 168, 173);
+  display: inline-block;
+  background: white;
+  border: 1px solid rgb(0, 168, 173);
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: rgb(1, 105, 109);
+}
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+

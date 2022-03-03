@@ -6,7 +6,7 @@
   <div class="row flex-nowrap second">
     <div class="col">
       <div class="d-flex justify-content-between border-bottom patient-center">
-        <h4 class="user mx-2"><img src="{{docInfo.image}}" alt="" width="50" height="50">&nbsp; {{docInfo.fullname}}</h4>
+        <h4 class="user mx-2"><img class="doc-image" src="{{docInfo.image}}" alt="" width="50" height="50">&nbsp; {{docInfo.fullname}}</h4>
         <div class=" d-flex ">
           <button (click)="video_call()" id="btn"><i class="bi bi-camera-video-fill"></i></button>
         </div>
@@ -18,7 +18,7 @@
             {{msg.content}}
           <!-- <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15"> -->
           </div>
-          <div *ngIf="msg.uid == userid && msg.imageFile != ''" id="msg-to" role="alert">
+          <div *ngIf="msg.uid == userid && msg.imageFile != ''" id="msg-to" role="alert" class="image-file">
             <img src="{{msg.imageFile}}" alt="img" width="180" height="180">
           <!-- <img  *ngIf="msg.uid == userid" class="to" src="{{imgUrl}}" width="15" height="15"> -->
           </div>
@@ -30,18 +30,17 @@
       </div>
       <div class="below">
         <div class="right">
-          <input (change)="chooseImage($event)" type="file">
+          <input (change)="chooseImage($event)" type="file" class="custom-file-input">
           <input [(ngModel)]="content" type="text" class="chat-type">
           <button (click)="send_message()" class="chat-send"><i class="bi bi-send-fill"></i></button>
         </div>
-        <!--<button (click)="send_message()" class="chat-send">Send</button> -->
       </div>
     </div>
   </div>
   <div class="row flex-nowrap third">
     <div class="col mx-0 py-2" >
       <div class=" d-flex justify-content-end">
-        <h1 class="left-profile"><img src="{{docInfo.image}}" alt="" width="60" height="60"></h1>
+        <h1 class="left-profile"><img class="doc-image" src="{{docInfo.image}}" alt="" width="60" height="60"></h1>
         <h4 class="user left-name">{{docInfo.fullname}}</h4>
         <div class="patient-files">
             <a href="#sharedFiles" class="share-file" data-bs-toggle="modal" data-bs-target="#share"> <span class="d-none d-sm-inline">Share Files</span> </a>

@@ -41,7 +41,7 @@
 }
 
 /*chat*/
-img{
+.patient-image{
   border-radius: 50%;
 }
 
@@ -66,8 +66,16 @@ img.to{
   clear: both;
 }
 
+
 /*FROM*/
-#msg-from{
+.image-file{
+  background-color: transparent !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 0 !important;
+}
+
+.msg-from{
   border-radius: 50px;
   font-size: 16px;
   background-color: rgb(235, 235, 235);

@@ -6,7 +6,7 @@
   <div class="row flex-nowrap second">
     <div class="col">
       <div class="d-flex justify-content-between border-bottom patient-center">
-        <h4 class="user mx-2"><img src="{{patientInfo.image}}" width="50" height="50">&nbsp; {{patientInfo.fullname}}</h4>
+        <h4 class="user mx-2"><img class="patient-image" src="{{patientInfo.image}}" width="50" height="50">&nbsp; {{patientInfo.fullname}}</h4>
         <div class=" d-flex">
           <button (click)="video_call()" id="btn"><i class="bi bi-camera-video-fill"></i></button>
         </div>
@@ -18,11 +18,11 @@
             <!--<img src="{{imgUrl}}" class="to" width="15" height="15"> -->
             {{msg.content}}
           </div>
-          <div *ngIf="msg.uid == patientInfo.uid && msg.content != ''" id="msg-from">
+          <div *ngIf="msg.uid == patientInfo.uid && msg.content != ''" id="msg-from" class="msg-from">
              <!--<img src="{{patientInfo.image}}" class="from" width="15" height="15"> -->
             {{msg.content}}
           </div>
-          <div *ngIf="msg.uid == patientInfo.uid && msg.imageFile != ''" id="msg-from">
+          <div *ngIf="msg.uid == patientInfo.uid && msg.imageFile != ''" id="msg-from" class="image-file">
             <!--<img src="{{patientInfo.image}}" class="from" width="15" height="15"> -->
             <img src="{{msg.imageFile}}" alt="img" width="180" height="180">
          </div>
@@ -40,7 +40,7 @@
   <div class="row flex-nowrap third">
     <div class="col mx-0 py-2" >
       <div class=" d-flex justify-content-end">
-        <h1 class="left-profile"><img src="{{patientInfo.image}}" width="60" height="60"></h1>
+        <h1 class="left-profile"><img class="patient-image" src="{{patientInfo.image}}" width="60" height="60"></h1>
         <h4 class="user left-name">{{patientInfo.fullname}}</h4>
         <div class="doctor-files">
           <a href="#prescription" data-bs-toggle="modal" data-bs-target="#pres" class="prescription1">Prescription</a>
