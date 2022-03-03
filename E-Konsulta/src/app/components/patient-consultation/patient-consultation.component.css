@@ -117,8 +117,22 @@
   border: none;
   padding: 6px 20px;
 }
+
 .cancelC:hover{
   background: rgb(138, 32, 0);
+
+}
+
+.cancelC:hover + .hide{
+  color: red;
+  display: block;
+}
+
+.hide{
+  display: none;
+  float: right;
+  margin-right: 0 !important;
+  margin-top: 20px;
 }
 #btnSched{
   margin-left: 1%;
