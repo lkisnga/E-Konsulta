@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyDdNrH7dMpRqmFlAleV43vBQKSRJ7R4N2k",
-    authDomain: "e-konsulta-b7c0d.firebaseapp.com",
-    projectId: "e-konsulta-b7c0d",
-    storageBucket: "e-konsulta-b7c0d.appspot.com",
-    messagingSenderId: "975548540004",
-    appId: "1:975548540004:web:69b6ef10f6cec17a1e2b71",
-    measurementId: "G-3NH9404ZV6"
+    apiKey: "AIzaSyAV68FUruaVpC8CsTPFbylbSlL5BPAbZ9w",
+    authDomain: "e-konsulta2.firebaseapp.com",
+    projectId: "e-konsulta2",
+    storageBucket: "e-konsulta2.appspot.com",
+    messagingSenderId: "915377738771",
+    appId: "1:915377738771:web:9f2fd339e2a17661f71be6"
   }
 };
 
