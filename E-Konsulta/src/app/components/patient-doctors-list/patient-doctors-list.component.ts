@@ -52,6 +52,7 @@ export class PatientDoctorsListComponent implements OnInit {
               if(e.fullname != undefined)
               return e.fullname.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
             });
+            console.log(this.docList);
           })
         })
       })
