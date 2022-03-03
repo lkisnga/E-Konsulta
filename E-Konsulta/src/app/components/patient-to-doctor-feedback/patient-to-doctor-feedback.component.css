@@ -15,6 +15,7 @@ body{
   padding: 17px 20px;
   color: #333;
   border-radius: 20px;
+  line-height: 18px;
 }
 
 .lower-part{
@@ -31,7 +32,6 @@ body{
 .content{
   border-radius: 20px;
   background: white;
-  color: gray !important;
   font-size: 16px;
   margin-bottom: 5px;
   padding: 15px;
@@ -40,11 +40,16 @@ body{
 .mb-1{
   font-size: 18px;
   margin-bottom: 8px;
+  color: rgb(85, 85, 85) !important;
 }
 .feedback{
   font-size: 14px;
-  margin-left: 20px;
+  margin-left: 50px;
   margin-top: 3px;
+  color: gray !important;
+}
+small{
+  color: gray !important;
 }
 
 .cute-pic{
@@ -132,4 +137,16 @@ p.ureply{
   font-size: 30px !important;
   font-weight: 500;
   color: rgb(0, 129, 138);
+}
+
+/*
+.list-rating{
+  border-radius: 50%;
+  background-color: rgb(8, 238, 0);
+  padding: 4px 8px;
+}
+*/
+
+.list-rating{
+  margin-left: 15px;
 }
