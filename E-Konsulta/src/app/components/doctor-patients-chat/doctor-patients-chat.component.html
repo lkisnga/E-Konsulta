@@ -18,10 +18,14 @@
             <!--<img src="{{imgUrl}}" class="to" width="15" height="15"> -->
             {{msg.content}}
           </div>
-          <div *ngIf="msg.uid == patientInfo.uid" id="msg-from">
+          <div *ngIf="msg.uid == patientInfo.uid && msg.content != ''" id="msg-from">
              <!--<img src="{{patientInfo.image}}" class="from" width="15" height="15"> -->
             {{msg.content}}
           </div>
+          <div *ngIf="msg.uid == patientInfo.uid && msg.imageFile != ''" id="msg-from">
+            <!--<img src="{{patientInfo.image}}" class="from" width="15" height="15"> -->
+            <img src="{{msg.imageFile}}" alt="img" width="180" height="180">
+         </div>
         </div>
       </div>
       <div class="below">

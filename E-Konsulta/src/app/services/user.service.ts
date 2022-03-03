@@ -1108,7 +1108,7 @@ export class UserService {
   {
     return this.store.ref('chat-image/' + record.filename).put(record.file)
     .then(()=>{
-      return this.store.storage.ref('chat-image' + record.filename).getDownloadURL();
+      return this.store.storage.ref('chat-image/' + record.filename).getDownloadURL();
     })
   }
   create_Verification_File(patient_id,record)

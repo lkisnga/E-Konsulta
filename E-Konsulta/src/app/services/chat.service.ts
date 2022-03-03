@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { FirebaseApp } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { firestore } from 'firebase/app';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -13,7 +14,8 @@ export class ChatService {
 
   constructor(
     public db : AngularFirestore,
-    public fireb : FirebaseApp
+    public fireb : FirebaseApp,
+    public store: AngularFireStorage
     ) { }
 
 
@@ -27,12 +29,21 @@ export class ChatService {
       })
     }
 
-    send_message(chatid,content,uid)
+    send_message(chatid,record,uid)
     {
-
+      var imageFile,content;
+      if(record.imageFile == undefined || record.imageFile == null || record.imageFile == "")
+        imageFile = "";
+      else
+        imageFile = record.imageFile;
+      if(record.content == "" || record.content == undefined || record.content == null)
+        content= ""
+      else
+        content = record.content;
       const data ={
         uid,
         content,
+        imageFile,
         createdAt: formatDate(new Date(),'MM/dd/yyyy','en')
       }
     return this.db.firestore.collection('Chats').doc(chatid).update({
@@ -52,6 +63,13 @@ export class ChatService {
         .collection<any>('Chats')
         .doc(chatId)
         .snapshotChanges();
+    }
+      send_chat_image(record)
+    {
+      return this.store.ref('chat-image/' + record.filename).put(record.file)
+      .then(()=>{
+        return this.store.storage.ref('chat-image' + record.filename).getDownloadURL();
+      })
     }
 
 }
