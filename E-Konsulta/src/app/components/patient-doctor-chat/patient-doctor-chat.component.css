@@ -77,14 +77,14 @@ img.to{
 
 .cont-chat{
   height: 430px !important;
-  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .below{
   display: inline;
   border-top: 1px solid rgb(233, 230, 230);
-  float: right;
   margin-right: 0 !important;
+  float: right;
 }
 .right{
   margin-right: 0 !important;
@@ -100,9 +100,9 @@ input:focus{
 .chat-type{
   font-size: 16px;
   padding: 5px 14px;
-  width: 450px;
+  width: 440px;
   height: 35px;
-  display: inline-block;
+  display: inline;
   border: 0;
   border-radius: 40px;
   background-color: rgb(235, 235, 235);
@@ -119,7 +119,6 @@ input:focus{
   color: rgb(0, 129, 138);
   border: 0;
   padding: 4px 10px;
-  margin-left: 5px;
   transform: rotate(45deg);
 }
 
@@ -297,6 +296,7 @@ input[type=checkbox]{
 }
 .custom-file-input::-webkit-file-upload-button {
   display: none;
+  float: left;
 }
 .custom-file-input::before {
   content: 'Add files';
@@ -304,14 +304,15 @@ input[type=checkbox]{
   display: inline-block;
   background: white;
   border: 1px solid rgb(0, 168, 173);
-  border-radius: 3px;
-  padding: 5px 8px;
+  border-radius: 50px;
+  padding: 5px 16px;
   outline: none;
   white-space: nowrap;
   cursor: pointer;
   text-shadow: 1px 1px #fff;
   font-weight: 700;
   font-size: 10pt;
+  /*margin-left: 180px; */
 }
 .custom-file-input:hover::before {
   border-color: rgb(1, 105, 109);
