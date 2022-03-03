@@ -88,6 +88,10 @@ export class DoctorPatientsChatComponent implements OnInit {
       })
     );
   }
+  viewImage(e)
+  {
+    window.open(e);
+  }
   send_message()
   {
     let record = {};
