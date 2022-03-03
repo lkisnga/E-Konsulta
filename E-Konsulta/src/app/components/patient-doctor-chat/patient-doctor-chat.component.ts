@@ -187,12 +187,20 @@ export class PatientDoctorChatComponent implements OnInit {
 
     if(this.content != "" || this.file != undefined)
     {
+      if(this.file)
       this.userservice.send_chat_image(record2).then(e=>{
         record['imageFile'] = e;
         this.chats.send_message(this.chat_id,record,this.userid).then(()=>{
           this.content="";
+          this.file = "";
           console.log("message sent!");
         })
+      })
+      else
+      this.chats.send_message(this.chat_id,record,this.userid).then(()=>{
+        this.content="";
+        this.file = "";
+        console.log("message sent!");
       })
     }
     else
