@@ -24,7 +24,7 @@
           </div>
           <div *ngIf="msg.uid == patientInfo.uid && msg.imageFile != ''" id="msg-from" class="image-file">
             <!--<img src="{{patientInfo.image}}" class="from" width="15" height="15"> -->
-            <img src="{{msg.imageFile}}" alt="img" width="180" height="180">
+            <a (click)="viewImage(msg.imageFile)" href="javascript:void(0)"><img src="{{msg.imageFile}}" alt="img" width="180" height="180"></a>
          </div>
         </div>
       </div>
