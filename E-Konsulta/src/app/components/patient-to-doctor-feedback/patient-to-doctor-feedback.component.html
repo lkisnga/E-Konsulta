@@ -13,10 +13,10 @@
           <p>Email: {{info2.email}}</p>
           <p>Rating:
           <span *ngIf="doctor_rating <= '1'" style="color: red;">{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '1' && doctor_rating <= '2'" style="color: orange" >{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '2' && doctor_rating <= '3'" style="color: blue">{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '3' && doctor_rating <= '4'" style="color: green">{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '4' && doctor_rating <= '5'" style="color: rgb(255, 238, 0)">{{doctor_rating}}</span>
+          <span *ngIf="doctor_rating >= '1' && doctor_rating <= '2'" style="color: rgb(255, 49, 49)" >{{doctor_rating}}</span>
+          <span *ngIf="doctor_rating >= '2.1' && doctor_rating <= '3'" style="color: rgb(0, 160, 0)">{{doctor_rating}}</span>
+          <span *ngIf="doctor_rating >= '3.1' && doctor_rating <= '4'" style="color: green">{{doctor_rating}}</span>
+          <span *ngIf="doctor_rating >= '4.1' && doctor_rating <= '5'" style="color: rgb(255, 174, 0)">{{doctor_rating}}</span>
         </p>
 
         </div>
@@ -32,7 +32,12 @@
             <div class="d-flex w-100 justify-content-between">
               <h2 class="mb-1">
                 <span><img src="{{list.image}}" alt="" width="35" height="35" class="cute-pic"></span>{{list.fullname}}
-                <span class="list-rating">{{list.rating}}</span><span><i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '1'" style="color: red;">{{list.rating}}<i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '2'" style="color: rgb(255, 49, 49)">{{list.rating}}<i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '3'" style="color: rgb(0, 160, 0)">{{list.rating}}<i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '4'" style="color: green">{{list.rating}}<i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '5'" style="color: rgb(255, 174, 0)">{{list.rating}}<i class="bi bi-star-fill"></i></span>
+                <!--<span><i class="bi bi-star-fill"></i></span> -->
               </h2>
               <small>{{list.createdAt}}</small>
             </div>
