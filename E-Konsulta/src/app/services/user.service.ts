@@ -1104,7 +1104,13 @@ export class UserService {
     return this.db.firestore.collection('Users').doc(id).collection('Verification_Files')
     .get();
   }
-
+  send_chat_image(record)
+  {
+    return this.store.ref('chat-image/' + record.filename).put(record.file)
+    .then(()=>{
+      return this.store.storage.ref('chat-image' + record.filename).getDownloadURL();
+    })
+  }
   create_Verification_File(patient_id,record)
   {
     return this.store.ref('Users-Files/' + patient_id + '/' + record.file.name).put(record.file)
