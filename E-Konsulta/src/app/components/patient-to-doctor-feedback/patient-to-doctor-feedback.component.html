@@ -6,23 +6,24 @@
     </div>
 
     <div class="col mt-4">
-      <img src="{{info2.image}}" alt="img" class="profile-pic"  width="120" height="120">
+      <img src="{{info2.image}}" alt="img" class="profile-pic"  width="140" height="140">
       <div class="row lab-info">
         <div class="col-md-6 border-end">
           <p>Name: {{info2.fullname}}</p>
           <p>Email: {{info2.email}}</p>
-          <p>Rating:
-          <span *ngIf="doctor_rating <= '1'" style="color: red;">{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '1' && doctor_rating <= '2'" style="color: rgb(255, 49, 49)" >{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '2.1' && doctor_rating <= '3'" style="color: rgb(0, 160, 0)">{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '3.1' && doctor_rating <= '4'" style="color: green">{{doctor_rating}}</span>
-          <span *ngIf="doctor_rating >= '4.1' && doctor_rating <= '5'" style="color: rgb(255, 174, 0)">{{doctor_rating}}</span>
-        </p>
-
         </div>
         <div class="col-md-6">
           <p>Address: {{info2.address}}</p>
           <p>Contact Number: {{info2.contact_number}}</p>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <p class="rating rating1" *ngIf="doctor_rating <= '1'">Rating: {{doctor_rating}}</p>
+            <p class="rating rating2" *ngIf="doctor_rating >= '1' && doctor_rating <= '2'">Rating: {{doctor_rating}}</p>
+            <p class="rating rating3" *ngIf="doctor_rating >= '2.1' && doctor_rating <= '3'">Rating: {{doctor_rating}}</p>
+            <p class="rating rating4" *ngIf="doctor_rating >= '3.1' && doctor_rating <= '4'">Rating: {{doctor_rating}}</p>
+            <p class="rating rating5" *ngIf="doctor_rating >= '4.1' && doctor_rating <= '5'">Rating: {{doctor_rating}}</p>
+          </div>
         </div>
       </div>
       <div class="lower-part">
@@ -32,11 +33,11 @@
             <div class="d-flex w-100 justify-content-between">
               <h2 class="mb-1">
                 <span><img src="{{list.image}}" alt="" width="35" height="35" class="cute-pic"></span>{{list.fullname}}
-                <span class="list-rating" *ngIf="list.rating == '1'" style="color: red;">{{list.rating}}<i class="bi bi-star-fill"></i></span>
-                <span class="list-rating" *ngIf="list.rating == '2'" style="color: rgb(255, 49, 49)">{{list.rating}}<i class="bi bi-star-fill"></i></span>
-                <span class="list-rating" *ngIf="list.rating == '3'" style="color: rgb(0, 160, 0)">{{list.rating}}<i class="bi bi-star-fill"></i></span>
-                <span class="list-rating" *ngIf="list.rating == '4'" style="color: green">{{list.rating}}<i class="bi bi-star-fill"></i></span>
-                <span class="list-rating" *ngIf="list.rating == '5'" style="color: rgb(255, 174, 0)">{{list.rating}}<i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '1'" style="color: red;">{{list.rating}} <i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '2'" style="color: red;">{{list.rating}} <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '3'" style="color: rgb(0, 160, 0)">{{list.rating}} <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '4'" style="color: green">{{list.rating}} <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="list-rating" *ngIf="list.rating == '5'" style="color: rgb(255, 174, 0)">{{list.rating}} <i class="bi bi-star-fill"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></i></span>
                 <!--<span><i class="bi bi-star-fill"></i></span> -->
               </h2>
               <small>{{list.createdAt}}</small>
