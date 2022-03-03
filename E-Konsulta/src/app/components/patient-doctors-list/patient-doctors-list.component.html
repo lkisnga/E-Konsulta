@@ -8,15 +8,15 @@
     <div *ngFor="let list of docList" class="card">
       <div class="row g-0">
         <div class="col-md-4">
-          <img class="rounded-start" width="110" height="135" src="{{list.image}}" alt="doctor">
+          <img class="rounded pic" width="110" height="115" src="{{list.image}}" alt="doctor">
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">{{list.fullname}}</h5>
-            <div>
-               <p class="card-text mb-1">{{list.ins}}</p>
+            <div class="inside">
+               <p><u>{{list.ins}}</u></p>
                <p>{{list.university}}</p>
-               <p>Consultation Fee:{{list.consultation_fee}}</p>
+               <p class="cf">Consultation Fee:{{list.consultation_fee}}</p>
             </div>
             <a class="view text-center" (click)="book_doctor_view(list)" >View</a>
           </div>

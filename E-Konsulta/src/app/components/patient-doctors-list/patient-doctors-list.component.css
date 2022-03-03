@@ -21,8 +21,8 @@
   box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   width: 30%;
   text-align: left;
-  height: 135px !important;
-  font-size: 10px;
+  height: 160px !important;
+  font-size: 11px;
   margin-top: 10px !important;
   margin-right: 15px;
   display: inline-block;
@@ -69,6 +69,7 @@
   width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 600;
 }
 
 /* Responsive columns */
@@ -86,4 +87,21 @@
     display: block;
     margin-bottom: 10px;
   }
+}
+
+.card-body{
+  margin-left: 10px;
+}
+.inside{
+  line-height: 8px;
+
+}
+
+.pic{
+  margin-top: 18px;
+  margin-left: 10px;
+}
+
+.cf{
+  color: rgb(0, 129, 138);
 }
