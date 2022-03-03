@@ -75,7 +75,7 @@ img.to{
   border-radius: 0 !important;
 }
 
-.msg-from{
+#msg-from{
   border-radius: 50px;
   font-size: 16px;
   background-color: rgb(235, 235, 235);
