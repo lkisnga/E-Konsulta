@@ -43,7 +43,8 @@ export class PatientDoctorChatComponent implements OnInit {
 
   audio = new Audio('assets/sounds/Call.mp3');
 
-  dataInput: string = "";
+  dataInput: string = ""; 
+  file: any;
 
   /** set to false so that when loading the user analytics page, content of that function is not displayed */
   medicalrecords = true;
@@ -171,17 +172,38 @@ export class PatientDoctorChatComponent implements OnInit {
   }
   send_message()
   {
-    if(this.content != "")
+  
+    let record = {};
+    record['content']= this.content;
+    
+    let record2 = {};
+
+    if(this.file != undefined)
     {
-      this.chats.send_message(this.chat_id,this.content,this.userid).then(()=>{
-        this.content="";
-        console.log("message sent!");
+      record2['file'] = this.file;
+      record2['filename'] = this.file.name;
+    }
+    
+
+    if(this.content != "" || this.file != undefined)
+    {
+      this.userservice.send_chat_image(record2).then(e=>{
+        record['imageFile'] = e;
+        this.chats.send_message(this.chat_id,record,this.userid).then(()=>{
+          this.content="";
+          console.log("message sent!");
+        })
       })
     }
     else
     {
       console.log("Empty!");
     }
+  }
+  chooseImage(e)
+  {
+    this.file = e.target.files[0];
+    console.log(this.file);
   }
   video_call()
   {

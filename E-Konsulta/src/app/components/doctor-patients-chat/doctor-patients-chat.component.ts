@@ -90,9 +90,12 @@ export class DoctorPatientsChatComponent implements OnInit {
   }
   send_message()
   {
+    let record = {};
+    record['content'] = this.content;
+    record['imageFile'] = "";
     if(this.content!="")
     {
-      this.chats.send_message(this.chat_id,this.content,this.userid).then(()=>{
+      this.chats.send_message(this.chat_id,record,this.userid).then(()=>{
         this.content="";
         console.log("message sent!");
       })
