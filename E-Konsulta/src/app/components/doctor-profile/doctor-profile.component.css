@@ -411,3 +411,24 @@ span.display{
   font-weight: 700;
   margin-left: 10px;
 }
+
+.sec1,
+.sec2{
+  line-height: 20px;
+}
+
+.more{
+  border-radius: 15px;
+  border: 1px solid rgb(0, 222, 238);
+  color: rgb(0, 222, 238);
+  background: white;
+  padding: 5px 10px;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
+  box-shadow: rgba(50, 88, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.more:hover{
+  border: 0;
+  background: linear-gradient(135deg, rgb(0, 222, 238) 0%, rgb(0, 129, 138) 100%);
+  color: white;
+}
