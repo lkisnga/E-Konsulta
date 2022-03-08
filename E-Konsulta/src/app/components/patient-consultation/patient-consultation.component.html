@@ -18,7 +18,7 @@
             <button id="btnSched" class="schedule"> {{list.consultation_schedule}} | {{list.schedule}} | {{list.schedtime}}</button>
             <button *ngIf="list.paymentType == 'paypal' && currentDate < list.cancelLimit" (click)="editCancel(list)"
              class="cancelC" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancel Consultation</button>
-             <small class="hide"><b>You have an hour to cancel this.</b> Cancellation of booking allows you to get a refund, subject to a 20% Cancellation Fee.</small>
+             <small class="hide"><b>Cancellation will be closed on {{list.cancelLimit2}}</b> Cancellation of booking allows you to get a refund, subject to a 20% Cancellation Fee.</small>
           </div>
          <div *ngIf="list.upcoming_status == 'ongoing'">
           <span class="full-name mb-2 col">{{list.fullname}}</span>

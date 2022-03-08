@@ -92,6 +92,7 @@ export class PatientConsultationComponent implements OnInit {
             data.upcoming_status = e.doc.data().status;
             data.createdAt = e.doc.data().createdAt;
             data.cancelLimit = new Date(e.doc.data().cancelLimit);
+            data.cancelLimit2 = e.doc.data().cancelLimit;
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
             data.upcoming_id = e.doc.id;

@@ -272,29 +272,13 @@ export class PatientPaymentComponent implements OnInit {
     if(currentDate.getDay() == Day)
     {
        //1hour
-       currentDate.setHours(currentDate.getHours() + 1);
+       currentDate.setHours(currentDate.getHours() - 1);
        return (formatDate(currentDate,"MM/dd/yyyy hh:mm a",'en'));
     }
-    else if(currentDate.getDay() < Day)
+    else
     {
-      if(currentDate.getDay() == Day - 1)
-      {
-        //10hours
-        currentDate.setHours(currentDate.getHours() + 10);
-        return (formatDate(currentDate, "MM/dd/yyyy hh:mm a",'en'));
-      }
-      else
-      {
-        //Before the Day
-        date.setHours(date.getHours() - 24);
-        return (formatDate(date, "MM/dd/yyyy hh:mm a",'en'));
-      }
-    }
-    else if (currentDate.getDay() > Day)
-    {
-      //Before the Day
-      date.setHours(date.getHours() - 24);
-      return (formatDate(date, "MM/dd/yyyy hh:mm a",'en'));
+      date.setHours(date.getHours() - 24 )
+      return (formatDate(date,"MM/dd/yyyy hh:mm a",'en'));
     }
 
   }
