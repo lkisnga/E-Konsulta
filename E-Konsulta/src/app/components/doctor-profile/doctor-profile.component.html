@@ -96,25 +96,29 @@
         </div>
 
         <hr>
-        <div style="text-align: center;margin-bottom: 5%;">
-          <button style="border-radius: 15px !important;;" id="showIns" class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSec2" aria-expanded="false" aria-controls="collapseSec2">
-            More
-          </button>
-        </div>
-        <div class="collapse" id="collapseSec2">
-            <input [(ngModel)]="university" class="form-control" type="text" placeholder="Input University">
-            <div style="margin-top: 3%;" hidden id="alert2" class="alert alert-success">
-              Successfully Updated!
-            </div>
-            <div style="margin-top: 3%;" hidden id="alert3" class="alert alert-danger">
-              Empty Field!
-            </div>
-            <div class="container-fluid">
-              <div style="position:relative;left: 80%; margin-top: 4%;">
-                <button (click)="updateUni()" type="button" class="update">Update</button>
+        <div class="sec2">
+          <div style="text-align: center;margin-bottom: 3%;">
+            <button id="showIns" class="more" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSec2" aria-expanded="false" aria-controls="collapseSec2">
+              More
+            </button>
+          </div>
+          <div class="collapse" id="collapseSec2">
+              <input [(ngModel)]="university" class="form-control" type="text" placeholder="Input University">
+              <div style="margin-top: 3%;" hidden id="alert2" class="alert alert-success">
+                Successfully Updated!
               </div>
-            </div>
+              <div style="margin-top: 3%;" hidden id="alert3" class="alert alert-danger">
+                Empty Field!
+              </div>
+              <div class="container-fluid">
+                <div style="position:relative;left: 80%; margin-top: 4%;">
+                  <button (click)="updateUni()" type="button" class="update">Update</button>
+                </div>
+              </div>
+          </div>
         </div>
+
+
       </div>
     </div>
   </div>
