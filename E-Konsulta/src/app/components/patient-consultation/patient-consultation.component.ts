@@ -18,7 +18,7 @@ export class PatientConsultationComponent implements OnInit {
 
   docList: any = [];
   doneList : any = [];
-  currentDate: string = "";
+  currentDate: any;
 
   error_message: string = "";
 
@@ -50,12 +50,12 @@ export class PatientConsultationComponent implements OnInit {
     localStorage.removeItem('data');
     
     //getting the current Date
-    this.currentDate = formatDate(new Date(),'MM/dd/yyyy hh:mm','en');
+    this.currentDate = new Date();
 
     this.userid = this.afu.get_UID();
     this.get_upcoming();
     this.get_done();
-    this.paypalButton();
+    console.log(this.currentDate)
     
   }
   
@@ -79,11 +79,6 @@ export class PatientConsultationComponent implements OnInit {
     }
   }
 
-  paypalButton()
-  {
-  
-  }
-
   get_upcoming()
   {
     var data;
@@ -96,7 +91,7 @@ export class PatientConsultationComponent implements OnInit {
             data = a.data();
             data.upcoming_status = e.doc.data().status;
             data.createdAt = e.doc.data().createdAt;
-            data.cancelLimit = e.doc.data().cancelLimit;
+            data.cancelLimit = new Date(e.doc.data().cancelLimit);
             data.schedule = e.doc.data().schedule;
             data.schedtime = e.doc.data().time;
             data.upcoming_id = e.doc.id;

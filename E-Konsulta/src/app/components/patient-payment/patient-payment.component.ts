@@ -52,6 +52,8 @@ export class PatientPaymentComponent implements OnInit {
 
     console.log(this.userInfo.email);
 
+    this.setCancelLimit("3/14/2022");
+
   }
 
 
@@ -241,8 +243,7 @@ export class PatientPaymentComponent implements OnInit {
         record['paymentType'] = this.paymentType;
         record['consultation_schedule'] = this.schedInfo.consultation_schedule;
         record['createdAt'] = formatDate(today,'MM/dd/yyyy hh:mm a','en');
-        today.setHours(today.getHours() + 1);
-        record['cancelLimit'] = formatDate(today,'MM/dd/yyyy hh:mm a','en');
+        record['cancelLimit'] = this.setCancelLimit(this.schedInfo.consultation_schedule);
         record['status'] = 'pending'
         this.userservice.create_doctor_upcoming(record).then(()=>{
           console.log('added upcoming!');
@@ -261,6 +262,43 @@ export class PatientPaymentComponent implements OnInit {
       })
     }
   }
+
+  setCancelLimit(DateSched)
+  { 
+    var date = new Date(DateSched)
+    var Day = date.getDay();
+    console.log(Day);
+    var currentDate = new Date();
+    if(currentDate.getDay() == Day)
+    {
+       //1hour
+       currentDate.setHours(currentDate.getHours() + 1);
+       return (formatDate(currentDate,"MM/dd/yyyy hh:mm a",'en'));
+    }
+    else if(currentDate.getDay() < Day)
+    {
+      if(currentDate.getDay() == Day - 1)
+      {
+        //10hours
+        currentDate.setHours(currentDate.getHours() + 10);
+        return (formatDate(currentDate, "MM/dd/yyyy hh:mm a",'en'));
+      }
+      else
+      {
+        //Before the Day
+        date.setHours(date.getHours() - 24);
+        return (formatDate(date, "MM/dd/yyyy hh:mm a",'en'));
+      }
+    }
+    else if (currentDate.getDay() > Day)
+    {
+      //Before the Day
+      date.setHours(date.getHours() - 24);
+      return (formatDate(date, "MM/dd/yyyy hh:mm a",'en'));
+    }
+
+  }
+
   get_schedule()
   {
     this.userservice.get_scheduleInfo(this.schedInfo.schedule).then(e=>{
